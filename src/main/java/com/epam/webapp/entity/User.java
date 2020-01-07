@@ -3,6 +3,7 @@ package com.epam.webapp.entity;
 public class User {
     private String login;
     private String password;
+    private Role role;
 
     public User(String login, String password) {
         this.login = login;
@@ -23,5 +24,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
