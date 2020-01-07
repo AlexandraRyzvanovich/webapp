@@ -2,6 +2,7 @@ package com.epam.webapp;
 
 import com.epam.webapp.command.Command;
 import com.epam.webapp.command.CommandFactory;
+import com.epam.webapp.command.CommandResult;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -22,16 +23,16 @@ public class LoginController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String page;
+        CommandResult page;
 
         try {
 
             Command cmdHelper= CommandFactory.create(request.getParameter("command"));
-            page = cmdHelper.execute(request);
+            page = cmdHelper.execute(request, response);
 
         }
         catch (Exception e) {
-            page = "error.jsp";
+            page = CommandResult.redirect( "error.jsp");
         }
         dispatch(request, response, page);
     }
@@ -50,11 +51,11 @@ public class LoginController extends HttpServlet {
                 " Servlet Front Strategy Example";
     }
 
-    protected void dispatch(HttpServletRequest request, HttpServletResponse response, String page)
+    protected void dispatch(HttpServletRequest request, HttpServletResponse response, CommandResult page)
             throws  javax.servlet.ServletException,
             IOException {
         RequestDispatcher dispatcher =
-                getServletContext().getRequestDispatcher(page);
+                getServletContext().getRequestDispatcher(page.getPage());
         dispatcher.forward(request, response);
     }
 }
