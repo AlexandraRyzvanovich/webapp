@@ -1,20 +1,24 @@
 package com.epam.webapp.entity;
 
 public class User implements Identifiable{
+    public static final String NAME = "FirstName";
+    public static final String TABLE_NAME = "User";
     private Long userId;
+    private String firstName;
+    private String lastName;
     private String login;
     private String password;
+    private long trainerId;
+    private Bonus bonus;
+
     private Role role;
-    public static String NAME;
-    public static final String TABLE_NAME = "User";
 
     public User(String login, String password) {
         this.login = login;
         this.password = password;
     }
 
-    public User(String NAME) {
-        this.NAME = NAME;
+    public User(String name) {
     }
 
     public String getLogin() {
@@ -39,5 +43,45 @@ public class User implements Identifiable{
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public long getTrainerId() {
+        return trainerId;
+    }
+
+    public void setTrainerId(long trainerId) {
+        this.trainerId = trainerId;
+    }
+
+    public Bonus getBonus() {
+        return bonus;
+    }
+
+    public void setBonus(Bonus bonus) {
+        this.bonus = bonus;
     }
 }

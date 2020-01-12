@@ -22,7 +22,7 @@ public class UserService {
         try (DaoHelper factory = daoHelperFactory.create()) {
             UserDao dao = factory.createUserDao();
             return dao.findUserByLoginAndPassword(login, password);
-        } catch (DaoException e) {
+        } catch (DaoException | ClassNotFoundException e) {
             throw new ServiceException("Unable to find user", e.getCause());
         }
     }

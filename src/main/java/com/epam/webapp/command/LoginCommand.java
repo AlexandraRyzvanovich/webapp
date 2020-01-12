@@ -4,12 +4,11 @@ import com.epam.webapp.exception.ServiceException;
 import com.epam.webapp.service.UserService;
 import com.epam.webapp.entity.User;
 
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
 import java.util.Optional;
 
-@WebServlet("/login")
 public class LoginCommand implements Command {
     private static final String LOGIN_PARAM = "login";
     private static final String PASSWORD_PARAM = "password";
@@ -21,7 +20,7 @@ public class LoginCommand implements Command {
     }
 
     @Override
-    public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException {
+    public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException, SQLException {
        String login = request.getParameter(LOGIN_PARAM);
        String password = request.getParameter(PASSWORD_PARAM);
        Optional<User> user = userService.login(login, password);

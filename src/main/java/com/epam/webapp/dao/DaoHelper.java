@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class DaoHelper implements AutoCloseable {
     private ProxyConnection connection;
 
-    public DaoHelper(ConnectionPool pool) {
+    public DaoHelper(ConnectionPool pool) throws SQLException, ClassNotFoundException {
         this.connection = pool.getConnection();
     }
 

@@ -25,14 +25,14 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         CommandResult page;
 
+
         try {
 
             Command cmdHelper= CommandFactory.create(request.getParameter("command"));
             page = cmdHelper.execute(request, response);
-
         }
         catch (Exception e) {
-            page = CommandResult.redirect( "error.jsp");
+            page = CommandResult.redirect( "/error.jsp");
         }
         dispatch(request, response, page);
     }

@@ -8,7 +8,7 @@ public class CommandFactory {
 
         switch (command){
             case "login": return new LoginCommand(new UserService(new DaoHelperFactory()));
-            case "mainPage" : return new ShowPageCommand("WEB-INF/main.jsp");
+            case "mainPage" : return new ShowPageCommand("/WEB-INF/main.jsp");
             default: throw new IllegalArgumentException("unknown command " + command);
         }
     }

@@ -1,5 +1,6 @@
 package com.epam.webapp.connection;
 
+import java.sql.SQLException;
 import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.concurrent.locks.ReentrantLock;
@@ -31,7 +32,7 @@ public class ConnectionPool {
         }
     }
 
-    public ProxyConnection getConnection(){
+    public ProxyConnection getConnection() throws SQLException, ClassNotFoundException {
         return ConnectionFactory.create();
     }
 }

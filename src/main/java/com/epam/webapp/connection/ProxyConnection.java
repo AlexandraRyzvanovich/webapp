@@ -21,37 +21,38 @@ public class ProxyConnection implements Connection {
 
     @Override
     public PreparedStatement prepareStatement(String sql) throws SQLException {
-        return null;
+        return connection.prepareStatement(sql);
     }
 
     @Override
     public CallableStatement prepareCall(String sql) throws SQLException {
-        return null;
+        return connection.prepareCall(sql);
     }
 
     @Override
     public String nativeSQL(String sql) throws SQLException {
-        return null;
+        return connection.nativeSQL(sql);
     }
 
     @Override
     public void setAutoCommit(boolean autoCommit) throws SQLException {
+        connection.setAutoCommit(autoCommit);
 
     }
 
     @Override
     public boolean getAutoCommit() throws SQLException {
-        return false;
+        return connection.getAutoCommit();
     }
 
     @Override
     public void commit() throws SQLException {
-
+        connection.commit();
     }
 
     @Override
     public void rollback() throws SQLException {
-
+    connection.rollback();
     }
 
     @Override
