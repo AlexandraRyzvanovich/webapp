@@ -2,6 +2,7 @@ package com.epam.webapp.filter;
 
 import com.epam.webapp.ConnectionCookieUtils;
 import com.epam.webapp.connection.ConnectionPool;
+import com.epam.webapp.connection.ProxyConnection;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -76,8 +77,9 @@ public class JdbcFilter implements Filter {
 
             Connection conn = null;
             try {
+                ConnectionPool pool = ConnectionPool.getInstance();
                 // Создать объект Connection подключенный к database.
-                conn = (Connection) ConnectionPool.getInstance();
+                conn = pool.getConnection();
                 // Настроить автоматический commit false, чтобы активно контролировать.
                 conn.setAutoCommit(false);
 
