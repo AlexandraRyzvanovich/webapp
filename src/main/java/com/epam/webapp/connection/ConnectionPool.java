@@ -1,15 +1,18 @@
 package com.epam.webapp.connection;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayDeque;
 import java.util.Queue;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class ConnectionPool {
     private Queue<ProxyConnection> availableConnections;
     private Queue<ProxyConnection> connectionsInUse;
 
-    private ReentrantLock connectionsLock = new ReentrantLock();
+    private static ReentrantLock connectionsLock = new ReentrantLock();
+    private static ConnectionPool conn;
 
     private ConnectionPool(){
         availableConnections = new ArrayDeque<>();
@@ -17,8 +20,20 @@ public class ConnectionPool {
     }
 
     public static ConnectionPool getInstance(){
-        throw new UnsupportedOperationException();
+        if( conn == null){
+        connectionsLock.tryLock();
+        ConnectionPool temp;
+        try {
+            if (conn == null) {
+                temp = new ConnectionPool();
+                conn = temp;
+            }
+        } finally {
+            connectionsLock.unlock();
+        }
     }
+        return conn;
+}
 
     public void returnConnection(ProxyConnection proxyConnection){
         connectionsLock.lock();
