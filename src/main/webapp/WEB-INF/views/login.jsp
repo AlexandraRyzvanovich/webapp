@@ -14,7 +14,8 @@
 <p style="color: red;">${errorString}</p>
 
 
-<form method="POST" action="${pageContext.request.contextPath}/login">
+<form method="POST" action="controller">
+    <input type="hidden" name="command" value="login" />
     <table border="0">
         <tr>
             <td>User Name</td>
@@ -30,8 +31,7 @@
         </tr>
         <tr>
             <td colspan ="2">
-                <input type="submit" value= "Submit" />
-                <a href="${pageContext.request.contextPath}/">Cancel</a>
+                <input type="submit" value= "login" />
             </td>
         </tr>
     </table>

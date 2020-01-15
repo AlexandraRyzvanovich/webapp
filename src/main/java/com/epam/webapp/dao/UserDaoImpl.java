@@ -25,7 +25,6 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
                     new UserRowMapper(),
                     login,
                     password);
-
     }
     @Override
     public Optional<User> getById(Long id){
