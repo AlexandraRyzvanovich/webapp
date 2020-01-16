@@ -21,7 +21,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
 
     private static final String DELETE_BY_ID = "";
 
-    private static final String SAVE = "";
+    private static final String INSERT = "";
 
     public UserDaoImpl(Connection connection) {
         super(connection);

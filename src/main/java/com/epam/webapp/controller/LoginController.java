@@ -1,4 +1,4 @@
-package com.epam.webapp;
+package com.epam.webapp.controller;
 
 import com.epam.webapp.command.Command;
 import com.epam.webapp.command.CommandFactory;
@@ -18,6 +18,7 @@ public class LoginController extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
     }
+
     public void destroy() {
     }
 
@@ -46,6 +47,7 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
+
     public String getServletInfo() {
         return "Front Controller Pattern" +
                 " Servlet Front Strategy Example";

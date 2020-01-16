@@ -8,10 +8,8 @@
 
 
   <display-name>Fitness</display-name>
-  <filter-mapping>
-    <filter-name>jdbcFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
+
+
   <description>MySQL</description>
   <resource-ref>
     <description>DB Connection</description>
@@ -20,14 +18,11 @@
     <res-auth>Container</res-auth>
   </resource-ref>
 
-  <filter-mapping>
-    <filter-name>cookieFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
+
 
   <servlet>
     <servlet-name>Login</servlet-name>
-    <servlet-class>com.epam.webapp.LoginController</servlet-class>
+    <servlet-class>com.epam.webapp.controller.LoginController</servlet-class>
   </servlet>
 
   <servlet-mapping>
