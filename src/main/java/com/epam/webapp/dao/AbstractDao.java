@@ -67,8 +67,8 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao {
         }
     }
 
-    protected Optional<T> executeForStringResult(String query, RowMapper<T> mapper, Object... params) throws DaoException {
-        List<T> items = executeQuery(query, mapper, params);
+    protected Optional<T> executeForStringResult(String query, Object... params) throws DaoException {
+        List<T> items = executeQuery(query, (RowMapper<T>)RowMapper.create(getTableName()), params);
         if (items.size() == 1) {
             return Optional.of(items.get(0));
         }

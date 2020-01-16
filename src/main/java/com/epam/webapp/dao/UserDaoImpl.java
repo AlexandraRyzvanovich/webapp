@@ -1,17 +1,23 @@
 package com.epam.webapp.dao;
 
-import com.epam.webapp.builder.UserRowMapper;
+import java.sql.Connection;
+import java.util.Optional;
+
 import com.epam.webapp.entity.Identifiable;
 import com.epam.webapp.entity.User;
 import com.epam.webapp.exception.DaoException;
 
-import java.sql.Connection;
-import java.util.List;
-import java.util.Optional;
-
 public class UserDaoImpl extends AbstractDao<User> implements UserDao {
 
-    private static final String FIND_BY_LOGIN_AND_PASSWORD = "select*from User where login = ? AND password = MD5(?)";
+    /**
+     * Запрос поиска пользователя по логину и паролю.
+     */
+    private static final String FIND_BY_LOGIN_AND_PASSWORD = "SELECT * FROM user WHERE login = ? AND password = MD5(?)";
+
+    /**
+     * Запрос поиска пользователя по имени.
+     */
+    private static final String FIND_BY_FIRST_NAME = "SELECT * FROM user WHERE first_name = ?";
 
     public UserDaoImpl(Connection connection) {
         super(connection);
@@ -19,30 +25,27 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
 
     @Override
     public Optional<User> findUserByLoginAndPassword(String login, String password) throws DaoException {
-        return executeForStringResult(
-            FIND_BY_LOGIN_AND_PASSWORD,
-            new UserRowMapper(),
-            login,
-            password);
+        return executeForStringResult(FIND_BY_LOGIN_AND_PASSWORD, login, password);
     }
 
     @Override
     public Optional<User> getById(Long id) {
-        return Optional.empty();
+        return Optional.empty(); //todo добавить реализацию
     }
 
     @Override
     public void save(Identifiable item) {
-
+        //todo добавить реализацию
     }
 
     @Override
     public void removeById(Long id) {
-
+        //todo добавить реализацию
     }
 
-    public Optional<User> getByName(String name) {
-        return Optional.empty();
+    @Override
+    public Optional<User> findByFirstName(String firstName) throws DaoException{
+        return executeForStringResult(FIND_BY_FIRST_NAME, firstName);
     }
 
     protected String getTableName() {
