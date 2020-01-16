@@ -10,45 +10,42 @@ import java.util.List;
 import java.util.Optional;
 
 public class UserDaoImpl extends AbstractDao<User> implements UserDao {
-    private static final String FIND_BY_LOGIN_AND_PASSWORD =
-            "select*from User where login = ? AND password = MD5(?)";
-    private static final String FIND_ALL = "select * from User";
-    public UserDaoImpl(Connection connection){
+
+    private static final String FIND_BY_LOGIN_AND_PASSWORD = "select*from User where login = ? AND password = MD5(?)";
+
+    public UserDaoImpl(Connection connection) {
         super(connection);
     }
 
     @Override
-    public Optional<User> findUserByLoginAndPassword(String login, String password) throws DaoException{
-
-            return executeForStringResult(
-                    FIND_BY_LOGIN_AND_PASSWORD,
-                    new UserRowMapper(),
-                    login,
-                    password);
+    public Optional<User> findUserByLoginAndPassword(String login, String password) throws DaoException {
+        return executeForStringResult(
+            FIND_BY_LOGIN_AND_PASSWORD,
+            new UserRowMapper(),
+            login,
+            password);
     }
+
     @Override
-    public Optional<User> getById(Long id){
+    public Optional<User> getById(Long id) {
         return Optional.empty();
-    }
-
-    @Override
-    public List<User> getAll() throws DaoException{
-        return executeQuery(FIND_ALL, new UserRowMapper());
     }
 
     @Override
     public void save(Identifiable item) {
 
     }
+
     @Override
-    public void removeById(Long id){
+    public void removeById(Long id) {
 
     }
-    public Optional<User> getByName(String name){
+
+    public Optional<User> getByName(String name) {
         return Optional.empty();
     }
 
-    protected String getTableName(){
+    protected String getTableName() {
         return User.TABLE_NAME;
     }
 }

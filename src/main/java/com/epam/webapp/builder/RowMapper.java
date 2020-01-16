@@ -8,12 +8,25 @@ import java.sql.SQLException;
 
 public interface RowMapper<T extends Identifiable> {
 
+    /**
+     * Получает значения столбцов из запроса и компанует ими сущность.
+     *
+     * @param resultSet результат запроса из БД
+     *
+     * @return запись из БД в виде сущности
+     */
     T map(ResultSet resultSet) throws SQLException;
 
-    static RowMapper<? extends Identifiable> create(String table){
-        switch (table){
-            case User
-                    .TABLE_NAME:
+    /**
+     * В зависимости от названия таблицы возвращает соответствующий мапер
+     *
+     * @param table название таблицы
+     *
+     * @return мапер, если таблица существует, в ином случае IllegalArgumentException
+     */
+    static RowMapper<? extends Identifiable> create(String table) {
+        switch (table) {
+            case User.TABLE_NAME:
                 return new UserRowMapper();
             default:
                 throw new IllegalArgumentException("Unknown table");
