@@ -2,7 +2,7 @@ package com.epam.webapp.entity;
 
 public class User implements Identifiable{
     public static final String NAME = "FirstName";
-    public static final String TABLE_NAME = "User";
+    public static final String TABLE_NAME = "user";
     private Long userId;
     private String firstName;
     private String lastName;

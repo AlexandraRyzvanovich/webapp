@@ -2,38 +2,39 @@ CREATE DATABASE fitnessdb;
 
 USE fitnessdb;
 
-/**
- * Таблица пользователей системы
- *
- * id - уникальный идентификатор пользователя
- * first_name - имя пользователя
- * last_name - фамилия пользователя
- * и так далее
- */
 CREATE TABLE user (
   id         INT UNSIGNED NOT NULL AUTO_INCREMENT,
   first_name NVARCHAR(63) NULL,
   last_name  NVARCHAR(63) NULL,
   email      NVARCHAR(63) NOT NULL UNIQUE,
   password   CHAR(32) NOT NULL,
-  trainer_id INT UNSIGNED NULL,
   role       TINYINT  NULL,
   bonus      TINYINT  NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE trainer (
+  id  INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  trainer_id INT UNSIGNED NULL,
+  user_id INT UNSIGNED NOT NULL,
+  start_date DATE    NOT NULL,
+  end_date DATE    NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (trainer_id) REFERENCES user (id)
+  FOREIGN KEY (trainer_id) REFERENCES user (id),
+  FOREIGN KEY (user_id) REFERENCES user (id)
 );
 
 CREATE TABLE diet_program (
   id         INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  food_type  VARCHAR(255) NOT NULL,
-  descrption VARCHAR(255) NULL,
+  food_type  NVARCHAR(255) NOT NULL,
+  description NVARCHAR(255) NULL,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE exercise_program (
   id            INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  exercise_name VARCHAR(255) NOT NULL,
-  frequency     VARCHAR(255) NULL,
+  exercise_name NVARCHAR(255) NOT NULL,
+  frequency     NVARCHAR(255) NULL,
   PRIMARY KEY (id)
 );
 
