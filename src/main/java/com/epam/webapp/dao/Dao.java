@@ -35,5 +35,5 @@ public interface Dao<T extends Identifiable> {
      *
      * @param id уникальный идентификатор записи
      */
-    void removeById(Long id);
+    void removeById(Long id) throws DaoException;
 }

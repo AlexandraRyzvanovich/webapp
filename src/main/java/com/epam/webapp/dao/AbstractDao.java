@@ -23,8 +23,7 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao {
     @Override
     public List<T> getAll() throws DaoException {
         String table = getTableName();
-        RowMapper<T> mapper = (RowMapper<T>) RowMapper.create(table);
-        return executeQuery("select*from" + table, mapper);
+        return executeQuery("select*from" + table);
     }
 
     /**
@@ -47,17 +46,16 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao {
      * Отправляет запрос в БД.
      *
      * @param query запрос
-     * @param mapper карта сущностей
      * @param params параметры запроса
      *
      * @return список записей из БД
      */
-    protected List<T> executeQuery(String query, RowMapper<T> mapper, Object... params) throws DaoException {
+    protected List<T> executeQuery(String query, Object... params) throws DaoException {
         try (PreparedStatement statement = createStatement(query, params);
              ResultSet resultSet = statement.executeQuery(query)) {
             List<T> entities = new ArrayList<>();
             while (resultSet.next()) {
-                T entity = mapper.map(resultSet);
+                T entity = ((RowMapper<T>) RowMapper.create(getTableName())).map(resultSet);
                 entities.add(entity);
             }
             return entities;
@@ -68,7 +66,7 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao {
     }
 
     protected Optional<T> executeForStringResult(String query, Object... params) throws DaoException {
-        List<T> items = executeQuery(query, (RowMapper<T>)RowMapper.create(getTableName()), params);
+        List<T> items = executeQuery(query, params);
         if (items.size() == 1) {
             return Optional.of(items.get(0));
         }

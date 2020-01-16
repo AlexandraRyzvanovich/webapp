@@ -19,6 +19,10 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
      */
     private static final String FIND_BY_FIRST_NAME = "SELECT * FROM user WHERE first_name = ?";
 
+    private static final String DELETE_BY_ID = "";
+
+    private static final String SAVE = "";
+
     public UserDaoImpl(Connection connection) {
         super(connection);
     }
@@ -35,12 +39,11 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
 
     @Override
     public void save(Identifiable item) {
-        //todo добавить реализацию
     }
 
     @Override
-    public void removeById(Long id) {
-        //todo добавить реализацию
+    public void removeById(Long id) throws DaoException{
+        executeForStringResult(DELETE_BY_ID, id);
     }
 
     @Override
