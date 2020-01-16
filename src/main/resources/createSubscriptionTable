@@ -1,0 +1,11 @@
+Use fitnessdb;
+CREATE TABLE subscription(
+    id int UNSIGNED NOT NULL AUTO_INCREMENT,
+	primary key (id),
+    user_id int UNSIGNED NOT NULL,
+    foreign key(user_id) REFERENCES user(id),
+    paid_date datetime NOT NULL,
+    valid_to date null,
+    amount decimal(5,2) NOT NULL,
+    status tinyint NOT NULL
+    )

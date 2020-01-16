@@ -1,0 +1,7 @@
+Use fitnessdb;
+CREATE TABLE diet_program(
+    id int UNSIGNED NOT NULL AUTO_INCREMENT,
+	primary key (id),
+    food_type varchar(255) NOT NULL,
+    descrption varchar(255) null
+    )

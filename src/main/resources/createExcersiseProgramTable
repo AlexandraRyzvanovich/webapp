@@ -1,0 +1,7 @@
+Use fitnessdb;
+CREATE TABLE exercise_program(
+    id int UNSIGNED NOT NULL AUTO_INCREMENT,
+	primary key (id),
+    exercise_name varchar(255) NOT NULL,
+    frequency varchar(255) null
+    )

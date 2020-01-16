@@ -1,0 +1,9 @@
+    Use fitnessdb;
+    CREATE TABLE review(
+    id int UNSIGNED NOT NULL AUTO_INCREMENT,
+    primary key (id),
+    user_id int UNSIGNED NOT NULL,
+    foreign key(user_id) REFERENCES user(id),
+    review_msg varchar (255)
+
+    )

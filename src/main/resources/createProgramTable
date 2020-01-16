@@ -1,0 +1,13 @@
+Use fitnessdb;
+CREATE TABLE program(
+    id int UNSIGNED NOT NULL AUTO_INCREMENT,
+    primary key (id),
+    user_id int UNSIGNED NOT NULL,
+    foreign key(user_id) REFERENCES user(id),
+    exercise_id int UNSIGNED null,
+    foreign key(exercise_id) REFERENCES exercise_program(id),
+    diet_id int UNSIGNED null,
+    foreign key(diet_id) REFERENCES diet_program(id),
+    valid_to date NOT NULL,
+    status tinyint NOT NULL
+    )

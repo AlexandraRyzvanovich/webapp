@@ -1,0 +1,5 @@
+USE fitnessdb;
+
+INSERT INTO user (first_name, last_name, email, password, role) VALUES ('Alexandra', 'Ryzvanovich', 'admin@test.com',
+md5(admin), ('Sasha', 'Vinogradova', 'a@test.com', md5(123456))
+)
