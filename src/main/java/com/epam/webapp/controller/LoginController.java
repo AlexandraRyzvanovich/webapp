@@ -3,6 +3,7 @@ package com.epam.webapp.controller;
 import com.epam.webapp.command.Command;
 import com.epam.webapp.command.CommandFactory;
 import com.epam.webapp.command.CommandResult;
+import com.mysql.cj.Session;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -15,21 +16,11 @@ import java.io.IOException;
 
 public class LoginController extends HttpServlet {
 
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
-    }
-
-    public void destroy() {
-    }
-
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CommandResult page;
 
-
         try {
-
-            Command cmdHelper= CommandFactory.create(request.getParameter("command"));
+            Command cmdHelper = CommandFactory.create(request.getParameter("command"));
             page = cmdHelper.execute(request, response);
         }
         catch (Exception e) {
@@ -37,9 +28,9 @@ public class LoginController extends HttpServlet {
         }
         dispatch(request, response, page);
     }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         processRequest(request, response);
-        HttpSession session = request.getSession();
     }
 
     protected void doPost(HttpServletRequest request,

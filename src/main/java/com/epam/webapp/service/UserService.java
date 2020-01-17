@@ -18,12 +18,11 @@ public class UserService {
     }
 
     public Optional<User> login(String login, String password) throws ServiceException, SQLException {
-
         try (DaoHelper factory = daoHelperFactory.create()) {
             UserDao dao = factory.createUserDao();
             return dao.findUserByLoginAndPassword(login, password);
         } catch (DaoException | ClassNotFoundException e) {
-            throw new ServiceException("Unable to find user", e.getCause());
+            throw new ServiceException( e.getCause());
         }
     }
 }

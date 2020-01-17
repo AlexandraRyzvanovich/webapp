@@ -1,32 +1,32 @@
 package com.epam.webapp.entity;
 
 public class User implements Identifiable{
-    public static final String NAME = "FirstName";
+    public static final String NAME = "first_name";
     public static final String TABLE_NAME = "user";
     private Long userId;
     private String firstName;
     private String lastName;
-    private String login;
+    private String email;
     private String password;
-    private long trainerId;
     private Bonus bonus;
 
     private Role role;
 
     public User(String login, String password) {
-        this.login = login;
+        this.email = login;
         this.password = password;
     }
 
     public User(String name) {
+        this.firstName = name;
     }
 
-    public String getLogin() {
-        return login;
+    public String getEmail() {
+        return email;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setLogin(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -67,14 +67,6 @@ public class User implements Identifiable{
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public long getTrainerId() {
-        return trainerId;
-    }
-
-    public void setTrainerId(long trainerId) {
-        this.trainerId = trainerId;
     }
 
     public Bonus getBonus() {

@@ -1,30 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Main Page</title>
-</head>
-<body>
-
-<jsp:include page="header.jsp"></jsp:include>
-<jsp:include page="menu.jsp"></jsp:include>
-
-<h3>Main Page</h3>
-
-This is demo Simple web application using jsp,servlet &amp; Jdbc. <br><br>
-<b>It includes the following functions:</b>
-<ul>
-    <li>Login</li>
-    <li>Storing user information in cookies</li>
-    <li>Product List</li>
-    <li>Create Product</li>
-    <li>Edit Product</li>
-    <li>Delete Product</li>
-</ul>
-
-<jsp:include page="footer.jsp"></jsp:include>
-
-</body>
+<head><title>Welcome</title></head>
+<body><h3>Welcome</h3>
+<hr/>
+${user}, hello!
+<hr/>
+<a href="controller?command=logout">Logout</a></body>
 </html>

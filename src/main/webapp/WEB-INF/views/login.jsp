@@ -8,23 +8,24 @@
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
-<jsp:include page="menu.jsp"></jsp:include>
 
-<h3>Login Page</h3>
 <p style="color: red;">${errorString}</p>
 
 
-<form method="POST" action="controller">
+<form method="POST" action="login">
     <input type="hidden" name="command" value="login" />
     <table border="0">
         <tr>
             <td>User Name</td>
-            <td><input type="text" name="userName" value= "${user.userName}" /> </td>
+            <td><input type="text" name="login" value= "${user.login}" /> </td>
         </tr>
         <tr>
             <td>Password</td>
             <td><input type="text" name="password" value= "${user.password}" /> </td>
         </tr>
+        <br/> ${errorLoginPassMessage}
+        <br/> ${wrongAction}
+        <br/> ${nullPage} <br/>
         <tr>
             <td>Remember me</td>
             <td><input type="checkbox" name="rememberMe" value= "Y" /> </td>
@@ -36,9 +37,6 @@
         </tr>
     </table>
 </form>
-
-<p style="color:blue;">User Name: tom, password: tom001 or jerry/jerry001</p>
-
 <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

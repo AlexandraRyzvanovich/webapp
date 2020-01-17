@@ -19,13 +19,10 @@ public class ConnectionPool {
 
     public static ConnectionPool getInstance(){
         if( conn == null){
-        connectionsLock.tryLock();
-        ConnectionPool temp;
+        connectionsLock.lock();
         try {
-            if (conn == null) {
-                temp = new ConnectionPool();
-                conn = temp;
-            }
+            conn = new ConnectionPool();
+
         } finally {
             connectionsLock.unlock();
         }

@@ -14,7 +14,7 @@ public interface Dao<T extends Identifiable> {
      * @param id уникальный идентификатор записи
      * @return запись из БД
      */
-    Optional<T> getById(Long id);
+    Optional<T> getById(Long id) throws DaoException;
 
     /**
      * Получает все записи определённой таблицы.

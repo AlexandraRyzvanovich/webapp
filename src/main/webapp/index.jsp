@@ -8,15 +8,5 @@
 <body>
 
 <jsp:forward page="/WEB-INF/views/login.jsp"/>
-
-
-<ul>
-    <li><a href="main">Home</a></li>
-    <li><a href="login">Login</a></li>
-    <li><a href="productList">Product  List</a>
-</ul>
-
-<jsp:forward page="/WEB-INF/views/main.jsp"/>
-
 </body>
 </html>

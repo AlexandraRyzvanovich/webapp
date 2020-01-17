@@ -12,16 +12,18 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     /**
      * Запрос поиска пользователя по логину и паролю.
      */
-    private static final String FIND_BY_LOGIN_AND_PASSWORD = "SELECT * FROM user WHERE login = ? AND password = MD5(?)";
+    private static final String FIND_BY_LOGIN_AND_PASSWORD = "SELECT * FROM user WHERE email = ? AND password = MD5(?)";
 
     /**
      * Запрос поиска пользователя по имени.
      */
     private static final String FIND_BY_FIRST_NAME = "SELECT * FROM user WHERE first_name = ?";
 
+    private static final String GET_BY_ID = "SELECT * FROM user WHERE id = ?";
+
     private static final String DELETE_BY_ID = "";
 
-    private static final String INSERT = "";
+    private static final String SAVE = "";
 
     public UserDaoImpl(Connection connection) {
         super(connection);
@@ -33,12 +35,13 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     }
 
     @Override
-    public Optional<User> getById(Long id) {
-        return Optional.empty(); //todo добавить реализацию
+    public Optional<User> getById(Long id) throws DaoException {
+        return executeForStringResult(GET_BY_ID, id);
     }
 
     @Override
     public void save(Identifiable item) {
+
     }
 
     @Override

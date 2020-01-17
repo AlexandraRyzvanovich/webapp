@@ -6,6 +6,7 @@ import com.epam.webapp.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Optional;
 
@@ -20,11 +21,18 @@ public class LoginCommand implements Command {
     }
 
     @Override
-    public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException, SQLException {
+    public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException, SQLException, IOException {
        String login = request.getParameter(LOGIN_PARAM);
        String password = request.getParameter(PASSWORD_PARAM);
        Optional<User> user = userService.login(login, password);
+
        user.ifPresent(u -> request.setAttribute(USER_ATTR, u));
-       return CommandResult.redirect("/controller?command=mainPage");
+       if(!user.isPresent()){
+           response.sendError(404, "user not found");
+           return CommandResult.redirect("/login?command=login");
+       }
+       else {
+           return CommandResult.redirect("/login?command=main");
+       }
     }
 }

@@ -7,7 +7,7 @@ CREATE TABLE user (
   first_name NVARCHAR(63) NULL,
   last_name  NVARCHAR(63) NULL,
   email      NVARCHAR(63) NOT NULL UNIQUE,
-  password   CHAR(32) NOT NULL,
+  password   VARCHAR (32) NOT NULL,
   role       TINYINT  NULL,
   bonus      TINYINT  NULL,
   PRIMARY KEY (id)
