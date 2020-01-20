@@ -1,5 +1,6 @@
 package com.epam.webapp.command;
 
+import com.epam.webapp.entity.Role;
 import com.epam.webapp.exception.ServiceException;
 import com.epam.webapp.service.UserService;
 import com.epam.webapp.entity.User;
@@ -14,6 +15,7 @@ public class LoginCommand implements Command {
     private static final String LOGIN_PARAM = "login";
     private static final String PASSWORD_PARAM = "password";
     private static final String USER_ATTR = "user";
+    private static final String ROLE_ATTR = "role";
     UserService userService;
 
     public LoginCommand(UserService userService) {
@@ -25,14 +27,14 @@ public class LoginCommand implements Command {
        String login = request.getParameter(LOGIN_PARAM);
        String password = request.getParameter(PASSWORD_PARAM);
        Optional<User> user = userService.login(login, password);
+       Role role = user.get().getRole();
 
-       user.ifPresent(u -> request.setAttribute(USER_ATTR, u));
-       if(!user.isPresent()){
-           response.sendError(404, "user not found");
-           return CommandResult.redirect("/login?command=login");
-       }
-       else {
-           return CommandResult.redirect("/login?command=main");
-       }
+        if(!user.isPresent()){
+            return CommandResult.redirect("/WEB-INF/views/login.jsp");
+        }
+        else {
+            request.getSession().setAttribute("signed in", true);
+            return CommandResult.redirect("/login?command=main");
+        }
     }
 }

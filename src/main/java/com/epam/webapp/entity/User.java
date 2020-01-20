@@ -1,7 +1,8 @@
 package com.epam.webapp.entity;
 
 public class User implements Identifiable{
-    public static final String NAME = "first_name";
+    public static final String FIRST_NAME_USER = "first_name";
+    public static final String ROLE_USER = "role";
     public static final String TABLE_NAME = "user";
     private Long userId;
     private String firstName;
@@ -9,7 +10,6 @@ public class User implements Identifiable{
     private String email;
     private String password;
     private Bonus bonus;
-
     private Role role;
 
     public User(String login, String password) {
@@ -19,6 +19,11 @@ public class User implements Identifiable{
 
     public User(String name) {
         this.firstName = name;
+    }
+
+    public User(String name, Role role) {
+        this.firstName = name;
+        this.role = role;
     }
 
     public String getEmail() {

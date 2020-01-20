@@ -3,6 +3,7 @@ package com.epam.webapp.controller;
 import com.epam.webapp.command.Command;
 import com.epam.webapp.command.CommandFactory;
 import com.epam.webapp.command.CommandResult;
+import com.epam.webapp.entity.User;
 import com.mysql.cj.Session;
 
 import javax.servlet.RequestDispatcher;
@@ -14,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class LoginController extends HttpServlet {
+public class Controller extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CommandResult page;
@@ -33,9 +34,7 @@ public class LoginController extends HttpServlet {
         processRequest(request, response);
     }
 
-    protected void doPost(HttpServletRequest request,
-                          HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -44,13 +43,12 @@ public class LoginController extends HttpServlet {
                 " Servlet Front Strategy Example";
     }
 
-    protected void dispatch(HttpServletRequest request, HttpServletResponse response, CommandResult page)
-            throws  javax.servlet.ServletException,
-            IOException {
+    protected void dispatch(HttpServletRequest request, HttpServletResponse response, CommandResult page) throws  javax.servlet.ServletException, IOException {
         RequestDispatcher dispatcher =
                 getServletContext().getRequestDispatcher(page.getPage());
         dispatcher.forward(request, response);
     }
 }
+
 
 

@@ -22,7 +22,16 @@ public class UserService {
             UserDao dao = factory.createUserDao();
             return dao.findUserByLoginAndPassword(login, password);
         } catch (DaoException | ClassNotFoundException e) {
-            throw new ServiceException( e.getCause());
+            throw new ServiceException(e.getCause());
+        }
+    }
+
+    public Optional<User> getUserInfo(String email) throws SQLException, ClassNotFoundException, ServiceException {
+        try (DaoHelper factory = daoHelperFactory.create()) {
+            UserDao dao = factory.createUserDao();
+            return dao.findByEmail(email);
+        } catch (DaoException e) {
+            throw new ServiceException(e.getCause());
         }
     }
 }

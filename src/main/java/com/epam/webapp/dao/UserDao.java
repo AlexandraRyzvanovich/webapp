@@ -24,5 +24,5 @@ public interface UserDao {
      *
      * @return сущность {@link User}
      */
-    Optional<User> findByFirstName(String firstName) throws DaoException;
+    Optional<User> findByEmail(String firstName) throws DaoException;
 }

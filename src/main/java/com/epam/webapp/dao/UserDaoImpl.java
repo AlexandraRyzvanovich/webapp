@@ -9,15 +9,9 @@ import com.epam.webapp.exception.DaoException;
 
 public class UserDaoImpl extends AbstractDao<User> implements UserDao {
 
-    /**
-     * Запрос поиска пользователя по логину и паролю.
-     */
     private static final String FIND_BY_LOGIN_AND_PASSWORD = "SELECT * FROM user WHERE email = ? AND password = MD5(?)";
 
-    /**
-     * Запрос поиска пользователя по имени.
-     */
-    private static final String FIND_BY_FIRST_NAME = "SELECT * FROM user WHERE first_name = ?";
+    private static final String FIND_BY_EMAIL = "SELECT * FROM user WHERE email = ?";
 
     private static final String GET_BY_ID = "SELECT * FROM user WHERE id = ?";
 
@@ -50,8 +44,8 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     }
 
     @Override
-    public Optional<User> findByFirstName(String firstName) throws DaoException{
-        return executeForStringResult(FIND_BY_FIRST_NAME, firstName);
+    public Optional<User> findByEmail(String email) throws DaoException{
+        return executeForStringResult(FIND_BY_EMAIL, email);
     }
 
     protected String getTableName() {
