@@ -5,6 +5,13 @@ import java.util.Date;
 import java.util.Objects;
 
 public class Subscription {
+    public static final String SUBSCRIPTION_TABLE_NAME = "subscription";
+    public static final String SUBSCRIPTION_ID_COLUMN_NAME = "id";
+    public static final String USER_ID_COLUMN_NAME = "user_id";
+    public static final String PAID_DATE_COLUMN_NAME = "paid_date";
+    public static final String VALID_TO_COLUMN_NAME = "valid_to";
+    public static final String AMOUNT_COLUMN_NAME = "amount";
+    public static final String STATUS_COLUMN_NAME = "status";
     private long id;
     private long userId;
     private Date paidDate;

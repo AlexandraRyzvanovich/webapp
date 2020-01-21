@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Diet {
     public static final String DIET_TABLE_NAME = "diet_program";
+    public static final String DIET_ID_COLUMN_NAME = "id";
     public static final String FOOD_TYPE_COLUMN_NAME = "food_type";
     public static final String DESCRIPTION_COLUMN_NAME = "description";
     private long id;

@@ -1,16 +1,22 @@
 package com.epam.webapp.entity;
 
 public class User implements Identifiable{
-    public static final String FIRST_NAME_USER = "first_name";
-    public static final String ROLE_USER = "role";
-    public static final String TABLE_NAME = "user";
+    public static final String USER_TABLE_NAME = "user";
+    public static final String USER_ID_COLUMN_NAME = "id";
+    public static final String FIRST_NAME_COLUMN_NAME = "first_name";
+    public static final String LAST_NAME_COLUMN_NAME = "last_name";
+    public static final String EMAIL_COLUMN_NAME = "email";
+    public static final String PASSWORD_COLUMN_NAME = "password";
+    public static final String ROLE_COLUMN_NAME = "role";
+    public static final String BONUS_COLUMN_NAME = "bonus";
+
     private Long userId;
     private String firstName;
     private String lastName;
     private String email;
     private String password;
-    private Bonus bonus;
     private Role role;
+    private Bonus bonus;
 
     public User(String login, String password) {
         this.email = login;
