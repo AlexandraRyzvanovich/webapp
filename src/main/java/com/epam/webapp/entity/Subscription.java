@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 
-public class Subscription {
+public class Subscription implements Identifiable {
     public static final String SUBSCRIPTION_TABLE_NAME = "subscription";
     public static final String SUBSCRIPTION_ID_COLUMN_NAME = "id";
     public static final String USER_ID_COLUMN_NAME = "user_id";

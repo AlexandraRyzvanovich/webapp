@@ -2,7 +2,7 @@ package com.epam.webapp.entity;
 
 import java.util.Objects;
 
-public class Diet {
+public class Diet implements Identifiable {
     public static final String DIET_TABLE_NAME = "diet_program";
     public static final String DIET_ID_COLUMN_NAME = "id";
     public static final String FOOD_TYPE_COLUMN_NAME = "food_type";

@@ -1,7 +1,6 @@
 package com.epam.webapp.mapper;
 
-import com.epam.webapp.entity.Identifiable;
-import com.epam.webapp.entity.User;
+import com.epam.webapp.entity.*;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,6 +27,18 @@ public interface RowMapper<T extends Identifiable> {
         switch (table) {
             case User.USER_TABLE_NAME:
                 return new UserRowMapper();
+            case Diet.DIET_TABLE_NAME:
+                return new DietRowMapper();
+            case Exercise.EXERCISE_TABLE_NAME:
+                return new ExerciseRowMapper();
+            case Program.PROGRAM_TABLE_NAME:
+                return new ProgramRowMapper();
+            case Review.REVIEW_TABLE_NAME:
+                return new ReviewRowMapper();
+            case Subscription.SUBSCRIPTION_TABLE_NAME:
+                return new SubscriptionRowMapper();
+            case Trainer.TRAINER_TABLE_NAME:
+                return new TrainerRowMapper();
             default:
                 throw new IllegalArgumentException("Unknown table");
         }

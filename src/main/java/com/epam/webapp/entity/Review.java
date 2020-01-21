@@ -2,7 +2,7 @@ package com.epam.webapp.entity;
 
 import java.util.Objects;
 
-public class Review {
+public class Review implements Identifiable {
     public static final String REVIEW_TABLE_NAME = "review";
     public static final String USER_COLUMN_NAME = "user_id";
     public static final String REVIEW_MESSAGE_COLUMN_NAME = "review_msg";

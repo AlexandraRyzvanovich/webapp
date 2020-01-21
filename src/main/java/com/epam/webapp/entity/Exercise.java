@@ -2,7 +2,7 @@ package com.epam.webapp.entity;
 
 import java.util.Objects;
 
-public class Exercise {
+public class Exercise implements Identifiable {
     public static final String EXERCISE_TABLE_NAME = "exercise_program";
     public static final String EXERCISE_ID_COLUMN_NAME = "id";
     public static final String EXERCISE_NAME_COLUMN_NAME = "exercise_name";
