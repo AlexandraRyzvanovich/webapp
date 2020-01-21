@@ -26,7 +26,7 @@ public interface RowMapper<T extends Identifiable> {
      */
     static RowMapper<? extends Identifiable> create(String table) {
         switch (table) {
-            case User.TABLE_NAME:
+            case User.USER_TABLE_NAME:
                 return new UserRowMapper();
             default:
                 throw new IllegalArgumentException("Unknown table");

@@ -13,14 +13,18 @@ public class UserRowMapper implements RowMapper<User> {
 
     @Override
     public User map(ResultSet resultSet) throws SQLException {
-        String name = resultSet.getString(User.FIRST_NAME_USER);
-        int role = resultSet.getInt(User.ROLE_USER);
+        long id = resultSet.getLong(User.USER_ID_COLUMN_NAME);
+        String name = resultSet.getString(User.FIRST_NAME_COLUMN_NAME);
+        String lastName = resultSet.getString(User.LAST_NAME_COLUMN_NAME);
+        String email = resultSet.getString(User.EMAIL_COLUMN_NAME);
+        int role = resultSet.getInt(User.ROLE_COLUMN_NAME);
+        int bonus = resultSet.getInt(User.BONUS_COLUMN_NAME);
         Role roleValue;
         if(role == 1) {
            roleValue = Role.TRAINER;
         } else {
             roleValue = Role.CLIENT;
         }
-        return new User(name, roleValue);
+        return new User(id, name, lastName, email, roleValue, bonus);
     }
 }

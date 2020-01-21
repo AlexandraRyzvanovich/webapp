@@ -16,7 +16,7 @@ public class User implements Identifiable{
     private String email;
     private String password;
     private Role role;
-    private Bonus bonus;
+    private int bonus;
 
     public User(String login, String password) {
         this.email = login;
@@ -30,6 +30,15 @@ public class User implements Identifiable{
     public User(String name, Role role) {
         this.firstName = name;
         this.role = role;
+    }
+
+    public User(long id, String name, String lastName, String email, Role role, int bonus) {
+        this.userId = id;
+        this.firstName = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.role = role;
+        this.bonus = bonus;
     }
 
     public String getEmail() {
@@ -80,11 +89,15 @@ public class User implements Identifiable{
         this.lastName = lastName;
     }
 
-    public Bonus getBonus() {
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getBonus() {
         return bonus;
     }
 
-    public void setBonus(Bonus bonus) {
+    public void setBonus(int bonus) {
         this.bonus = bonus;
     }
 }
