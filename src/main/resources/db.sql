@@ -2,15 +2,22 @@ CREATE DATABASE fitnessdb;
 
 USE fitnessdb;
 
+CREATE TABLE role (
+id  INT UNSIGNED NOT NULL AUTO_INCREMENT,
+role_name VARCHAR (32),
+PRIMARY KEY (id)
+);
+
 CREATE TABLE user (
   id         INT UNSIGNED NOT NULL AUTO_INCREMENT,
   first_name NVARCHAR(63) NULL,
   last_name  NVARCHAR(63) NULL,
   email      NVARCHAR(63) NOT NULL UNIQUE,
   password   VARCHAR (32) NOT NULL,
-  role       TINYINT  NULL,
-  bonus      TINYINT  NULL,
-  PRIMARY KEY (id)
+  role       INT UNSIGNED  NULL,
+  bonus      INT  NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (role) REFERENCES role(id)
 );
 
 CREATE TABLE trainer (

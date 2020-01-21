@@ -3,6 +3,9 @@ package com.epam.webapp.entity;
 import java.util.Objects;
 
 public class Exercise {
+    public static final String EXERCISE_TABLE_NAME = "exercise_program";
+    public static final String EXERCISE_NAME_COLUMN_NAME = "exercise_name";
+    public static final String FREQUENCY_COLUMN_NAME = "frequency";
     private long id;
     private String exercise_name;
     private String frequency;

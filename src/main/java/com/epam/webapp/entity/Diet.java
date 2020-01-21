@@ -3,6 +3,9 @@ package com.epam.webapp.entity;
 import java.util.Objects;
 
 public class Diet {
+    public static final String DIET_TABLE_NAME = "diet_program";
+    public static final String FOOD_TYPE_COLUMN_NAME = "food_type";
+    public static final String DESCRIPTION_COLUMN_NAME = "description";
     private long id;
     private String foodType;
     private String description;
@@ -17,7 +20,7 @@ public class Diet {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

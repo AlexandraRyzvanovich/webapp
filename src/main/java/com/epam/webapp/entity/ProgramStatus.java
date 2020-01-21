@@ -1,5 +1,8 @@
 package com.epam.webapp.entity;
 
 public enum ProgramStatus {
-    NEW, IN_PROGRESS, DONE
+    NEW(1), IN_PROGRESS(2), DONE(3);
+
+    ProgramStatus(int i) {
+    }
 }
