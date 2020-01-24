@@ -7,12 +7,12 @@ public class Trainer implements Identifiable{
     public static final String TRAINER_ID_COLUMN_NAME = "trainer_id";
     public static final String USER_ID_COLUMN_NAME = "user_id";
 
+    Long trainerId;
     User user;
-    Trainer trainer;
 
-    public Trainer(User user, Trainer trainer) {
+    public Trainer(User user, Long trainer) {
         this.user = user;
-        this.trainer = trainer;
+        this.trainerId = trainer;
     }
 
     public User getUser() {
@@ -23,12 +23,12 @@ public class Trainer implements Identifiable{
         this.user = user;
     }
 
-    public Trainer getTrainer() {
-        return trainer;
+    public Long getTrainer() {
+        return trainerId;
     }
 
-    public void setTrainer(Trainer trainer) {
-        this.trainer = trainer;
+    public void setTrainer(Long trainer) {
+        this.trainerId = trainer;
     }
 
     @Override
@@ -37,11 +37,11 @@ public class Trainer implements Identifiable{
         if (o == null || getClass() != o.getClass()) return false;
         Trainer trainer1 = (Trainer) o;
         return Objects.equals(user, trainer1.user) &&
-                Objects.equals(trainer, trainer1.trainer);
+                Objects.equals(trainerId, trainer1.trainerId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user, trainer);
+        return Objects.hash(user, trainerId);
     }
 }

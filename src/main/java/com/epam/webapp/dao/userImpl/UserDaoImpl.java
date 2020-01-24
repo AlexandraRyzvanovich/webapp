@@ -17,7 +17,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
 
     private static final String GET_BY_ID = "SELECT * FROM user WHERE id = ?";
 
-    private static final String DELETE_BY_ID = "";
+    private static final String SAVE = "INSERT INTO user (first_name, last_name, email, password, role) VALUES (?, ?, ?, MD5(?), ?";
 
     public UserDaoImpl(Connection connection) {
         super(connection);
@@ -34,13 +34,13 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     }
 
     @Override
-    public void save(Identifiable item) {
-
+    public void save(Identifiable item) throws DaoException {
+        executeQuery(SAVE);
     }
 
     @Override
     public void removeById(Long id) throws DaoException{
-        executeForStringResult(DELETE_BY_ID, id);
+        throw new DaoException("Impossible to execute operation");
     }
 
     @Override

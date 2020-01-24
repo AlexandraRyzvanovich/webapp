@@ -27,10 +27,6 @@ public interface RowMapper<T extends Identifiable> {
         switch (table) {
             case User.USER_TABLE_NAME:
                 return new UserRowMapper();
-            case Diet.DIET_TABLE_NAME:
-                return new DietRowMapper();
-            case Exercise.EXERCISE_TABLE_NAME:
-                return new ExerciseRowMapper();
             case Program.PROGRAM_TABLE_NAME:
                 return new ProgramRowMapper();
             case Review.REVIEW_TABLE_NAME:

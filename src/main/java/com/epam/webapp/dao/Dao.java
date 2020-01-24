@@ -28,7 +28,7 @@ public interface Dao<T extends Identifiable> {
      *
      * @param item сохраняемая сущность
      */
-    void save(T item);
+    void save(T item) throws DaoException;
 
     /**
      * Удаляет запись из БД по уникальному идентификатору.
