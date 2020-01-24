@@ -1,4 +1,36 @@
 USE fitnessdb;
 
-INSERT INTO user (first_name, last_name, email, password, role) VALUES ('Alexandra', 'Ryzvanovich', 'admin@test.com',
-md5('admin'), 1), ('Sasha', 'Vinogradova', 'a@test.com', md5(123456), 2)
+INSERT INTO user (first_name, last_name, email, password, role) VALUES
+('Alexandra', 'Ryzvanovich', 'sa@test.com', md5(123456), 'CLIENT'),
+('Sasha', 'Vinogradova', 'a@test.com', md5(123456), 'CLIENT'),
+('Masha', 'Petina', 'r@test.com', md5(123456), 'CLIENT'),
+('Nastya', 'Kislenko', 't@test.com', md5(123456), 'CLIENT'),
+('Masha', 'Pertseva', 'm@test.com', md5(123456), 'CLIENT'),
+('Vasya', 'Pupkin', 'v@test.com', md5(123456), 'TRAINER'),
+('Petya', 'Ivanov', 'p@test.com', md5(123456), 'TRAINER'),
+('Admin', 'Admin', 'admin@test.com', md5(123456), 'ADMIN');
+
+INSERT INTO trainer(trainer_id, user_id) VALUES
+(6, 1),
+(6, 2),
+(7, 3),
+(7, 4),
+(7, 5);
+
+INSERT INTO Subscription (name, description, period, amount) VALUES
+('LIGHT', 'Just to keep a good shape or a little fix small disadvantages.', 30, 100),
+('MEDIUM', 'You are ready to work hard but not to much. That is for you.', 30, 150),
+('HARD', 'You will work as hard as you can. We can guarantee that.', 30, 200);
+
+INSERT INTO Program (user_id, exercise_description, diet_description, additional_info, valid_to, status) VALUES
+(1, 'Jumps 100 times 7 times a day', 'No sweets', NULL, NULL, 'NEW'),
+(2, 'Step 20 minutes every day', 'No sweets', NULL, NULL, 'IN PROGRESS');
+
+INSERT INTO orders (user_id, paid_date, amount, status, subscription_id) VALUES
+(1, '2020-01-20 09:04:43.5985585', 100, 'PROCESSED', 1),
+(2, '2016-01-21 09:04:43.5985585', 150, 'PROCESSED', 2);
+
+INSERT INTO review (user_id, review_msg, star, date, is_approved) VALUES
+(1, 'Cool', 5, '2020-01-20 09:04:43.5985585', 1 ),
+(2, 'Not so good', 3, '2020-01-20 09:04:43.5985585', 0 ),
+(1, 'I dont know', 4, '2020-01-20 09:04:43.5985585', NULL );

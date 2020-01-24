@@ -1,4 +1,4 @@
-package com.epam.webapp.dao;
+package com.epam.webapp.dao.userImpl;
 
 import com.epam.webapp.exception.DaoException;
 import com.epam.webapp.entity.User;

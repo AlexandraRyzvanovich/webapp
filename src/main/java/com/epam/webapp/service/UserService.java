@@ -2,7 +2,7 @@ package com.epam.webapp.service;
 
 import com.epam.webapp.dao.DaoHelper;
 import com.epam.webapp.dao.DaoHelperFactory;
-import com.epam.webapp.dao.UserDao;
+import com.epam.webapp.dao.userImpl.UserDao;
 import com.epam.webapp.entity.User;
 import com.epam.webapp.exception.DaoException;
 import com.epam.webapp.exception.ServiceException;
@@ -26,11 +26,11 @@ public class UserService {
         }
     }
 
-    public Optional<User> getUserInfo(String email) throws SQLException, ClassNotFoundException, ServiceException {
+    public Optional<User> getUserInfo(String id) throws ServiceException {
         try (DaoHelper factory = daoHelperFactory.create()) {
             UserDao dao = factory.createUserDao();
-            return dao.findByEmail(email);
-        } catch (DaoException e) {
+            return dao.findByEmail(id);
+        } catch (DaoException | SQLException | ClassNotFoundException e) {
             throw new ServiceException(e.getCause());
         }
     }

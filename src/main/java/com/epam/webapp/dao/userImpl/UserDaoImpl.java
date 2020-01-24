@@ -1,8 +1,10 @@
-package com.epam.webapp.dao;
+package com.epam.webapp.dao.userImpl;
 
 import java.sql.Connection;
 import java.util.Optional;
 
+import com.epam.webapp.dao.AbstractDao;
+import com.epam.webapp.dao.userImpl.UserDao;
 import com.epam.webapp.entity.Identifiable;
 import com.epam.webapp.entity.User;
 import com.epam.webapp.exception.DaoException;
@@ -16,8 +18,6 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     private static final String GET_BY_ID = "SELECT * FROM user WHERE id = ?";
 
     private static final String DELETE_BY_ID = "";
-
-    private static final String SAVE = "";
 
     public UserDaoImpl(Connection connection) {
         super(connection);

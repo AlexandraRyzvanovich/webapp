@@ -32,8 +32,12 @@ public class LoginCommand implements Command {
         }
         else {
             Role role = user.get().getRole();
+            String firstName = user.get().getFirstName();
+            String lastName = user.get().getLastName();
             HttpSession session = request.getSession(true);
-            session.setAttribute("signed in", true);
+            session.setAttribute("signed_in", true);
+            request.setAttribute("first_name", firstName);
+            request.setAttribute("last_name", lastName);
             session.setAttribute(ROLE_ATTR, role);
             return CommandResult.redirect("/login?command=main");
         }
