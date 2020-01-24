@@ -10,6 +10,7 @@ public class CommandFactory {
             case "login": return new LoginCommand(new UserService(new DaoHelperFactory()));
             case "logout": return new LogoutCommand();
             case "main" : return new ShowPageCommand("/main");
+
             default: throw new IllegalArgumentException("unknown command " + command);
         }
     }
