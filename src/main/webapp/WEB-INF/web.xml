@@ -38,6 +38,16 @@
     <url-pattern>/main</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>diet</servlet-name>
+    <jsp-file>/WEB-INF/views/diet.jsp</jsp-file>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>diet</servlet-name>
+    <url-pattern>/diet</url-pattern>
+  </servlet-mapping>
+
   <filter>
     <filter-name>AuthFilter</filter-name>
     <filter-class>com.epam.webapp.filter.AuthFilter</filter-class>

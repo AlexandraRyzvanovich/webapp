@@ -4,7 +4,8 @@
 <head>
     <style>
         <%@include file="/resources/css/main.css"%>
-        <%@include file="/resources/css/util.css"%>
+        <%@include file="/resources/css/login.css"%>
+<%--        <%@include file="/resources/css/util.css"%>--%>
     </style>
 
     <title>${title}</title>
