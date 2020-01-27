@@ -1,27 +1,27 @@
-package com.epam.webapp.dao.programImpl;
+package com.epam.webapp.dao.subscriptionImpl;
 
 import com.epam.webapp.dao.AbstractDao;
 import com.epam.webapp.entity.Identifiable;
-import com.epam.webapp.entity.Program;
+import com.epam.webapp.entity.Subscription;
 import com.epam.webapp.exception.DaoException;
 
 import java.sql.Connection;
-import java.util.List;
 import java.util.Optional;
 
-public class ProgramDaoImpl extends AbstractDao<Program> implements ProgramDao {
-    protected ProgramDaoImpl(Connection connection) {
+public class SubscriptionDaoImpl extends AbstractDao<Subscription> implements SubscriptionDao {
+    private static final String GET_BY_SUBSCRIPTION_ID = "SELECT * FROM subscription WHERE id = ?";
+    protected SubscriptionDaoImpl(Connection connection) {
         super(connection);
     }
 
     @Override
     protected String getTableName() {
-        return Program.PROGRAM_TABLE_NAME;
+        return Subscription.SUBSCRIPTION_TABLE_NAME;
     }
 
     @Override
     public Optional getById(Long id) throws DaoException {
-        return Optional.empty();
+        return executeForStringResult(GET_BY_SUBSCRIPTION_ID, id);
     }
 
     @Override
@@ -32,10 +32,6 @@ public class ProgramDaoImpl extends AbstractDao<Program> implements ProgramDao {
     @Override
     public void removeById(Long id) throws DaoException {
 
-    }
 
-    @Override
-    public List<Program> getUserTrainingProgram(Long userId) {
-        return null;
     }
 }

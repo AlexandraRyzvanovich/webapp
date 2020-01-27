@@ -1,6 +1,5 @@
 package com.epam.webapp.mapper;
 
-import com.epam.webapp.entity.Trainer;
 import com.epam.webapp.entity.User;
 
 import java.sql.ResultSet;

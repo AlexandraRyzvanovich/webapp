@@ -7,25 +7,23 @@ import java.util.Objects;
 public class Subscription implements Identifiable {
     public static final String SUBSCRIPTION_TABLE_NAME = "subscription";
     public static final String SUBSCRIPTION_ID_COLUMN_NAME = "id";
-    public static final String USER_ID_COLUMN_NAME = "user_id";
-    public static final String PAID_DATE_COLUMN_NAME = "paid_date";
-    public static final String VALID_TO_COLUMN_NAME = "valid_to";
-    public static final String AMOUNT_COLUMN_NAME = "amount";
-    public static final String STATUS_COLUMN_NAME = "status";
-    private long id;
-    private long userId;
-    private Date paidDate;
-    private Date validTo;
-    private BigDecimal amount;
-    private SubscriptionStatus status;
+    public static final String NAME_COLUMN_NAME = "name";
+    public static final String DESCRIPTION_COLUMN_NAME = "paid_date";
+    public static final String PERIOD_COLUMN_NAME = "valid_to";
+    public static final String PRICE_COLUMN_NAME = "amount";
 
-    public Subscription(long id, long userId, Date paidDate, Date validTo, BigDecimal amount, SubscriptionStatus status) {
+    private long id;
+    private String name;
+    private String description;
+    private Integer period;
+    private BigDecimal price;
+
+    public Subscription(long id, String name, String description, Integer period, BigDecimal price) {
         this.id = id;
-        this.userId = userId;
-        this.paidDate = paidDate;
-        this.validTo = validTo;
-        this.amount = amount;
-        this.status = status;
+        this.name = name;
+        this.description = description;
+        this.period = period;
+        this.price = price;
     }
 
     public long getId() {
@@ -36,44 +34,36 @@ public class Subscription implements Identifiable {
         this.id = id;
     }
 
-    public long getUserId() {
-        return userId;
+    public String getName() {
+        return name;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Date getPaidDate() {
-        return paidDate;
+    public String getDescription() {
+        return description;
     }
 
-    public void setPaidDate(Date paidDate) {
-        this.paidDate = paidDate;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Date getValidTo() {
-        return validTo;
+    public Integer getPeriod() {
+        return period;
     }
 
-    public void setValidTo(Date validTo) {
-        this.validTo = validTo;
+    public void setPeriod(Integer period) {
+        this.period = period;
     }
 
-    public BigDecimal getAmount() {
-        return amount;
+    public BigDecimal getPrice() {
+        return price;
     }
 
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
-    public SubscriptionStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(SubscriptionStatus status) {
-        this.status = status;
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
     @Override
@@ -82,15 +72,25 @@ public class Subscription implements Identifiable {
         if (o == null || getClass() != o.getClass()) return false;
         Subscription that = (Subscription) o;
         return id == that.id &&
-                userId == that.userId &&
-                Objects.equals(paidDate, that.paidDate) &&
-                Objects.equals(validTo, that.validTo) &&
-                Objects.equals(amount, that.amount) &&
-                status == that.status;
+                Objects.equals(name, that.name) &&
+                Objects.equals(description, that.description) &&
+                Objects.equals(period, that.period) &&
+                Objects.equals(price, that.price);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId, paidDate, validTo, amount, status);
+        return Objects.hash(id, name, description, period, price);
+    }
+
+    @Override
+    public String toString() {
+        return "Subscription{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", period=" + period +
+                ", price=" + price +
+                '}';
     }
 }

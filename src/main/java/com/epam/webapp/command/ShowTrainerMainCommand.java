@@ -1,6 +1,5 @@
 package com.epam.webapp.command;
 
-import com.epam.webapp.entity.Trainer;
 import com.epam.webapp.exception.ServiceException;
 import com.epam.webapp.service.TrainerService;
 
@@ -24,6 +23,7 @@ public class ShowTrainerMainCommand implements Command {
             List<Trainer> trainerClients = trainerService.getAllClients(trainerId);
             request.setAttribute("clients_info", trainerClients);
         }
+
         return CommandResult.redirect("/WEB-INF/views/login.jsp");
     }
 }

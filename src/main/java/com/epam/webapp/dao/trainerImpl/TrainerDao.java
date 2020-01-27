@@ -1,6 +1,5 @@
 package com.epam.webapp.dao.trainerImpl;
 
-import com.epam.webapp.entity.Trainer;
 import com.epam.webapp.exception.DaoException;
 
 import java.util.List;
