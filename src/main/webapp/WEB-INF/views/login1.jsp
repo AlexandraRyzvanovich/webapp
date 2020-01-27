@@ -3,7 +3,6 @@
 <mt:loginlayout>
     <jsp:attribute name="login">login</jsp:attribute>
 </mt:loginlayout>
-<%--<%@ include file="shared/header.jsp" %>--%>
 <form method="POST" action="login"/>
 <input type="hidden" name="command" value="login" />
 <div class="limiter">
@@ -11,7 +10,7 @@
         <div class="wrap-login100 p-t-85 p-b-20">
 
             <span class="login100-form-title p-b-70">
-                    Welcome Fatass
+                    Welcome Fatass Login1
                 </span>
             <span class="login100-form-avatar">
                <img src="/resources/images/fitness_logo.png"/>
@@ -35,4 +34,3 @@
         </div>
     </div>
 </div>
-<%--<%@ include file="shared/footer.jsp" %>--%>
