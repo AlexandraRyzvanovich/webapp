@@ -15,7 +15,6 @@ public class ShowTrainerMainCommand implements Command {
     public ShowTrainerMainCommand(TrainerService trainerService) {
         this.trainerService = trainerService;
     }
-
     @Override
     public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException, SQLException {
         String sessionAttr = request.getParameter("signed_in");
@@ -25,7 +24,7 @@ public class ShowTrainerMainCommand implements Command {
             List<Trainer> trainerClients = trainerService.getAllClients(trainerId);
             request.setAttribute("clients_info", trainerClients);
         }
-        return CommandResult.forward()
+        return CommandResult.redirect("/WEB-INF/views/login.jsp");
     }
 }
 
