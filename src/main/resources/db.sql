@@ -9,27 +9,22 @@ CREATE TABLE user (
   email      NVARCHAR(63) NOT NULL UNIQUE,
   password   VARCHAR (32) NOT NULL,
   bonus      INT UNSIGNED NULL,
-  role       ENUM ('CLIENT', 'TRAINER', 'ADMIN'),
-  PRIMARY KEY (id)
-);
-
-CREATE TABLE trainer (
-  id  INT UNSIGNED NOT NULL AUTO_INCREMENT,
   trainer_id INT UNSIGNED NULL,
-  user_id INT UNSIGNED NOT NULL UNIQUE,
+  role       ENUM ('CLIENT', 'TRAINER', 'ADMIN'),
   PRIMARY KEY (id),
   FOREIGN KEY (trainer_id) REFERENCES user (id),
-  FOREIGN KEY (user_id) REFERENCES user (id)
 );
 
 CREATE TABLE program (
   id          INT UNSIGNED NOT NULL AUTO_INCREMENT,
   user_id     INT UNSIGNED NOT NULL,
   exercise_description NVARCHAR(255) NULL,
+  exercise_list NVARCHAR(255) NULL,
   diet_description     NVARCHAR(255) NULL,
+  food_list NVARCHAR(255), null,
   additional_info NVARCHAR(255) NULL,
   valid_to    DATE     NULL,
-  status       ENUM('NEW', 'IN PROGRESS', 'DECLINED')  NOT NULL,
+  status       ENUM('NEW', 'IN PROGRESS', 'DONE', 'DECLINED')  NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (user_id) REFERENCES user (id)
 );
@@ -46,11 +41,11 @@ CREATE TABLE review (
 );
 
 CREATE TABLE subscription (
-  id        INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  id   INT UNSIGNED NOT NULL AUTO_INCREMENT,
   name VARCHAR(32) NOT NULL,
   description NVARCHAR(255) NOT NULL,
   period INT UNSIGNED NOT NULL,
-  amount    DECIMAL(5, 2) NOT NULL,
+  price    DECIMAL(5, 2) NOT NULL,
   PRIMARY KEY (id)
 );
 

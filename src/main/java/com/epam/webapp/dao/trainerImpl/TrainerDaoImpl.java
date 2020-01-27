@@ -2,7 +2,6 @@ package com.epam.webapp.dao.trainerImpl;
 
 import com.epam.webapp.dao.AbstractDao;
 import com.epam.webapp.entity.Identifiable;
-import com.epam.webapp.entity.Trainer;
 import com.epam.webapp.exception.DaoException;
 
 import java.sql.Connection;
