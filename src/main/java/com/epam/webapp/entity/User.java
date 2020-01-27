@@ -33,6 +33,9 @@ public class User implements Identifiable{
         this.role = role;
     }
 
+    public User(Long id, String name, String lastName, String email, Role role, int bonus) {
+    }
+
     public Long getUserId() {
         return userId;
     }

@@ -33,8 +33,6 @@ public interface RowMapper<T extends Identifiable> {
                 return new ReviewRowMapper();
             case Subscription.SUBSCRIPTION_TABLE_NAME:
                 return new SubscriptionRowMapper();
-            case Trainer.TRAINER_TABLE_NAME:
-                return new TrainerRowMapper();
             default:
                 throw new IllegalArgumentException("Unknown table");
         }
