@@ -31,11 +31,13 @@ public class LoginCommand implements Command {
             return CommandResult.redirect("/WEB-INF/views/login.jsp");
         }
         else {
+            Long userId = user.get().getUserId();
             Role role = user.get().getRole();
             String firstName = user.get().getFirstName();
             String lastName = user.get().getLastName();
             HttpSession session = request.getSession(true);
             session.setAttribute("signed_in", true);
+            session.setAttribute("id", userId);
             request.setAttribute("first_name", firstName);
             request.setAttribute("last_name", lastName);
             session.setAttribute(ROLE_ATTR, role);

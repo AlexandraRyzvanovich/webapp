@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib prefix="mt" tagdir="/WEB-INF/tags" %>
 <mt:loginlayout>
     <jsp:attribute name="login">login</jsp:attribute>
@@ -25,8 +26,6 @@
                 <input class="input100" type="password" name="password" placeholder="password">
                 <span class="focus-input100"></span>
             </div>
-
-
             <div class="container-login100-form-btn">
                 <button type="submit" class="login100-form-btn">
                     Login

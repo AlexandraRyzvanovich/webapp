@@ -8,7 +8,10 @@
             <img src="/resources/images/fitness_logo.png"/>
         </li>
         <li>
-            <a>Loguot</a></li>
+            <form method="POST" action="logout"/>
+            <a href="">Logout</a>
+            <input type="hidden" name="command" value="logout" />
+             </li>
         <li id="navbar-right">
             <select id="lang" style="float: right;">
                 <option style="background:url(/resources/images/flagru.png);" value="rus">Ru</option>
