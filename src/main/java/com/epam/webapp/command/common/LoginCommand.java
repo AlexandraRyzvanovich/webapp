@@ -1,5 +1,7 @@
-package com.epam.webapp.command;
+package com.epam.webapp.command.common;
 
+import com.epam.webapp.command.Command;
+import com.epam.webapp.command.CommandResult;
 import com.epam.webapp.entity.Role;
 import com.epam.webapp.exception.ServiceException;
 import com.epam.webapp.service.UserService;
@@ -38,9 +40,9 @@ public class LoginCommand implements Command {
             HttpSession session = request.getSession(true);
             session.setAttribute("signed_in", true);
             session.setAttribute("id", userId);
+            session.setAttribute(ROLE_ATTR, role);
             request.setAttribute("first_name", firstName);
             request.setAttribute("last_name", lastName);
-            session.setAttribute(ROLE_ATTR, role);
             return CommandResult.redirect("/login?command=main");
         }
     }

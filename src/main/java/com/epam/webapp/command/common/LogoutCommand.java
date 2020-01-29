@@ -1,6 +1,7 @@
-package com.epam.webapp.command;
+package com.epam.webapp.command.common;
 
-import com.epam.webapp.service.UserService;
+import com.epam.webapp.command.Command;
+import com.epam.webapp.command.CommandResult;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

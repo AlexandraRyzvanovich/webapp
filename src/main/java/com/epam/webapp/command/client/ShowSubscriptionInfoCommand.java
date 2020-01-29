@@ -1,4 +1,4 @@
-package com.epam.webapp.command;
+package com.epam.webapp.command.client;
 
 public class ShowSubscriptionInfoCommand {
 }

@@ -1,5 +1,7 @@
 package com.epam.webapp.command;
 
+import com.epam.webapp.command.common.LoginCommand;
+import com.epam.webapp.command.common.LogoutCommand;
 import com.epam.webapp.dao.DaoHelperFactory;
 import com.epam.webapp.service.UserService;
 

@@ -5,13 +5,11 @@
         box-sizing: border-box;
     }
 
-    /* Remove margins and padding from the list */
     #myUL > {
         margin: 0;
         padding: 0;
     }
 
-    /* Style the list items */
     #myUL > li {
         cursor: pointer;
         position: relative;
@@ -20,31 +18,26 @@
         font-size: 18px;
         transition: 0.2s;
 
-        /* make the list items unselectable */
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
     }
 
-    /* Set all odd list items to a different color (zebra-stripes) */
     #myUL > li:nth-child(odd) {
         background: #f9f9f9;
     }
 
-    /* Darker background-color on hover */
     #myUL > li:hover {
         background: #ddd;
     }
 
-    /* When clicked on, add a background color and strike out text */
     #myUL > li.checked {
         background: #888;
         color: #fff;
         text-decoration: line-through;
     }
 
-    /* Add a "checked" mark when clicked on */
     #myUL > li.checked::before {
         content: '';
         position: absolute;
@@ -58,7 +51,6 @@
         width: 7px;
     }
 
-    /* Style the close button */
     .close {
         position: absolute;
         right: 0;
@@ -71,7 +63,6 @@
         color: white;
     }
 
-    /* Style the header */
     .header {
         background-color: #ADC5FF;
         padding: 10px 40px;
@@ -80,14 +71,12 @@
         height: 8%;
     }
 
-    /* Clear floats after the header */
     .header:after {
         content: "";
         display: table;
         clear: both;
     }
 
-    /* Style the input */
      input {
         margin: 0;
         border: none;
@@ -98,7 +87,6 @@
         font-size: 16px;
     }
 
-    /* Style the "Add" button */
     .addBtn {
         padding: 10px;
         width: 25%;

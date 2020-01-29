@@ -10,12 +10,6 @@ INSERT INTO user (first_name, last_name, email, password, role) VALUES
 ('Petya', 'Ivanov', 'p@test.com', md5(123456), 'TRAINER'),
 ('Admin', 'Admin', 'admin@test.com', md5(123456), 'ADMIN');
 
-INSERT INTO trainer(trainer_id, user_id) VALUES
-(6, 1),
-(6, 2),
-(7, 3),
-(7, 4),
-(7, 5);
 
 INSERT INTO Subscription (name, description, period, amount) VALUES
 ('LIGHT', 'Just to keep a good shape or a little fix small disadvantages.', 30, 100),
