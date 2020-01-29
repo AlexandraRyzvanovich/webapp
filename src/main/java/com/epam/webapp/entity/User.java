@@ -34,6 +34,12 @@ public class User implements Identifiable{
     }
 
     public User(Long id, String name, String lastName, String email, Role role, int bonus) {
+        this.userId = id;
+        this.firstName = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.bonus = bonus;
+        this.role = role;
     }
 
     public Long getUserId() {

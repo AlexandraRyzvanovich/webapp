@@ -17,14 +17,14 @@ public class Program implements Identifiable {
     private Long id;
     private Long userId;
     private String exerciseDescription;
-    private String exerciseList;
+    private String[] exerciseList;
     private String dietDescription;
-    private String foodList;
+    private String[] foodList;
     private String additionalInfo;
     private Date validTo;
     ProgramStatus status;
 
-    public Program(Long id, Long userId, String exerciseDescription, String exerciseList, String dietDescription, String foodList, String additionalInfo, Date validTo, ProgramStatus status) {
+    public Program(Long id, Long userId, String exerciseDescription, String[]  exerciseList, String dietDescription, String[]  foodList, String additionalInfo, Date validTo, ProgramStatus status) {
         this.id = id;
         this.userId = userId;
         this.exerciseDescription = exerciseDescription;
@@ -33,6 +33,15 @@ public class Program implements Identifiable {
         this.foodList = foodList;
         this.additionalInfo = additionalInfo;
         this.validTo = validTo;
+        this.status = status;
+    }
+    public Program(Long userId, String exerciseDescription, String[]  exerciseList, String dietDescription, String[]  foodList, String additionalInfo, ProgramStatus status) {
+        this.userId = userId;
+        this.exerciseDescription = exerciseDescription;
+        this.exerciseList = exerciseList;
+        this.dietDescription = dietDescription;
+        this.foodList = foodList;
+        this.additionalInfo = additionalInfo;
         this.status = status;
     }
 
@@ -60,11 +69,11 @@ public class Program implements Identifiable {
         this.exerciseDescription = exerciseDescription;
     }
 
-    public String getExerciseList() {
+    public String[]  getExerciseList() {
         return exerciseList;
     }
 
-    public void setExerciseList(String exerciseList) {
+    public void setExerciseList(String[]  exerciseList) {
         this.exerciseList = exerciseList;
     }
 
@@ -76,11 +85,11 @@ public class Program implements Identifiable {
         this.dietDescription = dietDescription;
     }
 
-    public String getFoodList() {
+    public String[]  getFoodList() {
         return foodList;
     }
 
-    public void setFoodList(String foodList) {
+    public void setFoodList(String[]  foodList) {
         this.foodList = foodList;
     }
 

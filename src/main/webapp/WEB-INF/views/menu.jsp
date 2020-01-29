@@ -44,14 +44,15 @@
 <aside>
     <div class="category-wrap">
         <h3>Menu</h3>
+        <c:set var="role" scope="session"/>
         <c:choose>
-            <c:when test="${requestScope.role == TRAINER}">
+            <c:when test="${role eq 'TRAINER'}">
                 <div class="sidenav">
                     <a href="/clients">Clients</a>
                     <a href="/reviews">Reviews</a>
                 </div>
             </c:when>
-            <c:when test="${requestScope.role == CLIENT}">
+            <c:when test="${role eq 'CLIENT'}">
                 <div class="sidenav">
                     <a href="/subscripion">Subscription</a>
                     <button class="dropdown-btn">Program
@@ -62,6 +63,11 @@
                         <a href="#">Excesses</a>
                     </div>
                     <a href="/reviews">Reviews</a>
+                </div>
+            </c:when>
+            <c:when test="${role eq 'ADMIN'}">
+                <div class="sidenav">
+                    <a href="/clients">Clients</a>
                 </div>
             </c:when>
         </c:choose>
