@@ -39,7 +39,7 @@ public class LoginCommand implements Command {
             String lastName = user.get().getLastName();
             HttpSession session = request.getSession();
             session.setAttribute("signed_in", true);
-            request.setAttribute("id", userId);
+            session.setAttribute("id", userId);
             request.setAttribute(ROLE_ATTR, role);
             request.setAttribute("first_name", firstName);
             request.setAttribute("last_name", lastName);

@@ -16,9 +16,9 @@ INSERT INTO Subscription (name, description, period, amount) VALUES
 ('MEDIUM', 'You are ready to work hard but not to much. That is for you.', 30, 150),
 ('HARD', 'You will work as hard as you can. We can guarantee that.', 30, 200);
 
-INSERT INTO Program (user_id, exercise_description, diet_description, additional_info, valid_to, status) VALUES
-(1, 'Jumps 100 times 7 times a day', 'No sweets', NULL, NULL, 'NEW'),
-(2, 'Step 20 minutes every day', 'No sweets', NULL, NULL, 'IN PROGRESS');
+INSERT INTO Program (user_id, exercise_description, exercise_list, diet_description, food_list, additional_info, status) VALUES
+(1, 'Jumps 100 times 7 times a day', 'sit; up and down', 'No sweets', 'apples;carrots;', NULL, 'NEW'),
+(2, 'Step 20 minutes every day', 'sit; up and down', 'No sweets', 'apples;carrots;', NULL, 'IN PROGRESS');
 
 INSERT INTO orders (user_id, paid_date, amount, status, subscription_id) VALUES
 (1, '2020-01-20 09:04:43.5985585', 100, 'PROCESSED', 1),

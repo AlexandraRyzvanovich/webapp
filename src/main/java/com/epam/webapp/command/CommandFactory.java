@@ -1,8 +1,10 @@
 package com.epam.webapp.command;
 
+import com.epam.webapp.command.client.GetClientProgramCommand;
 import com.epam.webapp.command.common.LoginCommand;
 import com.epam.webapp.command.common.LogoutCommand;
 import com.epam.webapp.dao.DaoHelperFactory;
+import com.epam.webapp.service.TrainingProgramService;
 import com.epam.webapp.service.UserService;
 
 public class CommandFactory {
@@ -13,7 +15,7 @@ public class CommandFactory {
             case "logout": return new LogoutCommand();
             case "main": return new ShowPageCommand("/WEB-INF/views/main.jsp");
             case "subscripion": return new ShowPageCommand("/WEB-INF/views/subscripion.jsp");
-            //case "trainerWork" : return new ShowTrainerMainCommand();
+            case "getTrainingProgram": return new GetClientProgramCommand(new TrainingProgramService(new DaoHelperFactory()));
 
             default: throw new IllegalArgumentException("unknown command " + command);
         }

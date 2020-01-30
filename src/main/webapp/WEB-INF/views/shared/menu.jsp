@@ -59,8 +59,8 @@
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-container">
-                        <a href="/diet">Food</a>
-                        <a href="#">Excesses</a>
+                        <a href="/food">Food</a>
+                        <a href="/exercises">Excesses</a>
                     </div>
                     <a href="/reviews">Reviews</a>
                 </div>

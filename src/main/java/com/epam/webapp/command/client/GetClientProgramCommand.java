@@ -22,14 +22,15 @@ public class GetClientProgramCommand implements Command {
 
     public GetClientProgramCommand(TrainingProgramService service) {
         this.service = service;
+        gson = new Gson();
     }
 
     @Override
     public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException, SQLException, IOException {
-        HttpSession session = request.getSession();
-        if(session.getAttribute("signed in") != null || session.getAttribute("signed in").equals("")){
-            String idAttribute = (String) request.getAttribute("id");
-            Long id = Long.parseLong(idAttribute);
+        if(request.getSession(false) != null) {
+
+            Long id = Long.parseLong(request.getSession(false).getAttribute("id").toString());
+
             Optional<Program> clientProgram = service.getUserProgram(id);
             Long userId = clientProgram.get().getUserId();
             String exerciseDescription = clientProgram.get().getExerciseDescription();
@@ -49,8 +50,9 @@ public class GetClientProgramCommand implements Command {
             response.setCharacterEncoding("UTF-8");
             out.print(employeeJsonString);
             out.flush();
-            return CommandResult.forward("/login?command=getClientProgram");
+            return CommandResult.forward("/WEB-INF/views/program.jsp");
         }
-        return CommandResult.redirect("/WEB-INF/views/login.jsp");
+        return CommandResult.forward("");
+
     }
 }

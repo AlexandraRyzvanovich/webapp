@@ -39,6 +39,16 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>training-program</servlet-name>
+    <servlet-class>com.epam.webapp.controller.Controller</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>training-program</servlet-name>
+    <url-pattern>/training-program</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
     <servlet-name>diet</servlet-name>
     <jsp-file>/WEB-INF/views/diet.jsp</jsp-file>
   </servlet>

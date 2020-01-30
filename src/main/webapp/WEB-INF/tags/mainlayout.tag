@@ -21,7 +21,7 @@
 <div id="wrapper">
     <jsp:include page="/WEB-INF/views/shared/header.jsp"></jsp:include>
     <div class="content">
-        <jsp:include page="/WEB-INF/views/menu.jsp"></jsp:include>
+        <jsp:include page="/WEB-INF/views/shared/menu.jsp"></jsp:include>
         <jsp:doBody/>
     </div>
 </div>
