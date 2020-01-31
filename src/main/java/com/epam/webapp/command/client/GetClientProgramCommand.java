@@ -32,6 +32,7 @@ public class GetClientProgramCommand implements Command {
 
             Long id = Long.parseLong(request.getSession(false).getAttribute("id").toString());
 
+
             Optional<Program> clientProgram = service.getUserProgram(id);
             Long userId = clientProgram.get().getUserId();
             String exerciseDescription = clientProgram.get().getExerciseDescription();

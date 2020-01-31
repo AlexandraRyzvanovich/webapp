@@ -4,26 +4,25 @@
 <mt:loginlayout>
     <jsp:attribute name="login">login</jsp:attribute>
 </mt:loginlayout>
-<%--<%@ include file="shared/header.jsp" %>--%>
 <form method="POST" action="login"/>
 <input type="hidden" name="command" value="login" />
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login">
 
-            <span class="login100-form-title">
+            <%--<span class="login100-form-title">
                     Welcome Fatass
-                </span>
+                </span>--%>
             <span class="login100-form-avatar">
-               <img src="/resources/images/fitness_logo.png"/>
+               <img src="/resources/images/newLogo3.png"/>
                 </span>
             <div class="wrap-input100" data-validate="Enter username">
-                <input class="input100" type="text" name="login" placeholder="login">
+                <input class="input100" type="text" name="login" placeholder="login" style="background-color: transparent !important;border-radius: 13px;">
                 <span class="focus-input100"></span>
             </div>
 
             <div class="wrap-input100" data-validate="Enter password">
-                <input class="input100" type="password" name="password" placeholder="password">
+                <input class="input100" type="password" name="password" placeholder="password" style="background-color: transparent !important;border-radius: 13px;">
                 <span class="focus-input100"></span>
             </div>
             <div class="container-login100-form-btn">
@@ -34,4 +33,3 @@
         </div>
     </div>
 </div>
-<%--<%@ include file="shared/footer.jsp" %>--%>

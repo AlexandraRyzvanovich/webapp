@@ -3,56 +3,19 @@
 
 <style>
     <%@include file="/resources/css/menu.css"%>
-    .sidenav {
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: #ADC5FF;
-        overflow-x: hidden;
-        padding-top: 20px;
-    }
-
-    .sidenav a, .dropdown-btn {
-        padding: 6px 8px 6px 16px;
-        text-decoration: none;
-        font-size: 20px;
-        color: #818181;
-        display: block;
-        border: none;
-        background: none;
-        width:100%;
-        text-align: left;
-        cursor: pointer;
-        outline: none;
-    }
-
-    .sidenav a:hover, .dropdown-btn:hover {
-        color: #f1f1f1;
-    }
-
-    .dropdown-container {
-        display: none;
-        background-color: #ADC5FF;
-        padding-left: 8px;
-    }
-
-    .fa-caret-down {
-        float: right;
-        padding-right: 8px;
-    }
 </style>
 <aside>
     <div class="category-wrap">
         <h3>Menu</h3>
         <c:set var="role" scope="session"/>
         <c:choose>
-            <c:when test="${role eq 'TRAINER'}">
+            <c:when test="${role == 'TRAINER'}">
                 <div class="sidenav">
                     <a href="/clients">Clients</a>
                     <a href="/reviews">Reviews</a>
                 </div>
             </c:when>
-            <c:when test="${role eq 'CLIENT'}">
+            <c:when test="${role == 'CLIENT'}">
                 <div class="sidenav">
                     <a href="/subscripion">Subscription</a>
                     <button class="dropdown-btn">Program
@@ -65,11 +28,27 @@
                     <a href="/reviews">Reviews</a>
                 </div>
             </c:when>
-            <c:when test="${role eq 'ADMIN'}">
+            <c:when test="${role == 'ADMIN'}">
                 <div class="sidenav">
                     <a href="/clients">Clients</a>
                 </div>
             </c:when>
+        <c:otherwise>
+            <div class="sidenav">
+                <a href="/clients">Clients</a>
+            </div>
+            <div class="sidenav">
+                <a href="/clients">Excesses</a>
+            </div>
+            <div class="sidenav">
+                <a href="/clients">Reviews</a>
+            </div>
+            <div class="sidenav">
+                <a href="/clients">Food</a>
+            </div>
+
+
+        </c:otherwise>
         </c:choose>
     </div>
 </div>

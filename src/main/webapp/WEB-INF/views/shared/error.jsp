@@ -10,4 +10,7 @@
 
 <jsp:include page="header.jsp"></jsp:include>
 
-<h3>Error</h3>
+<h3>Ooops, something goes wrong</h3>
+
+<jsp:include page="footer.jsp"></jsp:include>
+</body>

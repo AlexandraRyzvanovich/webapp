@@ -2,12 +2,14 @@
 <%@ attribute name="main" rtexprvalue="true" %>
 <html>
 <head>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
     <style>
         <%@include file="/resources/css/main.css"%>
-        <%--        <%@include file="/resources/css/util.css"%>--%>
-        .content{
-            margin-top: 90px;
+        body{
+            background-image: url("/resources/images/main.jpg");
+            background-size: cover;
         }
+
 
     </style>
     <script type="text/javascript">

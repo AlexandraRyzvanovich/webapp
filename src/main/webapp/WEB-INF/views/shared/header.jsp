@@ -2,13 +2,14 @@
 <style>
     <%@include file="/resources/css/header.css"%>
 </style>
+<script>
+</script>
 <header>
     <form method="POST" action="/logout"/>
     <input type="hidden" name="command" value="logout" />
     <ul id="navbar" class="navbar">
         <li class="login100-form-avatar2">
-            <a href="main">
-            <img src="/resources/images/fitness_logo.png"/></a>
+            <a href="main">home</a>
         </li>
         <li>
             <button type="submit">
@@ -23,4 +24,5 @@
             </select>
         </li>
     </ul>
+
 </header>

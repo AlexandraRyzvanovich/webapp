@@ -10,6 +10,7 @@ for (i = 0; i < myNodelist.length; i++) {
 
 // Click on a close button to hide the current list item
 var close = document.getElementsByClassName("close");
+var close = $(".close")
 var i;
 for (i = 0; i < close.length; i++) {
     close[i].onclick = function() {

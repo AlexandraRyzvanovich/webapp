@@ -3,9 +3,12 @@
 <html>
 <head>
     <style>
-        <%@include file="/resources/css/main.css"%>
         <%@include file="/resources/css/login.css"%>
-<%--        <%@include file="/resources/css/util.css"%>--%>
+        body {
+            background-image: url("/resources/images/main.jpg");
+            background-size: cover;
+        }
+
     </style>
 
     <title>${title}</title>
