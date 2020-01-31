@@ -10,6 +10,7 @@ import com.epam.webapp.service.TrainingProgramService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.Console;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -45,12 +46,14 @@ public class GetClientProgramCommand implements Command {
             request.setAttribute("exerciseDescription", exerciseDescription);
             request.setAttribute("dietDescription", dietDescription);
             request.setAttribute("additionalInfo", additionalInfo);
-            PrintWriter out = response.getWriter();
+           /* PrintWriter out = response.getWriter();
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             out.print(employeeJsonString);
-            out.flush();
-            return CommandResult.forward("/WEB-INF/views/program.jsp");
+            out.flush();*/
+            request.setAttribute("dscsc",employeeJsonString);
+            response.sendRedirect("/training-program");
+            return CommandResult.redirect("/WEB-INF/views/program.jsp");
         }
         return CommandResult.forward("");
 

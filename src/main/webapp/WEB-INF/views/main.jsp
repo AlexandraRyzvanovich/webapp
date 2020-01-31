@@ -5,7 +5,7 @@
     <jsp:attribute name="main"></jsp:attribute>
     <jsp:body>
         <section>
-            <table cellspacing="0">
+            MAIN            <table cellspacing="0">
                 <tr>
                     <th>Program</th>
                     <th>Description</th>

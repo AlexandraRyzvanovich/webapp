@@ -30,7 +30,7 @@ public class LoginCommand implements Command {
        String password = request.getParameter(PASSWORD_PARAM);
        Optional<User> user = userService.login(login, password);
         if(!user.isPresent()){
-            return CommandResult.redirect("/WEB-INF/views/login.jsp");
+            return CommandResult.redirect("/WEB-INF/views/common/login.jsp");
         }
         else {
             Long userId = user.get().getUserId();
@@ -40,7 +40,7 @@ public class LoginCommand implements Command {
             HttpSession session = request.getSession();
             session.setAttribute("signed_in", true);
             session.setAttribute("id", userId);
-            request.setAttribute(ROLE_ATTR, role);
+            session.setAttribute(ROLE_ATTR, role);
             request.setAttribute("first_name", firstName);
             request.setAttribute("last_name", lastName);
             return CommandResult.redirect("/login?command=main");
