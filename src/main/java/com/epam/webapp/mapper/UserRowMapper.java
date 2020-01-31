@@ -13,7 +13,7 @@ public class UserRowMapper implements RowMapper<User> {
 
     @Override
     public User map(ResultSet resultSet) throws SQLException {
-        long id = resultSet.getLong(User.USER_ID_COLUMN_NAME);
+        Long id = resultSet.getLong(User.USER_ID_COLUMN_NAME);
         String name = resultSet.getString(User.FIRST_NAME_COLUMN_NAME);
         String lastName = resultSet.getString(User.LAST_NAME_COLUMN_NAME);
         String email = resultSet.getString(User.EMAIL_COLUMN_NAME);

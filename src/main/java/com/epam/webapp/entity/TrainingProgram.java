@@ -3,7 +3,7 @@ package com.epam.webapp.entity;
 import java.util.Date;
 import java.util.Objects;
 
-public class Program implements Identifiable {
+public class TrainingProgram implements Identifiable {
     public static final String PROGRAM_TABLE_NAME = "program";
     public static final String USER_ID_COLUMN_NAME = "user_id";
     public static final String EXERCISE_DESCRIPTION_COLUMN_NAME = "exercise_description";
@@ -22,9 +22,9 @@ public class Program implements Identifiable {
     private String[] foodList;
     private String additionalInfo;
     private Date validTo;
-    ProgramStatus status;
+    TrainingProgramStatus status;
 
-    public Program(Long id, Long userId, String exerciseDescription, String[]  exerciseList, String dietDescription, String[]  foodList, String additionalInfo, Date validTo, ProgramStatus status) {
+    public TrainingProgram(Long id, Long userId, String exerciseDescription, String[]  exerciseList, String dietDescription, String[]  foodList, String additionalInfo, Date validTo, TrainingProgramStatus status) {
         this.id = id;
         this.userId = userId;
         this.exerciseDescription = exerciseDescription;
@@ -35,7 +35,7 @@ public class Program implements Identifiable {
         this.validTo = validTo;
         this.status = status;
     }
-    public Program(Long userId, String exerciseDescription, String[]  exerciseList, String dietDescription, String[]  foodList, String additionalInfo, ProgramStatus status) {
+    public TrainingProgram(Long userId, String exerciseDescription, String[]  exerciseList, String dietDescription, String[]  foodList, String additionalInfo, TrainingProgramStatus status) {
         this.userId = userId;
         this.exerciseDescription = exerciseDescription;
         this.exerciseList = exerciseList;
@@ -109,11 +109,11 @@ public class Program implements Identifiable {
         this.validTo = validTo;
     }
 
-    public ProgramStatus getStatus() {
+    public TrainingProgramStatus getStatus() {
         return status;
     }
 
-    public void setStatus(ProgramStatus status) {
+    public void setStatus(TrainingProgramStatus status) {
         this.status = status;
     }
 
@@ -121,16 +121,16 @@ public class Program implements Identifiable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Program program = (Program) o;
-        return Objects.equals(id, program.id) &&
-                Objects.equals(userId, program.userId) &&
-                Objects.equals(exerciseDescription, program.exerciseDescription) &&
-                Objects.equals(exerciseList, program.exerciseList) &&
-                Objects.equals(dietDescription, program.dietDescription) &&
-                Objects.equals(foodList, program.foodList) &&
-                Objects.equals(additionalInfo, program.additionalInfo) &&
-                Objects.equals(validTo, program.validTo) &&
-                status == program.status;
+        TrainingProgram trainingProgram = (TrainingProgram) o;
+        return Objects.equals(id, trainingProgram.id) &&
+                Objects.equals(userId, trainingProgram.userId) &&
+                Objects.equals(exerciseDescription, trainingProgram.exerciseDescription) &&
+                Objects.equals(exerciseList, trainingProgram.exerciseList) &&
+                Objects.equals(dietDescription, trainingProgram.dietDescription) &&
+                Objects.equals(foodList, trainingProgram.foodList) &&
+                Objects.equals(additionalInfo, trainingProgram.additionalInfo) &&
+                Objects.equals(validTo, trainingProgram.validTo) &&
+                status == trainingProgram.status;
     }
 
     @Override

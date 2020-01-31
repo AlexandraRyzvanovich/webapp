@@ -9,22 +9,19 @@ public class Review implements Identifiable {
     public static final String REVIEW_MESSAGE_COLUMN_NAME = "review_msg";
     public static final String STAR_COLUMN_NAME = "star";
     public static final String DATE_COLUMN_NAME = "date";
-    private static final String IS_APPROVED_COLUMN_NAME = "is_approved";
 
    private Long id;
    private Long userId;
    private String reviewMessage;
    private Integer star;
    private Date date;
-   private Boolean isApproved;
 
-    public Review(Long id, Long userId, String reviewMessage, Integer star, Date date, Boolean isApproved) {
+    public Review(Long id, Long userId, String reviewMessage, Integer star, Date date) {
         this.id = id;
         this.userId = userId;
         this.reviewMessage = reviewMessage;
         this.star = star;
         this.date = date;
-        this.isApproved = isApproved;
     }
 
     public Long getId() {
@@ -67,14 +64,6 @@ public class Review implements Identifiable {
         this.date = date;
     }
 
-    public Boolean getApproved() {
-        return isApproved;
-    }
-
-    public void setApproved(Boolean approved) {
-        isApproved = approved;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -84,13 +73,12 @@ public class Review implements Identifiable {
                 Objects.equals(userId, review.userId) &&
                 Objects.equals(reviewMessage, review.reviewMessage) &&
                 Objects.equals(star, review.star) &&
-                Objects.equals(date, review.date) &&
-                Objects.equals(isApproved, review.isApproved);
+                Objects.equals(date, review.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId, reviewMessage, star, date, isApproved);
+        return Objects.hash(id, userId, reviewMessage, star, date);
     }
 
     @Override
@@ -101,7 +89,6 @@ public class Review implements Identifiable {
                 ", reviewMessage='" + reviewMessage + '\'' +
                 ", star=" + star +
                 ", date=" + date +
-                ", isApproved=" + isApproved +
                 '}';
     }
 }

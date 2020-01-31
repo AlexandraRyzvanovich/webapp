@@ -5,6 +5,14 @@ import java.util.Date;
 import java.util.Objects;
 
 public class Order {
+    public static final String ORDER_TABLE_NAME = "order";
+    public static final String ID_COLUMN_NAME = "id";
+    public static final String USER_ID_COLUMN_NAME = "user_id";
+    public static final String PAID_DATE_COLUMN_NAME = "paid_date";
+    public static final String AMOUNT_COLUMN_NAME = "amount";
+    public static final String STATUS_COLUMN_NAME = "status";
+    public static final String SUBSCRIPTION_ID_COLUMN_NAME = "user_id";
+
     private Long id;
     private Long userId;
     private Date paidDate;

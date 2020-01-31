@@ -2,8 +2,10 @@ package com.epam.webapp.dao;
 
 import com.epam.webapp.connection.ConnectionPool;
 import com.epam.webapp.connection.ProxyConnection;
-import com.epam.webapp.dao.programImpl.ProgramDao;
-import com.epam.webapp.dao.programImpl.ProgramDaoImpl;
+import com.epam.webapp.dao.trainingProgramImpl.TrainingProgramDao;
+import com.epam.webapp.dao.trainingProgramImpl.TrainingProgramDaoImpl;
+import com.epam.webapp.dao.subscriptionImpl.SubscriptionDao;
+import com.epam.webapp.dao.subscriptionImpl.SubscriptionDaoImpl;
 import com.epam.webapp.dao.userImpl.UserDao;
 import com.epam.webapp.dao.userImpl.UserDaoImpl;
 import com.epam.webapp.exception.DaoException;
@@ -22,8 +24,12 @@ public class DaoHelper implements AutoCloseable {
         return new UserDaoImpl(connection);
     }
 
-    public ProgramDao createProgramDao() {
-        return new ProgramDaoImpl(connection);
+    public TrainingProgramDao createProgramDao() {
+        return new TrainingProgramDaoImpl(connection);
+    }
+
+    public SubscriptionDao createSubscriptionDao() {
+        return new SubscriptionDaoImpl(connection);
     }
 
 

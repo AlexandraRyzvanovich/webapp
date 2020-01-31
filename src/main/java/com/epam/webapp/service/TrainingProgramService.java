@@ -2,8 +2,8 @@ package com.epam.webapp.service;
 
 import com.epam.webapp.dao.DaoHelper;
 import com.epam.webapp.dao.DaoHelperFactory;
-import com.epam.webapp.dao.programImpl.ProgramDao;
-import com.epam.webapp.entity.Program;
+import com.epam.webapp.dao.trainingProgramImpl.TrainingProgramDao;
+import com.epam.webapp.entity.TrainingProgram;
 import com.epam.webapp.exception.DaoException;
 import com.epam.webapp.exception.ServiceException;
 
@@ -17,9 +17,9 @@ public class TrainingProgramService {
         this.daoHelperFactory = daoHelperFactory;
     }
 
-    public Optional<Program> getUserProgram(Long id) throws ServiceException {
+    public Optional<TrainingProgram> getUserProgram(Long id) throws ServiceException {
         try (DaoHelper factory = daoHelperFactory.create()) {
-            ProgramDao dao = factory.createProgramDao();
+            TrainingProgramDao dao = factory.createProgramDao();
             return dao.getUserTrainingProgram(id);
         } catch (ClassNotFoundException | SQLException | DaoException e) {
             throw new ServiceException(e.getCause());

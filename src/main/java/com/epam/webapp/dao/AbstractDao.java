@@ -35,7 +35,7 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao {
      * @return подготовленный запрос
      */
     private PreparedStatement createStatement(String query, Object... params) throws SQLException {
-        PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
+        PreparedStatement statement = connection.prepareStatement(query);
         if(params.length != 0){
             for (int i = 1; i <= params.length; i++) {
                 statement.setObject(i, params[i - 1 ]);

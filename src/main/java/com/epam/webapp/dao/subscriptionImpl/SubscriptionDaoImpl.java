@@ -9,8 +9,11 @@ import java.sql.Connection;
 import java.util.Optional;
 
 public class SubscriptionDaoImpl extends AbstractDao<Subscription> implements SubscriptionDao {
-    private static final String GET_BY_SUBSCRIPTION_ID = "SELECT * FROM subscription WHERE id = ?";
-    protected SubscriptionDaoImpl(Connection connection) {
+    private static final String GET_BY_SUBSCRIPTION_ID_QUERY = "SELECT * FROM subscription WHERE id = ?";
+    private static final String ADD_NEW_SUBSCRIPTION_QUERY = "INSERT INTO subscription (name, description, period, price) VALUES (?, ?, ?, ?)";
+    private static final String DELETE_BY_ID_QUERY = "DELETE FROM subscription WHERE id = ?";
+
+    public SubscriptionDaoImpl(Connection connection) {
         super(connection);
     }
 
@@ -21,17 +24,16 @@ public class SubscriptionDaoImpl extends AbstractDao<Subscription> implements Su
 
     @Override
     public Optional getById(Long id) throws DaoException {
-        return executeForStringResult(GET_BY_SUBSCRIPTION_ID, id);
+        return executeForStringResult(GET_BY_SUBSCRIPTION_ID_QUERY, id);
     }
 
     @Override
     public void save(Identifiable item) throws DaoException {
-
+        executeQuery(ADD_NEW_SUBSCRIPTION_QUERY, item);
     }
 
     @Override
     public void removeById(Long id) throws DaoException {
-
-
+        executeQuery(DELETE_BY_ID_QUERY, id);
     }
 }
