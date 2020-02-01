@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <style>
     <%@include file="/resources/css/menu.css"%>
@@ -54,7 +54,7 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
-                <a href="/food">Food</a>
+                <a href="/diet">Food</a>
                 <a href="/exercises">Excesses</a>
             </div>
         </div>

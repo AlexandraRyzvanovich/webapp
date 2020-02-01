@@ -1,7 +1,6 @@
 package com.epam.webapp.filter;
 
 import com.epam.webapp.entity.Role;
-import com.mysql.cj.Session;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

@@ -1,7 +1,6 @@
 package com.epam.webapp.entity;
 
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.Objects;
 
 public class Subscription implements Identifiable {
@@ -71,7 +70,7 @@ public class Subscription implements Identifiable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Subscription that = (Subscription) o;
-        return id == that.id &&
+        return id.equals(that.id) &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(period, that.period) &&

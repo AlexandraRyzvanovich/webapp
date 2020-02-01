@@ -39,7 +39,7 @@ public class Controller extends HttpServlet {
                 " Servlet Front Strategy Example";
     }
 
-    protected void dispatch(HttpServletRequest request, HttpServletResponse response, CommandResult page) throws  javax.servlet.ServletException, IOException {
+    protected void dispatch(HttpServletRequest request, HttpServletResponse response, CommandResult page) throws  ServletException, IOException {
         RequestDispatcher dispatcher =
                 getServletContext().getRequestDispatcher(page.getPage());
         dispatcher.forward(request, response);

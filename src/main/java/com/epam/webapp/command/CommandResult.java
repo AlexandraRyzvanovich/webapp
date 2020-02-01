@@ -20,6 +20,7 @@ public class CommandResult {
     public String getPage(){
         return page;
     }
+
     public boolean isRedirect(){
         return isRedirect;
     }

@@ -42,7 +42,8 @@ public class LoginCommand implements Command {
             session.setAttribute(ROLE_ATTR, role);
             request.setAttribute("first_name", firstName);
             request.setAttribute("last_name", lastName);
-            return CommandResult.redirect("/login?command=main");
+            String conextPath = request.getContextPath();
+            return CommandResult.forward(conextPath + "/login?command=main");
         }
     }
 }

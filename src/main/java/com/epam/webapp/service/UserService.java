@@ -7,7 +7,6 @@ import com.epam.webapp.dao.userImpl.UserDao;
 import com.epam.webapp.entity.User;
 import com.epam.webapp.exception.DaoException;
 import com.epam.webapp.exception.ServiceException;
-import org.graalvm.compiler.nodes.calc.IntegerDivRemNode;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -42,6 +41,15 @@ public class UserService {
         try (DaoHelper factory = daoHelperFactory.create()) {
             AbstractDao<User> dao = (AbstractDao<User>) factory.createUserDao();
             return dao.getAll();
+        } catch (DaoException | SQLException | ClassNotFoundException e) {
+            throw new ServiceException(e.getCause());
+        }
+    }
+
+    public List<User> getInterns(Long trainerId) throws ServiceException {
+        try (DaoHelper factory = daoHelperFactory.create()) {
+            UserDao dao =  factory.createUserDao();
+            return dao.getTrainersInterns(trainerId);
         } catch (DaoException | SQLException | ClassNotFoundException e) {
             throw new ServiceException(e.getCause());
         }

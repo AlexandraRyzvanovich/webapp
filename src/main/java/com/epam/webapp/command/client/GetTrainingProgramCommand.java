@@ -30,6 +30,8 @@ public class GetTrainingProgramCommand implements Command {
             Optional<TrainingProgram> clientProgram = service.getUserProgram(id);
             String employeeJsonString = this.gson.toJson(clientProgram);
             request.setAttribute("dscsc",employeeJsonString);
+            response.setHeader("Location", "http://localhost:8181/training-program");
+
 
             return CommandResult.redirect("/WEB-INF/views/training-program.jsp");
         }
