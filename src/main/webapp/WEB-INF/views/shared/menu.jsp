@@ -4,9 +4,9 @@
 <style>
     <%@include file="/resources/css/menu.css"%>
 </style>
-<aside>
+<aside style="margin-top: 2%;">
     <div class="category-wrap">
-        <h3>Menu</h3>
+        <h2 style="color: #E1D070;text-align: center;margin-bottom: 3%;">Menu</h2>
         <c:set var="role" scope="session"/>
         <c:choose>
             <c:when test="${role == 'TRAINER'}">
@@ -46,8 +46,18 @@
             <div class="sidenav">
                 <a href="/clients">Food</a>
             </div>
-
-
+            <div class="sidenav">
+                <a href="/subscripion">Subscription</a>
+            </div>
+        <div class="sidenav">
+            <button class="dropdown-btn">Program
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="/food">Food</a>
+                <a href="/exercises">Excesses</a>
+            </div>
+        </div>
         </c:otherwise>
         </c:choose>
     </div>

@@ -296,3 +296,22 @@ section > figure + figure {
     width: 100%;
     height: 80px;
 }
+.sub_table_right {
+    float: right;
+    width: 45%;
+    opacity: 85%;
+}
+
+.sub_table_left {
+    float: left;
+    width: 45%;
+    opacity: 85%;
+}
+.sub_div{
+    overflow: hidden;
+    _zoom: 1;
+    padding-left: 5%;
+}
+.down {
+    margin-top:3%;
+}

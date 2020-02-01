@@ -31,7 +31,7 @@ public class GetTrainingProgramCommand implements Command {
             String employeeJsonString = this.gson.toJson(clientProgram);
             request.setAttribute("dscsc",employeeJsonString);
 
-            return CommandResult.redirect("/WEB-INF/views/program.jsp");
+            return CommandResult.redirect("/WEB-INF/views/training-program.jsp");
         }
         return CommandResult.forward("");
     }

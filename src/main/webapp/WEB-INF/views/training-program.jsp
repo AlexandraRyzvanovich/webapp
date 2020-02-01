@@ -8,8 +8,8 @@
         <form method="GET" action="training-program" />
         <input type="hidden" name="command" value="getTrainingProgram">
 
-        <section >
-            \TRAINING PROIGRAM
+        <section style="padding: 18px 18px;">
+            <h1 style="color: #E1D070;text-align: center;margin-bottom: 3%;">Training Program</h1>
             <table cellspacing="0">
                 <c:forEach var="program" items ="${program}"/>
                 <tr>
