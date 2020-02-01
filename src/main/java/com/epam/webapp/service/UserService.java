@@ -1,13 +1,16 @@
 package com.epam.webapp.service;
 
+import com.epam.webapp.dao.AbstractDao;
 import com.epam.webapp.dao.DaoHelper;
 import com.epam.webapp.dao.DaoHelperFactory;
 import com.epam.webapp.dao.userImpl.UserDao;
 import com.epam.webapp.entity.User;
 import com.epam.webapp.exception.DaoException;
 import com.epam.webapp.exception.ServiceException;
+import org.graalvm.compiler.nodes.calc.IntegerDivRemNode;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Optional;
 
 public class UserService {
@@ -26,10 +29,19 @@ public class UserService {
         }
     }
 
-    public Optional<User> getUserInfo(String id) throws ServiceException {
+    public Optional<User> getUserInfo(Long id) throws ServiceException {
         try (DaoHelper factory = daoHelperFactory.create()) {
-            UserDao dao = factory.createUserDao();
-            return dao.findByEmail(id);
+            AbstractDao<User> dao = (AbstractDao<User>) factory.createUserDao();
+            return dao.getById(id);
+        } catch (DaoException | SQLException | ClassNotFoundException e) {
+            throw new ServiceException(e.getCause());
+        }
+    }
+
+    public List<User> getAllUsers() throws ServiceException {
+        try (DaoHelper factory = daoHelperFactory.create()) {
+            AbstractDao<User> dao = (AbstractDao<User>) factory.createUserDao();
+            return dao.getAll();
         } catch (DaoException | SQLException | ClassNotFoundException e) {
             throw new ServiceException(e.getCause());
         }

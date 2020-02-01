@@ -2,6 +2,10 @@ package com.epam.webapp.dao;
 
 import com.epam.webapp.connection.ConnectionPool;
 import com.epam.webapp.connection.ProxyConnection;
+import com.epam.webapp.dao.orderImpl.OrderDao;
+import com.epam.webapp.dao.orderImpl.OrderDaoImpl;
+import com.epam.webapp.dao.reviewImpl.ReviewDao;
+import com.epam.webapp.dao.reviewImpl.ReviewDaoImpl;
 import com.epam.webapp.dao.trainingProgramImpl.TrainingProgramDao;
 import com.epam.webapp.dao.trainingProgramImpl.TrainingProgramDaoImpl;
 import com.epam.webapp.dao.subscriptionImpl.SubscriptionDao;
@@ -24,7 +28,7 @@ public class DaoHelper implements AutoCloseable {
         return new UserDaoImpl(connection);
     }
 
-    public TrainingProgramDao createProgramDao() {
+    public TrainingProgramDao createTrainingProgramDao() {
         return new TrainingProgramDaoImpl(connection);
     }
 
@@ -32,6 +36,13 @@ public class DaoHelper implements AutoCloseable {
         return new SubscriptionDaoImpl(connection);
     }
 
+    public OrderDao createOrderDao() {
+        return new OrderDaoImpl(connection);
+    }
+
+    public ReviewDao createReviewDao() {
+        return new ReviewDaoImpl(connection);
+    }
 
     @Override
     public void close() throws SQLException {

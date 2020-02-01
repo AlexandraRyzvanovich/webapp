@@ -12,7 +12,7 @@ public class ReviewDaoImpl extends AbstractDao<Review> implements ReviewDao {
     private static final String GET_REVIEW_BY_ID_QUERY = "SELECT * FROM review WHERE id = ?";
     private static final String SAVE_REVIEW_QUERY = "INSERT INTO review (user_id, review_msg, star, date) VALUES (?, ?, ?, ?)";
 
-    protected ReviewDaoImpl(Connection connection) {
+    public ReviewDaoImpl(Connection connection) {
         super(connection);
     }
 

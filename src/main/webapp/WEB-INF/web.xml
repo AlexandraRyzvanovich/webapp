@@ -28,13 +28,12 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>training-trainingProgram</servlet-name>
+    <servlet-name>training-program</servlet-name>
     <servlet-class>com.epam.webapp.controller.Controller</servlet-class>
-    <jsp-file>/WEB-INF/views/trainingProgram.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-  <servlet-name>training-trainingProgram</servlet-name>
-  <url-pattern>/training-trainingProgram</url-pattern>
+  <servlet-name>training-program</servlet-name>
+  <url-pattern>/training-program</url-pattern>
 </servlet-mapping>
 
 

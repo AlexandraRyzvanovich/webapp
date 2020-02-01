@@ -79,6 +79,5 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao {
             return Optional.empty();
         }
     }
-
     protected abstract String getTableName();
 }

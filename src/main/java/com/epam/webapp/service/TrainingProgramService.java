@@ -19,7 +19,7 @@ public class TrainingProgramService {
 
     public Optional<TrainingProgram> getUserProgram(Long id) throws ServiceException {
         try (DaoHelper factory = daoHelperFactory.create()) {
-            TrainingProgramDao dao = factory.createProgramDao();
+            TrainingProgramDao dao = factory.createTrainingProgramDao();
             return dao.getUserTrainingProgram(id);
         } catch (ClassNotFoundException | SQLException | DaoException e) {
             throw new ServiceException(e.getCause());

@@ -28,7 +28,6 @@ public class GetTrainingProgramCommand implements Command {
         if(request.getSession(false) != null) {
 
             Long id = Long.parseLong(request.getSession(false).getAttribute("id").toString());
-
             Optional<TrainingProgram> clientProgram = service.getUserProgram(id);
             Long userId = clientProgram.get().getUserId();
             String exerciseDescription = clientProgram.get().getExerciseDescription();
@@ -43,16 +42,10 @@ public class GetTrainingProgramCommand implements Command {
             request.setAttribute("exerciseDescription", exerciseDescription);
             request.setAttribute("dietDescription", dietDescription);
             request.setAttribute("additionalInfo", additionalInfo);
-           /* PrintWriter out = response.getWriter();
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
-            out.print(employeeJsonString);
-            out.flush();*/
             request.setAttribute("dscsc",employeeJsonString);
-            response.sendRedirect("/training-program");
+            //response.sendRedirect("/training-program");
             return CommandResult.redirect("/WEB-INF/views/program.jsp");
         }
         return CommandResult.forward("");
-
     }
 }
