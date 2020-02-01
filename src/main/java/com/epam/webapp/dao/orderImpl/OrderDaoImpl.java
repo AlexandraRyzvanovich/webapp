@@ -6,6 +6,7 @@ import com.epam.webapp.entity.Order;
 import com.epam.webapp.exception.DaoException;
 
 import java.sql.Connection;
+import java.util.List;
 import java.util.Optional;
 
 public class OrderDaoImpl extends AbstractDao<Order> implements OrderDao  {
@@ -36,7 +37,7 @@ public class OrderDaoImpl extends AbstractDao<Order> implements OrderDao  {
     }
 
     @Override
-    public Optional<Order> getByUserId() {
-        return Optional.empty();
+    public List<Order> getByUserId(Long id) {
+        return null;
     }
 }

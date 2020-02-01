@@ -10,6 +10,7 @@ import com.epam.webapp.entity.User;
 import com.epam.webapp.exception.DaoException;
 import com.epam.webapp.exception.ServiceException;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class OrderService {
@@ -21,9 +22,9 @@ public class OrderService {
 
     public List<Order> getOrders(Long id) throws ServiceException {
         try (DaoHelper factory = daoHelperFactory.create()) {
-            OrderDao =  factory.createOrderDao();
-            return dao.get(id);
-        } catch (DaoException | ClassNotFoundException e) {
+            OrderDao dao =  factory.createOrderDao();
+            return dao.getByUserId(id);
+        } catch ( ClassNotFoundException | SQLException e) {
             throw new ServiceException(e.getCause());
         }
     }
