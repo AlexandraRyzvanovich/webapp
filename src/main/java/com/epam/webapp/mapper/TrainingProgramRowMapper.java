@@ -21,12 +21,11 @@ public class TrainingProgramRowMapper implements RowMapper<TrainingProgram> {
         TrainingProgramStatus status = TrainingProgramStatus.valueOf(statusDb);
 
         return new TrainingProgram(userId, exerciseDescription, exerciseList, dietDescription, foodList, additionalInfo, status);
-
-
     }
-        private String[] convertToArray(String value){
+
+    private String[] convertToArray(String value) {
         String[] result = value.split(";");
         return result;
-        }
+    }
 }
 

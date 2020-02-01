@@ -5,16 +5,17 @@ import java.util.Objects;
 
 public class Review implements Identifiable {
     public static final String REVIEW_TABLE_NAME = "review";
+    public static final String ID_COLUMN_NAME = "id";
     public static final String USER_ID_COLUMN_NAME = "user_id";
     public static final String REVIEW_MESSAGE_COLUMN_NAME = "review_msg";
     public static final String STAR_COLUMN_NAME = "star";
     public static final String DATE_COLUMN_NAME = "date";
 
-   private Long id;
-   private Long userId;
-   private String reviewMessage;
-   private Integer star;
-   private Date date;
+    private Long id;
+    private Long userId;
+    private String reviewMessage;
+    private Integer star;
+    private Date date;
 
     public Review(Long id, Long userId, String reviewMessage, Integer star, Date date) {
         this.id = id;

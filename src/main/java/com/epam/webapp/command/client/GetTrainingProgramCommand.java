@@ -3,7 +3,6 @@ package com.epam.webapp.command.client;
 import com.epam.webapp.command.Command;
 import com.epam.webapp.command.CommandResult;
 import com.epam.webapp.entity.TrainingProgram;
-import com.epam.webapp.entity.TrainingProgramStatus;
 import com.epam.webapp.exception.ServiceException;
 import com.epam.webapp.service.TrainingProgramService;
 
@@ -29,21 +28,9 @@ public class GetTrainingProgramCommand implements Command {
 
             Long id = Long.parseLong(request.getSession(false).getAttribute("id").toString());
             Optional<TrainingProgram> clientProgram = service.getUserProgram(id);
-            Long userId = clientProgram.get().getUserId();
-            String exerciseDescription = clientProgram.get().getExerciseDescription();
-            String dietDescription = clientProgram.get().getDietDescription();
-            String additionalInfo = clientProgram.get().getAdditionalInfo();
-            String[] foodList = clientProgram.get().getFoodList();
-            String[] exerciseList = clientProgram.get().getExerciseList();
-            TrainingProgramStatus status = clientProgram.get().getStatus();
             String employeeJsonString = this.gson.toJson(clientProgram);
-
-            request.setAttribute("userId", userId);
-            request.setAttribute("exerciseDescription", exerciseDescription);
-            request.setAttribute("dietDescription", dietDescription);
-            request.setAttribute("additionalInfo", additionalInfo);
             request.setAttribute("dscsc",employeeJsonString);
-            //response.sendRedirect("/training-program");
+
             return CommandResult.redirect("/WEB-INF/views/program.jsp");
         }
         return CommandResult.forward("");

@@ -12,7 +12,7 @@ public class Subscription implements Identifiable {
     public static final String PERIOD_COLUMN_NAME = "valid_to";
     public static final String PRICE_COLUMN_NAME = "amount";
 
-    private long id;
+    private Long id;
     private String name;
     private String description;
     private Integer period;

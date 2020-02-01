@@ -6,9 +6,6 @@ import com.epam.webapp.entity.User;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Класс предназначен для преобразования запрос из бд в сущность.
- */
 public class UserRowMapper implements RowMapper<User> {
 
     @Override

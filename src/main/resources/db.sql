@@ -15,7 +15,7 @@ CREATE TABLE user (
   FOREIGN KEY (trainer_id) REFERENCES user (id),
 );
 
-CREATE TABLE program (
+CREATE TABLE training_program (
   id          INT UNSIGNED NOT NULL AUTO_INCREMENT,
   user_id     INT UNSIGNED NOT NULL,
   exercise_description NVARCHAR(255) NULL,
@@ -23,7 +23,6 @@ CREATE TABLE program (
   diet_description     NVARCHAR(255) NULL,
   food_list NVARCHAR(255), null,
   additional_info NVARCHAR(255) NULL,
-  valid_to    DATE     NULL,
   status       ENUM('NEW', 'IN PROGRESS', 'DONE', 'DECLINED')  NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (user_id) REFERENCES user (id)

@@ -4,14 +4,13 @@ import java.util.Date;
 import java.util.Objects;
 
 public class TrainingProgram implements Identifiable {
-    public static final String PROGRAM_TABLE_NAME = "program";
+    public static final String PROGRAM_TABLE_NAME = "training_program";
     public static final String USER_ID_COLUMN_NAME = "user_id";
     public static final String EXERCISE_DESCRIPTION_COLUMN_NAME = "exercise_description";
     public static final String EXERCISE_LIST_COLUMN_NAME = "exercise_list";
     public static final String DIET_DESCRIPTION_COLUMN_NAME = "diet_description";
     public static final String FOOD_LIST_COLUMN_NAME = "food_list";
     public static final String ADDITIONAL_INFO_COLUMN_NAME = "additional_info";
-    public static final String VALID_TO_COLUMN_NAME = "valid_to";
     public static final String STATUS_COLUMN_NAME = "status";
 
     private Long id;
