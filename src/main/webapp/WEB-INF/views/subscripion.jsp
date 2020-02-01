@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
@@ -8,8 +9,8 @@
         $('#call').click(function () {
             $.ajax({
                 type: "get",
-                url: "subscripion", //this is my servlet
-                data: "command=subscripion",
+                url: "subscriptions", //this is my servlet
+                data: "command=getAvailableSubscriptions",
                 success: function (msg) {
                     $('#output').append(msg);
                 }
@@ -155,28 +156,31 @@
 <mtt:mainlayout>
     <jsp:attribute name="main"></jsp:attribute>
     <jsp:body>
+        <form method="GET" action="subscriptions" />
+        <input type="hidden" name="command" value="getAvailableSubscriptions">
         <h1 style="color: #E1D070;text-align: center;margin-bottom: 3%;">Your Subscription</h1>
         <div class="sub_div">
-
+            <c:forEach var="s" items="${requestScope.SubscriptionsList}">
             <table class="sub_table_left">
                 <tr>
-                    <td colspan="2">Subscription Name</td>
+                    <td colspan="2">"c:out value="${s.name}"</td>
                 </tr>
                 <tr>
-                    <td colspan="2">Subscription Description</td>
+                    <td colspan="2">"c:out value="${s.description}"/></td>
                 </tr>
                 <tr>
                     <td>Period</td>
-                    <td>1 month</td>
+                    <td>${s.period}</td>
                 </tr>
                 <tr>
                     <td style="opacity: 100% !important;" colspan="2"><a href="#" class="a-btn-3">
                         <span class="a-btn-3-text">Buy</span>
-                        <span class="a-btn-3-slide-text">100$</span>
+                        <span class="a-btn-3-slide-text">${s.price}</span>
                         <span class="a-btn-3-icon-right"><span></span></span>
                     </a></td>
                 </tr>
             </table>
+            </c:forEach>
             <table class="sub_table_right">
                 <tr>
                     <td colspan="2">Subscription Name2</td>

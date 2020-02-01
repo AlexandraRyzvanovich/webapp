@@ -48,12 +48,12 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>subscripion</servlet-name>
+    <servlet-name>subscriptions</servlet-name>
     <jsp-file>/WEB-INF/views/subscripion.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>subscripion</servlet-name>
-    <url-pattern>/subscripion</url-pattern>
+    <servlet-name>subscriptions</servlet-name>
+    <url-pattern>/subscriptions</url-pattern>
   </servlet-mapping>
 
   <servlet>

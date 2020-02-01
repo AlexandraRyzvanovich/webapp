@@ -28,10 +28,9 @@ public class GetTrainingProgramCommand implements Command {
 
             Long id = Long.parseLong(request.getSession(false).getAttribute("id").toString());
             Optional<TrainingProgram> clientProgram = service.getUserProgram(id);
-            String employeeJsonString = this.gson.toJson(clientProgram);
-            request.setAttribute("dscsc",employeeJsonString);
+            String clientProgramJsonString = this.gson.toJson(clientProgram);
+            request.setAttribute("trainingProgram", clientProgram);
             response.setHeader("Location", "http://localhost:8181/training-program");
-
 
             return CommandResult.redirect("/WEB-INF/views/training-program.jsp");
         }

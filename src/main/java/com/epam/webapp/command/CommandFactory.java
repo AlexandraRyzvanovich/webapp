@@ -24,7 +24,6 @@ public class CommandFactory {
             case "getAvailableSubscriptions": return new GetAvailableSubscriptionsCommand(new SubscriptionService(new DaoHelperFactory()));
             case "getAllUsersCommand": return new GetAllUsersCommand(new UserService(new DaoHelperFactory()));
             case "getOrders": return new GetOrdersCommand(new OrderService(new DaoHelperFactory()));
-            case "subscripion": return new ShowPageCommand("/WEB-INF/views/subscripion.jsp");
             case "getClients": return new ShowPageCommand("/WEB-INF/views/clients.jsp");
 
             default: throw new IllegalArgumentException("unknown command " + command);

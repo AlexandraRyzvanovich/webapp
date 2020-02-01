@@ -23,7 +23,7 @@ public class GetAvailableSubscriptionsCommand implements Command {
     public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException, SQLException, IOException {
         if (request.getSession(false) != null) {
             List<Subscription> listSubscriptions = service.getAvailableSubscriptions();
-            request.setAttribute("Subscriptions list", listSubscriptions);
+            request.setAttribute("SubscriptionsList", listSubscriptions);
             return CommandResult.forward("/subscriptions-list?command=getAvailableSubscriptions");
         }
         return CommandResult.forward("/WEB-INF/views/common/login.jsp");
