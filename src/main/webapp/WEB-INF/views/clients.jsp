@@ -2,7 +2,7 @@
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
 <mtt:mainlayout>
     <section>
-    <h1>DAROU PISS</h1>
+    <h1></h1>
             <div class="team-row">
                 <figure>
                     <img src="images/sample.png" width="96" height="96" alt="">

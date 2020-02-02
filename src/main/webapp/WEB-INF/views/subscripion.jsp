@@ -2,7 +2,6 @@
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -18,8 +17,8 @@
         });
 
     });
-
 </script>
+
 <style>
     a.a-btn-3 {
         color: #FFFFFF;
