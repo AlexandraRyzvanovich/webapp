@@ -24,7 +24,7 @@ public class GetAvailableSubscriptionsCommand implements Command {
         if (request.getSession(false) != null) {
             List<Subscription> listSubscriptions = service.getAvailableSubscriptions();
             request.setAttribute("SubscriptionsList", listSubscriptions);
-            return CommandResult.forward("/subscriptions-list?command=getAvailableSubscriptions");
+            return CommandResult.forward("/WEB-INF/views/common/subscriptions.jsp");
         }
         return CommandResult.forward("/WEB-INF/views/common/login.jsp");
     }

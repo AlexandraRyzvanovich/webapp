@@ -32,6 +32,9 @@
                 <div class="sidenav">
                     <a href="/clients">Clients</a>
                 </div>
+                <div class="sidenav">
+                    <a href="/diet">Food</a>
+                </div>
             </c:when>
         </c:choose>
     </div>

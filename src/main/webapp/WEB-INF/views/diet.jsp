@@ -5,9 +5,9 @@
     <section>
         <form action="/diet" method="post">
             <div id="myDIV" class="header">
-                <h2>My To Do List</h2>
-                <input type="text" id="myInput" placeholder="Title...">
-                <span onclick="newElement()" class="addBtn">Add</span>
+                <h2 style="color: #E1D070;text-align: center;margin-bottom: 3%;">My Diet</h2>
+                <input style="float: left; width: 300px; height: 36px; border-radius: 6px;" type="text" id="myInput">
+                <span onclick="newElement()" class=" addBtn">Add</span>
             </div>
 
             <ul id="myUL">
@@ -18,7 +18,7 @@
                 <li class="liwithclose">Read a book</li>
                 <li class="liwithclose">Organize office</li>
             </ul>
-            <button type="submit">Approve</button>
+            <a class="bot1" onclick="">Approve</a>
         </form>
     </section>
 </mtt:mainlayout>

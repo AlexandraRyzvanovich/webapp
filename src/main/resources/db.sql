@@ -12,7 +12,7 @@ CREATE TABLE user (
   trainer_id INT UNSIGNED NULL,
   role       ENUM ('CLIENT', 'TRAINER', 'ADMIN'),
   PRIMARY KEY (id),
-  FOREIGN KEY (trainer_id) REFERENCES user (id),
+  FOREIGN KEY (trainer_id) REFERENCES user (id)
 );
 
 CREATE TABLE training_program (
@@ -21,7 +21,7 @@ CREATE TABLE training_program (
   exercise_description NVARCHAR(255) NULL,
   exercise_list NVARCHAR(255) NULL,
   diet_description     NVARCHAR(255) NULL,
-  food_list NVARCHAR(255), null,
+  food_list NVARCHAR(255) null,
   additional_info NVARCHAR(255) NULL,
   status       ENUM('NEW', 'IN PROGRESS', 'DONE', 'DECLINED')  NOT NULL,
   PRIMARY KEY (id),
