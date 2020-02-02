@@ -2,22 +2,7 @@
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <meta charset="UTF-8"/>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#call').click(function () {
-            $.ajax({
-                type: "get",
-                url: "training-program", //this is my servlet
-                data: "command=getTrainingProgram",
-                success: function (msg) {
-                    $('#output').append(msg);
-                }
-            });
-        });
 
-    });
-</script>
 <mtt:mainlayout>
     <jsp:attribute name="main"></jsp:attribute>
     <jsp:body >

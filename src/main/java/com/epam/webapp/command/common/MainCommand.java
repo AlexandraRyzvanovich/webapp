@@ -19,7 +19,7 @@ public class MainCommand implements Command {
         String roleSession = session.getAttribute("role").toString();
         Role role = Role.valueOf(roleSession);
         if(role == Role.CLIENT){
-            return CommandResult.forward("/WEB-INF/views/training-program.jsp");
+            return CommandResult.forward("/training-program?command=getTrainingProgram");
         }
         else if(role == Role.TRAINER){
             return CommandResult.forward("/clients?command=getClients");
