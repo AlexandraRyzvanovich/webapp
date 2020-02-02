@@ -19,7 +19,7 @@ public class GetAllUsersCommand implements Command {
     }
 
     @Override
-    public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException {
+    public CommandResult execute(HttpServletRequest request) throws ServiceException {
         if (request.getSession(false) != null) {
             List<User> users = service.getAllUsers();
             request.setAttribute(USERS_ATTR, users);

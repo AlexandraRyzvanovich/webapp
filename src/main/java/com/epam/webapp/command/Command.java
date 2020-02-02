@@ -8,5 +8,5 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public interface Command {
-    CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException, SQLException, IOException;
+    CommandResult execute(HttpServletRequest request) throws ServiceException, SQLException, IOException;
 }

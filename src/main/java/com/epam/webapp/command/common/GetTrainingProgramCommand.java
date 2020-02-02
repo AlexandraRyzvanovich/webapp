@@ -20,13 +20,13 @@ public class GetTrainingProgramCommand implements Command {
     }
 
     @Override
-    public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException, SQLException, IOException {
+    public CommandResult execute(HttpServletRequest request) throws ServiceException, SQLException, IOException {
         if (request.getSession(false) != null) {
             Long id = Long.parseLong(request.getSession(false).getAttribute("id").toString());
             Optional<TrainingProgram> clientProgram = service.getUserProgram(id);
             request.setAttribute("trainingProgram", clientProgram);
 
-            return CommandResult.redirect("/WEB-INF/views/training-program.jsp");
+            return CommandResult.redirect("/training-program");
         }
         return CommandResult.redirect("/WEB-INF/views/common/login.jsp");
     }

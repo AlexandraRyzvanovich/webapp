@@ -13,7 +13,7 @@ public class ShowPageCommand implements Command {
     }
 
     @Override
-    public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException {
+    public CommandResult execute(HttpServletRequest request) throws ServiceException {
         return CommandResult.forward(page);
     }
 }

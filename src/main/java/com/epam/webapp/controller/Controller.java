@@ -17,7 +17,7 @@ public class Controller extends HttpServlet {
         String page;
         try {
             Command command = CommandFactory.create(request.getParameter("command"));
-            CommandResult commandResult = command.execute(request, response);
+            CommandResult commandResult = command.execute(request);
             page = commandResult.getPage();
 
             if(commandResult.isRedirect()) {
@@ -46,8 +46,7 @@ public class Controller extends HttpServlet {
     }
 
     protected void forward(HttpServletRequest request, HttpServletResponse response, String page) throws  ServletException, IOException {
-        RequestDispatcher dispatcher =
-                getServletContext().getRequestDispatcher(page);
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
         dispatcher.forward(request, response);
     }
 

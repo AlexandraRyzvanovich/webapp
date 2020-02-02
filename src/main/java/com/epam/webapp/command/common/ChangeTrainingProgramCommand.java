@@ -18,7 +18,7 @@ public class ChangeTrainingProgramCommand implements Command {
     }
 
     @Override
-    public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException, SQLException, IOException {
+    public CommandResult execute(HttpServletRequest request) throws ServiceException, SQLException, IOException {
         String foodValue = request.getParameter("food");
         String exerciseValue = request.getParameter("exercises");
         Long id = Long.parseLong(request.getSession(false).getAttribute("id").toString());

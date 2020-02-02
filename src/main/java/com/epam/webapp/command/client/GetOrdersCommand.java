@@ -23,7 +23,7 @@ public class GetOrdersCommand implements Command {
     }
 
     @Override
-    public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException, SQLException, IOException {
+    public CommandResult execute(HttpServletRequest request) throws ServiceException, SQLException, IOException {
         HttpSession session = request.getSession(false);
         if (session != null) {
             String idAttr = session.getAttribute(ID_ATTR).toString();

@@ -20,11 +20,11 @@ public class GetAvailableSubscriptionsCommand implements Command {
     }
 
     @Override
-    public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException, SQLException, IOException {
+    public CommandResult execute(HttpServletRequest request) throws ServiceException, SQLException, IOException {
         if (request.getSession(false) != null) {
             List<Subscription> listSubscriptions = service.getAvailableSubscriptions();
             request.setAttribute("SubscriptionsList", listSubscriptions);
-            return CommandResult.forward("/WEB-INF/views/common/subscriptions.jsp");
+            return CommandResult.forward("/subscriptions");
         }
         return CommandResult.forward("/WEB-INF/views/common/login.jsp");
     }

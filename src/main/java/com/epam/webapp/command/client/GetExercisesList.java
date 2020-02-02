@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 public class GetExercisesList implements Command {
     @Override
-    public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException, SQLException, IOException {
+    public CommandResult execute(HttpServletRequest request) throws ServiceException, SQLException, IOException {
         return null;
     }
 }

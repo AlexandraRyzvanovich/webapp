@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 public class LogoutCommand implements Command {
 
     @Override
-    public CommandResult execute(HttpServletRequest request, HttpServletResponse response) {
+    public CommandResult execute(HttpServletRequest request) {
         HttpSession session = request.getSession();
         session.invalidate();
         return CommandResult.redirect("/WEB-INF/views/login.jsp");

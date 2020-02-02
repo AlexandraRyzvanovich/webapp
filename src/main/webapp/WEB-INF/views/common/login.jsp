@@ -9,10 +9,6 @@
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login">
-
-            <%--<span class="login100-form-title">
-                    Welcome Fatass
-                </span>--%>
             <span class="login100-form-avatar">
                <img src="/resources/images/newLogo3.png"/>
                 </span>

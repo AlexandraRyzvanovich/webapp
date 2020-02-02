@@ -14,12 +14,12 @@ import java.sql.SQLException;
 public class MainCommand implements Command {
 
     @Override
-    public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException, SQLException, IOException {
+    public CommandResult execute(HttpServletRequest request) throws ServiceException, SQLException, IOException {
         HttpSession session = request.getSession(false);
         String roleSession = session.getAttribute("role").toString();
         Role role = Role.valueOf(roleSession);
         if(role == Role.CLIENT){
-            return CommandResult.forward("/training-program?command=getTrainingProgram" );
+            return CommandResult.forward("/WEB-INF/views/training-program.jsp");
         }
         else if(role == Role.TRAINER){
             return CommandResult.forward("/clients?command=getClients");

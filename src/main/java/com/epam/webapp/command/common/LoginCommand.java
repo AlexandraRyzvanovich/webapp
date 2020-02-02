@@ -8,7 +8,6 @@ import com.epam.webapp.service.UserService;
 import com.epam.webapp.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.Optional;
@@ -24,12 +23,12 @@ public class LoginCommand implements Command {
     }
 
     @Override
-    public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException, SQLException {
+    public CommandResult execute(HttpServletRequest request) throws ServiceException, SQLException {
        String login = request.getParameter(LOGIN_PARAM);
        String password = request.getParameter(PASSWORD_PARAM);
        Optional<User> user = userService.login(login, password);
         if(!user.isPresent()) {
-            return CommandResult.redirect("/WEB-INF/views/common/login.jsp");
+            return CommandResult.forward("/WEB-INF/views/common/login.jsp");
         }
         else {
             Long userId = user.get().getUserId();
@@ -43,7 +42,7 @@ public class LoginCommand implements Command {
             request.setAttribute("first_name", firstName);
             request.setAttribute("last_name", lastName);
             String contextPath = request.getContextPath();
-            return CommandResult.forward(contextPath + "/login?command=main");
+            return CommandResult.forward( "/login?command=main");
         }
     }
 }
