@@ -32,7 +32,12 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
 
     @Override
     public void save(Identifiable item) throws DaoException {
-        executeQuery(SAVE, item);
+
+    }
+
+    @Override
+    public void update(String query, Object... objects) throws DaoException {
+
     }
 
     @Override

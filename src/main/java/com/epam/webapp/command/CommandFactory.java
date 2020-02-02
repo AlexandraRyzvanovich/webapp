@@ -3,7 +3,7 @@ package com.epam.webapp.command;
 import com.epam.webapp.command.admin.GetAllUsersCommand;
 import com.epam.webapp.command.client.GetAvailableSubscriptionsCommand;
 import com.epam.webapp.command.client.GetOrdersCommand;
-import com.epam.webapp.command.client.GetTrainingProgramCommand;
+import com.epam.webapp.command.common.GetTrainingProgramCommand;
 import com.epam.webapp.command.common.LoginCommand;
 import com.epam.webapp.command.common.LogoutCommand;
 import com.epam.webapp.command.common.MainCommand;

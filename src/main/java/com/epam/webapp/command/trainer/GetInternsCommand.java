@@ -31,7 +31,8 @@ public class GetInternsCommand implements Command {
             Long id = Long.parseLong(idAttr);
             List<User> interns = service.getInterns(id);
             request.setAttribute(REQUEST_ATTR_INTERNS, interns);
-
+            String contextPath = request.getContextPath();
+            return CommandResult.redirect(contextPath + "/client" + idAttr);
         }
         return null;
     }

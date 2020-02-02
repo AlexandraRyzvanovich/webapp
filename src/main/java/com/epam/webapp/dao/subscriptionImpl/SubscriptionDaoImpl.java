@@ -33,6 +33,11 @@ public class SubscriptionDaoImpl extends AbstractDao<Subscription> implements Su
     }
 
     @Override
+    public void update(String query, Object... objects) throws DaoException {
+
+    }
+
+    @Override
     public void removeById(Long id) throws DaoException {
         executeQuery(DELETE_BY_ID_QUERY, id);
     }

@@ -28,7 +28,7 @@ public class LoginCommand implements Command {
        String login = request.getParameter(LOGIN_PARAM);
        String password = request.getParameter(PASSWORD_PARAM);
        Optional<User> user = userService.login(login, password);
-        if(!user.isPresent()){
+        if(!user.isPresent()) {
             return CommandResult.redirect("/WEB-INF/views/common/login.jsp");
         }
         else {
@@ -42,8 +42,8 @@ public class LoginCommand implements Command {
             session.setAttribute(ROLE_ATTR, role);
             request.setAttribute("first_name", firstName);
             request.setAttribute("last_name", lastName);
-            String conextPath = request.getContextPath();
-            return CommandResult.forward(conextPath + "/login?command=main");
+            String contextPath = request.getContextPath();
+            return CommandResult.forward(contextPath + "/login?command=main");
         }
     }
 }

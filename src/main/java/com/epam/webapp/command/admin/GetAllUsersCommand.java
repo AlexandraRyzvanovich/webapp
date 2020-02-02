@@ -8,8 +8,6 @@ import com.epam.webapp.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 public class GetAllUsersCommand implements Command {
@@ -21,7 +19,7 @@ public class GetAllUsersCommand implements Command {
     }
 
     @Override
-    public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException, SQLException, IOException {
+    public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException {
         if (request.getSession(false) != null) {
             List<User> users = service.getAllUsers();
             request.setAttribute(USERS_ATTR, users);

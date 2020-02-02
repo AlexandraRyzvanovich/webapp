@@ -32,6 +32,11 @@ public class OrderDaoImpl extends AbstractDao<Order> implements OrderDao  {
     }
 
     @Override
+    public void update(String query, Object... objects) throws DaoException {
+
+    }
+
+    @Override
     public void removeById(Long id) throws DaoException {
         throw new DaoException("Impossible to execute operation");
     }

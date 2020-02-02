@@ -7,5 +7,6 @@ import java.util.Optional;
 
 public interface TrainingProgramDao {
     Optional<TrainingProgram> getUserTrainingProgram(Long userId) throws DaoException;
-    void update(String value , Long id);
+    void updateFoodAndExercises(String food, String exercises, Long userId);
+    void updateStatus(String status, Long userId);
 }

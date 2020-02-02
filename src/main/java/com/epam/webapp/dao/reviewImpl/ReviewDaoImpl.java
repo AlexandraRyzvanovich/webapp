@@ -33,6 +33,11 @@ public class ReviewDaoImpl extends AbstractDao<Review> implements ReviewDao {
     }
 
     @Override
+    public void update(String query, Object... objects) throws DaoException {
+
+    }
+
+    @Override
     public void removeById(Long id) throws DaoException {
 
 

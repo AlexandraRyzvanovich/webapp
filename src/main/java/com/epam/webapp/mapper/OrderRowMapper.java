@@ -7,8 +7,9 @@ import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.Map;
 
-public class OrderMapper implements RowMapper<Order> {
+public class OrderRowMapper implements RowMapper<Order> {
 
 
     @Override
@@ -22,4 +23,5 @@ public class OrderMapper implements RowMapper<Order> {
         Long subscriptionId = resultSet.getLong(Order.SUBSCRIPTION_ID_COLUMN_NAME);
         return new Order(id, userId, paidDate, amount, orderStatus, subscriptionId);
     }
+
 }

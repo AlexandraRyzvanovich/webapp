@@ -5,6 +5,8 @@ import com.epam.webapp.entity.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class UserRowMapper implements RowMapper<User> {
 
@@ -19,4 +21,5 @@ public class UserRowMapper implements RowMapper<User> {
         Role role = Role.valueOf(roleDb);
         return new User(id, name, lastName, email, role, bonus);
     }
+
 }

@@ -5,6 +5,7 @@ import com.epam.webapp.entity.Subscription;
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
 
 public class SubscriptionRowMapper implements RowMapper<Subscription> {
     @Override
@@ -16,4 +17,5 @@ public class SubscriptionRowMapper implements RowMapper<Subscription> {
         BigDecimal price = resultSet.getBigDecimal(Subscription.PRICE_COLUMN_NAME);
         return new Subscription(id, subscriptionName, description, period, price);
     }
+
 }

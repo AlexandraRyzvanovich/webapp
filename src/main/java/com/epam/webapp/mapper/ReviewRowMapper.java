@@ -5,6 +5,7 @@ import com.epam.webapp.entity.Review;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.Map;
 
 public class ReviewRowMapper implements RowMapper<Review> {
     @Override
@@ -16,4 +17,5 @@ public class ReviewRowMapper implements RowMapper<Review> {
         Date date = resultSet.getDate(Review.DATE_COLUMN_NAME);
         return new Review(id, userId, reviewMessage, stars, date);
     }
+
 }

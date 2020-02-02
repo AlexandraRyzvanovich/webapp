@@ -14,16 +14,22 @@ import java.io.IOException;
 public class Controller extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        CommandResult page;
-
+        String page;
         try {
-            Command cmdHelper = CommandFactory.create(request.getParameter("command"));
-            page = cmdHelper.execute(request, response);
+            Command command = CommandFactory.create(request.getParameter("command"));
+            CommandResult commandResult = command.execute(request, response);
+            page = commandResult.getPage();
+
+            if(commandResult.isRedirect()) {
+                redirect(response, page);
+            } else {
+                forward(request, response, page);
+            }
         }
         catch (Exception e) {
-            page = CommandResult.redirect( "/error.jsp");
+            page = "/error.jsp";
+            redirect(response, page);
         }
-        dispatch(request, response, page);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
@@ -39,10 +45,14 @@ public class Controller extends HttpServlet {
                 " Servlet Front Strategy Example";
     }
 
-    protected void dispatch(HttpServletRequest request, HttpServletResponse response, CommandResult page) throws  ServletException, IOException {
+    protected void forward(HttpServletRequest request, HttpServletResponse response, String page) throws  ServletException, IOException {
         RequestDispatcher dispatcher =
-                getServletContext().getRequestDispatcher(page.getPage());
+                getServletContext().getRequestDispatcher(page);
         dispatcher.forward(request, response);
+    }
+
+    protected void redirect(HttpServletResponse response, String page) throws ServletException, IOException {
+        response.sendRedirect(page);
     }
 }
 

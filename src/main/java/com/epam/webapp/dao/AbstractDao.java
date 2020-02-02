@@ -26,14 +26,6 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao {
         return executeQuery("select*from" + table);
     }
 
-    /**
-     * Создаёт подготовленный запрос в БД.
-     *
-     * @param query запрос
-     * @param params параметры запроса
-     *
-     * @return подготовленный запрос
-     */
     private PreparedStatement createStatement(String query, Object... params) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(query);
         if(params.length != 0){
@@ -44,14 +36,6 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao {
         return statement;
     }
 
-    /**
-     * Отправляет запрос в БД.
-     *
-     * @param query запрос
-     * @param params параметры запроса
-     *
-     * @return список записей из БД
-     */
     protected List<T> executeQuery(String query, Object... params) throws DaoException {
         try (PreparedStatement statement =  createStatement(query, params);
              ResultSet resultSet = statement.executeQuery()) {
@@ -79,5 +63,15 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao {
             return Optional.empty();
         }
     }
+
+    protected void executeUpdate(String query, Object... params) throws DaoException {
+        try (PreparedStatement statement =  createStatement(query, params)) {
+            statement.executeUpdate();
+        }
+        catch (SQLException ex) {
+            throw new DaoException("Exception occurred while executing SQL query", ex.getCause());
+        }
+    }
+
     protected abstract String getTableName();
 }

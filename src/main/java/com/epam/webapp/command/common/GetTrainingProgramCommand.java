@@ -1,4 +1,4 @@
-package com.epam.webapp.command.client;
+package com.epam.webapp.command.common;
 
 import com.epam.webapp.command.Command;
 import com.epam.webapp.command.CommandResult;
@@ -11,29 +11,23 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Optional;
-import com.google.gson.Gson;
 
 public class GetTrainingProgramCommand implements Command {
-   private TrainingProgramService service;
-   private Gson gson;
+    private TrainingProgramService service;
 
     public GetTrainingProgramCommand(TrainingProgramService service) {
         this.service = service;
-        gson = new Gson();
     }
 
     @Override
     public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException, SQLException, IOException {
-        if(request.getSession(false) != null) {
-
+        if (request.getSession(false) != null) {
             Long id = Long.parseLong(request.getSession(false).getAttribute("id").toString());
             Optional<TrainingProgram> clientProgram = service.getUserProgram(id);
-            String clientProgramJsonString = this.gson.toJson(clientProgram);
             request.setAttribute("trainingProgram", clientProgram);
-            response.setHeader("Location", "http://localhost:8181/training-program");
 
             return CommandResult.redirect("/WEB-INF/views/training-program.jsp");
         }
-        return CommandResult.forward("");
+        return CommandResult.redirect("/WEB-INF/views/common/login.jsp");
     }
 }

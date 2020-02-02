@@ -16,14 +16,14 @@ public class TrainingProgram implements Identifiable {
     private Long id;
     private Long userId;
     private String exerciseDescription;
-    private String[] exerciseList;
+    private String exerciseList;
     private String dietDescription;
-    private String[] foodList;
+    private String foodList;
     private String additionalInfo;
     private Date validTo;
     TrainingProgramStatus status;
 
-    public TrainingProgram(Long id, Long userId, String exerciseDescription, String[]  exerciseList, String dietDescription, String[]  foodList, String additionalInfo, Date validTo, TrainingProgramStatus status) {
+    public TrainingProgram(Long id, Long userId, String exerciseDescription, String  exerciseList, String dietDescription, String  foodList, String additionalInfo, Date validTo, TrainingProgramStatus status) {
         this.id = id;
         this.userId = userId;
         this.exerciseDescription = exerciseDescription;
@@ -34,7 +34,7 @@ public class TrainingProgram implements Identifiable {
         this.validTo = validTo;
         this.status = status;
     }
-    public TrainingProgram(Long userId, String exerciseDescription, String[]  exerciseList, String dietDescription, String[]  foodList, String additionalInfo, TrainingProgramStatus status) {
+    public TrainingProgram(Long userId, String exerciseDescription, String  exerciseList, String dietDescription, String  foodList, String additionalInfo, TrainingProgramStatus status) {
         this.userId = userId;
         this.exerciseDescription = exerciseDescription;
         this.exerciseList = exerciseList;
@@ -42,6 +42,11 @@ public class TrainingProgram implements Identifiable {
         this.foodList = foodList;
         this.additionalInfo = additionalInfo;
         this.status = status;
+    }
+
+    public TrainingProgram(String foodList, String exercisesList) {
+        this.foodList = foodList;
+        this.exerciseList = exercisesList;
     }
 
     public Long getId() {
@@ -68,11 +73,11 @@ public class TrainingProgram implements Identifiable {
         this.exerciseDescription = exerciseDescription;
     }
 
-    public String[]  getExerciseList() {
+    public String  getExerciseList() {
         return exerciseList;
     }
 
-    public void setExerciseList(String[]  exerciseList) {
+    public void setExerciseList(String  exerciseList) {
         this.exerciseList = exerciseList;
     }
 
@@ -84,11 +89,11 @@ public class TrainingProgram implements Identifiable {
         this.dietDescription = dietDescription;
     }
 
-    public String[]  getFoodList() {
+    public String  getFoodList() {
         return foodList;
     }
 
-    public void setFoodList(String[]  foodList) {
+    public void setFoodList(String  foodList) {
         this.foodList = foodList;
     }
 
