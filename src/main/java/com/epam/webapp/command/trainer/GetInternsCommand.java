@@ -32,8 +32,8 @@ public class GetInternsCommand implements Command {
             List<User> interns = service.getInterns(id);
             request.setAttribute(REQUEST_ATTR_INTERNS, interns);
             String contextPath = request.getContextPath();
-            return CommandResult.forward("/WEB-INF/views/clients.jsp");
+            return CommandResult.forward(contextPath + "/clients");
         }
-        return null;
+        return CommandResult.forward("/error.jsp");
     }
 }
