@@ -155,7 +155,7 @@
 <mtt:mainlayout>
     <jsp:attribute name="main"></jsp:attribute>
     <jsp:body>
-        <form method="GET" action="subscriptions" />
+        <form method="GET" action="subscriptions" >
         <input type="hidden" name="command" value="getAvailableSubscriptions">
         <h1 style="color: #E1D070;text-align: center;margin-bottom: 3%;">Your Subscription</h1>
         <div class="sub_div">
@@ -240,5 +240,7 @@
                 </tr>
             </table>
         </div>
+        </form>
+
     </jsp:body>
 </mtt:mainlayout>

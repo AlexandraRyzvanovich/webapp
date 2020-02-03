@@ -26,7 +26,7 @@ public class GetTrainingProgramCommand implements Command {
             Optional<TrainingProgram> clientProgram = service.getUserProgram(id);
             request.setAttribute("trainingProgram", clientProgram);
 
-            return CommandResult.redirect("/training-program");
+            return CommandResult.forward("/WEB-INF/views/training-program.jsp");
         }
         return CommandResult.redirect("/WEB-INF/views/common/login.jsp");
     }

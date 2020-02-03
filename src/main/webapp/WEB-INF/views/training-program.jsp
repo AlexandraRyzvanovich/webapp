@@ -2,9 +2,11 @@
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <mtt:mainlayout>
     <jsp:attribute name="main"></jsp:attribute>
     <jsp:body >
+
         <form method="GET" action="training-program" />
         <input type="hidden" name="command" value="getTrainingProgram">
 
