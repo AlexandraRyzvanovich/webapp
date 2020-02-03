@@ -75,11 +75,11 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>clients</servlet-name>
-    <jsp-file>/WEB-INF/views/clients.jsp</jsp-file>
+    <servlet-name>interns</servlet-name>
+    <servlet-class>com.epam.webapp.controller.Controller</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>clients</servlet-name>
+    <servlet-name>interns</servlet-name>
     <url-pattern>/clients</url-pattern>
   </servlet-mapping>
 

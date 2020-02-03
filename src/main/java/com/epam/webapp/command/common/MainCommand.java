@@ -22,7 +22,7 @@ public class MainCommand implements Command {
             return CommandResult.forward("/training-program?command=getTrainingProgram");
         }
         else if(role == Role.TRAINER){
-            return CommandResult.forward("/clients?command=getClients");
+            return CommandResult.forward("/clients?command=getInterns");
         }else {
             return CommandResult.forward("");
         }
