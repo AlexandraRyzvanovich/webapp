@@ -235,12 +235,13 @@ section > figure + figure {
 }
 .container1 {
     border: 2px solid #dedede;
-    background-color: #f1f1f1;
+    background-color: #383D50;
     border-radius: 5px;
     padding: 10px;
     margin: 35px 0;
     height: 120px;
     position: relative;
+    opacity: 65%;
 }
 
 /* Darker chat container */
@@ -260,7 +261,7 @@ section > figure + figure {
 /* Style images */
 .container1 img {
     float: left;
-    max-width: 60px;
+    max-width: 90px;
     width: 100%;
     margin-right: 20px;
     border-radius: 50%;
