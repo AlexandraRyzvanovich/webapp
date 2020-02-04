@@ -1,10 +1,11 @@
-package com.epam.webapp.dao.userImpl;
+package com.epam.webapp.dao.Impl;
 
 import java.sql.Connection;
 import java.util.List;
 import java.util.Optional;
 
 import com.epam.webapp.dao.AbstractDao;
+import com.epam.webapp.dao.UserDao;
 import com.epam.webapp.entity.Identifiable;
 import com.epam.webapp.entity.User;
 import com.epam.webapp.exception.DaoException;
@@ -31,7 +32,7 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     }
 
     @Override
-    public void save(Identifiable item) throws DaoException {
+    public void save(User item) throws DaoException {
 
     }
 

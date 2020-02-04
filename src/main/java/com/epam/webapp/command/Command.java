@@ -1,5 +1,6 @@
 package com.epam.webapp.command;
 
+import com.epam.webapp.exception.CommandException;
 import com.epam.webapp.exception.ServiceException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,5 +9,5 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public interface Command {
-    CommandResult execute(HttpServletRequest request) throws ServiceException, SQLException, IOException;
+    CommandResult execute(HttpServletRequest request) throws ServiceException, SQLException, IOException, CommandException;
 }

@@ -1,4 +1,4 @@
-package com.epam.webapp.dao.trainingProgramImpl;
+package com.epam.webapp.dao;
 
 import com.epam.webapp.entity.TrainingProgram;
 import com.epam.webapp.exception.DaoException;

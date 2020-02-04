@@ -1,7 +1,9 @@
 package com.epam.webapp.command.common;
 
+import com.epam.webapp.command.Attribute;
 import com.epam.webapp.command.Command;
 import com.epam.webapp.command.CommandResult;
+import com.epam.webapp.command.Page;
 import com.epam.webapp.entity.Role;
 import com.epam.webapp.exception.ServiceException;
 import com.epam.webapp.service.UserService;
@@ -13,9 +15,6 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 public class LoginCommand implements Command {
-    private static final String LOGIN_PARAM = "login";
-    private static final String PASSWORD_PARAM = "password";
-    private static final String ROLE_ATTR = "role";
     UserService userService;
 
     public LoginCommand(UserService userService) {
@@ -24,11 +23,11 @@ public class LoginCommand implements Command {
 
     @Override
     public CommandResult execute(HttpServletRequest request) throws ServiceException, SQLException {
-       String login = request.getParameter(LOGIN_PARAM);
-       String password = request.getParameter(PASSWORD_PARAM);
+       String login = request.getParameter(Attribute.LOGIN_ATTRIBUTE);
+       String password = request.getParameter(Attribute.PASSWORD_ATTRIBUTE);
        Optional<User> user = userService.login(login, password);
         if(!user.isPresent()) {
-            return CommandResult.forward("/WEB-INF/views/common/login.jsp");
+            return CommandResult.forward(Page.LOGIN_JSP_PAGE);
         }
         else {
             Long userId = user.get().getUserId();
@@ -36,13 +35,11 @@ public class LoginCommand implements Command {
             String firstName = user.get().getFirstName();
             String lastName = user.get().getLastName();
             HttpSession session = request.getSession();
-            session.setAttribute("signed_in", true);
-            session.setAttribute("id", userId);
-            session.setAttribute(ROLE_ATTR, role);
-            request.setAttribute("first_name", firstName);
-            request.setAttribute("last_name", lastName);
-            String contextPath = request.getContextPath();
-            return CommandResult.forward( "/login?command=main");
+            session.setAttribute(Attribute.ID_ATTRIBUTE, userId);
+            session.setAttribute(Attribute.ROLE_ATTRIBUTE, role);
+            session.setAttribute(Attribute.FIRST_NAME_ATTRIBUTE, firstName);
+            session.setAttribute(Attribute.LAST_NAME_ATTRIBUTE, lastName);
+            return CommandResult.forward( Page.LOGIN_MAIN_COMMAND);
         }
     }
 }

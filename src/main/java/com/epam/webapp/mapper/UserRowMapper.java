@@ -5,6 +5,7 @@ import com.epam.webapp.entity.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
 
 public class UserRowMapper implements RowMapper<User> {
 
@@ -18,6 +19,11 @@ public class UserRowMapper implements RowMapper<User> {
         int bonus = resultSet.getInt(User.BONUS_COLUMN_NAME);
         Role role = Role.valueOf(roleDb);
         return new User(id, name, lastName, email, role, bonus);
+    }
+
+    @Override
+    public Map<String, Object> getValues(User item) throws SQLException {
+        return null;
     }
 
 }

@@ -1,13 +1,14 @@
 package com.epam.webapp.command.common;
 
+import com.epam.webapp.command.Attribute;
 import com.epam.webapp.command.Command;
 import com.epam.webapp.command.CommandResult;
+import com.epam.webapp.command.Page;
 import com.epam.webapp.entity.TrainingProgram;
 import com.epam.webapp.exception.ServiceException;
 import com.epam.webapp.service.TrainingProgramService;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Optional;
@@ -20,14 +21,14 @@ public class GetTrainingProgramCommand implements Command {
     }
 
     @Override
-    public CommandResult execute(HttpServletRequest request) throws ServiceException, SQLException, IOException {
+    public CommandResult execute(HttpServletRequest request) throws ServiceException {
         if (request.getSession(false) != null) {
-            Long id = Long.parseLong(request.getSession(false).getAttribute("id").toString());
-            Optional<TrainingProgram> clientProgram = service.getUserProgram(id);
-            request.setAttribute("trainingProgram", clientProgram);
+            Long id = Long.parseLong(request.getSession(false).getAttribute(Attribute.TRAINING_PROGRAM_ATTRIBUTE).toString());
+            Optional<TrainingProgram> clientTrainingProgram = service.getUserProgram(id);
+            request.setAttribute(Attribute.TRAINING_PROGRAM_ATTRIBUTE, clientTrainingProgram);
 
-            return CommandResult.forward("/WEB-INF/views/training-program.jsp");
+            return CommandResult.forward(Page.TRAINING_PROGRAM_JSP_PAGE);
         }
-        return CommandResult.redirect("/WEB-INF/views/common/login.jsp");
+        return CommandResult.redirect(Page.LOGIN_JSP_PAGE);
     }
 }

@@ -1,17 +1,17 @@
 package com.epam.webapp.command.admin;
 
+import com.epam.webapp.command.Attribute;
 import com.epam.webapp.command.Command;
 import com.epam.webapp.command.CommandResult;
+import com.epam.webapp.command.Page;
 import com.epam.webapp.entity.User;
 import com.epam.webapp.exception.ServiceException;
 import com.epam.webapp.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 public class GetAllUsersCommand implements Command {
-    private static final String USERS_ATTR = "user";
     UserService service;
 
     public GetAllUsersCommand(UserService service) {
@@ -22,9 +22,9 @@ public class GetAllUsersCommand implements Command {
     public CommandResult execute(HttpServletRequest request) throws ServiceException {
         if (request.getSession(false) != null) {
             List<User> users = service.getAllUsers();
-            request.setAttribute(USERS_ATTR, users);
+            request.setAttribute(Attribute.USERS_ATTRIBUTE, users);
             return CommandResult.redirect("/clients");
         }
-        return CommandResult.forward("/WEB-INF/views/common/login.jsp");
+        return CommandResult.forward(Page.LOGIN_JSP_PAGE);
     }
 }

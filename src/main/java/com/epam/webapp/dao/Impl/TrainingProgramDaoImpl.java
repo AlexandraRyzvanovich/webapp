@@ -1,6 +1,7 @@
-package com.epam.webapp.dao.trainingProgramImpl;
+package com.epam.webapp.dao.Impl;
 
 import com.epam.webapp.dao.AbstractDao;
+import com.epam.webapp.dao.TrainingProgramDao;
 import com.epam.webapp.entity.Identifiable;
 import com.epam.webapp.entity.TrainingProgram;
 import com.epam.webapp.exception.DaoException;
@@ -29,7 +30,7 @@ public class TrainingProgramDaoImpl extends AbstractDao<TrainingProgram> impleme
     }
 
     @Override
-    public void save(Identifiable item) throws DaoException {
+    public void save(TrainingProgram item) throws DaoException {
         executeQuery(SAVE_QUERY, item);
 
     }

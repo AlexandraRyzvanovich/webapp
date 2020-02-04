@@ -1,11 +1,14 @@
-package com.epam.webapp.dao.reviewImpl;
+package com.epam.webapp.dao.Impl;
 
 import com.epam.webapp.dao.AbstractDao;
+import com.epam.webapp.dao.ReviewDao;
 import com.epam.webapp.entity.Identifiable;
 import com.epam.webapp.entity.Review;
 import com.epam.webapp.exception.DaoException;
 
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Date;
 import java.util.Optional;
 
 public class ReviewDaoImpl extends AbstractDao<Review> implements ReviewDao {
@@ -27,9 +30,12 @@ public class ReviewDaoImpl extends AbstractDao<Review> implements ReviewDao {
     }
 
     @Override
-    public void save(Identifiable item) throws DaoException {
-       executeQuery(SAVE_REVIEW_QUERY, item);
-
+    public void save(Review review) throws DaoException {
+        Long userId = review.getUserId();
+        String reviewMsg = review.getReviewMessage();
+        Integer star = review.getStar();
+        Date date = review.getDate();
+        executeUpdate(SAVE_REVIEW_QUERY, userId, reviewMsg, star, date);
     }
 
     @Override

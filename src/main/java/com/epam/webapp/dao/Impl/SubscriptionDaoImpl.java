@@ -1,6 +1,7 @@
-package com.epam.webapp.dao.subscriptionImpl;
+package com.epam.webapp.dao.Impl;
 
 import com.epam.webapp.dao.AbstractDao;
+import com.epam.webapp.dao.SubscriptionDao;
 import com.epam.webapp.entity.Identifiable;
 import com.epam.webapp.entity.Subscription;
 import com.epam.webapp.exception.DaoException;
@@ -28,7 +29,7 @@ public class SubscriptionDaoImpl extends AbstractDao<Subscription> implements Su
     }
 
     @Override
-    public void save(Identifiable item) throws DaoException {
+    public void save(Subscription item) throws DaoException {
         executeQuery(ADD_NEW_SUBSCRIPTION_QUERY, item);
     }
 

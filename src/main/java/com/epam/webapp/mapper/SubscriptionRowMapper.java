@@ -18,4 +18,9 @@ public class SubscriptionRowMapper implements RowMapper<Subscription> {
         return new Subscription(id, subscriptionName, description, period, price);
     }
 
+    @Override
+    public Map<String, Object> getValues(Subscription item) throws SQLException {
+        return null;
+    }
+
 }

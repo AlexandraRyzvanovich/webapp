@@ -1,5 +1,7 @@
 package com.epam.webapp.mapper;
 
+import com.epam.webapp.dto.InternCard;
+import com.epam.webapp.entity.Identifiable;
 import com.epam.webapp.entity.Order;
 import com.epam.webapp.entity.OrderStatus;
 
@@ -22,6 +24,11 @@ public class OrderRowMapper implements RowMapper<Order> {
         OrderStatus orderStatus = OrderStatus.valueOf(statusValue);
         Long subscriptionId = resultSet.getLong(Order.SUBSCRIPTION_ID_COLUMN_NAME);
         return new Order(id, userId, paidDate, amount, orderStatus, subscriptionId);
+    }
+
+    @Override
+    public Map<String, Object> getValues(Order item) throws SQLException {
+        return null;
     }
 
 }

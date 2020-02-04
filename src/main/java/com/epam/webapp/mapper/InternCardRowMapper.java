@@ -1,12 +1,14 @@
 package com.epam.webapp.mapper;
 
 import com.epam.webapp.dto.InternCard;
+import com.epam.webapp.entity.Identifiable;
 import com.epam.webapp.entity.TrainingProgram;
 import com.epam.webapp.entity.TrainingProgramStatus;
 import com.epam.webapp.entity.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
 
 public class InternCardRowMapper implements RowMapper<InternCard> {
 
@@ -25,4 +27,11 @@ public class InternCardRowMapper implements RowMapper<InternCard> {
 
         return new InternCard(userId, firstName, lastName, exerciseDescription, dietDescription, additionalInfo, foodList, exerciseList, status);
     }
+
+    @Override
+    public Map<String, Object> getValues(InternCard item) throws SQLException {
+        return null;
+    }
+
+
 }

@@ -1,4 +1,4 @@
-package com.epam.webapp.dao.orderImpl;
+package com.epam.webapp.dao;
 
 import com.epam.webapp.entity.Order;
 

@@ -21,5 +21,10 @@ public class TrainingProgramRowMapper implements RowMapper<TrainingProgram> {
 
         return new TrainingProgram(userId, exerciseDescription, exerciseList, dietDescription, foodList, additionalInfo, status);
     }
+
+    @Override
+    public Map<String, Object> getValues(TrainingProgram item) throws SQLException {
+        return null;
+    }
 }
 

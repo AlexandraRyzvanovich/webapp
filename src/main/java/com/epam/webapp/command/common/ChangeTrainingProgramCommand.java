@@ -1,12 +1,13 @@
 package com.epam.webapp.command.common;
 
+import com.epam.webapp.command.Attribute;
 import com.epam.webapp.command.Command;
 import com.epam.webapp.command.CommandResult;
 import com.epam.webapp.exception.ServiceException;
 import com.epam.webapp.service.TrainingProgramService;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -19,11 +20,13 @@ public class ChangeTrainingProgramCommand implements Command {
 
     @Override
     public CommandResult execute(HttpServletRequest request) throws ServiceException, SQLException, IOException {
-        String foodValue = request.getParameter("food");
-        String exerciseValue = request.getParameter("exercises");
-        Long id = Long.parseLong(request.getSession(false).getAttribute("id").toString());
+        HttpSession session = request.getSession(false);
+        String foodValue = request.getParameter(Attribute.FOOD_ATTRIBUTE);
+        String exerciseValue = request.getParameter(Attribute.EXERCISES_ATTRIBUTE);
+        String idAttr = session.getAttribute(Attribute.ID_ATTRIBUTE).toString();
+        Long id = Long.parseLong(idAttr);
         service.changeTrainingProgram(foodValue, exerciseValue, id);
 
-        return null;
+        return CommandResult.forward("");
     }
 }

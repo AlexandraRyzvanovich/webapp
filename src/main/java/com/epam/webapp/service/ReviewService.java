@@ -1,5 +1,37 @@
 package com.epam.webapp.service;
 
-public class ReviewService {
+import com.epam.webapp.dao.AbstractDao;
+import com.epam.webapp.dao.DaoHelper;
+import com.epam.webapp.dao.DaoHelperFactory;
+import com.epam.webapp.entity.Review;
+import com.epam.webapp.exception.DaoException;
+import com.epam.webapp.exception.ServiceException;
 
+import java.sql.SQLException;
+import java.util.List;
+
+public class ReviewService {
+    private DaoHelperFactory daoHelperFactory;
+
+    public ReviewService(DaoHelperFactory daoHelperFactory) {
+        this.daoHelperFactory = daoHelperFactory;
+    }
+
+    public List<Review> getAllReview() throws ServiceException {
+        try (DaoHelper factory = daoHelperFactory.create()) {
+            AbstractDao<Review> dao = (AbstractDao<Review>) factory.createReviewDao();
+            return dao.getAll();
+        } catch (ClassNotFoundException | SQLException | DaoException e) {
+            throw new ServiceException(e.getCause());
+        }
+    }
+
+    public void addReview(Review review) throws ServiceException {
+        try (DaoHelper factory = daoHelperFactory.create()) {
+            AbstractDao<Review> dao = (AbstractDao<Review>) factory.createReviewDao();
+            dao.save(review);
+        } catch (ClassNotFoundException | SQLException | DaoException e) {
+            throw new ServiceException(e.getCause());
+        }
+    }
 }

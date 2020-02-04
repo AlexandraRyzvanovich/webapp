@@ -2,16 +2,11 @@ package com.epam.webapp.dao;
 
 import com.epam.webapp.connection.ConnectionPool;
 import com.epam.webapp.connection.ProxyConnection;
-import com.epam.webapp.dao.orderImpl.OrderDao;
-import com.epam.webapp.dao.orderImpl.OrderDaoImpl;
-import com.epam.webapp.dao.reviewImpl.ReviewDao;
-import com.epam.webapp.dao.reviewImpl.ReviewDaoImpl;
-import com.epam.webapp.dao.trainingProgramImpl.TrainingProgramDao;
-import com.epam.webapp.dao.trainingProgramImpl.TrainingProgramDaoImpl;
-import com.epam.webapp.dao.subscriptionImpl.SubscriptionDao;
-import com.epam.webapp.dao.subscriptionImpl.SubscriptionDaoImpl;
-import com.epam.webapp.dao.userImpl.UserDao;
-import com.epam.webapp.dao.userImpl.UserDaoImpl;
+import com.epam.webapp.dao.Impl.OrderDaoImpl;
+import com.epam.webapp.dao.Impl.ReviewDaoImpl;
+import com.epam.webapp.dao.Impl.TrainingProgramDaoImpl;
+import com.epam.webapp.dao.Impl.SubscriptionDaoImpl;
+import com.epam.webapp.dao.Impl.UserDaoImpl;
 import com.epam.webapp.exception.DaoException;
 
 import java.sql.SQLException;
