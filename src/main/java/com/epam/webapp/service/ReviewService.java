@@ -8,6 +8,7 @@ import com.epam.webapp.exception.DaoException;
 import com.epam.webapp.exception.ServiceException;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 public class ReviewService {
@@ -26,7 +27,9 @@ public class ReviewService {
         }
     }
 
-    public void addReview(Review review) throws ServiceException {
+    public void addReview(Long userId, String reviewMsg, Integer star) throws ServiceException {
+        Date date = new Date();
+        Review review = new Review(userId, reviewMsg, star, date);
         try (DaoHelper factory = daoHelperFactory.create()) {
             AbstractDao<Review> dao = (AbstractDao<Review>) factory.createReviewDao();
             dao.save(review);

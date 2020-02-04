@@ -25,6 +25,13 @@ public class Review implements Identifiable {
         this.date = date;
     }
 
+    public Review(Long userId, String reviewMsg, Integer star, Date date) {
+        this.userId = userId;
+        this.reviewMessage = reviewMsg;
+        this.star = star;
+        this.date = date;
+    }
+
     public Long getId() {
         return id;
     }

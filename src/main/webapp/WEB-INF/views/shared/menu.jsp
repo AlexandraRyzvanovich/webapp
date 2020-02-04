@@ -25,7 +25,7 @@
                         <a href="/diet">Food</a>
                         <a href="/exercises">Excesses</a>
                     </div>
-                    <a href="/reviews">Reviews</a>
+                    <a href="/reviews?command=getReviews">Reviews</a>
                 </div>
             </c:if>
             <c:if test="${s == 'ADMIN'}">

@@ -23,7 +23,7 @@ public class GetTrainingProgramCommand implements Command {
     @Override
     public CommandResult execute(HttpServletRequest request) throws ServiceException {
         if (request.getSession(false) != null) {
-            Long id = Long.parseLong(request.getSession(false).getAttribute(Attribute.TRAINING_PROGRAM_ATTRIBUTE).toString());
+            Long id = Long.parseLong(request.getSession(false).getAttribute(Attribute.ID_ATTRIBUTE).toString());
             Optional<TrainingProgram> clientTrainingProgram = service.getUserProgram(id);
             request.setAttribute(Attribute.TRAINING_PROGRAM_ATTRIBUTE, clientTrainingProgram);
 

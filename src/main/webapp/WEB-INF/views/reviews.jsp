@@ -56,24 +56,25 @@
                 <span class="fa fa-star"></span>
             </div>
         </div>
-        <form action="post">
+        <form method="POST" action="reviews" >
+        <input type="hidden" name="command" value="addNewReview" />
             <h2 style="color: #E1D070;text-align: center;margin-top: 3%;margin-bottom: 2%;">Add Your comment</h2>
             <label>
-                <textarea name="comments" style="width: 400px;height: 200px;margin-left: 22%;border-radius: 6px; background: #383D50; color: #E1D070; opacity: 70%;"></textarea>
+                <textarea type="text" name="review" style="width: 400px;height: 200px;margin-left: 22%;border-radius: 6px; background: #383D50; color: #E1D070; opacity: 70%;"></textarea>
             </label>
-            <a class="bot1" onclick="addReview()">Add review</a>
+          <a class="bot1" onclick="addReview()">Add review</a>
         </form>
     </section>
 </mtt:mainlayout>
 <script>
     function addReview() {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
+       /* xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 window.location.replace("http://localhost:8181/");
             }
-        };
-        xhttp.open("post", "logout?command=logout", true);//change path
+        };*/
+        xhttp.open("post", "/reviews?command=addNewReview", true);
         xhttp.send();
     }
 </script>

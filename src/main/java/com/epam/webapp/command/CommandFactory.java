@@ -1,6 +1,7 @@
 package com.epam.webapp.command;
 
 import com.epam.webapp.command.admin.GetAllUsersCommand;
+import com.epam.webapp.command.client.AddReviewCommand;
 import com.epam.webapp.command.client.GetAvailableSubscriptionsCommand;
 import com.epam.webapp.command.client.GetOrdersCommand;
 import com.epam.webapp.command.common.*;
@@ -20,9 +21,11 @@ public class CommandFactory {
             case "getAllUsersCommand": return new GetAllUsersCommand(new UserService(new DaoHelperFactory()));
             case "getReviews": return new GetReviewsCommand(new ReviewService(new DaoHelperFactory()));
             case "getOrders": return new GetOrdersCommand(new OrderService(new DaoHelperFactory()));
+            case "addNewReview": return new AddReviewCommand(new ReviewService(new DaoHelperFactory()));
 
             case "getClients": return new ShowPageCommand("/WEB-INF/views/clients.jsp");
             case "getInterns": return new GetInternsCommand(new UserService(new DaoHelperFactory()));
+
 
             default: throw new IllegalArgumentException("unknown command " + command);
         }

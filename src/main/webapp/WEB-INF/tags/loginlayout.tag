@@ -13,6 +13,5 @@
 
     <title>${title}</title>
 </head>
-<body style="background-image: url("")">
 </body>
 </html>
