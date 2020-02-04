@@ -7,14 +7,14 @@
 <aside style="margin-top: 2%;">
     <div class="category-wrap">
         <h2 style="color: #E1D070;text-align: center;margin-bottom: 3%;">Menu</h2>
-        <c:choose>
-            <c:when test="${sessionScope.role == 'TRAINER'}">
+        <c:set var="s" value="${sessionScope.role}" scope="session"></c:set>
+            <c:if test="${'TRAINER'}">
                 <div class="sidenav">
                     <a href="/clients">Clients</a>
                     <a href="/reviews">Reviews</a>
                 </div>
-            </c:when>
-            <c:when test="${sessionScope.role == CLIENT }">
+            </c:if>
+            <c:if test="${s == 'CLIENT'}">
                 <div class="sidenav">
                     <a href="/subscripion">Subscription</a>
                     <button class="dropdown-btn">Training program
@@ -27,16 +27,15 @@
                     </div>
                     <a href="/reviews">Reviews</a>
                 </div>
-            </c:when>
-            <c:when test="${paramValues.role eq ADMIN}">
+            </c:if>
+            <c:if test="${s == 'ADMIN'}">
                 <div class="sidenav">
                     <a href="/clients">Clients</a>
                 </div>
                 <div class="sidenav">
                     <a href="/diet">Food</a>
                 </div>
-            </c:when>
-        </c:choose>
+            </c:if>
     </div>
 </div>
 </aside>
