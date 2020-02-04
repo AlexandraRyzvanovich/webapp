@@ -22,8 +22,8 @@
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-container">
-                        <a href="/diet">Food</a>
-                        <a href="/exercises">Excesses</a>
+                        <a href="/diet?command=getFoodList">Food</a>
+                        <a href="/exercises?command=getExerciseList">Excesses</a>
                     </div>
                     <a href="/reviews?command=getReviews">Reviews</a>
                 </div>

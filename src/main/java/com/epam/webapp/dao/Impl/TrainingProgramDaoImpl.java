@@ -14,6 +14,8 @@ public class TrainingProgramDaoImpl extends AbstractDao<TrainingProgram> impleme
     private static final String GET_BY_USER_ID = "SELECT * FROM training_program where user_id = ?";
     private static final String SAVE_QUERY = "INSERT INTO training_program (user_id, exercise_description, diet_description, additional_info, status) ? ? ? ? ?";
     private static final String UPDATE_FOOD_AND_EXERCISES = "UPDATE training_program SET exercise_list = ?, food_list = ? WHERE user_id = ?";
+    private static final String GET_FOOD_BY_USER_ID = "SELECT food_list FROM training_program WHERE user_id = ? ";
+    private static final String GET_EXERCISES_BY_USER_ID = "Select exercise_list FROM training_program WHERE user_id = ?";
 
     public TrainingProgramDaoImpl(Connection connection) {
         super(connection);
@@ -30,8 +32,8 @@ public class TrainingProgramDaoImpl extends AbstractDao<TrainingProgram> impleme
     }
 
     @Override
-    public void save(TrainingProgram item) throws DaoException {
-        executeQuery(SAVE_QUERY, item);
+    public void save(TrainingProgram trainingProgram) throws DaoException {
+        executeUpdate(SAVE_QUERY, trainingProgram);
 
     }
 
@@ -48,6 +50,16 @@ public class TrainingProgramDaoImpl extends AbstractDao<TrainingProgram> impleme
     @Override
     public Optional<TrainingProgram> getUserTrainingProgram(Long userId) throws DaoException {
         return executeForStringResult(GET_BY_USER_ID, userId);
+    }
+
+    @Override
+    public Optional<TrainingProgram> getFood(Long userId) throws DaoException {
+        return executeForStringResult(GET_FOOD_BY_USER_ID, userId);
+    }
+
+    @Override
+    public Optional<TrainingProgram> getExercises(Long userId) throws DaoException {
+        return executeForStringResult(GET_EXERCISES_BY_USER_ID, userId);
     }
 
     @Override

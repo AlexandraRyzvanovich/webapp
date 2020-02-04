@@ -1,9 +1,7 @@
 package com.epam.webapp.command;
 
 import com.epam.webapp.command.admin.GetAllUsersCommand;
-import com.epam.webapp.command.client.AddReviewCommand;
-import com.epam.webapp.command.client.GetAvailableSubscriptionsCommand;
-import com.epam.webapp.command.client.GetOrdersCommand;
+import com.epam.webapp.command.client.*;
 import com.epam.webapp.command.common.*;
 import com.epam.webapp.command.trainer.GetInternsCommand;
 import com.epam.webapp.dao.DaoHelperFactory;
@@ -22,6 +20,8 @@ public class CommandFactory {
             case "getReviews": return new GetReviewsCommand(new ReviewService(new DaoHelperFactory()));
             case "getOrders": return new GetOrdersCommand(new OrderService(new DaoHelperFactory()));
             case "addNewReview": return new AddReviewCommand(new ReviewService(new DaoHelperFactory()));
+            case "getFoodList" : return new GetFoodListCommand(new TrainingProgramService(new DaoHelperFactory()));
+            case "getExerciseList" : return new GetExercisesListCommand(new TrainingProgramService(new DaoHelperFactory()));
 
             case "getClients": return new ShowPageCommand("/WEB-INF/views/clients.jsp");
             case "getInterns": return new GetInternsCommand(new UserService(new DaoHelperFactory()));
