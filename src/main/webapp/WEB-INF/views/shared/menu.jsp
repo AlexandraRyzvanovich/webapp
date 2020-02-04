@@ -16,7 +16,7 @@
             </c:if>
             <c:if test="${s == 'CLIENT'}">
                 <div class="sidenav">
-                    <a href="/subscripion">Subscription</a>
+                    <a href="/subscriptions?command=getAvailableSubscriptions">Subscription</a>
                     <button class="dropdown-btn">Training program
                         <i class="fa fa-caret-down"></i>
                     </button>
@@ -33,7 +33,7 @@
                     <a href="/clients">Clients</a>
                 </div>
                 <div class="sidenav">
-                    <a href="/diet">Food</a>
+                    <a href="/client-card">Food</a>
                 </div>
             </c:if>
     </div>

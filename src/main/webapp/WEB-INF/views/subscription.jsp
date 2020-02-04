@@ -159,22 +159,23 @@
         <input type="hidden" name="command" value="getAvailableSubscriptions">
         <h1 style="color: #E1D070;text-align: center;margin-bottom: 3%;">Your Subscription</h1>
         <div class="sub_div">
-            <c:forEach var="s" items="${requestScope.SubscriptionsList}">
+            <c:set var="s" value="${requestScope.subscriptionsList}" scope="request"></c:set>
+            <c:forEach var = "subscriprion" items="${requestScope.subscriptionsList}">
             <table class="sub_table_left">
                 <tr>
-                    <td colspan="2">"c:out value="${s.name}"</td>
+                    <td colspan="2">${subscriprion.name}</td>
                 </tr>
                 <tr>
-                    <td colspan="2">"c:out value="${s.description}"/></td>
+                    <td colspan="2">${subscriprion.description}/></td>
                 </tr>
                 <tr>
                     <td>Period</td>
-                    <td>${s.period}</td>
+                    <td>${subscriprion.period}</td>
                 </tr>
                 <tr>
                     <td style="opacity: 100% !important;" colspan="2"><a href="#" class="a-btn-3">
                         <span class="a-btn-3-text">Buy</span>
-                        <span class="a-btn-3-slide-text">${s.price}</span>
+                        <span class="a-btn-3-slide-text">${subscriprion.price}</span>
                         <span class="a-btn-3-icon-right"><span></span></span>
                     </a></td>
                 </tr>

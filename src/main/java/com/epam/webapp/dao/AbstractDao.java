@@ -23,7 +23,7 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao {
     @Override
     public List<T> getAll() throws DaoException {
         String table = getTableName();
-        return executeQuery("select*from" + table);
+        return executeQuery("SELECT * FROM " + table);
     }
 
     private PreparedStatement createStatement(String query, Object... params) throws SQLException {

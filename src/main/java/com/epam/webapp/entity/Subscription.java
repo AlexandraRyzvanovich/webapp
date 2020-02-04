@@ -7,9 +7,9 @@ public class Subscription implements Identifiable {
     public static final String SUBSCRIPTION_TABLE_NAME = "subscription";
     public static final String SUBSCRIPTION_ID_COLUMN_NAME = "id";
     public static final String NAME_COLUMN_NAME = "name";
-    public static final String DESCRIPTION_COLUMN_NAME = "paid_date";
-    public static final String PERIOD_COLUMN_NAME = "valid_to";
-    public static final String PRICE_COLUMN_NAME = "amount";
+    public static final String DESCRIPTION_COLUMN_NAME = "description";
+    public static final String PERIOD_COLUMN_NAME = "period";
+    public static final String PRICE_COLUMN_NAME = "price";
 
     private Long id;
     private String name;
