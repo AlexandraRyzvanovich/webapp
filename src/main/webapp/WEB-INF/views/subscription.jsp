@@ -2,7 +2,7 @@
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#call').click(function () {
@@ -151,6 +151,184 @@
         box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
         border-color: #80a9da;
     }
+    .back-dialog{
+        width:100%;
+        min-height:100%;
+        background-color: rgba(0,0,0,0.5);
+        overflow:hidden;
+        position:fixed;
+        top:0px;
+    }
+    .dialog-content{
+        position: relative;
+        overflow: hidden;
+        overflow-y: auto;
+        padding: 0 10 0 10;
+        margin:300px auto 0px auto;
+        min-width:150px;
+        max-width:600px;
+        min-height: 150px;
+        max-height: 650px;
+        padding-bottom: 10px;
+        background-color: white;
+        border-radius: 6px;
+    }
+    .dialog-title{
+        margin: 0 -10 0 -10;
+        text-align: center;
+        position: relative;
+        vertical-align: middle;
+        height: 30px;
+        background-color:#383D50;
+        color: #fff;
+    }
+
+    .dialog-title span{
+        font-size: 25px;
+        padding-left: 10px;
+    }
+    .close-dialog{
+        position: absolute;
+        right: 0;
+        top: 0;
+        text-align: center;
+        color: #fff;
+        background-color:#383D50;
+        height: 30px;
+        width: 30px;
+        border:0;
+        text-decoration: none;
+    }
+
+    .close-dialog:before{
+        font-family: Arial;
+        color: rgba(255, 255, 255, 0.9);
+        content: "x";
+        font-size: 20px;
+        text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
+        outline: none;
+    }
+    /* Кнопка открытия окна */
+    .button {
+        position: relative;
+        vertical-align: middle;
+        width: 98%;
+        margin-left: 1%;
+        margin-right: 1%;
+        padding-left: 8%;
+        padding-right: 8%;
+        padding-top: 4%;
+        padding-bottom: 4%;
+        font-size: 22px;
+        color: white;
+        text-align: center;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+        background: #3498db;
+        border: 0;
+        border-bottom: 2px solid #2a8bcc;
+        cursor: pointer;
+        -webkit-box-shadow: inset 0 -3px #2a8bcc;
+        box-shadow: inset 0 -3px #2a8bcc;
+        outline: none;
+    }
+    .button:active {
+        top: 1px;
+        outline: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    .row {
+        display: -ms-flexbox; /* IE10 */
+        display: flex;
+        -ms-flex-wrap: wrap; /* IE10 */
+        flex-wrap: wrap;
+        margin: 0 -16px;
+    }
+
+    .col-25 {
+        -ms-flex: 25%; /* IE10 */
+        flex: 25%;
+    }
+
+    .col-50 {
+        -ms-flex: 50%; /* IE10 */
+        flex: 50%;
+    }
+
+    .col-75 {
+        -ms-flex: 75%; /* IE10 */
+        flex: 75%;
+    }
+
+    .col-25,
+    .col-50,
+    .col-75 {
+        padding: 0 16px;
+    }
+
+    .container {
+        background-color: #f2f2f2;
+        padding: 5px 20px 15px 20px;
+        border: 1px solid lightgrey;
+        border-radius: 3px;
+    }
+
+    input[type=text] {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    label {
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .icon-container {
+        margin-bottom: 20px;
+        padding: 7px 0;
+        font-size: 24px;
+    }
+
+    .btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px;
+        margin: 10px 0;
+        border: none;
+        width: 100%;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 17px;
+    }
+
+    .btn:hover {
+        background-color: #45a049;
+    }
+
+    a {
+        color: #2196F3;
+    }
+
+    hr {
+        border: 1px solid lightgrey;
+    }
+
+    span.price {
+        float: right;
+        color: grey;
+    }
+
+    @media (max-width: 800px) {
+        .row {
+            flex-direction: column-reverse;
+        }
+        .col-25 {
+            margin-bottom: 20px;
+        }
+    }
 </style>
 <mtt:mainlayout>
     <jsp:attribute name="main"></jsp:attribute>
@@ -173,7 +351,7 @@
                     <td>${subscriprion.period}</td>
                 </tr>
                 <tr>
-                    <td style="opacity: 100% !important;" colspan="2"><a href="#" class="a-btn-3">
+                    <td style="opacity: 100% !important;" colspan="2"><a href="#" onclick="opendialog()" class="a-btn-3">
                         <span class="a-btn-3-text">Buy</span>
                         <span class="a-btn-3-slide-text">${subscriprion.price}</span>
                         <span class="a-btn-3-icon-right"><span></span></span>
@@ -181,7 +359,8 @@
                 </tr>
             </table>
             </c:forEach>
-            <table class="sub_table_right">
+        </div>
+            <%--<table class="sub_table_right">
                 <tr>
                     <td colspan="2">Subscription Name2</td>
                 </tr>
@@ -239,9 +418,58 @@
                         <span class="a-btn-3-icon-right"><span></span></span>
                     </a></td>
                 </tr>
-            </table>
+            </table>--%>
         </div>
         </form>
-
+        <div class="back-dialog" id="dialog">
+            <!-- Блок с нашим контентом -->
+            <div class="dialog-content">
+                <!-- Заголовок и кнопка закрытия окна -->
+                <div class="dialog-title">
+                    <span>Введите данные для оплаты</span>
+                    <a class='close-dialog' href='javascript: closedialog()'></a>
+                </div>
+               <form method="post">
+                   <div class="col-50">
+                       <div class="icon-container">
+                           <i class="fa fa-cc-visa" style="color:navy;"></i>
+                           <i class="fa fa-cc-amex" style="color:blue;"></i>
+                           <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                           <i class="fa fa-cc-discover" style="color:orange;"></i>
+                       </div>
+                       <label for="cname">Name on Card</label>
+                       <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+                       <label for="ccnum">Credit card number</label>
+                       <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                       <label for="expmonth">Exp Month</label>
+                       <input type="text" id="expmonth" name="expmonth" placeholder="September">
+                       <div class="row">
+                           <div class="col-50">
+                               <label for="expyear">Exp Year</label>
+                               <input type="text" id="expyear" name="expyear" placeholder="2018">
+                           </div>
+                           <div class="col-50">
+                               <label for="cvv">CVV</label>
+                               <input type="text" id="cvv" name="cvv" placeholder="352">
+                           </div>
+                       </div>
+                   </div>
+                   <a class="bot1" onclick="logout()">Logout</a>
+               </form>
+            </div>
+        </div>
     </jsp:body>
 </mtt:mainlayout>
+<script>
+    $(document).ready(function(){
+        $("#dialog").hide(); //скрываем окно при загрузке страница
+    });
+
+    function opendialog(){
+        $("#dialog").fadeIn(); //плавное появление блока
+    }
+
+    function closedialog(){
+        $("#dialog").fadeOut(); //плавное исчезание блока
+    }
+</script>

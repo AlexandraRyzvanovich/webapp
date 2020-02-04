@@ -16,13 +16,13 @@
             </c:if>
             <c:if test="${s == 'CLIENT'}">
                 <div class="sidenav">
+                    <a href="/training-program?command=getTrainingProgram">Training program</a>
                     <a href="/subscriptions?command=getAvailableSubscriptions">Subscription</a>
-                    <button class="dropdown-btn">Training program
+                    <button style="font-size: 16px;" class="dropdown-btn">Your program
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-container">
-                        <a href="/training-summary">Training summary</a>
-                        <a href="/food">Food</a>
+                        <a href="/diet">Food</a>
                         <a href="/exercises">Excesses</a>
                     </div>
                     <a href="/reviews">Reviews</a>

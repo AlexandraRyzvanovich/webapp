@@ -13,6 +13,6 @@
 
     <title>${title}</title>
 </head>
-<body>
+<body style="background-image: url("")">
 </body>
 </html>
