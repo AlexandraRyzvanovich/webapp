@@ -21,14 +21,7 @@ public class GetInternsCommand implements Command {
 
     @Override
     public CommandResult execute(HttpServletRequest request) throws ServiceException {
-        HttpSession session = request.getSession(false);
-        if(session != null) {
-            String idAttr = session.getAttribute(Attribute.ID_ATTRIBUTE).toString();
-            Long id = Long.parseLong(idAttr);
-            List<User> interns = service.getInterns(id);
-            request.setAttribute(Attribute.INTERNS_ATTRIBUTE, interns);
-            return CommandResult.forward(Page.INTERNS_JSP_PAGE);
-        }
+
         return CommandResult.forward(Page.LOGIN_JSP_PAGE);
     }
 }
