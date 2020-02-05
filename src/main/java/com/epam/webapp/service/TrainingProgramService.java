@@ -18,10 +18,10 @@ public class TrainingProgramService {
         this.daoHelperFactory = daoHelperFactory;
     }
 
-    public Optional<TrainingProgram> getUserProgram(Long id) throws ServiceException {
+    public Optional<TrainingProgram> getUserProgram(Long userId) throws ServiceException {
         try (DaoHelper factory = daoHelperFactory.create()) {
             TrainingProgramDao dao = factory.createTrainingProgramDao();
-            return dao.getUserTrainingProgram(id);
+            return dao.getUserTrainingProgram(userId);
         } catch (ClassNotFoundException | SQLException | DaoException e) {
             throw new ServiceException(e.getCause());
         }
@@ -38,22 +38,5 @@ public class TrainingProgramService {
 
     public void changeTrainingStatus(String status) throws ServletException {
 
-    }
-
-    public Optional<TrainingProgram> getFoodList(Long userId) throws ServiceException {
-        try (DaoHelper factory = daoHelperFactory.create()) {
-            TrainingProgramDao dao = factory.createTrainingProgramDao();
-            return dao.getFood(userId);
-        } catch (ClassNotFoundException | SQLException | DaoException e) {
-            throw new ServiceException(e.getCause());
-        }
-    }
-    public Optional<TrainingProgram> getExercisesList(Long userId) throws ServiceException {
-        try (DaoHelper factory = daoHelperFactory.create()) {
-            TrainingProgramDao dao = factory.createTrainingProgramDao();
-            return dao.getExercises(userId);
-        } catch (ClassNotFoundException | SQLException | DaoException e) {
-            throw new ServiceException(e.getCause());
-        }
     }
 }

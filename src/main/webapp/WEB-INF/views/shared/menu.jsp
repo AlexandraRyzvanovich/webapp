@@ -6,19 +6,19 @@
 </style>
 <aside style="margin-top: 2%;">
     <div class="category-wrap">
-        <h2 style="color: #E1D070;text-align: center;margin-bottom: 3%;">Menu</h2>
+        <h2>Menu</h2>
         <c:set var="s" value="${sessionScope.role}" scope="session"></c:set>
             <c:if test="${'TRAINER'}">
                 <div class="sidenav">
                     <a href="/clients">Clients</a>
-                    <a href="/reviews">Reviews</a>
+                    <a href="/reviews?command=getReviews">Reviews</a>
                 </div>
             </c:if>
             <c:if test="${s == 'CLIENT'}">
                 <div class="sidenav">
                     <a href="/training-program?command=getTrainingProgram">Training program</a>
                     <a href="/subscriptions?command=getAvailableSubscriptions">Subscription</a>
-                    <button style="font-size: 16px;" class="dropdown-btn">Your program
+                    <button class="dropdown-btn">Your program
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-container">
@@ -30,7 +30,7 @@
             </c:if>
             <c:if test="${s == 'ADMIN'}">
                 <div class="sidenav">
-                    <a href="/clients">Clients</a>
+                    <a href="/clients?command=getClients">Clients</a>
                 </div>
                 <div class="sidenav">
                     <a href="/client-card">Food</a>

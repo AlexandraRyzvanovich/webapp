@@ -72,7 +72,7 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao<T> {
 
     protected void executeUpdate(String query, Object... params) throws DaoException {
         try (PreparedStatement statement = createStatement(query, params)) {
-            statement.executeUpdate(query);
+            statement.executeUpdate();
         } catch (SQLException ex) {
             throw new DaoException("Exception occurred while executing SQL query", ex.getCause());
         }

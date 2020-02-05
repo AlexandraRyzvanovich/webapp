@@ -60,8 +60,11 @@
         <input type="hidden" name="command" value="addNewReview" />
             <h2 style="color: #E1D070;text-align: center;margin-top: 3%;margin-bottom: 2%;">Add Your comment</h2>
             <label>
-                <textarea type="text" name="review" style="width: 400px;height: 200px;margin-left: 22%;border-radius: 6px; background: #383D50; color: #E1D070; opacity: 70%;"></textarea>
+                <input type="text" name="review">
+                <textarea type="text"  style="width: 400px;height: 200px;margin-left: 22%;border-radius: 6px; background: #383D50; color: #E1D070; opacity: 70%;"></textarea>
             </label>
+            <input type="hidden" name="star" value="1" />
+            <button type="submit">add</button>
           <a class="bot1" onclick="addReview()">Add review</a>
         </form>
     </section>

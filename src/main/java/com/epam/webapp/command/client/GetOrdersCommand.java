@@ -17,7 +17,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class GetOrdersCommand implements Command {
-    private static final String REQUEST_ATTR_ORDERS = "orders";
     OrderService service;
 
     public GetOrdersCommand(OrderService service) {

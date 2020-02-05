@@ -9,7 +9,8 @@ public class Page {
     public static final String INTERNS_GET_INTERNS_COMMAND = "/interns?command=getInterns";
     public static final String INTERNS_JSP_PAGE = "/WEB-INF/views/interns.jsp";
     public static final String SUBSCRIPTIONS_JSP_PAGE = "/WEB-INF/views/subscription.jsp";
-    public static final String DIET_JSP_PAGE = "/WEB-INF/views/subscription.jsp";
+    public static final String DIET_JSP_PAGE = "/WEB-INF/views/diet.jsp";
+    public static final String EXERCISES_JSP_PAGE = "/WEB-INF/views/exercises.jsp";
 
 
 }

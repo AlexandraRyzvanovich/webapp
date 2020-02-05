@@ -14,7 +14,7 @@ public class TrainingProgramDaoImpl extends AbstractDao<TrainingProgram> impleme
     private static final String GET_BY_USER_ID = "SELECT * FROM training_program where user_id = ?";
     private static final String SAVE_QUERY = "INSERT INTO training_program (user_id, exercise_description, diet_description, additional_info, status) ? ? ? ? ?";
     private static final String UPDATE_FOOD_AND_EXERCISES = "UPDATE training_program SET exercise_list = ?, food_list = ? WHERE user_id = ?";
-    private static final String GET_FOOD_BY_USER_ID = "SELECT food_list FROM training_program WHERE user_id = ? ";
+    private static final String GET_FOOD_BY_USER_ID = "SELECT user_id, food_list FROM training_program WHERE user_id = ?";
     private static final String GET_EXERCISES_BY_USER_ID = "Select exercise_list FROM training_program WHERE user_id = ?";
 
     public TrainingProgramDaoImpl(Connection connection) {

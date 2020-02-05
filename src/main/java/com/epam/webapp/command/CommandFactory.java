@@ -22,7 +22,6 @@ public class CommandFactory {
             case "addNewReview": return new AddReviewCommand(new ReviewService(new DaoHelperFactory()));
             case "getFoodList" : return new GetFoodListCommand(new TrainingProgramService(new DaoHelperFactory()));
             case "getExerciseList" : return new GetExercisesListCommand(new TrainingProgramService(new DaoHelperFactory()));
-
             case "getClients": return new ShowPageCommand("/WEB-INF/views/clients.jsp");
             case "getInterns": return new GetInternsCommand(new UserService(new DaoHelperFactory()));
 

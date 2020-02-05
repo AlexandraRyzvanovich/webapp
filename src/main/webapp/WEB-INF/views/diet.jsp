@@ -10,24 +10,37 @@
                 <input style="float: left; width: 300px; height: 36px; border-radius: 6px;" type="text" id="myInput">
                 <span onclick="newElement()" class=" addBtn">Add</span>
             </div>
-            <c:set var="s" value="${requestScope.foodList}" scope="request"></c:set>
-            <c:forEach var = "food" items="${requestScope.foodList}">
-
             <ul id="myUL">
+            <c:forEach var="food" items="${requestScope.foodList}">
+
                 <li class="liwithclose">${food}</li>
                <%-- <li class="liwithclose">Pay bills</li>
                 <li class="liwithclose">Meet George</li>
                 <li class="liwithclose">Buy eggs</li>
                 <li class="liwithclose">Read a book</li>
                 <li class="liwithclose">Organize office</li>--%>
-            </ul>
             </c:forEach>
-            <a class="bot1" onclick="">Approve</a>
+            </ul>
+            <a class="bot1" onclick="send()">Approve</a>
         </form>
     </section>
 </mtt:mainlayout>
 
 <script type="text/javascript">
+    function send() {
+        var list = document.getElementById("myUL");
+        debugger;
+        var child = list[0].children("li").value();
+        var xhttp = new XMLHttpRequest();
+        /* xhttp.onreadystatechange = function() {
+             if (this.readyState == 4 && this.status == 200) {
+                 window.location.replace("http://localhost:8181/");
+             }
+         };*/
+        xhttp.open("post", "/reviews?command=addNewReview", true);
+        xhttp.send();
+    }
+
     var myNodelist = document.getElementsByClassName("liwithclose");
     var i;
     for (i = 0; i < myNodelist.length; i++) {

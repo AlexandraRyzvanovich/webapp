@@ -27,7 +27,7 @@ public class GetFoodListCommand implements Command {
         if(session != null) {
             String idAttr = session.getAttribute(Attribute.ID_ATTRIBUTE).toString();
             Long id = Long.parseLong(idAttr);
-            Optional<TrainingProgram> program = service.getFoodList(id);
+            Optional<TrainingProgram> program = service.getUserProgram(id);
             if(program.isPresent()){
                 String food = program.get().getFoodList();
                 List<String> foodList = new ArrayList<>();
