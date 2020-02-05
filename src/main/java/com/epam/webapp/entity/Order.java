@@ -29,6 +29,14 @@ public class Order implements Identifiable {
         this.subscriptionId = subscriptionId;
     }
 
+    public Order(Long userId, Date paidDate, BigDecimal amount, OrderStatus orderStatus, Long subscriptionId) {
+        this.userId = userId;
+        this.paidDate = paidDate;
+        this.amount = amount;
+        this.orderStatus = orderStatus;
+        this.subscriptionId = subscriptionId;
+    }
+
     public Long getId() {
         return id;
     }

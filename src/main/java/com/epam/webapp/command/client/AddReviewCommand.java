@@ -23,8 +23,8 @@ public class AddReviewCommand implements Command {
     public CommandResult execute(HttpServletRequest request) throws ServiceException {
         HttpSession session = request.getSession(false);
         String review = request.getParameter(REVIEW_PARAMETER);
-        String starAttr = request.getParameter(STAR_PARAMETER);
-        Integer star = Integer.parseInt(starAttr);
+        String starAttribute = request.getParameter(STAR_PARAMETER);
+        Integer star = Integer.parseInt(starAttribute);
         Object idAttribute = session.getAttribute(ID_ATTRIBUTE);
         String stringId = idAttribute.toString();
         Long id = Long.parseLong(stringId);
