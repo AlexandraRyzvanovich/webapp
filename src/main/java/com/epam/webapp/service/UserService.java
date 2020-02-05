@@ -23,7 +23,7 @@ public class UserService {
         try (DaoHelper factory = daoHelperFactory.create()) {
             UserDao dao = factory.createUserDao();
             return dao.findUserByLoginAndPassword(login, password);
-        } catch (DaoException | ClassNotFoundException e) {
+        } catch (DaoException e) {
             throw new ServiceException(e.getCause());
         }
     }
@@ -32,7 +32,7 @@ public class UserService {
         try (DaoHelper factory = daoHelperFactory.create()) {
             AbstractDao<User> dao = (AbstractDao<User>) factory.createUserDao();
             return dao.getById(id);
-        } catch (DaoException | SQLException | ClassNotFoundException e) {
+        } catch (DaoException | SQLException e) {
             throw new ServiceException(e.getCause());
         }
     }
@@ -41,7 +41,7 @@ public class UserService {
         try (DaoHelper factory = daoHelperFactory.create()) {
             AbstractDao<User> dao = (AbstractDao<User>) factory.createUserDao();
             return dao.getAll();
-        } catch (DaoException | SQLException | ClassNotFoundException e) {
+        } catch (DaoException | SQLException e) {
             throw new ServiceException(e.getCause());
         }
     }
@@ -50,7 +50,7 @@ public class UserService {
         try (DaoHelper factory = daoHelperFactory.create()) {
             UserDao dao =  factory.createUserDao();
             return dao.getTrainersInterns(trainerId);
-        } catch (DaoException | SQLException | ClassNotFoundException e) {
+        } catch (DaoException | SQLException e) {
             throw new ServiceException(e.getCause());
         }
     }
