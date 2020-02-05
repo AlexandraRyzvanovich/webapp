@@ -13,7 +13,7 @@ public class GetAvailableSubscriptionsCommand implements Command {
     private static final String SUBSCRIPTIONS_ATTRIBUTE = "subscriptionsList";
     private static final String SUBSCRIPTIONS_JSP_PAGE = "/WEB-INF/views/subscription.jsp";
 
-    SubscriptionService service;
+    private SubscriptionService service;
 
     public GetAvailableSubscriptionsCommand(SubscriptionService service) {
         this.service = service;
@@ -21,9 +21,9 @@ public class GetAvailableSubscriptionsCommand implements Command {
 
     @Override
     public CommandResult execute(HttpServletRequest request) throws ServiceException {
-            List<Subscription> listSubscriptions = service.getAvailableSubscriptions();
-            request.setAttribute(SUBSCRIPTIONS_ATTRIBUTE, listSubscriptions);
-            return CommandResult.forward(SUBSCRIPTIONS_JSP_PAGE);
+        List<Subscription> listSubscriptions = service.getAvailableSubscriptions();
+        request.setAttribute(SUBSCRIPTIONS_ATTRIBUTE, listSubscriptions);
+        return CommandResult.forward(SUBSCRIPTIONS_JSP_PAGE);
     }
 }
 
