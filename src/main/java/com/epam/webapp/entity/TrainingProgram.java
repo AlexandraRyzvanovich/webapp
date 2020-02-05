@@ -3,6 +3,11 @@ package com.epam.webapp.entity;
 import java.util.Objects;
 
 public class TrainingProgram implements Identifiable {
+    public static final String TABLE_NAME = "training_program";
+    public static final String ID_COLUMN_NAME = "id";
+    public static final String PROGRAM_ID_COLUMN_NAME = "program_id";
+    public static final String EXERCISE_ID_COLUMN_NAME = "exercise_id";
+    public static final String FREQUENCY_COLUMN_NAME = "frequency";
 
     private Long id;
     private Long programId;

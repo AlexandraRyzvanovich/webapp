@@ -3,7 +3,14 @@ package com.epam.webapp.entity;
 import java.util.Date;
 import java.util.Objects;
 
-public class Program {
+public class Program implements Identifiable {
+    public static final String TABLE_NAME = "program";
+    public static final String ID_COLUMN_NAME = "id";
+    public static final String USER_ID_COLUMN_NAME = "user_id";
+    public static final String DIET_COLUMN_NAME = "diet";
+    public static final String VALID_TO_COLUMN_NAME = "valid_to";
+    public static final String STATUS_COLUMN_NAME = "status";
+
     private Long id;
     private Long userId;
     private Diet diet;

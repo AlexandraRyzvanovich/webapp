@@ -1,32 +1,27 @@
 package com.epam.webapp.mapper;
 
 import com.epam.webapp.entity.TrainingProgram;
-import com.epam.webapp.entity.ProgramStatus;
+import com.epam.webapp.exception.MapperException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
 public class TrainingProgramRowMapper implements RowMapper<TrainingProgram> {
     @Override
-    public TrainingProgram map(ResultSet resultSet) throws SQLException {
-        Long userId = resultSet.getLong(TrainingProgram.USER_ID_COLUMN_NAME);
-        String exerciseDescription = resultSet.getString(TrainingProgram.EXERCISE_DESCRIPTION_COLUMN_NAME);
-        String dietDescription = resultSet.getString(TrainingProgram.DIET_DESCRIPTION_COLUMN_NAME);
-        String additionalInfo = resultSet.getString(TrainingProgram.ADDITIONAL_INFO_COLUMN_NAME);
-        String foodList = resultSet.getString(TrainingProgram.FOOD_LIST_COLUMN_NAME);
-        String exerciseList = resultSet.getString(TrainingProgram.EXERCISE_LIST_COLUMN_NAME);
-        String statusDb = resultSet.getString(TrainingProgram.STATUS_COLUMN_NAME);
-        ProgramStatus status = ProgramStatus.valueOf(statusDb);
-
-        return new TrainingProgram(userId, exerciseDescription, exerciseList, dietDescription, foodList, additionalInfo, status);
+    public TrainingProgram map(ResultSet resultSet) {
+        Long id;
+        Long programId;
+        Long exerciseId;
+        Integer frequency;
+        try {
+            id = resultSet.getLong(TrainingProgram.ID_COLUMN_NAME);
+            programId = resultSet.getLong(TrainingProgram.PROGRAM_ID_COLUMN_NAME);
+            exerciseId = resultSet.getLong(TrainingProgram.EXERCISE_ID_COLUMN_NAME);
+            frequency = resultSet.getInt(TrainingProgram.FREQUENCY_COLUMN_NAME);
+        } catch (SQLException e) {
+            throw new MapperException("Impossible to map Training program entity from db", e.getCause());
+        }
+        return new TrainingProgram(id, programId, exerciseId, frequency);
     }
-
-    @Override
-    public List<Object> getValues(TrainingProgram item) throws SQLException {
-        return null;
-    }
-
-
 }
 
