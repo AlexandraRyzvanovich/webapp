@@ -1,4 +1,4 @@
-package com.epam.webapp.command.common;
+package com.epam.webapp.command;
 
 import com.epam.webapp.command.Attribute;
 import com.epam.webapp.command.Command;

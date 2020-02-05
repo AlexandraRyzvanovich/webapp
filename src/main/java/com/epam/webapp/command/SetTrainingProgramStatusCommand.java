@@ -1,4 +1,4 @@
-package com.epam.webapp.command.common;
+package com.epam.webapp.command;
 
 public class SetTrainingProgramStatusCommand {
 }
