@@ -1,6 +1,6 @@
 package com.epam.webapp.entity;
 
-public enum TrainingProgramStatus {
+public enum ProgramStatus {
     NEW, IN_PROGRESS, DONE, DECLINED
 
 }

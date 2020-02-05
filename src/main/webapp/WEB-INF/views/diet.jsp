@@ -10,17 +10,11 @@
                 <input style="float: left; width: 300px; height: 36px; border-radius: 6px;" type="text" id="myInput">
                 <span onclick="newElement()" class=" addBtn">Add</span>
             </div>
-            <ul id="myUL">
             <c:forEach var="food" items="${requestScope.foodList}">
-
+            <ul id="myUL">
                 <li class="liwithclose">${food}</li>
-               <%-- <li class="liwithclose">Pay bills</li>
-                <li class="liwithclose">Meet George</li>
-                <li class="liwithclose">Buy eggs</li>
-                <li class="liwithclose">Read a book</li>
-                <li class="liwithclose">Organize office</li>--%>
-            </c:forEach>
             </ul>
+            </c:forEach>
             <a class="bot1" onclick="send()">Approve</a>
         </form>
     </section>

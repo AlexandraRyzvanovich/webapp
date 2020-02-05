@@ -15,17 +15,30 @@ CREATE TABLE user (
   FOREIGN KEY (trainer_id) REFERENCES user (id)
 );
 
-CREATE TABLE training_program (
-  id          INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  user_id     INT UNSIGNED NOT NULL,
-  exercise_description NVARCHAR(255) NULL,
-  exercise_list NVARCHAR(255) NULL,
-  diet_description     NVARCHAR(255) NULL,
-  food_list NVARCHAR(255) null,
-  additional_info NVARCHAR(255) NULL,
+CREATE TABLE program (
+  id           INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  user_id      INT UNSIGNED NOT NULL,
+  diet         ENUM('Vegan Diet', 'Low Carb', ' Ultra Low Fat', 'HCG Diet')  NOT NULL,
+  valid_to     DATETIME      NOT NULL,
   status       ENUM('NEW', 'IN PROGRESS', 'DONE', 'DECLINED')  NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (user_id) REFERENCES user (id)
+);
+
+CREATE TABLE exercise (
+ id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+ name VARCHAR(255) NOT NULL,
+ PRIMARY KEY (id)
+);
+
+CREATE TABLE training_program (
+  id       INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  program_id INT UNSIGNED NOT NULL,
+  exercise_id VARCHAR(255) NOT NULL,
+  frequency INT UNSIGNED NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (exercise_id) REFERENCES exercise (id),
+  FOREIGN KEY (program_id) REFERENCES program (id)
 );
 
 CREATE TABLE review (
@@ -43,7 +56,7 @@ CREATE TABLE subscription (
   id   INT UNSIGNED NOT NULL AUTO_INCREMENT,
   name VARCHAR(32) NOT NULL,
   description NVARCHAR(255) NOT NULL,
-  period INT UNSIGNED NOT NULL,
+  period_valid INT UNSIGNED NOT NULL,
   price    DECIMAL(5, 2) NOT NULL,
   PRIMARY KEY (id)
 );

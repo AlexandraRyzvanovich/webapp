@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DaoHelperFactory {
 
-    public DaoHelper create() throws SQLException, ClassNotFoundException {
+    public DaoHelper create() {
         return new DaoHelper(ConnectionPool.getInstance());
     }
 }

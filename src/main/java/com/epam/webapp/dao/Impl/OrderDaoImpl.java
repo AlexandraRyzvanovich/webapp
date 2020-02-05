@@ -38,7 +38,7 @@ public class OrderDaoImpl extends AbstractDao<Order> implements OrderDao {
         BigDecimal amount = order.getAmount();
         OrderStatus status = order.getOrderStatus();
         Long subscriptionId = order.getSubscriptionId();
-        executeUpdate(SAVE_QUERY, userId, paidDate, amount, status, subscriptionId);
+        executeSave(SAVE_QUERY, userId, paidDate, amount, status, subscriptionId);
     }
 
     @Override

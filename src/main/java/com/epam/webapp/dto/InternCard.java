@@ -1,7 +1,7 @@
 package com.epam.webapp.dto;
 
 import com.epam.webapp.entity.Identifiable;
-import com.epam.webapp.entity.TrainingProgramStatus;
+import com.epam.webapp.entity.ProgramStatus;
 
 import java.util.Objects;
 
@@ -16,9 +16,9 @@ public class InternCard implements Identifiable {
     private String dietDescription;
     private String foodList;
     private String additionalInfo;
-    TrainingProgramStatus status;
+    ProgramStatus status;
 
-    public InternCard(Long userId, String firstName, String lastName, String exerciseDescription, String exerciseList, String dietDescription, String foodList, String additionalInfo, TrainingProgramStatus status) {
+    public InternCard(Long userId, String firstName, String lastName, String exerciseDescription, String exerciseList, String dietDescription, String foodList, String additionalInfo, ProgramStatus status) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -94,11 +94,11 @@ public class InternCard implements Identifiable {
         this.additionalInfo = additionalInfo;
     }
 
-    public TrainingProgramStatus getStatus() {
+    public ProgramStatus getStatus() {
         return status;
     }
 
-    public void setStatus(TrainingProgramStatus status) {
+    public void setStatus(ProgramStatus status) {
         this.status = status;
     }
 

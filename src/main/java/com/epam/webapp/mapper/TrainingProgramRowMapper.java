@@ -1,12 +1,11 @@
 package com.epam.webapp.mapper;
 
 import com.epam.webapp.entity.TrainingProgram;
-import com.epam.webapp.entity.TrainingProgramStatus;
+import com.epam.webapp.entity.ProgramStatus;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
 public class TrainingProgramRowMapper implements RowMapper<TrainingProgram> {
     @Override
@@ -18,7 +17,7 @@ public class TrainingProgramRowMapper implements RowMapper<TrainingProgram> {
         String foodList = resultSet.getString(TrainingProgram.FOOD_LIST_COLUMN_NAME);
         String exerciseList = resultSet.getString(TrainingProgram.EXERCISE_LIST_COLUMN_NAME);
         String statusDb = resultSet.getString(TrainingProgram.STATUS_COLUMN_NAME);
-        TrainingProgramStatus status = TrainingProgramStatus.valueOf(statusDb);
+        ProgramStatus status = ProgramStatus.valueOf(statusDb);
 
         return new TrainingProgram(userId, exerciseDescription, exerciseList, dietDescription, foodList, additionalInfo, status);
     }

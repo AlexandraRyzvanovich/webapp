@@ -19,16 +19,16 @@ public class ConnectionPool {
 
     public static ConnectionPool getInstance(){
         if( conn == null){
-        connectionsLock.lock();
-        try {
-            conn = new ConnectionPool();
+            connectionsLock.lock();
+            try {
+                conn = new ConnectionPool();
 
-        } finally {
-            connectionsLock.unlock();
+            } finally {
+                connectionsLock.unlock();
+            }
         }
-    }
         return conn;
-}
+    }
 
     public void returnConnection(ProxyConnection proxyConnection){
         connectionsLock.lock();
@@ -42,7 +42,11 @@ public class ConnectionPool {
         }
     }
 
-    public ProxyConnection getConnection() throws SQLException {
-        return ConnectionFactory.create();
+    public ProxyConnection getConnection() {
+        try {
+            return ConnectionFactory.create();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
