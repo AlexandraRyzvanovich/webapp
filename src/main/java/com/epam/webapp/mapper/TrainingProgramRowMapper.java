@@ -5,6 +5,7 @@ import com.epam.webapp.entity.TrainingProgramStatus;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Map;
 
 public class TrainingProgramRowMapper implements RowMapper<TrainingProgram> {
@@ -23,8 +24,10 @@ public class TrainingProgramRowMapper implements RowMapper<TrainingProgram> {
     }
 
     @Override
-    public Map<String, Object> getValues(TrainingProgram item) throws SQLException {
+    public List<Object> getValues(TrainingProgram item) throws SQLException {
         return null;
     }
+
+
 }
 

@@ -5,12 +5,13 @@ import com.epam.webapp.entity.*;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Map;
 
 public interface RowMapper<T extends Identifiable> {
 
     T map(ResultSet resultSet) throws SQLException;
-    Map<String, Object> getValues(T item) throws SQLException;
+    List<Object> getValues(T item) throws SQLException;
 
     static RowMapper<? extends Identifiable> create(String table) {
         switch (table) {

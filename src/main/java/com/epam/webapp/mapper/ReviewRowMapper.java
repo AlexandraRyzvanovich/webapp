@@ -4,9 +4,7 @@ import com.epam.webapp.entity.Review;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 public class ReviewRowMapper implements RowMapper<Review> {
     @Override
@@ -20,13 +18,18 @@ public class ReviewRowMapper implements RowMapper<Review> {
     }
 
     @Override
-    public Map<String, Object> getValues(Review review) throws SQLException {
-        Map<String, Object> reviewMap = new LinkedHashMap<>();
-        reviewMap.put(Review.USER_ID_COLUMN_NAME, review.getUserId());
-        reviewMap.put(Review.REVIEW_MESSAGE_COLUMN_NAME, review.getReviewMessage());
-        reviewMap.put(Review.STAR_COLUMN_NAME, review.getStar());
-        reviewMap.put(Review.DATE_COLUMN_NAME, review.getDate());
-        return reviewMap;
+    public List<Object> getValues(Review review) throws SQLException {
+        Long userId = review.getUserId();
+        String reviewMsg = review.getReviewMessage();
+        Integer star = review.getStar();
+        Date date = review.getDate();
+        List<Object> reviewObj = new ArrayList<>();
+        reviewObj.add(userId);
+        reviewObj.add(reviewMsg);
+        reviewObj.add(star);
+        reviewObj.add(date);
+
+        return reviewObj;
     }
 
 

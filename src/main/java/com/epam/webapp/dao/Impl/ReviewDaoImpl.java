@@ -35,7 +35,7 @@ public class ReviewDaoImpl extends AbstractDao<Review> implements ReviewDao {
         String reviewMsg = review.getReviewMessage();
         Integer star = review.getStar();
         Date date = review.getDate();
-        executeUpdate(SAVE_REVIEW_QUERY, userId, reviewMsg, star, date);
+        executeUpdate(SAVE_REVIEW_QUERY, review);
     }
 
     @Override

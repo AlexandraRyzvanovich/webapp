@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 public class OrderRowMapper implements RowMapper<Order> {
@@ -27,8 +28,9 @@ public class OrderRowMapper implements RowMapper<Order> {
     }
 
     @Override
-    public Map<String, Object> getValues(Order item) throws SQLException {
+    public List<Object> getValues(Order item) throws SQLException {
         return null;
     }
+
 
 }

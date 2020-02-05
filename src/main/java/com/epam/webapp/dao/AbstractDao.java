@@ -70,8 +70,8 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao<T> {
         }
     }*/
 
-    protected void executeUpdate(String query, Object... params) throws DaoException {
-        try (PreparedStatement statement = createStatement(query, params)) {
+    protected void executeSave(String query, Object... param) throws DaoException {
+        try (PreparedStatement statement = createStatement(query, param)) {
             statement.executeUpdate();
         } catch (SQLException ex) {
             throw new DaoException("Exception occurred while executing SQL query", ex.getCause());

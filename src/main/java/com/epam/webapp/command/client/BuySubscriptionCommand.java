@@ -11,7 +11,6 @@ import java.sql.SQLException;
 
 public class BuySubscriptionCommand implements Command {
 
-
     @Override
     public CommandResult execute(HttpServletRequest request) throws ServiceException, SQLException, IOException, CommandException {
         return null;

@@ -5,6 +5,7 @@ import com.epam.webapp.entity.Subscription;
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Map;
 
 public class SubscriptionRowMapper implements RowMapper<Subscription> {
@@ -19,8 +20,9 @@ public class SubscriptionRowMapper implements RowMapper<Subscription> {
     }
 
     @Override
-    public Map<String, Object> getValues(Subscription item) throws SQLException {
+    public List<Object> getValues(Subscription item) throws SQLException {
         return null;
     }
+
 
 }

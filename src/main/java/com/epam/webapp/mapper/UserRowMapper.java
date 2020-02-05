@@ -5,6 +5,7 @@ import com.epam.webapp.entity.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Map;
 
 public class UserRowMapper implements RowMapper<User> {
@@ -22,8 +23,9 @@ public class UserRowMapper implements RowMapper<User> {
     }
 
     @Override
-    public Map<String, Object> getValues(User item) throws SQLException {
+    public List<Object> getValues(User item) throws SQLException {
         return null;
     }
+
 
 }

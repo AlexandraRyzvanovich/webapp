@@ -10,7 +10,19 @@ import java.sql.Connection;
 import java.util.Optional;
 
 public class InternCardImpl extends AbstractDao<InternCard> implements InternCardDao {
-    private static final String GET_INTERN_INFO_BY_USER_ID_QUERY = "";
+    private static final String GET_INTERN_INFO_BY_USER_ID_QUERY = "SELECT \n" +
+            "user.id, \n" +
+            "user.first_name,\n" +
+            "user.last_name, \n" +
+            "training_program.exercise_description,\n" +
+            "training_program.diet_description,\n" +
+            "training_program.additional_info, \n" +
+            "training_program.food_list,\n" +
+            "training_program.exercise_list, \n" +
+            "training_program.status\n" +
+            "FROM training_program\n" +
+            "INNER JOIN user ON user.id = training_program.user_id\n" +
+            "WHERE training_program.user_id = ?";
 
     protected InternCardImpl(Connection connection) {
         super(connection);

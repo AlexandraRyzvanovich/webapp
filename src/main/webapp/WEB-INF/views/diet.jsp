@@ -28,9 +28,13 @@
 
 <script type="text/javascript">
     function send() {
-        var list = document.getElementById("myUL");
+        var list = document.getElementsByClassName("liwithclose");
+        var a;
+        for (var i = 0;i > list.length;i++ )
+        {
+            a += list[i].textContent();
+        }
         debugger;
-        var child = list[0].children("li").value();
         var xhttp = new XMLHttpRequest();
         /* xhttp.onreadystatechange = function() {
              if (this.readyState == 4 && this.status == 200) {
@@ -38,7 +42,7 @@
              }
          };*/
         xhttp.open("post", "/reviews?command=addNewReview", true);
-        xhttp.send();
+        xhttp.send(a);
     }
 
     var myNodelist = document.getElementsByClassName("liwithclose");
@@ -74,6 +78,7 @@
         var li = document.createElement("li");
         var inputValue = document.getElementById("myInput").value;
         var t = document.createTextNode(inputValue);
+        li.className = "liwithclose";
         li.appendChild(t);
         if (inputValue === '') {
             alert("You must write something!");
