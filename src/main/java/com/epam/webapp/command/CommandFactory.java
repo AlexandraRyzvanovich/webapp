@@ -15,14 +15,12 @@ public class CommandFactory {
             case "addNewReview": return new AddReviewCommand(new ReviewService(new DaoHelperFactory()));
             case "buySubscription": return new BuySubscriptionCommand(new OrderService(new DaoHelperFactory()));
             case "getAvailableSubscriptions": return new GetAvailableSubscriptionsCommand(new SubscriptionService(new DaoHelperFactory()));
+            case "getOrders": return new GetOrdersCommand(new OrderService(new DaoHelperFactory()));
 
 
             case "getTrainingProgram": return new GetTrainingProgramCommand(new TrainingProgramService(new DaoHelperFactory()));
             case "getAllUsersCommand": return new GetAllUsersCommand(new UserService(new DaoHelperFactory()));
             case "getReviews": return new GetReviewsCommand(new ReviewService(new DaoHelperFactory()));
-            case "getOrders": return new GetOrdersCommand(new OrderService(new DaoHelperFactory()));
-            case "getFoodList" : return new GetFoodListCommand(new TrainingProgramService(new DaoHelperFactory()));
-            case "getExerciseList" : return new GetExercisesListCommand(new TrainingProgramService(new DaoHelperFactory()));
             case "getClients": return new ShowPageCommand("/WEB-INF/views/clients.jsp");
             case "getInterns": return new GetInternsCommand(new UserService(new DaoHelperFactory()));
 
