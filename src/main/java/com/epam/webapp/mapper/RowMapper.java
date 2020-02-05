@@ -1,5 +1,6 @@
 package com.epam.webapp.mapper;
 
+import com.epam.webapp.dto.InternCard;
 import com.epam.webapp.entity.*;
 
 import java.sql.ResultSet;
@@ -23,6 +24,8 @@ public interface RowMapper<T extends Identifiable> {
                 return new SubscriptionRowMapper();
             case Order.ORDER_TABLE_NAME:
                 return new OrderRowMapper();
+            case InternCard.INTERN_TABLE_NAME_FOR_MAPPER:
+                return new InternCardRowMapper();
             default:
                 throw new IllegalArgumentException("Unknown table");
         }

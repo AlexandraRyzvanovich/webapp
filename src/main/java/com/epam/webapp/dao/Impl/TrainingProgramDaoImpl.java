@@ -2,7 +2,6 @@ package com.epam.webapp.dao.Impl;
 
 import com.epam.webapp.dao.AbstractDao;
 import com.epam.webapp.dao.TrainingProgramDao;
-import com.epam.webapp.entity.Identifiable;
 import com.epam.webapp.entity.TrainingProgram;
 import com.epam.webapp.exception.DaoException;
 
@@ -14,8 +13,6 @@ public class TrainingProgramDaoImpl extends AbstractDao<TrainingProgram> impleme
     private static final String GET_BY_USER_ID = "SELECT * FROM training_program where user_id = ?";
     private static final String SAVE_QUERY = "INSERT INTO training_program (user_id, exercise_description, diet_description, additional_info, status) ? ? ? ? ?";
     private static final String UPDATE_FOOD_AND_EXERCISES = "UPDATE training_program SET exercise_list = ?, food_list = ? WHERE user_id = ?";
-    private static final String GET_FOOD_BY_USER_ID = "SELECT user_id, food_list FROM training_program WHERE user_id = ?";
-    private static final String GET_EXERCISES_BY_USER_ID = "Select exercise_list FROM training_program WHERE user_id = ?";
 
     public TrainingProgramDaoImpl(Connection connection) {
         super(connection);
@@ -44,22 +41,12 @@ public class TrainingProgramDaoImpl extends AbstractDao<TrainingProgram> impleme
 
     @Override
     public void removeById(Long id) throws DaoException {
-
+        throw new DaoException("Impossible to execute removal operation");
     }
 
     @Override
     public Optional<TrainingProgram> getUserTrainingProgram(Long userId) throws DaoException {
         return executeForStringResult(GET_BY_USER_ID, userId);
-    }
-
-    @Override
-    public Optional<TrainingProgram> getFood(Long userId) throws DaoException {
-        return executeForStringResult(GET_FOOD_BY_USER_ID, userId);
-    }
-
-    @Override
-    public Optional<TrainingProgram> getExercises(Long userId) throws DaoException {
-        return executeForStringResult(GET_EXERCISES_BY_USER_ID, userId);
     }
 
     @Override

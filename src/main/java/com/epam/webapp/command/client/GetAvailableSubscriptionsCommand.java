@@ -9,8 +9,6 @@ import com.epam.webapp.exception.ServiceException;
 import com.epam.webapp.service.SubscriptionService;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 public class GetAvailableSubscriptionsCommand implements Command {

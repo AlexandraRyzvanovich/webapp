@@ -4,14 +4,18 @@ import com.epam.webapp.dao.AbstractDao;
 import com.epam.webapp.dao.OrderDao;
 import com.epam.webapp.entity.Identifiable;
 import com.epam.webapp.entity.Order;
+import com.epam.webapp.entity.OrderStatus;
 import com.epam.webapp.exception.DaoException;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 public class OrderDaoImpl extends AbstractDao<Order> implements OrderDao {
     private static final String GET_BY_ID_QUERY = "SELECT * FROM order WHERE id = ?";
+    private static final String SAVE_QUERY = "INSERT INTO order (user_id, paid_date, amount, status, subscription_id) ? ? ? ? ?";
 
     public OrderDaoImpl(Connection connection) {
         super(connection);
@@ -28,8 +32,13 @@ public class OrderDaoImpl extends AbstractDao<Order> implements OrderDao {
     }
 
     @Override
-    public void save(Order item) throws DaoException {
-
+    public void save(Order order) throws DaoException {
+        Long userId = order.getUserId();
+        Date paidDate = order.getPaidDate();
+        BigDecimal amount = order.getAmount();
+        OrderStatus status = order.getOrderStatus();
+        Long subscriptionId = order.getSubscriptionId();
+        executeUpdate(SAVE_QUERY, userId, paidDate, amount, status, subscriptionId);
     }
 
     @Override

@@ -6,6 +6,8 @@ import com.epam.webapp.entity.TrainingProgramStatus;
 import java.util.Objects;
 
 public class InternCard implements Identifiable {
+    public static final String INTERN_TABLE_NAME_FOR_MAPPER = "interns";
+
     private Long userId;
     private String firstName;
     private String lastName;

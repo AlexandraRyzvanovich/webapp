@@ -35,7 +35,7 @@ public class GetFoodListCommand implements Command {
                     foodList.add(foodItem);
                 }
                 request.setAttribute(Attribute.FOOD_LIST_ATTRIBUTE, foodList);
-            return CommandResult.forward(Page.DIET_JSP_PAGE);
+            return CommandResult.forward(Page.EXERCISES_JSP_PAGE);
             }
         }
         return CommandResult.redirect(Page.LOGIN_JSP_PAGE);
