@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
 
 <mtt:mainlayout>
     <section>
@@ -9,15 +10,11 @@
                 <input style="float: left; width: 300px; height: 36px; border-radius: 6px;" type="text" id="myInput">
                 <span onclick="newElement()" class=" addBtn">Add</span>
             </div>
-
+            <c:forEach var="exersise" items="${requestScope.exercises}">
             <ul id="myUL">
-                <li class="liwithclose">Hit the gym</li>
-                <li class="liwithclose">Pay bills</li>
-                <li class="liwithclose">Meet George</li>
-                <li class="liwithclose">Buy eggs</li>
-                <li class="liwithclose">Read a book</li>
-                <li class="liwithclose">Organize office</li>
+                <li class="liwithclose">${exersise}</li>
             </ul>
+            </c:forEach>
             <a class="bot1" onclick="">Approve</a>
         </form>
     </section>

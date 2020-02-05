@@ -30,7 +30,7 @@ public class TrainingProgramDaoImpl extends AbstractDao<TrainingProgram> impleme
 
     @Override
     public void save(TrainingProgram trainingProgram) throws DaoException {
-        executeUpdate(SAVE_QUERY, trainingProgram);
+        executeSave(SAVE_QUERY, trainingProgram);
 
     }
 
