@@ -21,7 +21,7 @@ public class SubscriptionService {
         try (DaoHelper factory = daoHelperFactory.create()) {
             AbstractDao<Subscription> dao = (AbstractDao<Subscription>) factory.createSubscriptionDao();
             return dao.getAll();
-        } catch (DaoException | SQLException | ClassNotFoundException e) {
+        } catch (DaoException | SQLException e) {
             throw new ServiceException(e.getCause());
         }
     }

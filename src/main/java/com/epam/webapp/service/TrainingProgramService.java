@@ -22,7 +22,7 @@ public class TrainingProgramService {
         try (DaoHelper factory = daoHelperFactory.create()) {
             TrainingProgramDao dao = factory.createTrainingProgramDao();
             return dao.getUserTrainingProgram(userId);
-        } catch (ClassNotFoundException | SQLException | DaoException e) {
+        } catch ( SQLException | DaoException e) {
             throw new ServiceException(e.getCause());
         }
     }
@@ -31,12 +31,12 @@ public class TrainingProgramService {
         try (DaoHelper factory = daoHelperFactory.create()) {
             TrainingProgramDao dao = factory.createTrainingProgramDao();
             dao.updateFoodAndExercises(food, exercises, userId);
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch ( SQLException e) {
             throw new ServiceException(e.getCause());
         }
     }
 
-    public void changeTrainingStatus(String status) throws ServletException {
+    public void changeTrainingStatus(String status) {
 
     }
 }

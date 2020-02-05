@@ -5,13 +5,9 @@ import com.epam.webapp.command.CommandResult;
 import com.epam.webapp.command.Page;
 import com.epam.webapp.entity.Role;
 import com.epam.webapp.exception.CommandException;
-import com.epam.webapp.exception.ServiceException;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.sql.SQLException;
 
 public class MainCommand implements Command {
 

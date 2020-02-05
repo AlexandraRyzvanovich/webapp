@@ -20,7 +20,7 @@ public class OrderService {
         try (DaoHelper factory = daoHelperFactory.create()) {
             OrderDao dao =  factory.createOrderDao();
             return dao.getByUserId(id);
-        } catch ( ClassNotFoundException | SQLException e) {
+        } catch ( SQLException e) {
             throw new ServiceException(e.getCause());
         }
     }
@@ -28,7 +28,7 @@ public class OrderService {
     public void addOrder(Order order) throws  ServiceException {
         try (DaoHelper factory = daoHelperFactory.create()) {
             OrderDao dao =  factory.createOrderDao();
-        } catch ( ClassNotFoundException | SQLException e) {
+        } catch ( SQLException e) {
             throw new ServiceException(e.getCause());
         }
     }

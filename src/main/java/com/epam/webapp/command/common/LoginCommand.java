@@ -39,6 +39,15 @@ public class LoginCommand implements Command {
             session.setAttribute(Attribute.ROLE_ATTRIBUTE, role);
             session.setAttribute(Attribute.FIRST_NAME_ATTRIBUTE, firstName);
             session.setAttribute(Attribute.LAST_NAME_ATTRIBUTE, lastName);
+            if(role == Role.CLIENT){
+                return CommandResult.redirect(Page.TRAINING_PROGRAM_COMMAND_GET_TRAINING_PROGRAM);
+            }
+            else if(role == Role.TRAINER){
+                return CommandResult.redirect(Page.INTERNS_GET_INTERNS_COMMAND);
+            }
+            else if(role == Role.ADMIN){
+                return CommandResult.forward("");
+            }
             return CommandResult.forward( Page.LOGIN_MAIN_COMMAND);
         }
     }
