@@ -8,7 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 public class AddReviewCommand implements Command {
-    ReviewService service;
+    private static final String ID_ATTRIBUTE = "id";
+    public static final String REVIEW_PARAMETER = "review";
+    public static final String STAR_PARAMETER = "star";
+    public static final String REVIEWS_JSP_PAGE = "/WEB-INF/views/reviews.jsp";
+
+    private ReviewService service;
 
     public AddReviewCommand(ReviewService service) {
         this.service = service;
@@ -16,14 +21,15 @@ public class AddReviewCommand implements Command {
 
     @Override
     public CommandResult execute(HttpServletRequest request) throws ServiceException {
-        HttpSession session = request.getSession();
-        String review = request.getParameter(Parameter.REVIEW_PARAMETER);
-        String idAttr = session.getAttribute(Attribute.ID_ATTRIBUTE).toString();
-        String starAttr = request.getParameter(Parameter.STAR_PARAMETER);
+        HttpSession session = request.getSession(false);
+        String review = request.getParameter(REVIEW_PARAMETER);
+        String starAttr = request.getParameter(STAR_PARAMETER);
         Integer star = Integer.parseInt(starAttr);
-        Long id = Long.parseLong(idAttr);
+        Object idAttribute = session.getAttribute(ID_ATTRIBUTE);
+        String stringId = idAttribute.toString();
+        Long id = Long.parseLong(stringId);
         service.addReview(id, review, star);
 
-        return CommandResult.forward(Page.REVIEWS_JSP_PAGE);
+        return CommandResult.forward(REVIEWS_JSP_PAGE);
     }
 }

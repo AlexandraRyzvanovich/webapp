@@ -9,4 +9,6 @@ public class Attribute {
     public static final String ORDERS_ATTRIBUTE = "orders";
     public static final String USERS_ATTRIBUTE = "users";
     public static final String FOOD_LIST_ATTRIBUTE = "foodList";
+    private static final String ID_ATTRIBUTE = "id";
+
 }
