@@ -18,24 +18,6 @@ public class TrainingProgramService {
         this.daoHelperFactory = daoHelperFactory;
     }
 
-    public Optional<TrainingProgram> getUserProgram(Long userId) throws ServiceException {
-        try (DaoHelper factory = daoHelperFactory.create()) {
-            TrainingProgramDao dao = factory.createTrainingProgramDao();
-            return dao.getUserTrainingProgram(userId);
-        } catch ( SQLException | DaoException e) {
-            throw new ServiceException(e.getCause());
-        }
-    }
-
-    public void changeTrainingProgram(String food, String exercises, Long userId) throws ServiceException {
-        try (DaoHelper factory = daoHelperFactory.create()) {
-            TrainingProgramDao dao = factory.createTrainingProgramDao();
-            dao.updateFoodAndExercises(food, exercises, userId);
-        } catch ( SQLException e) {
-            throw new ServiceException(e.getCause());
-        }
-    }
-
     public void changeTrainingStatus(String status) {
 
     }

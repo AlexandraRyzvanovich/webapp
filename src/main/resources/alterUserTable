@@ -11,15 +11,11 @@ INSERT INTO user (first_name, last_name, email, password, role) VALUES
 ('Admin', 'Admin', 'admin@test.com', md5(123456), 'ADMIN');
 
 
-INSERT INTO subscription (name, description, period, price) VALUES
+INSERT INTO subscription (name, description, period_valid, price) VALUES
 ('LIGHT', 'Just to keep a good shape or a little fix small disadvantages.', 30, 100),
 ('MEDIUM', 'You are ready to work hard but not to much. That is for you.', 30, 150),
 ('HARD', 'You will work as hard as you can. We can guarantee that.', 30, 200),
 ('OPTIMAL', 'Be body positive and keep your body healthy', 30, 500);
-
-INSERT INTO training_program (user_id, exercise_description, exercise_list, diet_description, food_list, additional_info, status) VALUES
-(1, 'Jumps 100 times 7 times a day', 'sit; up and down', 'No sweets', 'apples;carrots;', NULL, 'NEW'),
-(2, 'Step 20 minutes every day', 'sit; up and down', 'No sweets', 'apples;carrots;', NULL, 'IN PROGRESS');
 
 INSERT INTO orders (user_id, paid_date, amount, status, subscription_id) VALUES
 (1, '2020-01-20 09:04:43.5985585', 100, 'PROCESSED', 1),
