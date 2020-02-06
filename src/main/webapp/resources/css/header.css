@@ -12,6 +12,11 @@ header {
     width: 100%;
     max-width: 960px;
 }
+@media (max-width: 960px) {
+   header{
+       left: 0;
+   }
+}
 
 .navbar {
     display: flex;

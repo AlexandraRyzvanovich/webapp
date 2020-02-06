@@ -347,7 +347,7 @@
                     <td colspan="2">${subscriprion.description}/></td>
                 </tr>
                 <tr>
-                    <td>Period</td>
+                    <td class="sub_table_period">Period</td>
                     <td>${subscriprion.period}</td>
                 </tr>
                 <tr>

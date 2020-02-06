@@ -307,9 +307,20 @@ section > figure + figure {
 
 .sub_table_left {
     float: left;
-    width: 45%;
+    width: 50%;
     opacity: 85%;
 }
+@media (max-width: 800px) {
+    .sub_table_left {
+        width: 100%;
+    }
+
+}
+
+.sub_table_period {
+    width: 57%;
+}
+
 .sub_div{
     overflow: hidden;
     _zoom: 1;

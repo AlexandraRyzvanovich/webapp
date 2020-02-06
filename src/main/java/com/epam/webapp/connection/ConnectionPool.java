@@ -1,52 +1,71 @@
 package com.epam.webapp.connection;
 
-import java.sql.SQLException;
+import com.epam.webapp.exception.ConnectionException;
+
 import java.util.ArrayDeque;
 import java.util.Queue;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class ConnectionPool {
+    private static final int POOL_SIZE = 5;
+    private final Semaphore semaphore = new Semaphore(POOL_SIZE);
     private Queue<ProxyConnection> availableConnections;
     private Queue<ProxyConnection> connectionsInUse;
 
+    private static AtomicReference<ConnectionPool> instance;
     private static ReentrantLock connectionsLock = new ReentrantLock();
-    private static ConnectionPool conn;
 
-    private ConnectionPool(){
-        availableConnections = new ArrayDeque<>();
+    private ConnectionPool() {
+        availableConnections = new ArrayDeque<>() ;
         connectionsInUse = new ArrayDeque<>();
+        create();
     }
 
-    public static ConnectionPool getInstance(){
-        if( conn == null){
+    public static ConnectionPool getInstance() {
+        if (instance == null) {
             connectionsLock.lock();
             try {
-                conn = new ConnectionPool();
-
+                if (instance == null) {
+                    instance = new AtomicReference<>(new ConnectionPool());
+                }
             } finally {
                 connectionsLock.unlock();
             }
         }
-        return conn;
+        return instance.get();
     }
 
-    public void returnConnection(ProxyConnection proxyConnection){
+    public void returnConnection(ProxyConnection proxyConnection) {
         connectionsLock.lock();
-        try{
-            if(connectionsInUse.contains(proxyConnection)){
+        try {
+            if (connectionsInUse.contains(proxyConnection)) {
                 availableConnections.offer(proxyConnection);
             }
-        }
-        finally {
+        } finally {
             connectionsLock.unlock();
         }
     }
 
     public ProxyConnection getConnection() {
         try {
-            return ConnectionFactory.create();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            semaphore.acquire();
+            connectionsLock.lock();
+            ProxyConnection connection = availableConnections.poll();
+            connectionsInUse.add(connection);
+            return connection;
+        } catch (InterruptedException e) {
+            throw new ConnectionException("Get connection failed");
+        } finally {
+            semaphore.release();
+            connectionsLock.unlock();
+        }
+    }
+    private void create() {
+        for(int i = 0; i < POOL_SIZE; i ++ ) {
+            ProxyConnection connection = ConnectionFactory.create(this);
+            availableConnections.add(connection);
         }
     }
 }
