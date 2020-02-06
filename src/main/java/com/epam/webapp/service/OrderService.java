@@ -7,7 +7,6 @@ import com.epam.webapp.entity.Order;
 import com.epam.webapp.exception.DaoException;
 import com.epam.webapp.exception.ServiceException;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class OrderService {

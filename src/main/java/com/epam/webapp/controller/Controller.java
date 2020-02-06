@@ -50,7 +50,7 @@ public class Controller extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    protected void redirect(HttpServletResponse response, String page) throws ServletException, IOException {
+    protected void redirect(HttpServletResponse response, String page) throws IOException {
         response.sendRedirect(page);
     }
 }

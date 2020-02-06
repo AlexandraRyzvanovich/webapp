@@ -28,7 +28,7 @@ public class ConnectionFactory {
 
     public static ProxyConnection create(ConnectionPool connectionPool)  {
         Path path = Paths.get(PROPERTIES_FILE_PATH);
-        InputStream file = null;
+        InputStream file;
         try {
             file = Files.newInputStream(path);
             Properties properties = new Properties();

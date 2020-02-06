@@ -6,6 +6,6 @@ import com.epam.webapp.exception.DaoException;
 import java.util.Optional;
 
 public interface InternCardDao {
-    Optional<InternCard> getInternInfo(Long userId) throws DaoException;
+    Optional<InternCard> getInternInfo(Long userId);
 
 }

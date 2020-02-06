@@ -2,12 +2,10 @@ package com.epam.webapp.dao.Impl;
 
 import com.epam.webapp.dao.AbstractDao;
 import com.epam.webapp.dao.ReviewDao;
-import com.epam.webapp.entity.Identifiable;
 import com.epam.webapp.entity.Review;
 import com.epam.webapp.exception.DaoException;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.Date;
 import java.util.Optional;
 
@@ -39,12 +37,12 @@ public class ReviewDaoImpl extends AbstractDao<Review> implements ReviewDao {
     }
 
     @Override
-    public void update(String query, Object... objects) throws DaoException {
+    public void update(String query, Object... objects) {
 
     }
 
     @Override
-    public void removeById(Long id) throws DaoException {
+    public void removeById(Long id) {
 
 
     }

@@ -11,7 +11,7 @@ import java.io.IOException;
 public class RoleFilter implements Filter {
     private FilterConfig filterConfig;
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
+    public void init(FilterConfig filterConfig) {
         this.filterConfig = filterConfig;
 
     }

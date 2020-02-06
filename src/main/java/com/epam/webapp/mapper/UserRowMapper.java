@@ -6,8 +6,6 @@ import com.epam.webapp.exception.MapperException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
 
 public class UserRowMapper implements RowMapper<User> {
 

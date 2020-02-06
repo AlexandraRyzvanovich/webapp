@@ -5,7 +5,6 @@ import com.epam.webapp.entity.Identifiable;
 import com.epam.webapp.entity.ProgramStatus;
 
 import java.util.Date;
-import java.util.Objects;
 
 public class InternCard implements Identifiable {
     public static final String INTERN_TABLE_NAME_FOR_MAPPER = "internCard";

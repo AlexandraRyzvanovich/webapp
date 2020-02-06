@@ -9,12 +9,12 @@ public class EncodingFilter implements Filter {
 
     public void doFilter(ServletRequest request,
 
-                         ServletResponse response, FilterChain filterChain) throws IOException, ServletException, ServletException {
+                         ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
         request.setCharacterEncoding(encoding);
         filterChain.doFilter(request, response);
     }
 
-    public void init(FilterConfig filterConfig) throws ServletException {
+    public void init(FilterConfig filterConfig) {
         String encodingParam = filterConfig.getInitParameter("encoding");
         if (encodingParam != null) {
             encoding = encodingParam;

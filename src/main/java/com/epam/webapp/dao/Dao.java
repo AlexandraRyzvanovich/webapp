@@ -3,7 +3,6 @@ package com.epam.webapp.dao;
 import com.epam.webapp.entity.Identifiable;
 import com.epam.webapp.exception.DaoException;
 
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 

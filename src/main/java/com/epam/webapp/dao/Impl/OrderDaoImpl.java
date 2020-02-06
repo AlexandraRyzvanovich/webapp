@@ -2,7 +2,6 @@ package com.epam.webapp.dao.Impl;
 
 import com.epam.webapp.dao.AbstractDao;
 import com.epam.webapp.dao.OrderDao;
-import com.epam.webapp.entity.Identifiable;
 import com.epam.webapp.entity.Order;
 import com.epam.webapp.entity.OrderStatus;
 import com.epam.webapp.exception.DaoException;
@@ -42,7 +41,7 @@ public class OrderDaoImpl extends AbstractDao<Order> implements OrderDao {
     }
 
     @Override
-    public void update(String query, Object... objects) throws DaoException {
+    public void update(String query, Object... objects) {
 
     }
 
