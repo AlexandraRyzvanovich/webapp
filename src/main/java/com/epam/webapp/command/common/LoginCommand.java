@@ -37,28 +37,28 @@ public class LoginCommand implements Command {
         Optional<User> user;
         try {
             user = userService.login(login, password);
+            if (user.isPresent()) {
+                Long userId = user.get().getUserId();
+                Role role = user.get().getRole();
+                String firstName = user.get().getFirstName();
+                String lastName = user.get().getLastName();
+                HttpSession session = request.getSession();
+                session.setAttribute(ID_ATTRIBUTE, userId);
+                session.setAttribute(ROLE_ATTRIBUTE, role);
+                session.setAttribute(FIRST_NAME_ATTRIBUTE, firstName);
+                session.setAttribute(LAST_NAME_ATTRIBUTE, lastName);
+                if (role == Role.CLIENT) {
+                    return CommandResult.forward("/WEB-INF/views/main.jsp");
+                } else if (role == Role.TRAINER) {
+                    return CommandResult.redirect(INTERNS_PAGE);
+                } else if (role == Role.ADMIN) {
+                    return CommandResult.redirect("");
+                }
+            }
+            return CommandResult.redirect(LOGIN_JSP_PAGE);
         } catch (ServiceException e) {
             throw new CommandException("Error occurred while executing command", e.getCause());
         }
-        if (user.isPresent()) {
-            Long userId = user.get().getUserId();
-            Role role = user.get().getRole();
-            String firstName = user.get().getFirstName();
-            String lastName = user.get().getLastName();
-            HttpSession session = request.getSession();
-            session.setAttribute(ID_ATTRIBUTE, userId);
-            session.setAttribute(ROLE_ATTRIBUTE, role);
-            session.setAttribute(FIRST_NAME_ATTRIBUTE, firstName);
-            session.setAttribute(LAST_NAME_ATTRIBUTE, lastName);
-            if (role == Role.CLIENT) {
-                return CommandResult.forward("/WEB-INF/views/main.jsp");
-            } else if (role == Role.TRAINER) {
-                return CommandResult.redirect(INTERNS_PAGE);
-            } else if (role == Role.ADMIN) {
-                return CommandResult.redirect("");
-            }
-        }
-        return CommandResult.redirect(LOGIN_JSP_PAGE);
     }
 }
 

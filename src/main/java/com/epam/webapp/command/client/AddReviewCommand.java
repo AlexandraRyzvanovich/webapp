@@ -31,10 +31,9 @@ public class AddReviewCommand implements Command {
         Long id = Long.parseLong(stringId);
         try {
             service.addReview(id, review, star);
+            return CommandResult.forward(REVIEWS_JSP_PAGE);
         } catch (ServiceException e) {
             throw new CommandException("Error occurred while executing command", e.getCause());
         }
-
-        return CommandResult.forward(REVIEWS_JSP_PAGE);
     }
 }

@@ -22,13 +22,12 @@ public class GetAllUsersCommand implements Command {
 
     @Override
     public CommandResult execute(HttpServletRequest request) throws CommandException {
-        List<User> users;
         try {
-            users = service.getAllUsers();
+            List<User> users = service.getAllUsers();
+            request.setAttribute(USERS_ATTRIBUTE, users);
+            return CommandResult.forward(CLIENTS_JSP_PAGE);
         } catch (ServiceException e) {
             throw new CommandException("Error occurred while executing command", e.getCause());
         }
-        request.setAttribute(USERS_ATTRIBUTE, users);
-        return CommandResult.forward(CLIENTS_JSP_PAGE);
     }
 }

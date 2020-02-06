@@ -22,13 +22,13 @@ public class GetReviewsCommand implements Command {
 
     @Override
     public CommandResult execute(HttpServletRequest request) throws CommandException {
-        List<Review> reviews;
         try {
-            reviews = service.getAllReview();
+            List<Review> reviews = service.getAllReview();
+            request.setAttribute(REVIEWS_ATTRIBUTE, reviews);
+            return CommandResult.forward(REVIEWS_JSP_PAGE);
         } catch (ServiceException e) {
             throw new CommandException("Error occurred while executing command", e.getCause());
         }
-        request.setAttribute(REVIEWS_ATTRIBUTE, reviews);
-        return CommandResult.forward(REVIEWS_JSP_PAGE);
+
     }
 }

@@ -45,11 +45,10 @@ public class BuySubscriptionCommand implements Command {
         Order order = new Order(userId, paidDate, amount, status, subscriptionId);
         try {
             service.addOrder(order);
+            request.setAttribute(SUCCESS_MSG_ATTRIBUTE, SUCCESS_MESSAGE);
+            return CommandResult.redirect(REVIEWS_PAGE);
         } catch (ServiceException e) {
             throw new CommandException("Error occurred while executing command", e.getCause());
         }
-        request.setAttribute(SUCCESS_MSG_ATTRIBUTE, SUCCESS_MESSAGE);
-
-        return CommandResult.redirect(REVIEWS_PAGE);
     }
 }

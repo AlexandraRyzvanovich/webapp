@@ -27,14 +27,13 @@ public class GetOrdersCommand implements Command {
         HttpSession session = request.getSession(false);
         String idAttr = session.getAttribute(ID_ATTRIBUTE).toString();
         Long id = Long.parseLong(idAttr);
-        List<Order> orders;
         try {
-            orders = service.getOrders(id);
+            List<Order> orders = service.getOrders(id);
+            request.setAttribute(ORDERS_ATTRIBUTE, orders);
+            return CommandResult.forward(SUBSCRIPTION_JSP_PAGE);
         } catch (ServiceException e) {
             throw new CommandException("Error occurred while executing command", e.getCause());
         }
-        request.setAttribute(ORDERS_ATTRIBUTE, orders);
 
-        return CommandResult.forward(SUBSCRIPTION_JSP_PAGE);
     }
 }

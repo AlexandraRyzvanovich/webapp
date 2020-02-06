@@ -27,9 +27,8 @@ public class GetTrainerInternsCommand implements Command {
         Object idAttribute = session.getAttribute(ID_ATTRIBUTE);
         String stringId = idAttribute.toString();
         Long id = Long.parseLong(stringId);
-        List<User> interns = null;
         try {
-            interns = service.getInterns(id);
+            List<User> interns = service.getInterns(id);
             request.setAttribute(INTERNS_ATTRIBUTE, interns);
             return CommandResult.forward(INTERNS_JSP_PAGE);
         } catch (ServiceException e) {
