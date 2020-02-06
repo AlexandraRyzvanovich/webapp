@@ -1,6 +1,5 @@
 package com.epam.webapp.command.trainer;
 
-import com.epam.webapp.command.Attribute;
 import com.epam.webapp.command.Command;
 import com.epam.webapp.command.CommandResult;
 import com.epam.webapp.exception.ServiceException;
