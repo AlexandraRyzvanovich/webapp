@@ -3,6 +3,7 @@ package com.epam.webapp.command.admin;
 import com.epam.webapp.command.Command;
 import com.epam.webapp.command.CommandResult;
 import com.epam.webapp.entity.User;
+import com.epam.webapp.exception.CommandException;
 import com.epam.webapp.exception.ServiceException;
 import com.epam.webapp.service.UserService;
 
@@ -19,8 +20,13 @@ public class GetAllUsersCommand implements Command {
     }
 
     @Override
-    public CommandResult execute(HttpServletRequest request) throws ServiceException {
-        List<User> users = service.getAllUsers();
+    public CommandResult execute(HttpServletRequest request) throws CommandException {
+        List<User> users;
+        try {
+            users = service.getAllUsers();
+        } catch (ServiceException e) {
+            throw new CommandException("Error occurred while executing command", e.getCause());
+        }
         request.setAttribute(USERS_ATTRIBUTE, users);
         return CommandResult.redirect("/clients");
     }

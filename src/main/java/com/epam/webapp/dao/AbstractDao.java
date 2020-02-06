@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import com.epam.webapp.mapper.RowMapper;
@@ -27,14 +26,19 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao<T> {
         return executeQuery("SELECT * FROM " + table);
     }
 
-    private PreparedStatement createStatement(String query, Object... params) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement(query);
-        if (params.length != 0) {
-            for (int i = 1; i <= params.length; i++) {
-                statement.setObject(i, params[i - 1]);
+    private PreparedStatement createStatement(String query, Object... params) throws DaoException {
+        PreparedStatement statement;
+        try {
+            statement = connection.prepareStatement(query);
+            if (params.length != 0) {
+                for (int i = 1; i <= params.length; i++) {
+                    statement.setObject(i, params[i - 1]);
+                }
             }
+            return statement;
+        } catch (SQLException e) {
+            throw new DaoException("Exception occurred while executing SQL query", e.getCause());
         }
-        return statement;
     }
 
     protected List<T> executeQuery(String query, Object... params) throws DaoException {
@@ -62,14 +66,6 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao<T> {
         }
     }
 
-    /*protected void executeSave(T item) throws SQLException {
-        String query = buildQueryForSave(item);
-        Object[] params = null;
-        try (PreparedStatement statement = createStatement(query, params)) {
-            statement.executeUpdate(query);
-        }
-    }*/
-
     protected void executeSave(String query, Object... param) throws DaoException {
         try (PreparedStatement statement = createStatement(query, param)) {
             statement.executeUpdate();
@@ -80,17 +76,4 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao<T> {
 
     protected abstract String getTableName();
 
-
-   /* private String buildValues(T item) throws SQLException {
-        String table = getTableName();
-        StringBuilder builder = new StringBuilder();
-        Map<String, Object> map = RowMapper.create(table).getValues(item);
-        for (Object object : map.values()) {
-            builder.append(object.toString()).append(", ");
-        }
-        builder.deleteCharAt(builder.indexOf(","));
-        String values = builder.toString();
-
-        return values;
-    }*/
 }

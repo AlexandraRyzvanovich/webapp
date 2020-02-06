@@ -4,6 +4,7 @@ import com.epam.webapp.dao.DaoHelper;
 import com.epam.webapp.dao.DaoHelperFactory;
 import com.epam.webapp.dao.OrderDao;
 import com.epam.webapp.entity.Order;
+import com.epam.webapp.exception.DaoException;
 import com.epam.webapp.exception.ServiceException;
 
 import java.sql.SQLException;
@@ -20,7 +21,7 @@ public class OrderService {
         try (DaoHelper factory = daoHelperFactory.create()) {
             OrderDao dao =  factory.createOrderDao();
             return dao.getByUserId(id);
-        } catch ( SQLException e) {
+        } catch ( DaoException e) {
             throw new ServiceException(e.getCause());
         }
     }
@@ -28,7 +29,7 @@ public class OrderService {
     public void addOrder(Order order) throws  ServiceException {
         try (DaoHelper factory = daoHelperFactory.create()) {
             OrderDao dao =  factory.createOrderDao();
-        } catch ( SQLException e) {
+        } catch ( DaoException e) {
             throw new ServiceException(e.getCause());
         }
     }

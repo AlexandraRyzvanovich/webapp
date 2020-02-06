@@ -3,13 +3,13 @@ package com.epam.webapp.command.common;
 import com.epam.webapp.command.Command;
 import com.epam.webapp.command.CommandResult;
 import com.epam.webapp.entity.Role;
+import com.epam.webapp.exception.CommandException;
 import com.epam.webapp.exception.ServiceException;
 import com.epam.webapp.service.UserService;
 import com.epam.webapp.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.sql.SQLException;
 import java.util.Optional;
 
 public class LoginCommand implements Command {
@@ -31,10 +31,15 @@ public class LoginCommand implements Command {
     }
 
     @Override
-    public CommandResult execute(HttpServletRequest request) throws ServiceException, SQLException {
+    public CommandResult execute(HttpServletRequest request) throws CommandException {
         String login = request.getParameter(LOGIN_ATTRIBUTE);
         String password = request.getParameter(PASSWORD_ATTRIBUTE);
-        Optional<User> user = userService.login(login, password);
+        Optional<User> user;
+        try {
+            user = userService.login(login, password);
+        } catch (ServiceException e) {
+            throw new CommandException("Error occurred while executing command", e.getCause());
+        }
         if (user.isPresent()) {
             Long userId = user.get().getUserId();
             Role role = user.get().getRole();

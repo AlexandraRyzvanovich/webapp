@@ -15,7 +15,7 @@ public class GetInternsCommand implements Command {
     }
 
     @Override
-    public CommandResult execute(HttpServletRequest request) throws ServiceException {
+    public CommandResult execute(HttpServletRequest request)  {
 
         return CommandResult.forward("Page.LOGIN_JSP_PAGE");
     }

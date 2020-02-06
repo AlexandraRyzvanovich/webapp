@@ -1,9 +1,6 @@
 package com.epam.webapp.command;
 
-import com.epam.webapp.exception.ServiceException;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 public class ShowPageCommand implements Command {
     private String page;
@@ -13,7 +10,7 @@ public class ShowPageCommand implements Command {
     }
 
     @Override
-    public CommandResult execute(HttpServletRequest request) throws ServiceException {
+    public CommandResult execute(HttpServletRequest request)  {
         return CommandResult.forward(page);
     }
 }

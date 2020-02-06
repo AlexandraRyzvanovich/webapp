@@ -7,7 +7,6 @@ import com.epam.webapp.entity.Subscription;
 import com.epam.webapp.exception.DaoException;
 import com.epam.webapp.exception.ServiceException;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class SubscriptionService {
@@ -21,7 +20,7 @@ public class SubscriptionService {
         try (DaoHelper factory = daoHelperFactory.create()) {
             AbstractDao<Subscription> dao = (AbstractDao<Subscription>) factory.createSubscriptionDao();
             return dao.getAll();
-        } catch (DaoException | SQLException e) {
+        } catch (DaoException e) {
             throw new ServiceException(e.getCause());
         }
     }

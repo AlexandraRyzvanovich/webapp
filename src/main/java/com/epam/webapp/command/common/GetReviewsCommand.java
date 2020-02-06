@@ -3,6 +3,7 @@ package com.epam.webapp.command.common;
 import com.epam.webapp.command.Command;
 import com.epam.webapp.command.CommandResult;
 import com.epam.webapp.entity.Review;
+import com.epam.webapp.exception.CommandException;
 import com.epam.webapp.exception.ServiceException;
 import com.epam.webapp.service.ReviewService;
 
@@ -20,8 +21,13 @@ public class GetReviewsCommand implements Command {
     }
 
     @Override
-    public CommandResult execute(HttpServletRequest request) throws ServiceException {
-        List<Review> reviews = service.getAllReview();
+    public CommandResult execute(HttpServletRequest request) throws CommandException {
+        List<Review> reviews;
+        try {
+            reviews = service.getAllReview();
+        } catch (ServiceException e) {
+            throw new CommandException("Error occurred while executing command", e.getCause());
+        }
         request.setAttribute(REVIEWS_ATTRIBUTE, reviews);
         return CommandResult.forward(REVIEWS_JSP_PAGE);
     }

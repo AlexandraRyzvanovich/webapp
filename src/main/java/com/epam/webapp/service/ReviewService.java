@@ -22,7 +22,7 @@ public class ReviewService {
         try (DaoHelper factory = daoHelperFactory.create()) {
             AbstractDao<Review> dao = (AbstractDao<Review>) factory.createReviewDao();
             return dao.getAll();
-        } catch ( SQLException | DaoException e) {
+        } catch ( DaoException e) {
             throw new ServiceException(e.getCause());
         }
     }
@@ -33,7 +33,7 @@ public class ReviewService {
         try (DaoHelper factory = daoHelperFactory.create()) {
             AbstractDao<Review> dao = (AbstractDao<Review>) factory.createReviewDao();
             dao.save(review);
-        } catch ( SQLException | DaoException e) {
+        } catch ( DaoException e) {
             throw new ServiceException(e.getCause());
         }
     }

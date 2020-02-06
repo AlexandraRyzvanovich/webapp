@@ -8,7 +8,6 @@ import com.epam.webapp.entity.User;
 import com.epam.webapp.exception.DaoException;
 import com.epam.webapp.exception.ServiceException;
 
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,7 +18,7 @@ public class UserService {
         this.daoHelperFactory = daoHelperFactory;
     }
 
-    public Optional<User> login(String login, String password) throws ServiceException, SQLException {
+    public Optional<User> login(String login, String password) throws ServiceException {
         try (DaoHelper factory = daoHelperFactory.create()) {
             UserDao dao = factory.createUserDao();
             return dao.findUserByLoginAndPassword(login, password);
@@ -28,29 +27,29 @@ public class UserService {
         }
     }
 
-    public Optional<User> getUserInfo(Long id) throws ServiceException {
-        try (DaoHelper factory = daoHelperFactory.create()) {
-            AbstractDao<User> dao = (AbstractDao<User>) factory.createUserDao();
-            return dao.getById(id);
-        } catch (DaoException | SQLException e) {
-            throw new ServiceException(e.getCause());
-        }
-    }
-
     public List<User> getAllUsers() throws ServiceException {
         try (DaoHelper factory = daoHelperFactory.create()) {
             AbstractDao<User> dao = (AbstractDao<User>) factory.createUserDao();
             return dao.getAll();
-        } catch (DaoException | SQLException e) {
+        } catch (DaoException e) {
             throw new ServiceException(e.getCause());
         }
     }
 
     public List<User> getInterns(Long trainerId) throws ServiceException {
         try (DaoHelper factory = daoHelperFactory.create()) {
-            UserDao dao =  factory.createUserDao();
+            UserDao dao = factory.createUserDao();
             return dao.getTrainersInterns(trainerId);
-        } catch (DaoException | SQLException e) {
+        } catch (DaoException e) {
+            throw new ServiceException(e.getCause());
+        }
+    }
+
+    public void addTrainer(Long userId, Long trainerId) throws ServiceException {
+        try (DaoHelper factory = daoHelperFactory.create()) {
+            UserDao dao = factory.createUserDao();
+            dao.updateTrainerId(userId, trainerId);
+        } catch (DaoException e) {
             throw new ServiceException(e.getCause());
         }
     }

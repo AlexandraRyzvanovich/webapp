@@ -4,6 +4,7 @@ import com.epam.webapp.command.Command;
 import com.epam.webapp.command.CommandResult;
 import com.epam.webapp.entity.Order;
 import com.epam.webapp.entity.OrderStatus;
+import com.epam.webapp.exception.CommandException;
 import com.epam.webapp.exception.ServiceException;
 import com.epam.webapp.service.OrderService;
 
@@ -29,7 +30,7 @@ public class BuySubscriptionCommand implements Command {
     }
 
     @Override
-    public CommandResult execute(HttpServletRequest request) throws ServiceException {
+    public CommandResult execute(HttpServletRequest request) throws CommandException {
         HttpSession session = request.getSession(false);
         Object idAttribute = session.getAttribute(ID_ATTRIBUTE);
         String stringId = idAttribute.toString();
@@ -42,7 +43,11 @@ public class BuySubscriptionCommand implements Command {
         String subscriptionIdParam = request.getParameter(SUBSCRIPTION_ID_PARAMETER);
         Long subscriptionId = Long.parseLong(subscriptionIdParam);
         Order order = new Order(userId, paidDate, amount, status, subscriptionId);
-        service.addOrder(order);
+        try {
+            service.addOrder(order);
+        } catch (ServiceException e) {
+            throw new CommandException("Error occurred while executing command", e.getCause());
+        }
         request.setAttribute(SUCCESS_MSG_ATTRIBUTE, SUCCESS_MESSAGE);
 
         return CommandResult.redirect(REVIEWS_PAGE);

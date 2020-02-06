@@ -1,6 +1,7 @@
 package com.epam.webapp.command.client;
 
 import com.epam.webapp.command.*;
+import com.epam.webapp.exception.CommandException;
 import com.epam.webapp.exception.ServiceException;
 import com.epam.webapp.service.ReviewService;
 
@@ -20,7 +21,7 @@ public class AddReviewCommand implements Command {
     }
 
     @Override
-    public CommandResult execute(HttpServletRequest request) throws ServiceException {
+    public CommandResult execute(HttpServletRequest request) throws CommandException {
         HttpSession session = request.getSession(false);
         String review = request.getParameter(REVIEW_PARAMETER);
         String starAttribute = request.getParameter(STAR_PARAMETER);
@@ -28,7 +29,11 @@ public class AddReviewCommand implements Command {
         Object idAttribute = session.getAttribute(ID_ATTRIBUTE);
         String stringId = idAttribute.toString();
         Long id = Long.parseLong(stringId);
-        service.addReview(id, review, star);
+        try {
+            service.addReview(id, review, star);
+        } catch (ServiceException e) {
+            throw new CommandException("Error occurred while executing command", e.getCause());
+        }
 
         return CommandResult.forward(REVIEWS_JSP_PAGE);
     }

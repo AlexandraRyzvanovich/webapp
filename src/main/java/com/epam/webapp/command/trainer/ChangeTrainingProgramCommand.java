@@ -6,7 +6,6 @@ import com.epam.webapp.exception.ServiceException;
 import com.epam.webapp.service.TrainingProgramService;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 public class ChangeTrainingProgramCommand implements Command {
     TrainingProgramService service;
@@ -16,7 +15,7 @@ public class ChangeTrainingProgramCommand implements Command {
     }
 
     @Override
-    public CommandResult execute(HttpServletRequest request) throws ServiceException {
+    public CommandResult execute(HttpServletRequest request) {
 
 
         return CommandResult.forward("");
