@@ -12,11 +12,9 @@
             <p>${review.reviewMessage}</p>
             <span class="time-left">${review.date}</span>
             <div style="position:absolute;bottom:0;right: 10px;">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
+                <c:forEach var = "i" begin = "1" end = "${review.star}">
+                    <span class="fa fa-star checked"></span>
+                </c:forEach>
             </div>
         </div>
         </c:forEach>
@@ -24,8 +22,7 @@
         <input type="hidden" name="command" value="addNewReview" />
             <h2 style="color: #E1D070;text-align: center;margin-top: 3%;margin-bottom: 2%;">Add Your comment</h2>
             <label>
-                <input type="text" name="review">
-                <textarea type="text"  style="width: 400px;height: 200px;margin-left: 22%;border-radius: 6px; background: #383D50; color: #E1D070; opacity: 70%;"></textarea>
+                <input type="text" name="review" style="width: 400px;height: 200px;margin-left: 22%;border-radius: 6px; background: #383D50; color: #E1D070; opacity: 70%;">
             </label>
             <input type="hidden" name="star" value="1" />
             <button type="submit">add</button>

@@ -19,7 +19,7 @@
     <input type="hidden" name="command" value="logout" />
     <ul id="navbar" class="navbar">
         <li class="login100-form-avatar2">
-            <a href="/training-program">
+            <a href="/main">
             <img src="/resources/images/newLogo3.png"/>
             </a>
         </li>
