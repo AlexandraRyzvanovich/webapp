@@ -49,7 +49,7 @@ public class UserService {
     public List<User> getInterns(Long trainerId) throws ServiceException {
         try (DaoHelper factory = daoHelperFactory.create()) {
             UserDao dao =  factory.createUserDao();
-            return dao.getTrainersInterns(trainerId);
+            return dao.findTrainersInterns(trainerId);
         } catch (DaoException | SQLException e) {
             throw new ServiceException(e.getCause());
         }
