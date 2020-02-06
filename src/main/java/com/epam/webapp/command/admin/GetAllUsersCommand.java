@@ -11,6 +11,7 @@ import java.util.List;
 
 public class GetAllUsersCommand implements Command {
     private static final String USERS_ATTRIBUTE = "users";
+    private static final String CLIENTS_JSP_PAGE = "/WEB-INF/views/clients.jsp";
 
     private UserService service;
 
@@ -22,6 +23,6 @@ public class GetAllUsersCommand implements Command {
     public CommandResult execute(HttpServletRequest request) throws ServiceException {
         List<User> users = service.getAllUsers();
         request.setAttribute(USERS_ATTRIBUTE, users);
-        return CommandResult.redirect("/clients");
+        return CommandResult.forward(CLIENTS_JSP_PAGE);
     }
 }
