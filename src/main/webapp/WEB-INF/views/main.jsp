@@ -46,37 +46,31 @@
     <jsp:attribute name="main"></jsp:attribute>
     <jsp:body>
         <section>
-            <%--<base href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/">
             <div id="captioned-gallery">
                 <figure class="slider">
                     <figure>
-                        <img src="hobbiton-lake.jpg" alt>
-                        <figcaption>Hobbiton, New Zealand</figcaption>
+                        <img src="/resources/images/slider1.jpg" alt>
                     </figure>
                     <figure>
-                        <img src="wanaka-drowned-tree.jpg" alt>
-                        <figcaption>Wanaka, New Zealand</figcaption>
+                        <img src="/resources/images/slider2.jpg" alt>
                     </figure>
                     <figure>
-                        <img src="utah-peak.jpg" alt>
-                        <figcaption>Utah, United States</figcaption>
+                        <img src="/resources/images/slider3.jpg" alt>
                     </figure>
                     <figure>
-                        <img src="bryce-canyon-utah.jpg" alt>
-                        <figcaption>Bryce Canyon, Utah, United States</figcaption>
+                        <img src="/resources/images/slider4.jpg" alt>
                     </figure>
                     <figure>
-                        <img src="hobbiton-lake.jpg" alt>
-                        <figcaption>Hobbiton, New Zealand</figcaption>
+                        <img src="/resources/images/slider2.jpg" alt>
                     </figure>
                 </figure>
-            </div>--%>
-            <p>
+            </div>
+            <p style="font-size:20px;padding-top: 30px">
                 Наша цель — открыть вам прекрасный мир фитнеса, сделать его доступным и любимым. Мы любим свое дело и хотим, чтобы вы получали такое же удовольствие от занятий, как мы!
             </p>
-            <p>   Мы хотим делать ваши мечты реальностью: быть здоровой, надеть платье размера S, сесть на шпагат, иметь ровную осанку, видеть кубики на животе, и, конечно, всегда улыбаться отражению в зеркале. Мы развиваемся вместе с вами: появляются новые направления клубной жизни, постоянное улучшение условий в зале для вашего комфорта:
+            <p style="font-size:20px;">   Мы хотим делать ваши мечты реальностью: быть здоровой, надеть платье размера S, сесть на шпагат, иметь ровную осанку, видеть кубики на животе, и, конечно, всегда улыбаться отражению в зеркале. Мы развиваемся вместе с вами: появляются новые направления клубной жизни, постоянное улучшение условий в зале для вашего комфорта:
             </p>
-            <ul>
+            <ul style="font-size:20px;">
                 <li> бесплатный wi-fi,</li>
                 <li>оплата наличными и по карте,</li>
                 <li>регулярное обновление инвентаря,</li>
@@ -88,7 +82,7 @@
                 <li> вкусный зеленый чай.</li>
             </ul>
 
-            <table cellspacing="0">
+         <%--   <table cellspacing="0">
                 <tr>
                     <th>Program</th>
                     <th>Description</th>
@@ -157,7 +151,7 @@
                     <img src="images/sample.png" width="96" height="96" alt="">
                     <figcaption>Cody Rousselle<span>ward</span></figcaption>
                 </figure>
-            </div>
+            </div>--%>
         </section>
         <jsp:include page="/WEB-INF/views/shared/footer.jsp"></jsp:include>
     </jsp:body>

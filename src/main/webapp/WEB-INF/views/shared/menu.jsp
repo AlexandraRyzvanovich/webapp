@@ -18,19 +18,23 @@
                 <div class="sidenav">
                     <a href="/training-program?command=getTrainingProgram">Training program</a>
                     <a href="/subscriptions?command=getAvailableSubscriptions">Subscription</a>
+<%--
                     <button class="dropdown-btn">Your program
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-container">
                         <a href="/diet?command=getFoodList">Food</a>
                         <a href="/exercises?command=getExerciseList">Excesses</a>
-                    </div>
+                    </div>--%>
                     <a href="/reviews?command=getReviews">Reviews</a>
                 </div>
             </c:if>
             <c:if test="${s == 'ADMIN'}">
                 <div class="sidenav">
                     <a href="/clients?command=getClients">Clients</a>
+                </div>
+                <div class="sidenav">
+                    <a href="/clients">Clients2</a>
                 </div>
                 <div class="sidenav">
                     <a href="/client-card">Food</a>

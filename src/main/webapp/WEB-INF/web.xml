@@ -84,6 +84,15 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>clients</servlet-name>
+    <jsp-file>/WEB-INF/views/clients.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>clients</servlet-name>
+    <url-pattern>/clients</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>reviews</servlet-name>
     <servlet-class>com.epam.webapp.controller.Controller</servlet-class>
   </servlet>
@@ -92,14 +101,14 @@
     <url-pattern>/reviews</url-pattern>
   </servlet-mapping>
 
-  <servlet>
+  <!--<servlet>
     <servlet-name>interns</servlet-name>
     <servlet-class>com.epam.webapp.controller.Controller</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>interns</servlet-name>
     <url-pattern>/clients</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping>-->
 
   <servlet>
     <servlet-name>clientItem</servlet-name>

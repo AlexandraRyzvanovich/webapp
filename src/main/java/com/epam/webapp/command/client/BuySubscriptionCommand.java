@@ -22,7 +22,6 @@ public class BuySubscriptionCommand implements Command {
     private static final String SUCCESS_MSG_ATTRIBUTE = "success";
     private static final String SUCCESS_MESSAGE = "You have bought subscription successfully";
 
-
     private OrderService service;
 
     public BuySubscriptionCommand(OrderService service) {

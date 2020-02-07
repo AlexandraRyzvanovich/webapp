@@ -52,7 +52,7 @@ public class LoginCommand implements Command {
                 } else if (role == Role.TRAINER) {
                     return CommandResult.redirect(INTERNS_PAGE);
                 } else if (role == Role.ADMIN) {
-                    return CommandResult.redirect("");
+                    return CommandResult.forward("/WEB-INF/views/main.jsp");
                 }
             }
             return CommandResult.redirect(LOGIN_JSP_PAGE);

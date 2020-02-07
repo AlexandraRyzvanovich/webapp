@@ -15,6 +15,9 @@
                 <c:forEach var = "i" begin = "1" end = "${review.star}">
                     <span class="fa fa-star checked"></span>
                 </c:forEach>
+                <c:forEach var = "i" begin = "1" end = "${5 - review.star}">
+                    <span class="fa fa-star"></span>
+                </c:forEach>
             </div>
         </div>
         </c:forEach>
@@ -22,23 +25,10 @@
         <input type="hidden" name="command" value="addNewReview" />
             <h2 style="color: #E1D070;text-align: center;margin-top: 3%;margin-bottom: 2%;">Add Your comment</h2>
             <label>
-                <input type="text" name="review" style="width: 400px;height: 200px;margin-left: 22%;border-radius: 6px; background: #383D50; color: #E1D070; opacity: 70%;">
+                <input id="reviewData" type="text" name="review" style="width: 400px;height: 200px;margin-left: 22%;border-radius: 6px; background: #383D50; color: #E1D070; opacity: 70%;">
             </label>
             <input type="hidden" name="star" value="1" />
-            <button type="submit">add</button>
-          <a class="bot1" onclick="addReview()">Add review</a>
+          <input type="submit" class="bot1" value="Add review"/>
         </form>
     </section>
 </mtt:mainlayout>
-<script>
-    function addReview() {
-        var xhttp = new XMLHttpRequest();
-       /* xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                window.location.replace("http://localhost:8181/");
-            }
-        };*/
-        xhttp.open("post", "/reviews?command=addNewReview", true);
-        xhttp.send();
-    }
-</script>
