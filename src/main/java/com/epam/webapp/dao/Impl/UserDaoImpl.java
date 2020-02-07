@@ -11,10 +11,11 @@ import com.epam.webapp.exception.DaoException;
 
 public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     private static final String FIND_BY_LOGIN_AND_PASSWORD = "SELECT * FROM user WHERE email = ? AND password = MD5(?)";
-    private static final String FIND_BY_EMAIL = "SELECT * FROM user WHERE email = ?";
     private static final String GET_BY_ID = "SELECT * FROM user WHERE id = ?";
     private static final String UPDATE_TRAINER_ID_QUERY = "UPDATE user SET trainer_id = ? WHERE id = ?";
     private static final String GET_TRAINER_INTERNS_QUERY = "SELECT * FROM user WHERE trainer_id = ?";
+    private static final String GET_CLIENTS_QUERY = "SELECT * FROM user WHERE role = CLIENT";
+    private static final String GET_TRAINERS_QUERY = "SELECT * FROM user WHERE role = TRAINER";
 
     public UserDaoImpl(Connection connection) {
         super(connection);
@@ -47,13 +48,18 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     }
 
     @Override
-    public Optional<User> findByEmail(String email) throws DaoException{
-        return executeForStringResult(FIND_BY_EMAIL, email);
+    public List<User> getTrainersInterns(Long trainerId) throws DaoException {
+        return executeQuery(GET_TRAINER_INTERNS_QUERY, trainerId);
     }
 
     @Override
-    public List<User> getTrainersInterns(Long trainerId) throws DaoException {
-        return executeQuery(GET_TRAINER_INTERNS_QUERY, trainerId);
+    public List<User> getClients() throws DaoException {
+        return executeQuery(GET_CLIENTS_QUERY);
+    }
+
+    @Override
+    public List<User> getTrainers() throws DaoException {
+        return executeQuery(GET_TRAINERS_QUERY);
     }
 
     @Override

@@ -20,11 +20,11 @@ public class GetAvailableSubscriptionsCommand implements Command {
     private static final String SUBSCRIPTIONS_JSP_PAGE = "/WEB-INF/views/subscription.jsp";
 
     private SubscriptionService service;
-    private OrderService serviceOrder;
+    private OrderService orderService;
 
-    public GetAvailableSubscriptionsCommand(SubscriptionService service, OrderService serviceOrder ) {
+    public GetAvailableSubscriptionsCommand(SubscriptionService service, OrderService orderService) {
         this.service = service;
-        this.serviceOrder = serviceOrder;
+        this.orderService = orderService;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class GetAvailableSubscriptionsCommand implements Command {
             String stringId = idAttribute.toString();
             Long id = Long.parseLong(stringId);
             List<Subscription> listSubscriptions = service.getAvailableSubscriptions();
-            List<Order> ordersList = serviceOrder.getOrders(id);
+            List<Order> ordersList = orderService.getOrders(id);
             request.setAttribute(SUBSCRIPTIONS_ATTRIBUTE, listSubscriptions);
             request.setAttribute(ORDERS_ATTRIBUTE, ordersList);
             return CommandResult.forward(SUBSCRIPTIONS_JSP_PAGE);

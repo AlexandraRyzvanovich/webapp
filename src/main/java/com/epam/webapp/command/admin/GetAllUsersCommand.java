@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public class GetAllUsersCommand implements Command {
-    private static final String USERS_ATTRIBUTE = "users";
+    private static final String CLIENTS_ATTRIBUTE = "clients";
+    private static final String TRAINERS_ATTRIBUTE = "trainers";
     private static final String CLIENTS_JSP_PAGE = "/WEB-INF/views/clients.jsp";
 
     private UserService service;
@@ -23,8 +24,10 @@ public class GetAllUsersCommand implements Command {
     @Override
     public CommandResult execute(HttpServletRequest request) throws CommandException {
         try {
-            List<User> users = service.getAllUsers();
-            request.setAttribute(USERS_ATTRIBUTE, users);
+            List<User> clients = service.getClients();
+            List<User> trainers = service.getTrainers();
+            request.setAttribute(CLIENTS_ATTRIBUTE, clients);
+            request.setAttribute(TRAINERS_ATTRIBUTE, trainers);
             return CommandResult.forward(CLIENTS_JSP_PAGE);
         } catch (ServiceException e) {
             throw new CommandException("Error occurred while executing command", e.getCause());

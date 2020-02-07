@@ -1,4 +1,4 @@
-package com.epam.webapp.command.common;
+package com.epam.webapp.command.client;
 
 import com.epam.webapp.command.Command;
 import com.epam.webapp.command.CommandResult;

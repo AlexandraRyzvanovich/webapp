@@ -27,10 +27,18 @@ public class UserService {
         }
     }
 
-    public List<User> getAllUsers() throws ServiceException {
+    public List<User> getClients() throws ServiceException {
         try (DaoHelper factory = daoHelperFactory.create()) {
-            AbstractDao<User> dao = (AbstractDao<User>) factory.createUserDao();
-            return dao.getAll();
+            UserDao dao = factory.createUserDao();
+            return dao.getClients();
+        } catch (DaoException e) {
+            throw new ServiceException(e.getCause());
+        }
+    }
+    public List<User> getTrainers() throws ServiceException {
+        try (DaoHelper factory = daoHelperFactory.create()) {
+            UserDao dao = factory.createUserDao();
+            return dao.getTrainers();
         } catch (DaoException e) {
             throw new ServiceException(e.getCause());
         }
@@ -53,4 +61,5 @@ public class UserService {
             throw new ServiceException(e.getCause());
         }
     }
+
 }
