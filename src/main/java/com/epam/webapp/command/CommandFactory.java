@@ -14,7 +14,7 @@ public class CommandFactory {
             case "login": return new LoginCommand(new UserService(new DaoHelperFactory()));
             case "logout": return new LogoutCommand();
             case "addNewReview": return new AddReviewCommand(new ReviewService(new DaoHelperFactory()));
-            case "buySubscription": return new BuySubscriptionCommand(new OrderService(new DaoHelperFactory()), new SubscriptionService(new DaoHelperFactory()));
+            case "buySubscription": return new BuySubscriptionCommand(new OrderService(new DaoHelperFactory()), new PurchaseSubscriptionForProgramService(new DaoHelperFactory()));
             case "getAvailableSubscriptions": return new GetAvailableSubscriptionsCommand(new SubscriptionService(new DaoHelperFactory()), new OrderService(new DaoHelperFactory()));
             case "getInterns": return new GetTrainerInternsCommand(new UserService(new DaoHelperFactory()));
             case "getReviews": return new GetReviewsCommand(new ReviewService(new DaoHelperFactory()));

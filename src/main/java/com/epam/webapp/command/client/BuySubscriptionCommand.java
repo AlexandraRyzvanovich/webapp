@@ -24,12 +24,10 @@ public class BuySubscriptionCommand implements Command {
 
 
     private OrderService orderService;
-    private SubscriptionService subscriptionService;
     private PurchaseSubscriptionForProgramService purchaseSubscriptionForProgramService;
 
-    public BuySubscriptionCommand(OrderService orderService, SubscriptionService subscriptionService, PurchaseSubscriptionForProgramService purchaseSubscriptionForProgramService) {
+    public BuySubscriptionCommand(OrderService orderService, PurchaseSubscriptionForProgramService purchaseSubscriptionForProgramService) {
         this.orderService = orderService;
-        this.subscriptionService = subscriptionService;
         this.purchaseSubscriptionForProgramService = purchaseSubscriptionForProgramService;
     }
 
