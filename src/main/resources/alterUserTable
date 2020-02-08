@@ -25,3 +25,44 @@ INSERT INTO review (user_id, review_msg, star, date, is_approved) VALUES
 (1, 'Cool', 5, '2020-01-20 09:04:43.5985585', 1 ),
 (2, 'Not so good', 3, '2020-01-20 09:04:43.5985585', 0 ),
 (1, 'I dont know', 4, '2020-01-20 09:04:43.5985585', NULL );
+
+INSERT INTO program (user_id, diet, start_date, end_date, status) VALUES
+(1, 'VEGAN', '2019-12-02 09:04:43.5985585', '2020-01-01 09:04:43.5985585', 'DONE'),
+(1, 'VEGAN', '2020-01-02 09:04:43.5985585', '2020-02-02 09:04:43.5985585', 'IN PROGRESS'),
+(2, 'LOW CARB', '2020-01-08 09:04:43.5985585', '2020-02-08 09:04:43.5985585', 'IN PROGRESS'),
+(3, 'ULTRA LOW FAT', '2020-01-05 09:04:43.5985585', '2020-02-05 09:04:43.5985585', 'NEW');
+
+INSERT INTO exercise (name) VALUES
+('Squat'),
+('Leg press'),
+('Lunge'),
+('Deadlift'),
+('Leg extension'),
+('Leg curl'),
+('Standing calf raise'),
+('Seated calf raise'),
+('Hip adductor'),
+('Bench press'),
+('Chest fly'),
+('Push-up'),
+('Pull-down');
+
+INSERT INTO training_program (program_id, exercise_id, frequency) VALUES
+(1, 5, 10),
+(1, 4, 2),
+(1, 7, 5),
+(2, 1, 5),
+(2, 7, 5),
+(2, 8, 2),
+(2, 5, 3),
+(3, 1, 5),
+(3, 2, 2),
+(3, 3, 4),
+(3, 7, 3),
+(3, 8, 4);
+
+
+
+
+
+

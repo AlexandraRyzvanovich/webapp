@@ -1,20 +1,16 @@
 package com.epam.webapp.filter;
 
 import com.epam.webapp.command.CommandResult;
-import com.epam.webapp.command.ShowPageCommand;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class SessionFilter implements Filter {
-    private static final String ID_ATTRIBUTE = "id";
     private static final String LOGIN_JSP_PAGE = "/WEB-INF/views/common/login.jsp";
-    private ServletContext context;
     private ArrayList<String> urlList;
 
     @Override
