@@ -2,10 +2,7 @@ package com.epam.webapp.dao;
 
 import com.epam.webapp.connection.ConnectionPool;
 import com.epam.webapp.connection.ProxyConnection;
-import com.epam.webapp.dao.Impl.OrderDaoImpl;
-import com.epam.webapp.dao.Impl.ReviewDaoImpl;
-import com.epam.webapp.dao.Impl.SubscriptionDaoImpl;
-import com.epam.webapp.dao.Impl.UserDaoImpl;
+import com.epam.webapp.dao.Impl.*;
 import com.epam.webapp.exception.DaoException;
 
 import java.sql.SQLException;
@@ -33,6 +30,9 @@ public class DaoHelper implements AutoCloseable {
 
     public ReviewDao createReviewDao() {
         return new ReviewDaoImpl(connection);
+    }
+    public PurchaseSubscriptionForProgramDao createPurchaseDao() {
+        return new PurchaseSubscriptionForProgramDaoImpl(connection);
     }
 
     @Override

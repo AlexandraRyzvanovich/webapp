@@ -16,7 +16,7 @@ public class PurchaseSubscriptionForProgramDaoImpl extends AbstractDao<PurchaseS
     private final String SAVE_ORDER_QUERY = "INSERT INTO order (user_id, paid_date, amount, status, subscription_id) VALUES (?, ?, ?, ?, ?)";
     private final String SAVE_PROGRAM_QUERY = "INSERT INTO program (user_id, start_date, end_date)";
 
-    protected PurchaseSubscriptionForProgramDaoImpl(Connection connection) {
+    public PurchaseSubscriptionForProgramDaoImpl(Connection connection) {
         super(connection);
     }
 
