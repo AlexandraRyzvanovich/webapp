@@ -19,6 +19,9 @@ public class BuySubscriptionCommand implements Command {
     private static final String REVIEWS_PAGE = "controller?command=getReviews";
     private static final String SUCCESS_MSG_ATTRIBUTE = "success";
     private static final String SUCCESS_MESSAGE = "You have bought subscription successfully";
+    private static final String FAIL_MESSAGE_ATTRIBUTE = "fail purchase";
+    private static final String FAIL_MESSAGE = "Your payment was declined. Please, try again";
+
 
     private OrderService orderService;
     private SubscriptionService subscriptionService;
@@ -28,7 +31,6 @@ public class BuySubscriptionCommand implements Command {
         this.orderService = orderService;
         this.subscriptionService = subscriptionService;
         this.purchaseSubscriptionForProgramService = purchaseSubscriptionForProgramService;
-
     }
 
     @Override
@@ -44,8 +46,11 @@ public class BuySubscriptionCommand implements Command {
         try {
             if (status == OrderStatus.DECLINED) {
                 orderService.addOrder(userId, status, subscriptionId);
+                request.setAttribute(FAIL_MESSAGE_ATTRIBUTE, FAIL_MESSAGE);
+
             } else {
                 purchaseSubscriptionForProgramService.addOrderAndCreateProgram(userId, status, subscriptionId);
+                request.setAttribute(SUCCESS_MSG_ATTRIBUTE, SUCCESS_MESSAGE);
             }
         } catch (ServiceException e) {
             throw new CommandException("Error occurred while executing command", e.getCause());
