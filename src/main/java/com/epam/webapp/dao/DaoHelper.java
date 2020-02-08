@@ -9,6 +9,7 @@ import com.epam.webapp.dao.Impl.UserDaoImpl;
 import com.epam.webapp.exception.DaoException;
 
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DaoHelper implements AutoCloseable {
 
@@ -39,11 +40,23 @@ public class DaoHelper implements AutoCloseable {
         connection.close();
     }
 
-    public void startTransaction() throws DaoException {
-        try {
+    public void startTransaction(Object...query) throws DaoException {
+        try  {
             connection.setAutoCommit(false);
+            Statement statement = connection.createStatement();
+            for(int i = 0; i < query.length; i++){
+                String queryString = query.toString();
+                statement.executeUpdate(queryString);
+                connection.commit();
+            }
+            connection.setAutoCommit(true);
         }
         catch (SQLException ex) {
+            try {
+                connection.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             throw new DaoException(ex.getMessage());
         }
     }

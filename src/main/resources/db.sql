@@ -23,7 +23,7 @@ CREATE TABLE program
     diet       ENUM ('VEGAN', 'LOW CARB', 'ULTRA LOW FAT', 'HCG') NULL,
     start_date DATETIME NOT NULL,
     end_date   DATETIME NOT NULL,
-    status     ENUM ('NEW', 'IN PROGRESS', 'DONE', 'DECLINED') NOT NULL,
+    status     ENUM ('NEW', 'IN PROGRESS', 'DONE', 'DECLINED') NOT NULL DEFAULT 'NEW',
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES user (id)
 );

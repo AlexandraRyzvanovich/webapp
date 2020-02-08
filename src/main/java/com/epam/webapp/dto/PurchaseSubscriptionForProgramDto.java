@@ -1,48 +1,38 @@
-package com.epam.webapp.entity;
+package com.epam.webapp.dto;
+
+import com.epam.webapp.entity.Identifiable;
+import com.epam.webapp.entity.OrderStatus;
 
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 
-public class Order implements Identifiable {
-    public static final String ORDER_TABLE_NAME = "order";
-    public static final String ID_COLUMN_NAME = "id";
+public class PurchaseSubscriptionForProgramDto implements Identifiable {
     public static final String USER_ID_COLUMN_NAME = "user_id";
     public static final String PAID_DATE_COLUMN_NAME = "paid_date";
     public static final String AMOUNT_COLUMN_NAME = "amount";
-    public static final String STATUS_COLUMN_NAME = "status";
+    public static final String ORDER_STATUS_COLUMN_NAME = "status";
     public static final String SUBSCRIPTION_ID_COLUMN_NAME = "subscription_id";
+    public static final String DIET_COLUMN_NAME = "diet";
+    public static final String VALID_TO_COLUMN_NAME = "valid_to";
+    public static final String PROGRAM_STATUS_COLUMN_NAME = "status";
 
-    private Long id;
     private Long userId;
     private Date paidDate;
     private BigDecimal amount;
     private OrderStatus orderStatus;
     private Long subscriptionId;
+    private Date startDate;
+    private Date endDate;
 
-    public Order(Long id, Long userId, Date paidDate, BigDecimal amount, OrderStatus orderStatus, Long subscriptionId) {
-        this.id = id;
+    public PurchaseSubscriptionForProgramDto(Long userId, Date paidDate, BigDecimal amount, OrderStatus orderStatus, Long subscriptionId, Date startDate, Date endDate) {
         this.userId = userId;
         this.paidDate = paidDate;
         this.amount = amount;
         this.orderStatus = orderStatus;
         this.subscriptionId = subscriptionId;
-    }
-
-    public Order(Long userId, Date paidDate, BigDecimal amount, OrderStatus orderStatus, Long subscriptionId) {
-        this.userId = userId;
-        this.paidDate = paidDate;
-        this.amount = amount;
-        this.orderStatus = orderStatus;
-        this.subscriptionId = subscriptionId;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     public Long getUserId() {
@@ -85,33 +75,51 @@ public class Order implements Identifiable {
         this.subscriptionId = subscriptionId;
     }
 
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Order order = (Order) o;
-        return Objects.equals(id, order.id) &&
-                Objects.equals(userId, order.userId) &&
-                Objects.equals(paidDate, order.paidDate) &&
-                Objects.equals(amount, order.amount) &&
-                orderStatus == order.orderStatus &&
-                Objects.equals(subscriptionId, order.subscriptionId);
+        PurchaseSubscriptionForProgramDto that = (PurchaseSubscriptionForProgramDto) o;
+        return Objects.equals(userId, that.userId) &&
+                Objects.equals(paidDate, that.paidDate) &&
+                Objects.equals(amount, that.amount) &&
+                orderStatus == that.orderStatus &&
+                Objects.equals(subscriptionId, that.subscriptionId) &&
+                Objects.equals(startDate, that.startDate) &&
+                Objects.equals(endDate, that.endDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId, paidDate, amount, orderStatus, subscriptionId);
+        return Objects.hash(userId, paidDate, amount, orderStatus, subscriptionId, startDate, endDate);
     }
 
     @Override
     public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", userId=" + userId +
+        return "SubscriptionProgramPurchaseDto{" +
+                "userId=" + userId +
                 ", paidDate=" + paidDate +
                 ", amount=" + amount +
                 ", orderStatus=" + orderStatus +
                 ", subscriptionId=" + subscriptionId +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
                 '}';
     }
 }
