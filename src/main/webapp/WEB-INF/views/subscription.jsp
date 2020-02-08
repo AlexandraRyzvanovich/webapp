@@ -12,30 +12,32 @@
                 <h1 style="color: #E1D070;text-align: center;margin-bottom: 3%;">Your Subscription</h1>
                 <div class="sub_div">
                     <c:set var="s" value="${requestScope.subscriptionsList}" scope="request"></c:set>
-                    <c:forEach var="subscriprion" items="${requestScope.subscriptionsList}">
+                    <c:forEach var="subscription" items="${requestScope.subscriptionsList}">
                         <table class="sub_table_left">
                             <tr>
-                                <td colspan="2">${subscriprion.name}</td>
+                                <td colspan="2">${subscription.name}</td>
                             </tr>
                             <tr>
-                                <td colspan="2">${subscriprion.description}/></td>
+                                <td colspan="2">${subscription.description}/></td>
                             </tr>
                             <tr>
                                 <td class="sub_table_period">Period</td>
-                                <td>${subscriprion.period}</td>
+                                <td>${subscription.period}</td>
                             </tr>
                             <tr>
-                                <td style="opacity: 100% !important;" colspan="2"><a href="#" onclick="opendialog()"
-                                                                                     class="a-btn-3">
+                                <td style="opacity: 100% !important;" colspan="2">
+                                    <a href="#" onclick="opendialog()" class="a-btn-3">
                                     <span class="a-btn-3-text">Buy</span>
-                                    <span class="a-btn-3-slide-text">${subscriprion.price}</span>
-                                    <span class="a-btn-3-icon-right"><span></span></span>
-                                </a></td>
+                                    <span class="a-btn-3-slide-text">${subscription.price}</span>
+                                    <span class="a-btn-3-icon-right"></span>
+                                    <input hidden name = "id" value="${sessionScope.id}"/>
+                                </a>
+                                </td>
                             </tr>
                         </table>
                     </c:forEach>
                 </div>
-            </form
+            </form>
             <table cellspacing="0">
                 <tr>
                     <th>Подписка</th>
@@ -52,15 +54,15 @@
                 </tr>
             </c:forEach>
             </table>
+
             <div class="back-dialog" id="dialog">
-                <!-- Блок с нашим контентом -->
                 <div class="dialog-content">
-                    <!-- Заголовок и кнопка закрытия окна -->
                     <div class="dialog-title">
                         <span>Введите данные для оплаты</span>
                         <a class='close-dialog' href='javascript: closedialog()'></a>
                     </div>
-                    <form method="post">
+                    <form method="POST" action="subscriptions" >
+                        <input type="hidden" name="command" value="buySubscription" />
                         <div class="col-50">
                             <div class="icon-container">
                                 <i class="fa fa-cc-visa" style="color:navy;"></i>
@@ -83,9 +85,11 @@
                                     <label for="cvv">CVV</label>
                                     <input type="text" id="cvv" name="cvv" placeholder="352">
                                 </div>
+                                <input hidden name="orderStatus" value="PROCESSED"/>
+                                <input hidden name = "subscriptionId" value="1"/>
                             </div>
                         </div>
-                        <a class="bot1" onclick="logout()">Logout</a>
+                        <input type="submit" class="bot1" value="Buy"/>
                     </form>
                 </div>
             </div>
@@ -94,14 +98,21 @@
 </mtt:mainlayout>
 <script>
     $(document).ready(function () {
-        $("#dialog").hide(); //скрываем окно при загрузке страница
+        $("#dialog").hide();
     });
 
     function opendialog() {
-        $("#dialog").fadeIn(); //плавное появление блока
+        $("#dialog").fadeIn();
     }
 
     function closedialog() {
-        $("#dialog").fadeOut(); //плавное исчезание блока
+        $("#dialog").fadeOut();
+    }
+    function buy() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            xhttp.open("post", "controller?command=buySubscription", true);
+            xhttp.send();
+        }
     }
 </script>

@@ -532,11 +532,11 @@ a.a-btn-3 {
 }
 
 .dialog-content {
-    position: relative;
+    position: absolute;
     overflow: hidden;
     overflow-y: auto;
     padding: 0 10 0 10;
-    margin: 300px auto 0px auto;
+    margin: 142px auto 0px 142px;
     min-width: 150px;
     max-width: 600px;
     min-height: 150px;

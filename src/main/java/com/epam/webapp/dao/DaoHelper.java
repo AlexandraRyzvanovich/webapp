@@ -5,8 +5,8 @@ import com.epam.webapp.connection.ProxyConnection;
 import com.epam.webapp.dao.Impl.*;
 import com.epam.webapp.exception.DaoException;
 
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class DaoHelper implements AutoCloseable {
 
@@ -40,13 +40,11 @@ public class DaoHelper implements AutoCloseable {
         connection.close();
     }
 
-    public void startTransaction(Object...query) throws DaoException {
+    public void startTransaction(PreparedStatement...statement) throws DaoException {
         try  {
             connection.setAutoCommit(false);
-            Statement statement = connection.createStatement();
-            for(int i = 0; i < query.length; i++){
-                String queryString = query.toString();
-                statement.executeUpdate(queryString);
+            for (int i = 0; i < statement.length; i++) {
+                statement[i].executeUpdate();
                 connection.commit();
             }
             connection.setAutoCommit(true);
@@ -55,7 +53,7 @@ public class DaoHelper implements AutoCloseable {
             try {
                 connection.rollback();
             } catch (SQLException e) {
-                e.printStackTrace();
+               throw new DaoException("Exception occurred while executing statement");
             }
             throw new DaoException(ex.getMessage());
         }

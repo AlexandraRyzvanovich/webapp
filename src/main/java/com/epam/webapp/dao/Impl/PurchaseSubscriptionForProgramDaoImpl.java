@@ -9,12 +9,14 @@ import com.epam.webapp.exception.DaoException;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 public class PurchaseSubscriptionForProgramDaoImpl extends AbstractDao<PurchaseSubscriptionForProgramDto> implements PurchaseSubscriptionForProgramDao {
-    private final String SAVE_ORDER_QUERY = "INSERT INTO order (user_id, paid_date, amount, status, subscription_id) VALUES (?, ?, ?, ?, ?)";
-    private final String SAVE_PROGRAM_QUERY = "INSERT INTO program (user_id, start_date, end_date)";
+    private final String SAVE_ORDER_QUERY = "INSERT INTO orders (user_id, paid_date, amount, status, subscription_id) VALUES (?, ?, ?, ?, ?)";
+    private final String SAVE_PROGRAM_QUERY = "INSERT INTO program (user_id, start_date, end_date) VALUES (?, ?, ?)";
 
     public PurchaseSubscriptionForProgramDaoImpl(Connection connection) {
         super(connection);
@@ -36,9 +38,10 @@ public class PurchaseSubscriptionForProgramDaoImpl extends AbstractDao<PurchaseS
         Date paidDate = item.getPaidDate();
         BigDecimal amount = item.getAmount();
         OrderStatus orderStatus = item.getOrderStatus();
+        String status = orderStatus.toString();
         Long subscriptionId = item.getSubscriptionId();
         Date endDate = item.getEndDate();
-        PreparedStatement orderStatement = createStatement(SAVE_ORDER_QUERY, userId, paidDate, amount, orderStatus, subscriptionId);
+        PreparedStatement orderStatement = createStatement(SAVE_ORDER_QUERY, userId, paidDate, amount, status, subscriptionId);
         PreparedStatement programStatement = createStatement(SAVE_PROGRAM_QUERY, userId, paidDate, endDate);
         executeTransactionUpdate(orderStatement, programStatement);
     }

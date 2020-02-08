@@ -75,10 +75,10 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao<T> {
         }
     }
 
-    protected void executeTransactionUpdate(Object... query) throws DaoException {
+    protected void executeTransactionUpdate(PreparedStatement...queries) throws DaoException {
         DaoHelperFactory helperFactory = new DaoHelperFactory();
         DaoHelper daoHelper = helperFactory.create();
-        daoHelper.startTransaction(query);
+        daoHelper.startTransaction(queries);
     }
 
     protected abstract String getTableName();
