@@ -7,7 +7,6 @@ import com.epam.webapp.exception.CommandException;
 import com.epam.webapp.exception.ServiceException;
 import com.epam.webapp.service.OrderService;
 import com.epam.webapp.service.PurchaseSubscriptionForProgramService;
-import com.epam.webapp.service.SubscriptionService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
