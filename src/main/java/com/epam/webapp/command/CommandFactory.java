@@ -10,7 +10,7 @@ import com.epam.webapp.service.*;
 
 public class CommandFactory {
     public static Command create(String command) {
-        switch (command){
+        switch (command) {
             case "login": return new LoginCommand(new UserService(new DaoHelperFactory()));
             case "logout": return new LogoutCommand();
             case "addNewReview": return new AddReviewCommand(new ReviewService(new DaoHelperFactory()));
