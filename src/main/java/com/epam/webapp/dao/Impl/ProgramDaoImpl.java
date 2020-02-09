@@ -9,11 +9,12 @@ import java.sql.Connection;
 import java.util.Optional;
 
 public class ProgramDaoImpl extends AbstractDao<Program> implements ProgramDao {
-    private final String GET_BY_USER_ID = "SELECT * FROM program WHERE user_id = ?";
-    private final String SAVE = "";
+    private final String GET_BY_USER_ID = "SELECT * FROM program WHERE user_id = ? AND end_date > now()";
+    private final String UPDATE_DIET = "UPDATE program SET diet = ? WHERE id = ?";
+    private final String UPDATE_STATUS = "UPDATE program SET status = '?' WHERE id = ?";
 
 
-    protected ProgramDaoImpl(Connection connection) {
+    public ProgramDaoImpl(Connection connection) {
         super(connection);
     }
 
@@ -29,12 +30,17 @@ public class ProgramDaoImpl extends AbstractDao<Program> implements ProgramDao {
 
     @Override
     public void save(Program item) throws DaoException {
-
+        throw new DaoException("Operation not supported");
     }
 
     @Override
-    public void update(String query, Object... objects) throws DaoException {
+    public void updateDiet(String query, Object... objects) throws DaoException {
+        executeSave(UPDATE_DIET, objects);
+    }
 
+    @Override
+    public void updateStatus(String query, Object... objects) throws DaoException {
+        executeSave(UPDATE_STATUS, objects);
     }
 
     @Override
@@ -44,7 +50,7 @@ public class ProgramDaoImpl extends AbstractDao<Program> implements ProgramDao {
     }
 
     @Override
-    public Optional<Program> getProgramByUserId(Long userId) throws DaoException {
+    public Optional<Program> getCurrentProgramByUserId(Long userId) throws DaoException {
         return executeForStringResult(GET_BY_USER_ID, userId );
     }
 }

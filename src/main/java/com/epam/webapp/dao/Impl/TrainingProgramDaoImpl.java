@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class TrainingProgramDaoImpl extends AbstractDao<TrainingProgram> implements TrainingProgramDao {
+    private final String SAVE = "INSERT INTO training_program (program_id, exercise_id, frequency) VALUES (?, ?, ?)";
+
     protected TrainingProgramDaoImpl(Connection connection) {
         super(connection);
     }
@@ -26,7 +28,10 @@ public class TrainingProgramDaoImpl extends AbstractDao<TrainingProgram> impleme
 
     @Override
     public void save(TrainingProgram item) throws DaoException {
-
+        Long programId = item.getProgramId();
+        Long exerciseId = item.getExerciseId();
+        Integer frequency = item.getFrequency();
+        executeSave(SAVE, programId, exerciseId, frequency);
     }
 
     @Override

@@ -31,9 +31,19 @@ public class DaoHelper implements AutoCloseable {
     public ReviewDao createReviewDao() {
         return new ReviewDaoImpl(connection);
     }
+
     public PurchaseSubscriptionForProgramDao createPurchaseDao() {
         return new PurchaseSubscriptionForProgramDaoImpl(connection);
     }
+
+    public TrainingProgramCardDtoDao createTrainingProgramCardDao() {
+        return new TrainingProgramCardDtoDaoImpl(connection);
+    }
+
+    public ProgramDao createProgramDao() {
+        return new ProgramDaoImpl(connection);
+    }
+
 
     @Override
     public void close() throws DaoException {

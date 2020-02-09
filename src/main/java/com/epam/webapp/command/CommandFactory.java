@@ -19,9 +19,8 @@ public class CommandFactory {
             case "getInterns": return new GetTrainerInternsCommand(new UserService(new DaoHelperFactory()));
             case "getReviews": return new GetReviewsCommand(new ReviewService(new DaoHelperFactory()));
             case "getClients": return new GetAllUsersCommand(new UserService(new DaoHelperFactory()));
-            case "setTrainerCommand": return new SetTrainerCommand(new UserService(new DaoHelperFactory()));
-
-            case "getTrainingProgram": return new GetTrainingProgramCommand(new TrainingProgramService(new DaoHelperFactory()));
+            case "setTrainer": return new SetTrainerCommand(new UserService(new DaoHelperFactory()));
+            case "getProgram": return new GetProgramCommand(new ProgramService(new DaoHelperFactory()), new TrainingProgramCardService(new DaoHelperFactory()));
 
             default: throw new IllegalArgumentException("unknown command " + command);
         }

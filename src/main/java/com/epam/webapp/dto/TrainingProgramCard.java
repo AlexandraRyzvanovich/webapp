@@ -5,10 +5,10 @@ import com.epam.webapp.entity.Identifiable;
 import java.util.Objects;
 
 public class TrainingProgramCard implements Identifiable {
-    private static final String TABLE_NAME_DTO = "training_program_card";
-    private static final String PROGRAM_ID_COLUMN_NAME = "program_id";
-    private static final String EXERCISE_COLUMN_NAME = "name";
-    private static final String FREQUENCY_COLUMN_NAME = "frequency";
+    public static final String TABLE_NAME_DTO = "training_program_card";
+    public static final String PROGRAM_ID_COLUMN_NAME = "program_id";
+    public static final String EXERCISE_COLUMN_NAME = "name";
+    public static final String FREQUENCY_COLUMN_NAME = "frequency";
 
     private Long programId;
     private String exercise;
