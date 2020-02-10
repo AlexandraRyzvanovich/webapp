@@ -32,7 +32,7 @@ public class DaoHelper implements AutoCloseable {
         return new ReviewDaoImpl(connection);
     }
 
-    public PurchaseSubscriptionForProgramDao createPurchaseDao() {
+    public PurchaseSubscriptionForProgramDaoImpl createPurchaseDao() {
         return new PurchaseSubscriptionForProgramDaoImpl(connection);
     }
 

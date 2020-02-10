@@ -61,4 +61,13 @@ public class UserService {
         }
     }
 
+    public Optional<User> getUserById(Long userId) throws ServiceException {
+        try (DaoHelper factory = daoHelperFactory.create()) {
+            UserDao dao = factory.createUserDao();
+            return dao.getById(userId);
+        } catch (DaoException e) {
+            throw new ServiceException(e.getCause());
+        }
+    }
+
 }

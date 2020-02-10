@@ -6,6 +6,7 @@ import com.epam.webapp.entity.Review;
 import com.epam.webapp.exception.DaoException;
 
 import java.sql.Connection;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Optional;
 
@@ -32,10 +33,9 @@ public class ReviewDaoImpl extends AbstractDao<Review> implements ReviewDao {
         Long userId = review.getUserId();
         String reviewMsg = review.getReviewMessage();
         Integer star = review.getStar();
-        Date date = review.getDate();
+        LocalDateTime date = review.getDate();
         executeSave(SAVE_REVIEW_QUERY, userId, reviewMsg, star, date);
     }
-
 
     @Override
     public void removeById(Long id) {

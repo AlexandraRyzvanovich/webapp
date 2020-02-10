@@ -1,5 +1,6 @@
 package com.epam.webapp.entity;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -15,9 +16,9 @@ public class Review implements Identifiable {
     private Long userId;
     private String reviewMessage;
     private Integer star;
-    private Date date;
+    private LocalDateTime date;
 
-    public Review(Long id, Long userId, String reviewMessage, Integer star, Date date) {
+    public Review(Long id, Long userId, String reviewMessage, Integer star, LocalDateTime date) {
         this.id = id;
         this.userId = userId;
         this.reviewMessage = reviewMessage;
@@ -25,7 +26,7 @@ public class Review implements Identifiable {
         this.date = date;
     }
 
-    public Review(Long userId, String reviewMsg, Integer star, Date date) {
+    public Review(Long userId, String reviewMsg, Integer star, LocalDateTime date) {
         this.userId = userId;
         this.reviewMessage = reviewMsg;
         this.star = star;
@@ -64,11 +65,11 @@ public class Review implements Identifiable {
         this.star = star;
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

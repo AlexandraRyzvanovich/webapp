@@ -7,6 +7,7 @@ import com.epam.webapp.exception.MapperException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class ProgramRowMapper implements RowMapper<Program> {
@@ -15,17 +16,19 @@ public class ProgramRowMapper implements RowMapper<Program> {
         Long id;
         Long userId;
         Diet diet;
-        Date valid_to;
+        LocalDateTime startDate;
+        LocalDateTime endDate;
         ProgramStatus status;
         try {
             id = resultSet.getLong(Program.ID_COLUMN_NAME);
             userId = resultSet.getLong(Program.USER_ID_COLUMN_NAME);
             String dietDb = resultSet.getString(Program.DIET_COLUMN_NAME);
             diet = Diet.valueOf(dietDb);
-            valid_to = resultSet.getDate(Program.VALID_TO_COLUMN_NAME);
+            startDate = resultSet.getTimestamp(Program.START_DATE_COLUMN_NAME).toLocalDateTime();
+            endDate = resultSet.getTimestamp(Program.END_DATE_COLUMN_NAME).toLocalDateTime();
             String programStatusDb = resultSet.getString(Program.STATUS_COLUMN_NAME);
             status = ProgramStatus.valueOf(programStatusDb);
-            return new Program(id, userId, diet, valid_to, status);
+            return new Program(id, userId, diet, startDate, endDate, status);
         } catch (SQLException e) {
             throw new MapperException("Impossible to map entity Program form db");
         }

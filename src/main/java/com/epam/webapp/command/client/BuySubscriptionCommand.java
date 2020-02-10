@@ -15,7 +15,7 @@ public class BuySubscriptionCommand implements Command {
     private static final String ID_ATTRIBUTE = "id";
     private static final String STATUS_PARAMETER = "orderStatus";
     private static final String SUBSCRIPTION_ID_PARAMETER = "subscriptionId";
-    private static final String REVIEWS_PAGE = "controller?command=getAvailableSubscriptions";
+    private static final String SUBSCRIPTIONS_PAGE = "controller?command=getAvailableSubscriptions";
     private static final String SUCCESS_MSG_ATTRIBUTE = "success";
     private static final String SUCCESS_MESSAGE = "You have bought subscription successfully";
     private static final String FAIL_MESSAGE_ATTRIBUTE = "fail purchase";
@@ -44,7 +44,6 @@ public class BuySubscriptionCommand implements Command {
             if (status == OrderStatus.DECLINED) {
                 orderService.addOrder(userId, status, subscriptionId);
                 request.setAttribute(FAIL_MESSAGE_ATTRIBUTE, FAIL_MESSAGE);
-
             } else {
                 purchaseSubscriptionForProgramService.addOrderAndCreateProgram(userId, status, subscriptionId);
                 request.setAttribute(SUCCESS_MSG_ATTRIBUTE, SUCCESS_MESSAGE);
@@ -52,6 +51,6 @@ public class BuySubscriptionCommand implements Command {
         } catch (ServiceException e) {
             throw new CommandException("Error occurred while executing command", e.getCause());
         }
-        return CommandResult.redirect(REVIEWS_PAGE);
+        return CommandResult.redirect(SUBSCRIPTIONS_PAGE);
     }
 }

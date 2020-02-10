@@ -7,6 +7,7 @@ import com.epam.webapp.entity.Review;
 import com.epam.webapp.exception.DaoException;
 import com.epam.webapp.exception.ServiceException;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class ReviewService {
     }
 
     public void addReview(Long userId, String reviewMsg, Integer star) throws ServiceException {
-        Date date = new Date();
+        LocalDateTime date = LocalDateTime.now();
         Review review = new Review(userId, reviewMsg, star, date);
         try (DaoHelper factory = daoHelperFactory.create()) {
             AbstractDao<Review> dao = (AbstractDao<Review>) factory.createReviewDao();

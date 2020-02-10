@@ -1,5 +1,6 @@
 package com.epam.webapp.entity;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -8,20 +9,23 @@ public class Program implements Identifiable {
     public static final String ID_COLUMN_NAME = "id";
     public static final String USER_ID_COLUMN_NAME = "user_id";
     public static final String DIET_COLUMN_NAME = "diet";
-    public static final String VALID_TO_COLUMN_NAME = "valid_to";
+    public static final String START_DATE_COLUMN_NAME = "start_date";
+    public static final String END_DATE_COLUMN_NAME = "end_date";
     public static final String STATUS_COLUMN_NAME = "status";
 
     private Long id;
     private Long userId;
     private Diet diet;
-    private Date validTo;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
     ProgramStatus status;
 
-    public Program(Long id, Long userId, Diet diet, Date validTo, ProgramStatus status) {
+    public Program(Long id, Long userId, Diet diet, LocalDateTime startDate, LocalDateTime endDate, ProgramStatus status) {
         this.id = id;
         this.userId = userId;
         this.diet = diet;
-        this.validTo = validTo;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.status = status;
     }
 
@@ -49,12 +53,20 @@ public class Program implements Identifiable {
         this.diet = diet;
     }
 
-    public Date getValidTo() {
-        return validTo;
+    public LocalDateTime getStartDate() {
+        return startDate;
     }
 
-    public void setValidTo(Date validTo) {
-        this.validTo = validTo;
+    public void setStartDate(LocalDateTime startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDateTime getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDateTime endDate) {
+        this.endDate = endDate;
     }
 
     public ProgramStatus getStatus() {
@@ -73,13 +85,14 @@ public class Program implements Identifiable {
         return Objects.equals(id, program.id) &&
                 Objects.equals(userId, program.userId) &&
                 diet == program.diet &&
-                Objects.equals(validTo, program.validTo) &&
+                Objects.equals(startDate, program.startDate) &&
+                Objects.equals(endDate, program.endDate) &&
                 status == program.status;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId, diet, validTo, status);
+        return Objects.hash(id, userId, diet, startDate, endDate, status);
     }
 
     @Override
@@ -88,7 +101,8 @@ public class Program implements Identifiable {
                 "id=" + id +
                 ", userId=" + userId +
                 ", diet=" + diet +
-                ", validTo=" + validTo +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
                 ", status=" + status +
                 '}';
     }

@@ -4,7 +4,7 @@ import com.epam.webapp.entity.Identifiable;
 import com.epam.webapp.entity.OrderStatus;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class PurchaseSubscriptionForProgramDto implements Identifiable {
@@ -18,14 +18,14 @@ public class PurchaseSubscriptionForProgramDto implements Identifiable {
     public static final String PROGRAM_STATUS_COLUMN_NAME = "status";
 
     private Long userId;
-    private Date paidDate;
+    private LocalDateTime paidDate;
     private BigDecimal amount;
     private OrderStatus orderStatus;
     private Long subscriptionId;
-    private Date startDate;
-    private Date endDate;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
 
-    public PurchaseSubscriptionForProgramDto(Long userId, Date paidDate, BigDecimal amount, OrderStatus orderStatus, Long subscriptionId, Date startDate, Date endDate) {
+    public PurchaseSubscriptionForProgramDto(Long userId, LocalDateTime paidDate, BigDecimal amount, OrderStatus orderStatus, Long subscriptionId, LocalDateTime startDate, LocalDateTime endDate) {
         this.userId = userId;
         this.paidDate = paidDate;
         this.amount = amount;
@@ -43,11 +43,11 @@ public class PurchaseSubscriptionForProgramDto implements Identifiable {
         this.userId = userId;
     }
 
-    public Date getPaidDate() {
+    public LocalDateTime getPaidDate() {
         return paidDate;
     }
 
-    public void setPaidDate(Date paidDate) {
+    public void setPaidDate(LocalDateTime paidDate) {
         this.paidDate = paidDate;
     }
 
@@ -75,19 +75,19 @@ public class PurchaseSubscriptionForProgramDto implements Identifiable {
         this.subscriptionId = subscriptionId;
     }
 
-    public Date getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDateTime getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
 
@@ -112,7 +112,7 @@ public class PurchaseSubscriptionForProgramDto implements Identifiable {
 
     @Override
     public String toString() {
-        return "SubscriptionProgramPurchaseDto{" +
+        return "PurchaseSubscriptionForProgramDto{" +
                 "userId=" + userId +
                 ", paidDate=" + paidDate +
                 ", amount=" + amount +

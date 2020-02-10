@@ -12,7 +12,7 @@ public class AddReviewCommand implements Command {
     private static final String ID_ATTRIBUTE = "id";
     public static final String REVIEW_PARAMETER = "review";
     public static final String STAR_PARAMETER = "star";
-    public static final String REVIEWS_JSP_PAGE = "/WEB-INF/views/reviews.jsp";
+    public static final String REVIEWS_PAGE = "/reviews?command=getReviews";
 
     private ReviewService service;
 
@@ -31,7 +31,7 @@ public class AddReviewCommand implements Command {
         Long id = Long.parseLong(stringId);
         try {
             service.addReview(id, review, star);
-            return CommandResult.forward(REVIEWS_JSP_PAGE);
+            return CommandResult.forward(REVIEWS_PAGE);
         } catch (ServiceException e) {
             throw new CommandException("Error occurred while executing command", e.getCause());
         }
