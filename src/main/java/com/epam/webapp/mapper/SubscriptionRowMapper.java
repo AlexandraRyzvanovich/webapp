@@ -21,9 +21,9 @@ public class SubscriptionRowMapper implements RowMapper<Subscription> {
             description = resultSet.getString(Subscription.DESCRIPTION_COLUMN_NAME);
             period = resultSet.getInt(Subscription.PERIOD_COLUMN_NAME);
             price = resultSet.getBigDecimal(Subscription.PRICE_COLUMN_NAME);
+            return new Subscription(id, subscriptionName, description, period, price);
         } catch (SQLException e) {
             throw new MapperException("Impossible to map Subscription entity from db", e.getCause());
         }
-        return new Subscription(id, subscriptionName, description, period, price);
     }
 }

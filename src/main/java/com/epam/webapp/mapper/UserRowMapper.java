@@ -26,9 +26,9 @@ public class UserRowMapper implements RowMapper<User> {
             roleDb = resultSet.getString(User.ROLE_COLUMN_NAME);
             bonus = resultSet.getInt(User.BONUS_COLUMN_NAME);
             role = Role.valueOf(roleDb);
+            return new User(id, name, lastName, email, role, bonus);
         } catch (SQLException e) {
             throw new MapperException("Impossible to map Training program entity from db", e.getCause());
         }
-        return new User(id, name, lastName, email, role, bonus);
     }
 }

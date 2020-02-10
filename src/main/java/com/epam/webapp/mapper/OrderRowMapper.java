@@ -27,9 +27,9 @@ public class OrderRowMapper implements RowMapper<Order> {
             statusValue = resultSet.getString(Order.STATUS_COLUMN_NAME);
             orderStatus = OrderStatus.valueOf(statusValue);
             subscriptionId = resultSet.getLong(Order.SUBSCRIPTION_ID_COLUMN_NAME);
+            return new Order(id, userId, paidDate, amount, orderStatus, subscriptionId);
         } catch (SQLException e) {
             throw new MapperException("Impossible to map entity Order from db", e.getCause());
         }
-        return new Order(id, userId, paidDate, amount, orderStatus, subscriptionId);
     }
 }

@@ -21,9 +21,10 @@ public class ReviewRowMapper implements RowMapper<Review> {
             reviewMessage = resultSet.getString(Review.REVIEW_MESSAGE_COLUMN_NAME);
             stars = resultSet.getInt(Review.STAR_COLUMN_NAME);
             date = resultSet.getDate(Review.DATE_COLUMN_NAME);
+            return new Review(id, userId, reviewMessage, stars, date);
         } catch (SQLException e) {
             throw new MapperException("Impossible to create entity Review", e.getCause());
         }
-        return new Review(id, userId, reviewMessage, stars, date);
+
     }
 }

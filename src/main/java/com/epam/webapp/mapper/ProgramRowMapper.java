@@ -17,7 +17,7 @@ public class ProgramRowMapper implements RowMapper<Program> {
         Diet diet;
         Date valid_to;
         ProgramStatus status;
-        try{
+        try {
             id = resultSet.getLong(Program.ID_COLUMN_NAME);
             userId = resultSet.getLong(Program.USER_ID_COLUMN_NAME);
             String dietDb = resultSet.getString(Program.DIET_COLUMN_NAME);
@@ -25,10 +25,9 @@ public class ProgramRowMapper implements RowMapper<Program> {
             valid_to = resultSet.getDate(Program.VALID_TO_COLUMN_NAME);
             String programStatusDb = resultSet.getString(Program.STATUS_COLUMN_NAME);
             status = ProgramStatus.valueOf(programStatusDb);
-
+            return new Program(id, userId, diet, valid_to, status);
         } catch (SQLException e) {
             throw new MapperException("Impossible to map entity Program form db");
         }
-        return new Program(id, userId, diet, valid_to, status);
     }
 }

@@ -17,9 +17,10 @@ public class TrainingProgramCardMapper implements RowMapper<TrainingProgramCard>
             programId = resultSet.getLong(TrainingProgramCard.PROGRAM_ID_COLUMN_NAME);
             exerciseName = resultSet.getString(TrainingProgramCard.EXERCISE_COLUMN_NAME);
             frequency = resultSet.getInt(TrainingProgramCard.FREQUENCY_COLUMN_NAME);
+            return new TrainingProgramCard(programId, exerciseName, frequency);
+
         } catch (SQLException e) {
             throw new MapperException("Impossible to map Training program entity from db", e.getCause());
         }
-        return new TrainingProgramCard(programId, exerciseName, frequency);
     }
 }

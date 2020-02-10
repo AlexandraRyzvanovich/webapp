@@ -14,9 +14,9 @@ public class ExerciseRowMapper implements RowMapper<Exercise> {
         try {
             id = resultSet.getLong(Exercise.ID_COLUMN_NAME);
             name = resultSet.getString(Exercise.NAME_COLUMN_NAME);
+            return new Exercise(id, name);
         } catch (SQLException e) {
             throw new MapperException("Impossible to map Exercise entity from db", e.getCause());
         }
-        return new Exercise(id, name);
     }
 }
