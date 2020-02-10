@@ -2,12 +2,10 @@ package com.epam.webapp.dao;
 
 import com.epam.webapp.connection.ConnectionPool;
 import com.epam.webapp.connection.ProxyConnection;
-import com.epam.webapp.dao.Impl.OrderDaoImpl;
-import com.epam.webapp.dao.Impl.ReviewDaoImpl;
-import com.epam.webapp.dao.Impl.SubscriptionDaoImpl;
-import com.epam.webapp.dao.Impl.UserDaoImpl;
+import com.epam.webapp.dao.Impl.*;
 import com.epam.webapp.exception.DaoException;
 
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DaoHelper implements AutoCloseable {
@@ -34,16 +32,39 @@ public class DaoHelper implements AutoCloseable {
         return new ReviewDaoImpl(connection);
     }
 
+    public PurchaseSubscriptionForProgramDao createPurchaseDao() {
+        return new PurchaseSubscriptionForProgramDaoImpl(connection);
+    }
+
+    public TrainingProgramCardDtoDao createTrainingProgramCardDao() {
+        return new TrainingProgramCardDtoDaoImpl(connection);
+    }
+
+    public ProgramDao createProgramDao() {
+        return new ProgramDaoImpl(connection);
+    }
+
+
     @Override
     public void close() throws DaoException {
         connection.close();
     }
 
-    public void startTransaction() throws DaoException {
-        try {
+    public void startTransaction(PreparedStatement...statement) throws DaoException {
+        try  {
             connection.setAutoCommit(false);
+            for (int i = 0; i < statement.length; i++) {
+                statement[i].executeUpdate();
+                connection.commit();
+            }
+            connection.setAutoCommit(true);
         }
         catch (SQLException ex) {
+            try {
+                connection.rollback();
+            } catch (SQLException e) {
+               throw new DaoException("Exception occurred while executing statement");
+            }
             throw new DaoException(ex.getMessage());
         }
     }

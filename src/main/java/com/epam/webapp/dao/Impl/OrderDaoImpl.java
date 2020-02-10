@@ -40,10 +40,6 @@ public class OrderDaoImpl extends AbstractDao<Order> implements OrderDao {
         executeSave(SAVE_QUERY, userId, paidDate, amount, status, subscriptionId);
     }
 
-    @Override
-    public void update(String query, Object... objects) {
-
-    }
 
     @Override
     public void removeById(Long id) throws DaoException {

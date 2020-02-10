@@ -47,13 +47,7 @@ public class LoginCommand implements Command {
                 session.setAttribute(ROLE_ATTRIBUTE, role);
                 session.setAttribute(FIRST_NAME_ATTRIBUTE, firstName);
                 session.setAttribute(LAST_NAME_ATTRIBUTE, lastName);
-                if (role == Role.CLIENT) {
-                    return CommandResult.forward("/WEB-INF/views/main.jsp");
-                } else if (role == Role.TRAINER) {
-                    return CommandResult.redirect(INTERNS_PAGE);
-                } else if (role == Role.ADMIN) {
-                    return CommandResult.forward("/WEB-INF/views/main.jsp");
-                }
+                return CommandResult.forward("/WEB-INF/views/main.jsp");
             }
             return CommandResult.redirect(LOGIN_JSP_PAGE);
         } catch (ServiceException e) {

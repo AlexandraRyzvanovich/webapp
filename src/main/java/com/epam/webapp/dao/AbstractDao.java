@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.epam.webapp.connection.ConnectionPool;
 import com.epam.webapp.mapper.RowMapper;
 import com.epam.webapp.entity.Identifiable;
 import com.epam.webapp.exception.DaoException;
@@ -26,7 +27,7 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao<T> {
         return executeQuery("SELECT * FROM " + table);
     }
 
-    private PreparedStatement createStatement(String query, Object... params) throws DaoException {
+    protected PreparedStatement createStatement(String query, Object... params) throws DaoException {
         PreparedStatement statement;
         try {
             statement = connection.prepareStatement(query);
@@ -72,6 +73,12 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao<T> {
         } catch (SQLException ex) {
             throw new DaoException("Exception occurred while executing SQL query", ex.getCause());
         }
+    }
+
+    protected void executeTransactionUpdate(PreparedStatement...queries) throws DaoException {
+        DaoHelperFactory helperFactory = new DaoHelperFactory();
+        DaoHelper daoHelper = helperFactory.create();
+        daoHelper.startTransaction(queries);
     }
 
     protected abstract String getTableName();

@@ -18,12 +18,12 @@ CREATE TABLE user
 
 CREATE TABLE program
 (
-    id         INT UNSIGNED                                                  NOT NULL AUTO_INCREMENT,
-    user_id    INT UNSIGNED                                                  NOT NULL,
-    diet       ENUM ('Vegan Diet', 'Low Carb', ' Ultra Low Fat', 'HCG Diet') NOT NULL,
-    start_date DATETIME                                                      NOT NULL,
-    end_date   DATETIME                                                      NOT NULL,
-    status     ENUM ('NEW', 'IN PROGRESS', 'DONE', 'DECLINED')               NOT NULL,
+    id         INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    user_id    INT UNSIGNED NOT NULL,
+    diet       ENUM ('VEGAN', 'LOW CARB', 'ULTRA LOW FAT', 'HCG') NULL,
+    start_date DATETIME NOT NULL,
+    end_date   DATETIME NOT NULL,
+    status     ENUM ('NEW', 'IN PROGRESS', 'DONE', 'DECLINED') NOT NULL DEFAULT 'NEW',
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES user (id)
 );
@@ -70,12 +70,12 @@ CREATE TABLE subscription
 
 CREATE TABLE orders
 (
-    id              INT UNSIGNED                          NOT NULL AUTO_INCREMENT,
-    user_id         INT UNSIGNED                          NOT NULL,
-    paid_date       DATETIME                              NOT NULL,
-    amount          DECIMAL(5, 2)                         NOT NULL,
-    status          ENUM ('NEW', 'PROCESSED', 'DECLINED') NOT NULL,
-    subscription_id INT UNSIGNED                          NOT NULL,
+    id              INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    user_id         INT UNSIGNED NOT NULL,
+    paid_date       DATETIME NOT NULL,
+    amount          DECIMAL(5, 2) NOT NULL,
+    status          ENUM ('PROCESSED', 'DECLINED') NOT NULL,
+    subscription_id INT UNSIGNED NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES user (id),
     FOREIGN KEY (subscription_id) references subscription (id)

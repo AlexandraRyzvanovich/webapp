@@ -36,10 +36,6 @@ public class ReviewDaoImpl extends AbstractDao<Review> implements ReviewDao {
         executeSave(SAVE_REVIEW_QUERY, userId, reviewMsg, star, date);
     }
 
-    @Override
-    public void update(String query, Object... objects) {
-
-    }
 
     @Override
     public void removeById(Long id) {

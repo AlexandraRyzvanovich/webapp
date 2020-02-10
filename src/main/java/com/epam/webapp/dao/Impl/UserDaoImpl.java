@@ -14,8 +14,8 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     private static final String GET_BY_ID = "SELECT * FROM user WHERE id = ?";
     private static final String UPDATE_TRAINER_ID_QUERY = "UPDATE user SET trainer_id = ? WHERE id = ?";
     private static final String GET_TRAINER_INTERNS_QUERY = "SELECT * FROM user WHERE trainer_id = ?";
-    private static final String GET_CLIENTS_QUERY = "SELECT * FROM user WHERE role = CLIENT";
-    private static final String GET_TRAINERS_QUERY = "SELECT * FROM user WHERE role = TRAINER";
+    private static final String GET_CLIENTS_QUERY = "SELECT * FROM user WHERE role = 1";
+    private static final String GET_TRAINERS_QUERY = "SELECT * FROM user WHERE role = 2";
 
     public UserDaoImpl(Connection connection) {
         super(connection);
@@ -36,11 +36,6 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
         throw new DaoException("Operation is not supported");
     }
 
-    @Override
-    public void update(String query, Object... objects) throws DaoException {
-        throw new DaoException("Operation is not supported");
-
-    }
 
     @Override
     public void removeById(Long id) throws DaoException{

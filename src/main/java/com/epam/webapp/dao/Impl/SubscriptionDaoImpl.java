@@ -32,10 +32,6 @@ public class SubscriptionDaoImpl extends AbstractDao<Subscription> implements Su
         executeQuery(ADD_NEW_SUBSCRIPTION_QUERY, item);
     }
 
-    @Override
-    public void update(String query, Object... objects) {
-
-    }
 
     @Override
     public void removeById(Long id) throws DaoException {
