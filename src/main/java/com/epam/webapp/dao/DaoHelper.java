@@ -43,6 +43,9 @@ public class DaoHelper implements AutoCloseable {
     public ProgramDao createProgramDao() {
         return new ProgramDaoImpl(connection);
     }
+    public ClientDao createClientDao() {
+        return new ClientDaoImpl(connection);
+    }
 
 
     @Override

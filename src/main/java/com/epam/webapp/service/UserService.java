@@ -1,6 +1,5 @@
 package com.epam.webapp.service;
 
-import com.epam.webapp.dao.AbstractDao;
 import com.epam.webapp.dao.DaoHelper;
 import com.epam.webapp.dao.DaoHelperFactory;
 import com.epam.webapp.dao.UserDao;
@@ -27,14 +26,6 @@ public class UserService {
         }
     }
 
-    public List<User> getClients() throws ServiceException {
-        try (DaoHelper factory = daoHelperFactory.create()) {
-            UserDao dao = factory.createUserDao();
-            return dao.getClients();
-        } catch (DaoException e) {
-            throw new ServiceException(e.getCause());
-        }
-    }
     public List<User> getTrainers() throws ServiceException {
         try (DaoHelper factory = daoHelperFactory.create()) {
             UserDao dao = factory.createUserDao();
@@ -57,6 +48,14 @@ public class UserService {
         try (DaoHelper factory = daoHelperFactory.create()) {
             UserDao dao = factory.createUserDao();
             dao.updateTrainerId(userId, trainerId);
+        } catch (DaoException e) {
+            throw new ServiceException(e.getCause());
+        }
+    }
+    public void setBonus(Long userId, Integer bonus) throws ServiceException {
+        try (DaoHelper factory = daoHelperFactory.create()) {
+            UserDao dao = factory.createUserDao();
+            dao.setBonus(userId, bonus);
         } catch (DaoException e) {
             throw new ServiceException(e.getCause());
         }

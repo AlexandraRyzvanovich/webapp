@@ -14,8 +14,8 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     private static final String GET_BY_ID = "SELECT * FROM user WHERE id = ?";
     private static final String UPDATE_TRAINER_ID_QUERY = "UPDATE user SET trainer_id = ? WHERE id = ?";
     private static final String GET_TRAINER_INTERNS_QUERY = "SELECT * FROM user WHERE trainer_id = ?";
-    private static final String GET_CLIENTS_QUERY = "SELECT * FROM user WHERE role = 1";
     private static final String GET_TRAINERS_QUERY = "SELECT * FROM user WHERE role = 2";
+    private static final String UPDATE_BONUS_QUERY = "UPDATE user SET bonus = ? WHERE id = ?";
 
     public UserDaoImpl(Connection connection) {
         super(connection);
@@ -48,11 +48,6 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     }
 
     @Override
-    public List<User> getClients() throws DaoException {
-        return executeQuery(GET_CLIENTS_QUERY);
-    }
-
-    @Override
     public List<User> getTrainers() throws DaoException {
         return executeQuery(GET_TRAINERS_QUERY);
     }
@@ -60,6 +55,11 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     @Override
     public void updateTrainerId(Long userId, Long trainerId) throws DaoException {
         executeSave(UPDATE_TRAINER_ID_QUERY, trainerId, userId);
+    }
+
+    @Override
+    public void setBonus(Long userId, Integer bonus) throws DaoException {
+        executeSave(UPDATE_BONUS_QUERY, bonus, userId);
     }
 
     protected String getTableName() {

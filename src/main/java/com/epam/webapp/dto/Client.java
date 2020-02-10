@@ -11,7 +11,7 @@ public class Client implements Identifiable {
     public static final String LAST_NAME_COLUMN_NAME = "last_name";
     public static final String EMAIL_COLUMN_NAME = "email";
     public static final String TRAINER_ID_COLUMN_NAME = "trainer_id";
-    public static final String TRAINER_NAME_COLUMN_NAME = "trainer_id";
+    public static final String TRAINER_NAME_COLUMN_NAME = "trainer";
     public static final String BONUS_COLUMN_NAME = "bonus";
 
     private Long id;

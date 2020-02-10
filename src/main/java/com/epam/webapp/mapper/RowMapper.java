@@ -1,5 +1,6 @@
 package com.epam.webapp.mapper;
 
+import com.epam.webapp.dto.Client;
 import com.epam.webapp.entity.*;
 
 import java.sql.ResultSet;
@@ -24,6 +25,8 @@ public interface RowMapper<T extends Identifiable> {
                 return new TrainingProgramRowMapper();
             case User.USER_TABLE_NAME:
                 return new UserRowMapper();
+            case Client.TABLE_NAME:
+                return new ClientMapper();
             default:
                 throw new IllegalArgumentException("Unknown table");
         }

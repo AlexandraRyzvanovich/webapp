@@ -13,6 +13,7 @@
                         <th>Фамилия</th>
                         <th>Email</th>
                         <th>Имя тренера</th>
+                        <th>Бонус</th>
                         <th>Выбрать тренера</th>
                         <th></th>
                     </tr>
@@ -21,9 +22,10 @@
                         <td>${client.firstName}</td>
                         <td>${client.lastName}</td>
                         <td>${client.email}</td>
-                        <td>${client.trainerId}</td>
+                        <td>${client.trainerName}</td>
+                        <td>${client.bonus}</td>
                         <td>
-                            <select id="${client.userId}" onchange="change(this)">
+                            <select id="${client.id}" onchange="change(this)">
                                 <c:forEach var = "trainer"  items="${requestScope.trainers}">
                                 <option value="${trainer.userId}">${trainer.firstName} ${trainer.lastName}</option>
                                 </c:forEach>
@@ -32,8 +34,8 @@
                         <td>
                             <form method="post" action="clients">
                                 <input type="hidden" name="command" value="setTrainer">
-                                <input hidden name="userId" value="${client.userId}"/>
-                                <input hidden title="${client.userId}" name="trainerId" value=""/>
+                                <input hidden name="userId" value="${client.id}"/>
+                                <input hidden title="${client.id}" name="trainerId" value=""/>
                                 <input type="submit"/>
                             </form>
                         </td>
