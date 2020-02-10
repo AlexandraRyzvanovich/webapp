@@ -36,11 +36,6 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
         throw new DaoException("Operation is not supported");
     }
 
-    @Override
-    public void update(String query, Object... objects) throws DaoException {
-        throw new DaoException("Operation is not supported");
-
-    }
 
     @Override
     public void removeById(Long id) throws DaoException{

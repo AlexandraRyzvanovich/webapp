@@ -98,15 +98,15 @@
         <servlet-name>interns</servlet-name>
         <url-pattern>/interns</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <servlet-name>internCard</servlet-name>
-        <servlet-class>com.epam.webapp.controller.Controller</servlet-class>
+        <jsp-file>/WEB-INF/views/internCard.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>internCard</servlet-name>
         <url-pattern>/interCard</url-pattern>
     </servlet-mapping>
-
 
     <servlet>
         <servlet-name>reviews</servlet-name>
@@ -115,15 +115,6 @@
     <servlet-mapping>
         <servlet-name>reviews</servlet-name>
         <url-pattern>/reviews</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>clientItem</servlet-name>
-        <jsp-file>/WEB-INF/views/clientItem.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>clientItem</servlet-name>
-        <url-pattern>/clientItem</url-pattern>
     </servlet-mapping>
 
     <filter>

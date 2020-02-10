@@ -25,7 +25,7 @@
         <input type="hidden" name="command" value="addNewReview" />
             <h2 style="color: #E1D070;text-align: center;margin-top: 3%;margin-bottom: 2%;">Add Your comment</h2>
             <label>
-                <input id="reviewData" type="text" name="review" style="width: 400px;height: 200px;margin-left: 22%;border-radius: 6px; background: #383D50; color: #E1D070; opacity: 70%;">
+                <input id="reviewData" type="text" name="review" style="width: 400px;height: 200px;margin-left: 22%;border-radius: 6px; background: #383D50; color: #E1D070; opacity: 70%;" va>
             </label>
             <input type="hidden" name="star" value="1" />
           <input type="submit" class="bot1" value="Add review"/>

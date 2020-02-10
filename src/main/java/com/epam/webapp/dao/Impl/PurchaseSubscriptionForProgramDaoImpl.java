@@ -46,10 +46,6 @@ public class PurchaseSubscriptionForProgramDaoImpl extends AbstractDao<PurchaseS
         executeTransactionUpdate(orderStatement, programStatement);
     }
 
-    @Override
-    public void update(String query, Object... objects) throws DaoException {
-
-    }
 
     @Override
     public void removeById(Long id) throws DaoException {

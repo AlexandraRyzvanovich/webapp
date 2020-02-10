@@ -8,10 +8,11 @@
     <div class="category-wrap">
         <h2>Menu</h2>
         <c:set var="s" value="${sessionScope.role}" scope="session"></c:set>
-            <c:if test="${s =='TRAINER'}">
+            <c:if test="${s =='TRAINER'}">/internCard.jsp
                 <div class="sidenav">
                     <a href="/interns?command=getInterns">Interns</a>
                     <a href="/reviews?command=getReviews">Reviews</a>
+                    <a href="/internCard.jsp">Intern Card</a>
                 </div>
             </c:if>
             <c:if test="${s == 'CLIENT'}">
@@ -19,14 +20,12 @@
                     <a href="/training-program?command=getTrainingProgram">Training program</a>
                     <a href="/subscriptions?command=getAvailableSubscriptions">Subscription</a>
                     <a href="/reviews?command=getReviews">Reviews</a>
+                    <a href="/internCard.jsp">Intern Card</a>
                 </div>
             </c:if>
             <c:if test="${s == 'ADMIN'}">
                 <div class="sidenav">
                     <a href="/clients?command=getClients">Clients</a>
-                </div>
-                <div class="sidenav">
-                    <a href="/client-card">Food</a>
                 </div>
             </c:if>
     </div>

@@ -33,15 +33,6 @@ public class ProgramDaoImpl extends AbstractDao<Program> implements ProgramDao {
         throw new DaoException("Operation not supported");
     }
 
-    @Override
-    public void updateDiet(String query, Object... objects) throws DaoException {
-        executeSave(UPDATE_DIET, objects);
-    }
-
-    @Override
-    public void updateStatus(String query, Object... objects) throws DaoException {
-        executeSave(UPDATE_STATUS, objects);
-    }
 
     @Override
     public void removeById(Long id) throws DaoException {
@@ -52,5 +43,15 @@ public class ProgramDaoImpl extends AbstractDao<Program> implements ProgramDao {
     @Override
     public Optional<Program> getCurrentProgramByUserId(Long userId) throws DaoException {
         return executeForStringResult(GET_BY_USER_ID, userId );
+    }
+
+    @Override
+    public void updateDiet(Object... objects) throws DaoException {
+
+    }
+
+    @Override
+    public void updateStatus(Object... objects) throws DaoException {
+
     }
 }

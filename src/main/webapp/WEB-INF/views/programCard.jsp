@@ -6,7 +6,6 @@
         <h2>UserName Card</h2>
         <div class="card">
             <table>
-
                 <tr>
                     <td>
                         Name

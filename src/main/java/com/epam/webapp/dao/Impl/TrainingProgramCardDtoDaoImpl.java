@@ -31,10 +31,6 @@ public class TrainingProgramCardDtoDaoImpl extends AbstractDao<TrainingProgramCa
 
     }
 
-    @Override
-    public void update(String query, Object... objects) throws DaoException {
-
-    }
 
     @Override
     public void removeById(Long id) throws DaoException {

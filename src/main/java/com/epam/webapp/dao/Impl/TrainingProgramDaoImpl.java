@@ -34,10 +34,6 @@ public class TrainingProgramDaoImpl extends AbstractDao<TrainingProgram> impleme
         executeSave(SAVE, programId, exerciseId, frequency);
     }
 
-    @Override
-    public void update(String query, Object... objects) throws DaoException {
-
-    }
 
     @Override
     public void removeById(Long id) throws DaoException {
