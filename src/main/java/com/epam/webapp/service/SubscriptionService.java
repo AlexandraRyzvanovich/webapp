@@ -28,7 +28,7 @@ public class SubscriptionService {
 
     public Optional<Subscription> getSubscriptionById(Long id) throws ServiceException {
         try (DaoHelper factory = daoHelperFactory.create()) {
-            AbstractDao<Subscription> dao = (AbstractDao<Subscription>) factory.createSubscriptionDao();
+            AbstractDao<Subscription> dao = factory.createSubscriptionDao();
             return dao.getById(id);
         } catch (DaoException e) {
             throw new ServiceException(e.getCause());

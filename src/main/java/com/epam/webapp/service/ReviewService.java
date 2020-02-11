@@ -30,7 +30,7 @@ public class ReviewService {
         LocalDateTime date = LocalDateTime.now();
         Review review = new Review(userId, reviewMsg, star, date);
         try (DaoHelper factory = daoHelperFactory.create()) {
-            AbstractDao<Review> dao = (AbstractDao<Review>) factory.createReviewDao();
+            AbstractDao<Review> dao = factory.createReviewDao();
             dao.save(review);
         } catch ( DaoException e) {
             throw new ServiceException(e.getCause());
