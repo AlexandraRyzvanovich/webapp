@@ -5,6 +5,6 @@ import com.epam.webapp.exception.DaoException;
 
 import java.util.List;
 
-public interface ClientDao {
+public interface ClientDao extends Dao<Client> {
     List<Client> getAllClients() throws DaoException;
 }

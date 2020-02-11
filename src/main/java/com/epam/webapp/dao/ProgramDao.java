@@ -6,7 +6,7 @@ import com.epam.webapp.exception.DaoException;
 
 import java.util.Optional;
 
-public interface ProgramDao {
+public interface ProgramDao extends Dao<Program> {
     Optional<Program> getCurrentProgramByUserId(Long userId) throws DaoException;
 
     void updateStatus(ProgramStatus status, Long userId) throws DaoException;

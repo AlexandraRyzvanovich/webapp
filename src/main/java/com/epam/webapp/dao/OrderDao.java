@@ -5,6 +5,6 @@ import com.epam.webapp.exception.DaoException;
 
 import java.util.List;
 
-public interface OrderDao {
+public interface OrderDao extends Dao<Order> {
     List<Order> getByUserId(Long id) throws DaoException;
 }

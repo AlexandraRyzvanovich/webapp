@@ -1,16 +1,15 @@
 package com.epam.webapp.dao.Impl;
 
 import com.epam.webapp.dao.AbstractDao;
-import com.epam.webapp.dao.TrainingProgramDao;
 import com.epam.webapp.entity.TrainingProgram;
 import com.epam.webapp.exception.DaoException;
 
 import java.sql.Connection;
-import java.util.List;
 import java.util.Optional;
 
-public class TrainingProgramDaoImpl extends AbstractDao<TrainingProgram> implements TrainingProgramDao {
+public class TrainingProgramDaoImpl extends AbstractDao<TrainingProgram> {
     private final String SAVE = "INSERT INTO training_program (program_id, exercise_id, frequency) VALUES (?, ?, ?)";
+    private final String GET_BY_PROGRAM_ID = "SELECT * FROM training_program WHERE program_id = ?";
 
     protected TrainingProgramDaoImpl(Connection connection) {
         super(connection);
@@ -37,11 +36,5 @@ public class TrainingProgramDaoImpl extends AbstractDao<TrainingProgram> impleme
 
     @Override
     public void removeById(Long id) {
-
-    }
-
-    @Override
-    public List<TrainingProgram> getTrainingProgramByProgramId(Long programId) {
-        return null;
     }
 }

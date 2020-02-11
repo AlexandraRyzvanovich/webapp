@@ -20,7 +20,7 @@ public class DaoHelper implements AutoCloseable {
         return new UserDaoImpl(connection);
     }
 
-    public SubscriptionDao createSubscriptionDao() {
+    public SubscriptionDaoImpl createSubscriptionDao() {
         return new SubscriptionDaoImpl(connection);
     }
 
@@ -28,16 +28,15 @@ public class DaoHelper implements AutoCloseable {
         return new OrderDaoImpl(connection);
     }
 
-    public ReviewDao createReviewDao() {
+    public ReviewDaoImpl createReviewDao() {
         return new ReviewDaoImpl(connection);
+    }
+    public TrainingProgramCardDtoDao createTrainingProgramCardDao() {
+        return new TrainingProgramCardDtoDaoImpl(connection);
     }
 
     public PurchaseSubscriptionForProgramDaoImpl createPurchaseDao() {
         return new PurchaseSubscriptionForProgramDaoImpl(connection);
-    }
-
-    public TrainingProgramCardDtoDao createTrainingProgramCardDao() {
-        return new TrainingProgramCardDtoDaoImpl(connection);
     }
 
     public ProgramDao createProgramDao() {

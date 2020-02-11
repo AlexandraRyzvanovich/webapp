@@ -1,14 +1,13 @@
 package com.epam.webapp.dao.Impl;
 
 import com.epam.webapp.dao.AbstractDao;
-import com.epam.webapp.dao.SubscriptionDao;
 import com.epam.webapp.entity.Subscription;
 import com.epam.webapp.exception.DaoException;
 
 import java.sql.Connection;
 import java.util.Optional;
 
-public class SubscriptionDaoImpl extends AbstractDao<Subscription> implements SubscriptionDao {
+public class SubscriptionDaoImpl extends AbstractDao<Subscription>  {
     private static final String GET_BY_SUBSCRIPTION_ID_QUERY = "SELECT * FROM subscription WHERE id = ?";
     private static final String ADD_NEW_SUBSCRIPTION_QUERY = "INSERT INTO subscription (name, description, period, price) VALUES (?, ?, ?, ?)";
     private static final String DELETE_BY_ID_QUERY = "DELETE FROM subscription WHERE id = ?";

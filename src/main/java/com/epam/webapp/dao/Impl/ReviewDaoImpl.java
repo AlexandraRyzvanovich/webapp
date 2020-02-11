@@ -1,7 +1,6 @@
 package com.epam.webapp.dao.Impl;
 
 import com.epam.webapp.dao.AbstractDao;
-import com.epam.webapp.dao.ReviewDao;
 import com.epam.webapp.entity.Review;
 import com.epam.webapp.exception.DaoException;
 
@@ -9,7 +8,7 @@ import java.sql.Connection;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-public class ReviewDaoImpl extends AbstractDao<Review> implements ReviewDao {
+public class ReviewDaoImpl extends AbstractDao<Review> {
     private static final String GET_REVIEW_BY_ID_QUERY = "SELECT * FROM review WHERE id = ?";
     private static final String SAVE_REVIEW_QUERY = "INSERT INTO review (user_id, review_msg, star, date) VALUES (?, ?, ?, ?)";
 

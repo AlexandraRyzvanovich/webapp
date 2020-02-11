@@ -5,7 +5,7 @@ import com.epam.webapp.exception.DaoException;
 
 import java.util.List;
 
-public interface TrainingProgramCardDtoDao {
+public interface TrainingProgramCardDtoDao extends Dao<TrainingProgramCard> {
     List<TrainingProgramCard> getTrainingProgramCardByProgramId(Long programId) throws DaoException;
 
 }
