@@ -40,7 +40,7 @@ public class OrderService {
             BigDecimal price = subscription.get().getPrice();
             Order order = new Order(userId, paidDate, price, orderStatus, subscriptionId);
             try (DaoHelper factory = daoHelperFactory.create()) {
-                AbstractDao<Order> dao = (AbstractDao<Order>) factory.createOrderDao();
+                OrderDao dao = factory.createOrderDao();
                 dao.save(order);
             } catch (DaoException e) {
                 throw new ServiceException(e.getCause());
