@@ -16,10 +16,9 @@
             </c:if>
             <c:if test="${s == 'CLIENT'}">
                 <div class="sidenav">
-                    <a href="/training-program?command=getTrainingProgram">Training program</a>
+                    <a href="/training-program?command=getProgram">Your training program</a>
                     <a href="/subscriptions?command=getAvailableSubscriptions">Subscription</a>
                     <a href="/reviews?command=getReviews">Reviews</a>
-                    <a href="/internCard?command=getProgram">Intern Card</a>
                 </div>
             </c:if>
             <c:if test="${s == 'ADMIN'}">

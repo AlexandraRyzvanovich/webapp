@@ -27,7 +27,7 @@ public interface RowMapper<T extends Identifiable> {
             case User.USER_TABLE_NAME:
                 return new UserRowMapper();
             case Client.TABLE_NAME:
-                return new ClientMapper();
+                return new ClientRowMapper();
             case TrainingProgramCard
                         .TABLE_NAME_DTO:
                 return new TrainingProgramCardMapper();
