@@ -6,7 +6,7 @@ import com.epam.webapp.exception.MapperException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ClientMapper implements RowMapper<Client> {
+public class ClientRowMapper implements RowMapper<Client> {
     @Override
     public Client map(ResultSet resultSet) {
         Long id;
