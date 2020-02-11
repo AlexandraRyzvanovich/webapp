@@ -18,7 +18,7 @@ public class TrainingProgramCardDtoDaoImpl extends AbstractDao<TrainingProgramCa
 
     @Override
     protected String getTableName() {
-        return null;
+        return TrainingProgramCard.TABLE_NAME_DTO;
     }
 
     @Override

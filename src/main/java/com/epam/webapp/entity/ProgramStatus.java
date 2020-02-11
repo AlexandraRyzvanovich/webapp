@@ -1,7 +1,7 @@
 package com.epam.webapp.entity;
 
 public enum ProgramStatus {
-    NEW("New"), IN_PROGRESS("In progress"), DONE("Done"), DECLINED("Declined");
+    NEW("NEW"), IN_PROGRESS("IN PROGRESS"), DONE("DONE"), DECLINED("DECLINED");
 
     private String statusValue;
 

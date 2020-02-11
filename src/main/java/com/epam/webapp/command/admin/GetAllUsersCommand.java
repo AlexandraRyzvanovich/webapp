@@ -16,6 +16,7 @@ public class GetAllUsersCommand implements Command {
     private static final String CLIENTS_ATTRIBUTE = "clients";
     private static final String TRAINERS_ATTRIBUTE = "trainers";
     private static final String CLIENTS_JSP_PAGE = "/WEB-INF/views/clients.jsp";
+    private static final String BONUS_JSP_PAGE = "/WEB-INF/views/bonus.jsp";
 
     private UserService userService;
     private ClientService clientService;
@@ -32,6 +33,9 @@ public class GetAllUsersCommand implements Command {
             List<User> trainers = userService.getTrainers();
             request.setAttribute(CLIENTS_ATTRIBUTE, clients);
             request.setAttribute(TRAINERS_ATTRIBUTE, trainers);
+            if(request.getRequestURI().contains("bonus")) {
+                return CommandResult.forward(BONUS_JSP_PAGE);
+            }
             return CommandResult.forward(CLIENTS_JSP_PAGE);
         } catch (ServiceException e) {
             throw new CommandException("Error occurred while executing command", e.getCause());

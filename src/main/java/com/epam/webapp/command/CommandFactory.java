@@ -1,6 +1,7 @@
 package com.epam.webapp.command;
 
 import com.epam.webapp.command.admin.GetAllUsersCommand;
+import com.epam.webapp.command.admin.SetBonusCommand;
 import com.epam.webapp.command.admin.SetTrainerCommand;
 import com.epam.webapp.command.client.*;
 import com.epam.webapp.command.common.*;
@@ -21,6 +22,7 @@ public class CommandFactory {
             case "getClients": return new GetAllUsersCommand(new UserService(new DaoHelperFactory()), new ClientService(new DaoHelperFactory()));
             case "setTrainer": return new SetTrainerCommand(new UserService(new DaoHelperFactory()));
             case "getProgram": return new GetProgramCommand(new ProgramService(new DaoHelperFactory()), new TrainingProgramCardService(new DaoHelperFactory()));
+            case "setBonus": return new SetBonusCommand(new UserService(new DaoHelperFactory()));
 
             default: throw new IllegalArgumentException("unknown command " + command);
         }

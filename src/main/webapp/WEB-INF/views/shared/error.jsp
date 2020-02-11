@@ -1,16 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page isErrorPage="true" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Error Page</title>
-</head>
-<body>
+<%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
 
-<jsp:include page="header.jsp"></jsp:include>
-
-<h3>Ooops, something goes wrong</h3>
-
-<jsp:include page="footer.jsp"></jsp:include>
-</body>
+<mtt:mainlayout>
+<jsp:body>
+    <jsp:include page="header.jsp"></jsp:include>
+    <section>
+        <h1>Ooops, something goes wrong</h1>
+    </section>
+</jsp:body>
+    <jsp:include page="footer.jsp"></jsp:include>
+</mtt:mainlayout>

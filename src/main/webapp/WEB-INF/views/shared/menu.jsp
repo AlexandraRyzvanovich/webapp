@@ -8,11 +8,10 @@
     <div class="category-wrap">
         <h2>Menu</h2>
         <c:set var="s" value="${sessionScope.role}" scope="session"></c:set>
-            <c:if test="${s =='TRAINER'}">/internCard.jsp
+            <c:if test="${s =='TRAINER'}">
                 <div class="sidenav">
                     <a href="/interns?command=getInterns">Interns</a>
                     <a href="/reviews?command=getReviews">Reviews</a>
-                    <a href="/internCard.jsp">Intern Card</a>
                 </div>
             </c:if>
             <c:if test="${s == 'CLIENT'}">
@@ -20,30 +19,15 @@
                     <a href="/training-program?command=getTrainingProgram">Training program</a>
                     <a href="/subscriptions?command=getAvailableSubscriptions">Subscription</a>
                     <a href="/reviews?command=getReviews">Reviews</a>
-                    <a href="/internCard.jsp">Intern Card</a>
+                    <a href="/internCard?command=getProgram">Intern Card</a>
                 </div>
             </c:if>
             <c:if test="${s == 'ADMIN'}">
                 <div class="sidenav">
                     <a href="/clients?command=getClients">Clients</a>
+                    <a href="/bonus?command=getClients">Bonus</a>
                 </div>
             </c:if>
     </div>
 </div>
 </aside>
-<script>
-    var dropdown = document.getElementsByClassName("dropdown-btn");
-    var i;
-
-    for (i = 0; i < dropdown.length; i++) {
-        dropdown[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var dropdownContent = this.nextElementSibling;
-            if (dropdownContent.style.display === "block") {
-                dropdownContent.style.display = "none";
-            } else {
-                dropdownContent.style.display = "block";
-            }
-        });
-    }
-</script>

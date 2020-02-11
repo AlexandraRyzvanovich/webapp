@@ -68,7 +68,7 @@ th {
 }
 
 #wrapper {
-    max-width: 960px;
+    max-width: 1150px;
     margin: auto;
 }
 
@@ -470,7 +470,7 @@ a.a-btn-3 {
     right: 0px;
     top: 0px;
     height: 100%;
-    width: 52px;
+    width: 37px;
     border-left: 1px solid #5d81ab;
     -webkit-box-shadow: 1px 0px 1px rgba(255, 255, 255, 0.4) inset;
     -moz-box-shadow: 1px 0px 1px rgba(255, 255, 255, 0.4) inset;

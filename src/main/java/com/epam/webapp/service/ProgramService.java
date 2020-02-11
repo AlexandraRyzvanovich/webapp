@@ -9,6 +9,7 @@ import com.epam.webapp.entity.ProgramStatus;
 import com.epam.webapp.exception.DaoException;
 import com.epam.webapp.exception.ServiceException;
 
+import java.util.List;
 import java.util.Optional;
 
 public class ProgramService {
@@ -18,7 +19,7 @@ public class ProgramService {
         this.daoHelperFactory = factory;
     }
 
-    public Optional<Program> getCurrentProgram(Long userId) throws ServiceException {
+    public List<Program> getCurrentProgram(Long userId) throws ServiceException {
         try(DaoHelper factory = daoHelperFactory.create()) {
             ProgramDao dao = factory.createProgramDao();
             return dao.getCurrentProgramByUserId(userId);

@@ -101,11 +101,20 @@
 
     <servlet>
         <servlet-name>internCard</servlet-name>
-        <jsp-file>/WEB-INF/views/internCard.jsp</jsp-file>
+        <servlet-class>com.epam.webapp.controller.Controller</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>internCard</servlet-name>
-        <url-pattern>/interCard</url-pattern>
+        <url-pattern>/internCard</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>bonus</servlet-name>
+        <servlet-class>com.epam.webapp.controller.Controller</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>bonus</servlet-name>
+        <url-pattern>/bonus</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -128,7 +137,6 @@
     <filter-mapping>
         <filter-name>AuthFilter</filter-name>
         <url-pattern>/*</url-pattern>
-
     </filter-mapping>
 
     <filter>

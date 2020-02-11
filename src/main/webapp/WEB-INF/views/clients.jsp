@@ -35,7 +35,7 @@
                             <form method="post" action="clients">
                                 <input type="hidden" name="command" value="setTrainer">
                                 <input hidden name="userId" value="${client.id}"/>
-                                <input hidden title="${client.id}" name="trainerId" value=""/>
+                                <input hidden title="${client.id}" name="trainerId" value="${requestScope.trainers[0].userId}"/>
                                 <input type="submit"/>
                             </form>
                         </td>

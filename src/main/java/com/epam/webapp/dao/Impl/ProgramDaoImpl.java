@@ -7,6 +7,7 @@ import com.epam.webapp.entity.ProgramStatus;
 import com.epam.webapp.exception.DaoException;
 
 import java.sql.Connection;
+import java.util.List;
 import java.util.Optional;
 
 public class ProgramDaoImpl extends AbstractDao<Program> implements ProgramDao {
@@ -42,8 +43,8 @@ public class ProgramDaoImpl extends AbstractDao<Program> implements ProgramDao {
     }
 
     @Override
-    public Optional<Program> getCurrentProgramByUserId(Long userId) throws DaoException {
-        return executeForStringResult(GET_BY_USER_ID, userId );
+    public List<Program> getCurrentProgramByUserId(Long userId) throws DaoException {
+        return executeQuery(GET_BY_USER_ID, userId );
     }
 
     @Override

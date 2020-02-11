@@ -22,11 +22,15 @@ public class ProgramRowMapper implements RowMapper<Program> {
             id = resultSet.getLong(Program.ID_COLUMN_NAME);
             userId = resultSet.getLong(Program.USER_ID_COLUMN_NAME);
             String dietDb = resultSet.getString(Program.DIET_COLUMN_NAME);
-            diet = Diet.valueOf(dietDb);
+            if(dietDb != null){
+                diet = Diet.valueOf(dietDb);
+            } else {
+                diet = null;
+            }
             startDate = resultSet.getTimestamp(Program.START_DATE_COLUMN_NAME).toLocalDateTime();
             endDate = resultSet.getTimestamp(Program.END_DATE_COLUMN_NAME).toLocalDateTime();
             String programStatusDb = resultSet.getString(Program.STATUS_COLUMN_NAME);
-            status = ProgramStatus.valueOf(programStatusDb);
+            status = ProgramStatus.getFromValue(programStatusDb);
             return new Program(id, userId, diet, startDate, endDate, status);
         } catch (SQLException e) {
             throw new MapperException("Impossible to map entity Program form db");

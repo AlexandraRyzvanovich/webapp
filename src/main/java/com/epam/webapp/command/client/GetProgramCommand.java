@@ -35,7 +35,7 @@ public class GetProgramCommand implements Command {
         String stringId = idAttribute.toString();
         Long id = Long.parseLong(stringId);
         try {
-            Optional<Program> currentProgram = programService.getCurrentProgram(id);
+            List<Program> currentProgram = programService.getCurrentProgram(id);
             List<TrainingProgramCard> currentTrainingProgram =  trainingProgramCardService.getTrainingProgram(id);
             request.setAttribute(CURRENT_PROGRAM_ATTRIBUTE, currentProgram);
             request.setAttribute(CURRENT_TRAINING_PROGRAM_ATTRIBUTE, currentTrainingProgram);
