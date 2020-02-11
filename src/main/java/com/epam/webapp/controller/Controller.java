@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class Controller extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String page;
         try {
             Command command = CommandFactory.create(request.getParameter("command"));

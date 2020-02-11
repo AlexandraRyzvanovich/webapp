@@ -9,7 +9,6 @@ import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Optional;
 
 public class PurchaseSubscriptionForProgramDaoImpl extends AbstractDao<PurchaseSubscriptionForProgramDto> {
@@ -26,7 +25,7 @@ public class PurchaseSubscriptionForProgramDaoImpl extends AbstractDao<PurchaseS
     }
 
     @Override
-    public Optional<PurchaseSubscriptionForProgramDto> getById(Long id) throws DaoException {
+    public Optional<PurchaseSubscriptionForProgramDto> getById(Long id) {
         return Optional.empty();
     }
 

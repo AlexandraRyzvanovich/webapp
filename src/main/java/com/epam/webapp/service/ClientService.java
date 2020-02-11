@@ -3,7 +3,6 @@ package com.epam.webapp.service;
 import com.epam.webapp.dao.ClientDao;
 import com.epam.webapp.dao.DaoHelper;
 import com.epam.webapp.dao.DaoHelperFactory;
-import com.epam.webapp.dao.UserDao;
 import com.epam.webapp.dto.Client;
 import com.epam.webapp.exception.DaoException;
 import com.epam.webapp.exception.ServiceException;

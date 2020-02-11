@@ -8,7 +8,6 @@ import com.epam.webapp.exception.DaoException;
 import com.epam.webapp.exception.ServiceException;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 public class ReviewService {

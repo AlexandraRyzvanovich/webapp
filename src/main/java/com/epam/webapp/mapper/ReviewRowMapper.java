@@ -6,7 +6,6 @@ import com.epam.webapp.exception.MapperException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
-import java.util.*;
 
 public class ReviewRowMapper implements RowMapper<Review> {
     @Override

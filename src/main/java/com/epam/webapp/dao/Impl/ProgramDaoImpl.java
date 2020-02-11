@@ -3,6 +3,7 @@ package com.epam.webapp.dao.Impl;
 import com.epam.webapp.dao.AbstractDao;
 import com.epam.webapp.dao.ProgramDao;
 import com.epam.webapp.entity.Program;
+import com.epam.webapp.entity.ProgramStatus;
 import com.epam.webapp.exception.DaoException;
 
 import java.sql.Connection;
@@ -24,7 +25,7 @@ public class ProgramDaoImpl extends AbstractDao<Program> implements ProgramDao {
     }
 
     @Override
-    public Optional<Program> getById(Long id) throws DaoException {
+    public Optional<Program> getById(Long id) {
         return Optional.empty();
     }
 
@@ -46,12 +47,7 @@ public class ProgramDaoImpl extends AbstractDao<Program> implements ProgramDao {
     }
 
     @Override
-    public void updateDiet(Object... objects) throws DaoException {
-
-    }
-
-    @Override
-    public void updateStatus(Object... objects) throws DaoException {
-
+    public void updateStatus(ProgramStatus status, Long userId) throws DaoException {
+        executeSave(UPDATE_STATUS, status, userId);
     }
 }

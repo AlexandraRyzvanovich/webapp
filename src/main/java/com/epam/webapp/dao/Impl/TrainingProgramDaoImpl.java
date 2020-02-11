@@ -22,7 +22,7 @@ public class TrainingProgramDaoImpl extends AbstractDao<TrainingProgram> impleme
     }
 
     @Override
-    public Optional<TrainingProgram> getById(Long id) throws DaoException {
+    public Optional<TrainingProgram> getById(Long id) {
         return Optional.empty();
     }
 
@@ -36,7 +36,7 @@ public class TrainingProgramDaoImpl extends AbstractDao<TrainingProgram> impleme
 
 
     @Override
-    public void removeById(Long id) throws DaoException {
+    public void removeById(Long id) {
 
     }
 

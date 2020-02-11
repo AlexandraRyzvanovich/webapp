@@ -14,10 +14,10 @@ public enum ProgramStatus {
 
     public static ProgramStatus getFromValue(String value) {
         ProgramStatus resp = null;
-        ProgramStatus nodes[] = values();
-        for(int i = 0; i < nodes.length; i++) {
-            if(nodes[i].statusValue.equals(value)) {
-                resp = nodes[i];
+        ProgramStatus[] nodes = values();
+        for (ProgramStatus node : nodes) {
+            if (node.statusValue.equals(value)) {
+                resp = node;
                 break;
             }
         }

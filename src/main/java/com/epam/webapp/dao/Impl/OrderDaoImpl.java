@@ -14,7 +14,9 @@ import java.util.Optional;
 
 public class OrderDaoImpl extends AbstractDao<Order> implements OrderDao {
     private static final String GET_BY_ID_QUERY = "SELECT * FROM order WHERE id = ?";
-    private static final String SAVE_QUERY = "INSERT INTO order (user_id, paid_date, amount, status, subscription_id) ? ? ? ? ?";
+    private static final String SAVE_QUERY = "INSERT INTO orders (user_id, paid_date, amount, status, subscription_id) ? ? ? ? ?";
+    private static final String GET_BY_USER_ID_QUERY = "SELECT * FROM orders WHERE user_id = ?";
+
 
     public OrderDaoImpl(Connection connection) {
         super(connection);
@@ -47,7 +49,7 @@ public class OrderDaoImpl extends AbstractDao<Order> implements OrderDao {
     }
 
     @Override
-    public List<Order> getByUserId(Long id) {
-        return null;
+    public List<Order> getByUserId(Long id) throws DaoException {
+        return executeQuery(GET_BY_USER_ID_QUERY, id);
     }
 }

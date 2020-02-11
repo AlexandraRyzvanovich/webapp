@@ -2,7 +2,6 @@ package com.epam.webapp.command.admin;
 
 import com.epam.webapp.command.Command;
 import com.epam.webapp.command.CommandResult;
-import com.epam.webapp.dao.Impl.ClientDaoImpl;
 import com.epam.webapp.dto.Client;
 import com.epam.webapp.entity.User;
 import com.epam.webapp.exception.CommandException;

@@ -36,17 +36,17 @@ public class ClientDaoImpl extends AbstractDao<Client> implements ClientDao {
     }
 
     @Override
-    public Optional<Client> getById(Long id) throws DaoException {
+    public Optional<Client> getById(Long id) {
         return Optional.empty();
     }
 
     @Override
-    public void save(Client item) throws DaoException {
+    public void save(Client item) {
 
     }
 
     @Override
-    public void removeById(Long id) throws DaoException {
+    public void removeById(Long id) {
 
     }
 }

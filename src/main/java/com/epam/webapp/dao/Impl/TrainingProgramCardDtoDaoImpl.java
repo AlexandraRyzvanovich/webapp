@@ -22,12 +22,12 @@ public class TrainingProgramCardDtoDaoImpl extends AbstractDao<TrainingProgramCa
     }
 
     @Override
-    public Optional<TrainingProgramCard> getById(Long id) throws DaoException {
+    public Optional<TrainingProgramCard> getById(Long id) {
         return Optional.empty();
     }
 
     @Override
-    public void save(TrainingProgramCard item) throws DaoException {
+    public void save(TrainingProgramCard item) {
 
     }
 

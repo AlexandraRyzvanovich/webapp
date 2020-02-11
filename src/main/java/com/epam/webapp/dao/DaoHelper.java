@@ -49,15 +49,15 @@ public class DaoHelper implements AutoCloseable {
 
 
     @Override
-    public void close() throws DaoException {
+    public void close() {
         connection.close();
     }
 
     public void startTransaction(PreparedStatement...statement) throws DaoException {
         try  {
             connection.setAutoCommit(false);
-            for (int i = 0; i < statement.length; i++) {
-                statement[i].executeUpdate();
+            for (PreparedStatement preparedStatement : statement) {
+                preparedStatement.executeUpdate();
                 connection.commit();
             }
             connection.setAutoCommit(true);

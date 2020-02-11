@@ -7,8 +7,7 @@ public class BonusCalculator {
         if(bonus != null) {
            BigDecimal bonusAmount = price.multiply(BigDecimal.valueOf(bonus));
            bonusAmount = bonusAmount.divide(BigDecimal.valueOf(100));
-           BigDecimal finalPrice = price.subtract(bonusAmount);
-           return finalPrice;
+            return price.subtract(bonusAmount);
         }
         else return price;
     }

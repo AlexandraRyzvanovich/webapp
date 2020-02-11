@@ -7,7 +7,6 @@ import com.epam.webapp.exception.DaoException;
 
 import java.sql.Connection;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Optional;
 
 public class ReviewDaoImpl extends AbstractDao<Review> implements ReviewDao {

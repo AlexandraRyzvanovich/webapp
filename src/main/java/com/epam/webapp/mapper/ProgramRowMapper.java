@@ -8,7 +8,6 @@ import com.epam.webapp.exception.MapperException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class ProgramRowMapper implements RowMapper<Program> {
     @Override
