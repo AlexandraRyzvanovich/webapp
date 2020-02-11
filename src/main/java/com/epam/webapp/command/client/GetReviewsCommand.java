@@ -29,6 +29,5 @@ public class GetReviewsCommand implements Command {
         } catch (ServiceException e) {
             throw new CommandException("Error occurred while executing command", e.getCause());
         }
-
     }
 }
