@@ -1,13 +1,12 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page isErrorPage="true" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
+<%@ page isErrorPage="true" %>
 
 <mtt:mainlayout>
-<jsp:body>
     <jsp:include page="header.jsp"></jsp:include>
     <section>
-        <h1>Ooops, something goes wrong</h1>
+        <img style="margin-top: 250px;" src="/resources/images/404-error1.png">
     </section>
-</jsp:body>
     <jsp:include page="footer.jsp"></jsp:include>
 </mtt:mainlayout>

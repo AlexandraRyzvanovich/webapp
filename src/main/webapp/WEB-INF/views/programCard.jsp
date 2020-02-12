@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
 <mtt:mainlayout>
     <section>
-        <h1>Your program</h1>
+        <h1>Your program test</h1>
         <div>
             <table cellspacing="0">
                 <tr>
@@ -21,9 +21,9 @@
                         <td>${program.endDate}</td>
                         <td>${program.status}</td>
                         <td>
-                            <select>
+                            <select id="${client}" onchange="changeStatus(this)">
                                 <c:forEach var="status" items="${requestScope.programStatusList}">
-                                    <option>${status}</option>
+                                    <option value="${status}">${status}</option>
                                 </c:forEach>
                             </select>
                         </td>
@@ -56,3 +56,8 @@
         </div>
     </section>
 </mtt:mainlayout>
+<script>
+    function changeStatus(data) {
+        document.querySelector('input[title="'+ data.id +'"]').value = data.value;
+    }
+</script>
