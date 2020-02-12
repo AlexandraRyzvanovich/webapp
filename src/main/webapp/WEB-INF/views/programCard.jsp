@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
 <mtt:mainlayout>
     <section>
-        <h1>Your program test</h1>
+        <h1>Your program</h1>
         <div>
             <table cellspacing="0">
                 <tr>
@@ -14,14 +14,14 @@
                     <th>Choose new status</th>
                     <th></th>
                 </tr>
-                <c:forEach var="program" items="${requestScope.currentProgram}">
+                <c:forEach var="program" items="${requestScope. currentProgram}">
                     <tr>
                         <td>${program.diet}</td>
                         <td>${program.startDate}</td>
                         <td>${program.endDate}</td>
                         <td>${program.status}</td>
                         <td>
-                            <select id="${client}" onchange="changeStatus(this)">
+                            <select onchange="changeStatus(this)">
                                 <c:forEach var="status" items="${requestScope.programStatusList}">
                                     <option value="${status}">${status}</option>
                                 </c:forEach>
@@ -31,7 +31,7 @@
                             <form method="POST" action="internCard">
                                 <input type="hidden" name="command" value="updateProgramStatus">
                                 <input hidden name="programId" value="${program.id}"/>
-                                <input hidden title="${client.id}" name="status" value="${requestScope.programStatusList.get(1)}"/>
+                                <input hidden name="status" value="${requestScope.programStatusList.get(1)}"/>
                                 <input type="submit"/>
                             </form>
                         </td>

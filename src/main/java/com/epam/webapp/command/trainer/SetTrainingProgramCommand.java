@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 public class SetTrainingProgramCommand implements Command {
     private static final String PROGRAM_ID_PARAMETER = "programId";
     private static final String EXERCISE_ID_PARAMETER = "exerciseId";
-    private static final String FREQUENCY_PARAMETER = "programId";
-    private static final String INTERN_CARD_PAGE = "/internCard?command=getInternProgram";
+    private static final String FREQUENCY_PARAMETER = "frequency";
+    private static final String INTERN_CARD_PAGE = "/internCard?command=getInterns";
 
     private TrainingProgramService trainingProgramService;
 

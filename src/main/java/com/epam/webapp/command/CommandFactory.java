@@ -5,6 +5,7 @@ import com.epam.webapp.command.admin.SetBonusCommand;
 import com.epam.webapp.command.admin.SetTrainerCommand;
 import com.epam.webapp.command.client.*;
 import com.epam.webapp.command.common.*;
+import com.epam.webapp.command.trainer.GetInternProgramCommand;
 import com.epam.webapp.command.trainer.GetTrainerInternsCommand;
 import com.epam.webapp.command.trainer.SetDietCommand;
 import com.epam.webapp.command.trainer.SetTrainingProgramCommand;
@@ -28,6 +29,8 @@ public class CommandFactory {
             case "updateProgramStatus": return new UpdateProgramStatusCommand(new ProgramService(new DaoHelperFactory()));
             case "setDiet": return new SetDietCommand(new ProgramService(new DaoHelperFactory()));
             case "setTrainingProgram": return new SetTrainingProgramCommand(new TrainingProgramService(new DaoHelperFactory()));
+            case "getInternTrainerProgram": return new GetInternProgramCommand(new ProgramService(new DaoHelperFactory()),
+                    new TrainingProgramCardService(new DaoHelperFactory()), new ExerciseService(new DaoHelperFactory()));
 
             default: throw new IllegalArgumentException("unknown command " + command);
         }

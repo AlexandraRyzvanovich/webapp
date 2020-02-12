@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="interface"/>
+
 <mt:loginlayout>
     <jsp:attribute name="login">login</jsp:attribute>
 </mt:loginlayout>
@@ -26,7 +27,7 @@
             </div>
             <div class="container-login100-form-btn">
                 <button type="submit" class="login100-form-btn">
-                    Login
+                    <fmt:message key="button.submit"/>
                 </button>
             </div>
         </div>

@@ -42,7 +42,11 @@ public class GetInternProgramCommand implements Command {
         Long id = Long.parseLong(userIdParameter);
         try {
             List<Program> currentProgram = programService.getCurrentProgram(id);
-            List<TrainingProgramCard> currentTrainingProgram =  trainingProgramCardService.getTrainingProgram(id);
+            List<TrainingProgramCard> currentTrainingProgram = null;
+            if(currentProgram != null) {
+                Long programId = currentProgram.get(0).getId();
+                currentTrainingProgram = trainingProgramCardService.getTrainingProgram(programId);
+            }
             List<String> programStatusList = new ArrayList<>(ProgramStatus.PROGRAM_STATUS_MAP.keySet());
             List<Exercise> allExercises =exerciseService.getAllExercises();
             List<String> allDiets = new ArrayList<>(Diet.DIET_MAP.keySet());

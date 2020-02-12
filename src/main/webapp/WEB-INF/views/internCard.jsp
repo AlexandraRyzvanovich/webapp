@@ -54,17 +54,24 @@
                 </c:forEach>
             </table>
             <div>
-            <form method="post" action="training-program">
-                <select>
-                    <option>Exercise name1</option>
-                    <option>Exercise name2</option>
-                    <option>Exercise name3</option>
-                    <option>Exercise name4</option>
+                <form method="POST" action="internCard">
+                    <input type="hidden" name="command" value="setTrainingProgram">
+                <select onchange ="changeStatus(this)" style="margin: 30px;">
+                    <c:forEach var="exercise" items="${requestScope.exercises}">
+                    <option value="${exercise.id}">${exercise.name}</option>
+                    </c:forEach>
                 </select>
-                <input type="text">
-                <input type="submit">
-            </form>
+                    <input hidden name="programId" value="${requestScope.currentProgram.get(0).id}"/>
+                    <input hidden name="exerciseId" value="${requestScope.exercises.get(0).id}"/>
+                    <input type="text"  name="frequency" style="width: 69px">
+                    <input type="submit"/>
+                </form>
             </div>
         </div>
     </section>
 </mtt:mainlayout>
+<script>
+    function changeStatus(data) {
+        document.querySelector('input[title="'+ data.id +'"]').value = data.value;
+    }
+</script>
