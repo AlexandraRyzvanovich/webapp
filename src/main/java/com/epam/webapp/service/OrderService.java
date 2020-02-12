@@ -1,6 +1,5 @@
 package com.epam.webapp.service;
 
-import com.epam.webapp.dao.AbstractDao;
 import com.epam.webapp.dao.DaoHelper;
 import com.epam.webapp.dao.DaoHelperFactory;
 import com.epam.webapp.dao.OrderDao;

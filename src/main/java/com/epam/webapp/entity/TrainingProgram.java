@@ -21,6 +21,12 @@ public class TrainingProgram implements Identifiable {
         this.frequency = frequency;
     }
 
+    public TrainingProgram(Long programId, Long exerciseId, Integer frequency) {
+        this.programId = programId;
+        this.exerciseId = exerciseId;
+        this.frequency = frequency;
+    }
+
     public Long getId() {
         return id;
     }

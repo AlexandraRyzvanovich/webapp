@@ -31,6 +31,7 @@ public class DaoHelper implements AutoCloseable {
     public ReviewDaoImpl createReviewDao() {
         return new ReviewDaoImpl(connection);
     }
+
     public TrainingProgramCardDtoDao createTrainingProgramCardDao() {
         return new TrainingProgramCardDtoDaoImpl(connection);
     }
@@ -44,6 +45,13 @@ public class DaoHelper implements AutoCloseable {
     }
     public ClientDao createClientDao() {
         return new ClientDaoImpl(connection);
+    }
+
+    public ExerciseDaoImpl createExerciseDao() {
+        return new ExerciseDaoImpl(connection);
+    }
+    public TrainingProgramDaoImpl createTrainingProgramDao() {
+        return new TrainingProgramDaoImpl(connection);
     }
 
 

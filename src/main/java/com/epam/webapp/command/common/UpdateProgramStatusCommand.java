@@ -10,13 +10,13 @@ import com.epam.webapp.service.ProgramService;
 import javax.servlet.http.HttpServletRequest;
 
 public class UpdateProgramStatusCommand implements Command {
-    private final String PROGRAM_ID_PARAMETER = "programId";
-    private final String STATUS_PARAMETER = "status_parameter";
-    private final String SUCCESS_MSG_ATTRIBUTE = "success";
-    private final String SUCCESS_MESSAGE = "Program status has been changed";
-    private final String PROGRAM_CARD_JSP_PAGE = "/WEB-INF/views/programCard.jsp";
+    private static final String PROGRAM_ID_PARAMETER = "programId";
+    private static final String STATUS_PARAMETER = "status";
+    private static final String SUCCESS_MSG_ATTRIBUTE = "success";
+    private static final String SUCCESS_MESSAGE = "Program status has been changed";
+    private static final String PROGRAM_CARD_JSP_PAGE = "/program?command=getProgram";
 
-    ProgramService programService;
+    private ProgramService programService;
 
     public UpdateProgramStatusCommand(ProgramService programService) {
         this.programService = programService;

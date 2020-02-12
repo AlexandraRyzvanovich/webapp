@@ -1,38 +1,70 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
 <mtt:mainlayout>
-    <jsp:attribute name="main"></jsp:attribute>
-    <jsp:body >
-
-        <form method="GET" action="training-program" />
-        <input type="hidden" name="command" value="getTrainingProgram">
-
-        <section style="padding: 18px 18px;">
-            <h1 style="color: #E1D070;text-align: center;margin-bottom: 3%;">Training Program</h1>
-            <c:set var="s" value="${requestScope.trainingProgram}" scope="request"></c:set>
+    <section>
+        <h1>Your program</h1>
+        <div>
             <table cellspacing="0">
                 <tr>
-                    <td>Diet</td>
-                    <td>${requestScope.trainingProgram.get().dietDescription}</td>
-                    <td><a href="/diet">more</a></td>
+                    <th>Diet</th>
+                    <th>Start date</th>
+                    <th>End date</th>
+                    <th>Actual Status</th>
+                    <th>Choose new status</th>
+                    <th></th>
                 </tr>
-                <tr>
-                    <td>Exercises</td>
-                    <td>${requestScope.trainingProgram.get().exerciseDescription}</td>
-                    <td><a href="/diet">more</a></td>
-                </tr>
-                <tr>
-                    <td>Additional information</td>
-                    <td>${requestScope.trainingProgram.get().additionalInfo}</td>
-                    <td></td>
-                </tr>
+                <c:forEach var="program" items="${requestScope.currentProgram}">
+                    <tr>
+                        <td>${program.diet}</td>
+                        <td>${program.startDate}</td>
+                        <td>${program.endDate}</td>
+                        <td>${program.status}</td>
+                        <td>
+                            <select>
+                                <c:forEach var="status" items="${requestScope.programStatusList}">
+                                    <option>${status}</option>
+                                </c:forEach>
+                            </select>
+                        </td>
+                        <td>
+                            <form method="POST" action="internCard">
+                                <input type="hidden" name="command" value="updateProgramStatus">
+                                <input hidden name="programId" value="${program.id}"/>
+                                <input hidden title="${client.id}" name="status" value="${requestScope.programStatusList.get(1)}"/>
+                                <input type="submit"/>
+                            </form>
+                        </td>
+                    </tr>
+                </c:forEach>
             </table>
-        </section>
-        </form>
-        <jsp:include page="/WEB-INF/views/shared/footer.jsp"></jsp:include>
-    </jsp:body>
+        </div>
+        <div style="margin-top: 50px">
+            <h3>Training program</h3>
+            <table cellspacing="0">
+                <tr>
+                    <th>Exercise name</th>
+                    <th>Frequency</th>
+                </tr>
+                <c:forEach var="program" items="${requestScope.currentTrainingProgram}">
+                    <tr>
+                        <td>${program.exercise}</td>
+                        <td>${program.frequency} in a week</td>
+                    </tr>
+                </c:forEach>
+            </table>
+            <div>
+                <form method="post" action="training-program">
+                    <select>
+                        <option>Exercise name1</option>
+                        <option>Exercise name2</option>
+                        <option>Exercise name3</option>
+                        <option>Exercise name4</option>
+                    </select>
+                    <input type="text">
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+    </section>
 </mtt:mainlayout>
-

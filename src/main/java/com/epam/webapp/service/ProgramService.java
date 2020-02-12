@@ -36,4 +36,12 @@ public class ProgramService {
             throw new ServiceException(e.getCause());
         }
     }
+    public void updateDiet(Diet diet, Long programId) throws ServiceException {
+        try(DaoHelper factory = daoHelperFactory.create()) {
+            ProgramDao dao = factory.createProgramDao();
+            dao.setDiet(diet, programId);
+        } catch (DaoException e) {
+            throw new ServiceException(e.getCause());
+        }
+    }
 }

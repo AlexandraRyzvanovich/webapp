@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum Diet {
-    VEGAN_DIET("Vegan"), LOW_CARBONATE_DIET("Low carbonate diet"),
-    ULTRA_LOW_FAT_DIET("Ultra low fat diet"), HCG_DIET("HCG diet");
+    VEGAN_DIET("VEGAN"), LOW_CARBONATE_DIET("LOW CARB"),
+    ULTRA_LOW_FAT_DIET("ULTRA LOW FAT"), HCG_DIET("HCG");
 
     private String dietName;
     public static final Map<String, Diet> DIET_MAP;
@@ -19,18 +19,6 @@ public enum Diet {
         return this.dietName;
     }
 
-    public static Diet getFromValue(String value) {
-        Diet dietEnum = null;
-        Diet[] names = values();
-        for (Diet diet : names) {
-            if (diet.dietName.equals(value)) {
-                dietEnum = diet;
-                break;
-            }
-        }
-        return dietEnum;
-    }
-
     static {
         Map<String, Diet> map = new HashMap<>();
         for (Diet instance : Diet.values()) {
@@ -38,7 +26,8 @@ public enum Diet {
         }
         DIET_MAP = Collections.unmodifiableMap(map);
     }
-    public static Diet get (String name) {
+
+    public static Diet getValue (String name) {
         return DIET_MAP.get(name);
     }
 }

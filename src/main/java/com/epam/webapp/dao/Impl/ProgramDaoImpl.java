@@ -2,6 +2,7 @@ package com.epam.webapp.dao.Impl;
 
 import com.epam.webapp.dao.AbstractDao;
 import com.epam.webapp.dao.ProgramDao;
+import com.epam.webapp.entity.Diet;
 import com.epam.webapp.entity.Program;
 import com.epam.webapp.entity.ProgramStatus;
 import com.epam.webapp.exception.DaoException;
@@ -13,7 +14,7 @@ import java.util.Optional;
 public class ProgramDaoImpl extends AbstractDao<Program> implements ProgramDao {
     private final String GET_BY_USER_ID = "SELECT * FROM program WHERE user_id = ? AND end_date > now()";
     private final String UPDATE_DIET = "UPDATE program SET diet = ? WHERE id = ?";
-    private final String UPDATE_STATUS = "UPDATE program SET status = '?' WHERE id = ?";
+    private final String UPDATE_STATUS = "UPDATE program SET status = ? WHERE id = ?";
 
 
     public ProgramDaoImpl(Connection connection) {
@@ -48,7 +49,14 @@ public class ProgramDaoImpl extends AbstractDao<Program> implements ProgramDao {
     }
 
     @Override
-    public void updateStatus(ProgramStatus status, Long userId) throws DaoException {
-        executeSave(UPDATE_STATUS, status, userId);
+    public void updateStatus(ProgramStatus status, Long programId) throws DaoException {
+        int statusValue = status.ordinal();
+        executeSave(UPDATE_STATUS, statusValue, programId);
+    }
+
+    @Override
+    public void setDiet(Diet diet, Long programId) throws DaoException {
+        int dietValue = diet.ordinal();
+        executeSave(UPDATE_DIET, dietValue, programId);
     }
 }

@@ -1,175 +1,58 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
 <mtt:mainlayout>
     <section>
-        <h2>UserName Card</h2>
-        <div class="card">
-            <table>
+        <h1>Your program</h1>
+        <div>
+            <table cellspacing="0">
                 <tr>
-                    <td>
-                        Name
-                    </td>
-                    <td>
-                        val
-                    </td>
+                    <th>Diet</th>
+                    <th>Start date</th>
+                    <th>End date</th>
+                    <th>Actual Status</th>
+                    <th>Choose new status</th>
+                    <th></th>
                 </tr>
-                <tr>
-                    <td>
-                        Age
-                    </td>
-                    <td>
-                        val
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Status
-                    </td>
-                    <td>
-                        val
-                    </td>
-                </tr>
+                <c:forEach var="program" items="${requestScope.currentProgram}">
+                    <tr>
+                        <td>${program.diet}</td>
+                        <td>${program.startDate}</td>
+                        <td>${program.endDate}</td>
+                        <td>${program.status}</td>
+                        <td>
+                            <select>
+                                <c:forEach var="status" items="${requestScope.programStatusList}">
+                                    <option>${status}</option>
+                                </c:forEach>
+                            </select>
+                        </td>
+                        <td>
+                            <form method="POST" action="internCard">
+                                <input type="hidden" name="command" value="updateProgramStatus">
+                                <input hidden name="programId" value="${program.id}"/>
+                                <input hidden title="${client.id}" name="status" value="${requestScope.programStatusList.get(1)}"/>
+                                <input type="submit"/>
+                            </form>
+                        </td>
+                    </tr>
+                </c:forEach>
             </table>
-            <form action="/diet" method="post" style="float: left; width: 45%">
-                <div id="myDIV2" class="header">
-                    <h2>Create Diet</h2>
-                    <input type="text" id="myInput2" placeholder="Title...">
-                    <span onclick="newElement2()" class="addBtn" style="float: right;">Add</span>
-                </div>
-
-                <ul id="myUL2">
-                    <li class="liwithclose">Hit the gym</li>
-                    <li class="liwithclose">Pay bills</li>
-                    <li class="liwithclose">Meet George</li>
-                    <li class="liwithclose">Buy eggs</li>
-                    <li class="liwithclose">Read a book</li>
-                    <li class="liwithclose">Organize office</li>
-                </ul>
-                <button type="submit">Approve</button>
-            </form>
-            <form action="/diet" method="post" style="float: right; width: 45%">
-                <div id="myDIV1" class="header">
-                    <h2>Add Exercises</h2>
-                    <input type="text" id="myInput1" placeholder="Title...">
-                    <span onclick="newElement()" class="addBtn" style="float: right;">Add</span>
-                </div>
-
-                <ul id="myUL1">
-                    <li class="liwithclose2">Hit the gym</li>
-                    <li class="liwithclose2">Pay bills</li>
-                    <li class="liwithclose2">Meet George</li>
-                    <li class="liwithclose2">Buy eggs</li>
-                    <li class="liwithclose2">Read a book</li>
-                    <li class="liwithclose2">Organize office</li>
-                </ul>
-                <button type="submit">Approve</button>
-            </form>
+        </div>
+        <div style="margin-top: 50px">
+            <h3>Training program</h3>
+            <table cellspacing="0">
+                <tr>
+                    <th>Exercise name</th>
+                    <th>Frequency</th>
+                </tr>
+                <c:forEach var="program" items="${requestScope.currentTrainingProgram}">
+                    <tr>
+                        <td>${program.exercise}</td>
+                        <td>${program.frequency} in a week</td>
+                    </tr>
+                </c:forEach>
+            </table>
         </div>
     </section>
 </mtt:mainlayout>
-<script type="text/javascript">
-    var myNodelist = document.getElementsByClassName("liwithclose");
-    var i;
-    for (i = 0; i < myNodelist.length; i++) {
-        var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u00D7");
-        span.className = "close";
-        span.appendChild(txt);
-        myNodelist[i].appendChild(span);
-    }
-
-    var close = document.getElementsByClassName("close");
-    var i;
-    for (i = 0; i < close.length; i++) {
-        close[i].onclick = function () {
-            var div = this.parentElement;
-            div.style.display = "none";
-        }
-    }
-
-    var list = document.querySelector('ul');
-    list.addEventListener('click', function (ev) {
-        if (ev.target.tagName === 'LI') {
-            ev.target.classList.toggle('checked');
-        }
-    }, false);
-
-    function newElement() {
-        var li = document.createElement("li");
-        var inputValue = document.getElementById("myInput1").value;
-        var t = document.createTextNode(inputValue);
-        li.appendChild(t);
-        if (inputValue === '') {
-            alert("You must write something!");
-        } else {
-            document.getElementById("myUL1").appendChild(li);
-        }
-        document.getElementById("myInput1").value = "";
-
-        var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u00D7");
-        span.className = "close";
-        span.appendChild(txt);
-        li.appendChild(span);
-
-        for (i = 0; i < close.length; i++) {
-            close[i].onclick = function () {
-                var div = this.parentElement;
-                div.style.display = "none";
-            }
-        }
-    }
-
-    var myNodelist2 = document.getElementsByClassName("liwithclose2");
-    var u;
-    for (i = 0; u < myNodelist2.length; u++) {
-        var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u00D7");
-        span.className = "close";
-        span.appendChild(txt);
-        myNodelist2[u].appendChild(span);
-    }
-
-    var close = document.getElementsByClassName("close");
-    var i;
-    for (i = 0; i < close.length; i++) {
-        close[i].onclick = function () {
-            var div = this.parentElement;
-            div.style.display = "none";
-        }
-    }
-
-    var list = document.querySelector('ul');
-    list.addEventListener('click', function (ev) {
-        if (ev.target.tagName === 'LI') {
-            ev.target.classList.toggle('checked');
-        }
-    }, false);
-
-    function newElement2() {
-        var li = document.createElement("li");
-        var inputValue = document.getElementById("myInput2").value;
-        var t = document.createTextNode(inputValue);
-        li.appendChild(t);
-        if (inputValue === '') {
-            alert("You must write something!");
-        } else {
-            document.getElementById("myUL2").appendChild(li);
-        }
-        document.getElementById("myInput2").value = "";
-
-        var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u00D7");
-        span.className = "close";
-        span.appendChild(txt);
-        li.appendChild(span);
-
-        for (i = 0; i < close.length; i++) {
-            close[i].onclick = function () {
-                var div = this.parentElement;
-                div.style.display = "none";
-            }
-        }
-    }
-</script>

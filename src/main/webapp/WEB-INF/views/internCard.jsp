@@ -3,34 +3,39 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
 <mtt:mainlayout>
     <section>
-        <h1>Intern Card</h1>
+        <h1>Your program</h1>
         <div>
-            <h3>Diet</h3>
         <table cellspacing="0">
             <tr>
                 <th>Diet</th>
                 <th>Start date</th>
                 <th>End date</th>
-                <th>status</th>
+                <th>Actual Status</th>
+                <th>Choose new status</th>
                 <th></th>
             </tr>
-            <c:forEach var="diet" items="${requestScope.currentProgram}">
-                <form method="post">
+            <c:forEach var="program" items="${requestScope.currentProgram}">
             <tr>
-                <td>${diet.diet}</td>
-                <td>${diet.startDate}</td>
-                <td>${diet.endDate}</td>
+                <td>${program.diet}</td>
+                <td>${program.startDate}</td>
+                <td>${program.endDate}</td>
+                <td>${program.status}</td>
                 <td>
                         <select>
-                            <option></option>
+                            <c:forEach var="status" items="${requestScope.programStatusList}">
+                            <option>${status}</option>
+                            </c:forEach>
                         </select>
                 </td>
                 <td>
-                    <input name="diet" type="submit">
-                    <input type="submit">
+                    <form method="POST" action="internCard">
+                        <input type="hidden" name="command" value="updateProgramStatus">
+                        <input hidden name="programId" value="${program.id}"/>
+                        <input hidden title="${client.id}" name="status" value="${requestScope.programStatusList.get(1)}"/>
+                        <input type="submit"/>
+                    </form>
                 </td>
             </tr>
-                </form>
             </c:forEach>
         </table>
         </div>
@@ -44,7 +49,7 @@
                 <c:forEach var="program" items="${requestScope.currentTrainingProgram}">
                 <tr>
                     <td>${program.exercise}</td>
-                    <td>${program.frequency}</td>
+                    <td>${program.frequency} in a week</td>
                 </tr>
                 </c:forEach>
             </table>
