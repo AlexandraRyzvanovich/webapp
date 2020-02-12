@@ -1,4 +1,7 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="interface"/>
 <style>
     <%@include file="/resources/css/header.css"%>
 </style>
@@ -30,8 +33,8 @@
              </li>
         <li id="navbar-right">
             <select id="lang" style="float: right;">
-                <option style="background:url(/resources/images/flagru.png);" value="rus">Ru</option>
-                <option style="background:url(/resources/images/usaflag.png);" value="eng">En</option>
+                <option style="background:url(/resources/images/flagru.png);" value="ru">Ru</option>
+                <option style="background:url(/resources/images/usaflag.png);" value="en">En</option>
             </select>
         </li>
     </ul>
