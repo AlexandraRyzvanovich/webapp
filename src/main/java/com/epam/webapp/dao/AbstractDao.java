@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.epam.webapp.entity.Order;
 import com.epam.webapp.mapper.RowMapper;
 import com.epam.webapp.entity.Identifiable;
 import com.epam.webapp.exception.DaoException;

@@ -35,9 +35,9 @@ public class GetAvailableSubscriptionsCommand implements Command {
             String stringId = idAttribute.toString();
             Long id = Long.parseLong(stringId);
             List<Subscription> listSubscriptions = service.getAvailableSubscriptions();
-            List<Order> ordersList = orderService.getOrders(id);
+           // List<Order> ordersList = orderService.getOrders(id);
             request.setAttribute(SUBSCRIPTIONS_ATTRIBUTE, listSubscriptions);
-            request.setAttribute(ORDERS_ATTRIBUTE, ordersList);
+            //request.setAttribute(ORDERS_ATTRIBUTE, ordersList);
             return CommandResult.forward(SUBSCRIPTIONS_JSP_PAGE);
         } catch (ServiceException e) {
             throw new CommandException("Error occurred while executing command", e.getCause());
