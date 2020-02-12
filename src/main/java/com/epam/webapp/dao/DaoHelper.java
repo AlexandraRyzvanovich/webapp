@@ -24,7 +24,7 @@ public class DaoHelper implements AutoCloseable {
         return new SubscriptionDaoImpl(connection);
     }
 
-    public OrderDao createOrderDao() {
+    public OrderDaoImpl createOrderDao() {
         return new OrderDaoImpl(connection);
     }
 

@@ -1,7 +1,6 @@
 package com.epam.webapp.dao.Impl;
 
 import com.epam.webapp.dao.AbstractDao;
-import com.epam.webapp.dao.OrderDao;
 import com.epam.webapp.entity.Order;
 import com.epam.webapp.entity.OrderStatus;
 import com.epam.webapp.exception.DaoException;
@@ -9,13 +8,11 @@ import com.epam.webapp.exception.DaoException;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.util.Date;
-import java.util.List;
 import java.util.Optional;
 
-public class OrderDaoImpl extends AbstractDao<Order> implements OrderDao {
+public class OrderDaoImpl extends AbstractDao<Order> {
     private static final String GET_BY_ID_QUERY = "SELECT * FROM order WHERE id = ?";
     private static final String SAVE_QUERY = "INSERT INTO orders (user_id, paid_date, amount, status, subscription_id) ? ? ? ? ?";
-    private static final String GET_BY_USER_ID_QUERY = "SELECT * FROM orders WHERE user_id = ?";
 
 
     public OrderDaoImpl(Connection connection) {
@@ -46,10 +43,5 @@ public class OrderDaoImpl extends AbstractDao<Order> implements OrderDao {
     @Override
     public void removeById(Long id) throws DaoException {
         throw new DaoException("Impossible to execute operation");
-    }
-
-    @Override
-    public List<Order> getByUserId(Long id) throws DaoException {
-        return executeQuery(GET_BY_USER_ID_QUERY, id);
     }
 }

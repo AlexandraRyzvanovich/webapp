@@ -8,15 +8,6 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class PurchaseSubscriptionForProgramDto implements Identifiable {
-    public static final String USER_ID_COLUMN_NAME = "user_id";
-    public static final String PAID_DATE_COLUMN_NAME = "paid_date";
-    public static final String AMOUNT_COLUMN_NAME = "amount";
-    public static final String ORDER_STATUS_COLUMN_NAME = "status";
-    public static final String SUBSCRIPTION_ID_COLUMN_NAME = "subscription_id";
-    public static final String DIET_COLUMN_NAME = "diet";
-    public static final String VALID_TO_COLUMN_NAME = "valid_to";
-    public static final String PROGRAM_STATUS_COLUMN_NAME = "status";
-
     private Long userId;
     private LocalDateTime paidDate;
     private BigDecimal amount;
