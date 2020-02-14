@@ -13,4 +13,5 @@ public class ShowPageCommand implements Command {
     public CommandResult execute(HttpServletRequest request)  {
         return CommandResult.forward(page);
     }
+
 }

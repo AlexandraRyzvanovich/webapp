@@ -3,7 +3,7 @@
 <%@taglib prefix="mt" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:setLocale value="${language}"/>
-
+<fmt:setBundle basename="locale"/>
 <mt:loginlayout>
     <jsp:attribute name="login">login</jsp:attribute>
 </mt:loginlayout>

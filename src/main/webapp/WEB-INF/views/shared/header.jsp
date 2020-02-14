@@ -1,7 +1,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <fmt:setLocale value="${language}"/>
-<fmt:setBundle basename="interface"/>
+<fmt:setBundle basename="locale"/>
 <style>
     <%@include file="/resources/css/header.css"%>
 </style>
@@ -27,16 +27,13 @@
             </a>
         </li>
         <li>
-            <a class="bot1" onclick="logout()">Logout</a>
+            <a class="bot1" onclick="logout()"><fmt:message key="button.logout"/></a>
         </li>
         </form>
              </li>
         <li id="navbar-right">
-            <select id="lang" style="float: right;">
-                <option style="background:url(/resources/images/flagru.png);" value="ru">Ru</option>
-                <option style="background:url(/resources/images/usaflag.png);" value="en">En</option>
-            </select>
+                <a href ="/main?sessionLocale=ru"><fmt:message key="language.ru"/></a>
+                <a href="/main?sessionLocale=en"><fmt:message key="language.en"/></a>
         </li>
     </ul>
-
 </header>

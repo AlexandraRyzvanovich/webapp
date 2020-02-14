@@ -8,8 +8,7 @@ public class LocaleFilter implements Filter {
     private static final String SESSION_LOCALE = "sessionLocale";
     private static final String LANGUAGE = "language";
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-
+    public void init(FilterConfig filterConfig) {
     }
 
     @Override
@@ -23,6 +22,5 @@ public class LocaleFilter implements Filter {
 
     @Override
     public void destroy() {
-
     }
 }

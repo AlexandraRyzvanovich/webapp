@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="locale"/>
 <mtt:mainlayout>
     <jsp:attribute name="main"></jsp:attribute>
     <jsp:body>
@@ -25,20 +27,21 @@
                 </figure>
             </div>
             <p style="font-size:20px;padding-top: 30px">
-                Наша цель — открыть вам прекрасный мир фитнеса, сделать его доступным и любимым. Мы любим свое дело и хотим, чтобы вы получали такое же удовольствие от занятий, как мы!
+                <fmt:message key="main.description1"/>
             </p>
-            <p style="font-size:20px;">   Мы хотим делать ваши мечты реальностью: быть здоровой, надеть платье размера S, сесть на шпагат, иметь ровную осанку, видеть кубики на животе, и, конечно, всегда улыбаться отражению в зеркале. Мы развиваемся вместе с вами: появляются новые направления клубной жизни, постоянное улучшение условий в зале для вашего комфорта:
+            <p style="font-size:20px;">
+                <fmt:message key="main.description2"/>
             </p>
             <ul style="font-size:20px;">
-                <li> бесплатный wi-fi,</li>
-                <li>оплата наличными и по карте,</li>
-                <li>регулярное обновление инвентаря,</li>
-                <li>интерактивное расписание — запись в 2 клика,</li>
-                <li> питьевая вода в зале и раздевалке,</li>
-                <li> приточно-вытяжная система вентиляции — чистый и свежий воздух залог вашего здоровья и прекрасного самочувствия,</li>
-                <li>душевые кабины + гель для душа + фен + крем для рук,</li>
-                <li>просторная раздевалка с удобным диванчиком,</li>
-                <li> вкусный зеленый чай.</li>
+                <li> <fmt:message key="main.description.pros1"/></li>
+                <li><fmt:message key="main.description.pros2"/></li>
+                <li><fmt:message key="main.description.pros3"/></li>
+                <li><fmt:message key="main.description.pros4"/></li>
+                <li> <fmt:message key="main.description.pros5"/></li>
+                <li> <fmt:message key="main.description.pros6"/></li>
+                <li><fmt:message key="main.description.pros7"/></li>
+                <li><fmt:message key="main.description.pros8"/></li>
+                <li><fmt:message key="main.description.pros9"/></li>
             </ul>
         </section>
         <jsp:include page="/WEB-INF/views/shared/footer.jsp"></jsp:include>

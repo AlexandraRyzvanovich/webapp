@@ -10,19 +10,27 @@ import java.util.List;
 import java.util.Optional;
 
 public class OrderDtoDaoImpl extends AbstractDao<OrderDto> implements OrderDtoDao {
-    private static final String GET_ORDERS_BY_USER_Id = "";
-    protected OrderDtoDaoImpl(Connection connection) {
+    private static final String GET_ORDERS_BY_USER_Id = "SELECT \n" +
+            "orders.id, \n" +
+            "subscription.name,\n" +
+            "orders.paid_date,\n" +
+            "orders.amount,\n" +
+            "orders.status \n" +
+            "FROM fitnessdb.orders\n" +
+            "LEFT JOIN subscription ON orders.subscription_id = subscription.id\n" +
+            "where orders.user_id = ?;";
+    public OrderDtoDaoImpl(Connection connection) {
         super(connection);
     }
 
     @Override
     protected String getTableName() {
-        return null;
+        return OrderDto.TABLE_NAME;
     }
 
     @Override
-    public List<OrderDto> getAllOrdersByUserId(Long userId) {
-        return null;
+    public List<OrderDto> getAllOrdersByUserId(Long userId) throws DaoException {
+        return executeQuery(GET_ORDERS_BY_USER_Id, userId);
     }
 
     @Override

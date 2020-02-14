@@ -43,7 +43,7 @@
                 </tr>
             <c:forEach var="order" items="${requestScope.ordersList}">
                 <tr>
-                    <td>${order.subscriptionId}</td>
+                    <td>${order.subscriptionName}</td>
                     <td>${order.paidDate}</td>
                     <td>${order.amount}</td>
                     <td>${order.orderStatus}</td>

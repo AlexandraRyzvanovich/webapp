@@ -19,7 +19,7 @@ public class CommandFactory {
             case "logout": return new LogoutCommand();
             case "addNewReview": return new AddReviewCommand(new ReviewService(new DaoHelperFactory()));
             case "buySubscription": return new BuySubscriptionCommand(new OrderService(new DaoHelperFactory()), new PurchaseSubscriptionForProgramService(new DaoHelperFactory()));
-            case "getAvailableSubscriptions": return new GetAvailableSubscriptionsCommand(new SubscriptionService(new DaoHelperFactory()), new OrderService(new DaoHelperFactory()));
+            case "getAvailableSubscriptions": return new GetAvailableSubscriptionsCommand(new SubscriptionService(new DaoHelperFactory()), new OrderDtoService(new DaoHelperFactory()));
             case "getInterns": return new GetTrainerInternsCommand(new UserService(new DaoHelperFactory()));
             case "getReviews": return new GetReviewsCommand(new ReviewService(new DaoHelperFactory()));
             case "getClients": return new GetAllUsersCommand(new UserService(new DaoHelperFactory()), new ClientService(new DaoHelperFactory()));

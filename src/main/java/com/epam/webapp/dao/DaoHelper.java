@@ -24,10 +24,6 @@ public class DaoHelper implements AutoCloseable {
         return new SubscriptionDaoImpl(connection);
     }
 
-    public OrderDaoImpl createOrderDao() {
-        return new OrderDaoImpl(connection);
-    }
-
     public ReviewDaoImpl createReviewDao() {
         return new ReviewDaoImpl(connection);
     }
@@ -50,8 +46,15 @@ public class DaoHelper implements AutoCloseable {
     public ExerciseDaoImpl createExerciseDao() {
         return new ExerciseDaoImpl(connection);
     }
+
     public TrainingProgramDaoImpl createTrainingProgramDao() {
         return new TrainingProgramDaoImpl(connection);
+    }
+    public OrderDtoDao createOrderDtoDao() {
+        return new OrderDtoDaoImpl(connection);
+    }
+    public OrderDaoImpl createOrderDao() {
+        return new OrderDaoImpl(connection);
     }
 
 

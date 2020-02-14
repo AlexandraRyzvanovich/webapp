@@ -1,6 +1,7 @@
 package com.epam.webapp.mapper;
 
 import com.epam.webapp.dto.Client;
+import com.epam.webapp.dto.OrderDto;
 import com.epam.webapp.dto.TrainingProgramCard;
 import com.epam.webapp.entity.*;
 
@@ -14,8 +15,8 @@ public interface RowMapper<T extends Identifiable> {
         switch (table) {
             case Exercise.TABLE_NAME:
                 return new ExerciseRowMapper();
-            case Order.ORDER_TABLE_NAME:
-                return new OrderRowMapper();
+            case OrderDto.TABLE_NAME:
+                return new OrderDtoRowMapper();
             case Program.TABLE_NAME:
                 return new ProgramRowMapper();
             case Review.REVIEW_TABLE_NAME:
