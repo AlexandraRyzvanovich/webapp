@@ -1,4 +1,4 @@
-package com.epam.webapp.dao.Impl;
+package com.epam.webapp.dao.impl;
 
 import java.sql.Connection;
 import java.util.List;

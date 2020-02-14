@@ -2,7 +2,7 @@ package com.epam.webapp.service;
 
 import com.epam.webapp.dao.DaoHelper;
 import com.epam.webapp.dao.DaoHelperFactory;
-import com.epam.webapp.dao.Impl.OrderDaoImpl;
+import com.epam.webapp.dao.impl.OrderDaoImpl;
 import com.epam.webapp.entity.Order;
 import com.epam.webapp.entity.OrderStatus;
 import com.epam.webapp.entity.Subscription;
@@ -11,7 +11,6 @@ import com.epam.webapp.exception.ServiceException;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 import java.util.Optional;
 
 public class OrderService {

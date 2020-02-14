@@ -2,7 +2,7 @@ package com.epam.webapp.dao;
 
 import com.epam.webapp.connection.ConnectionPool;
 import com.epam.webapp.connection.ProxyConnection;
-import com.epam.webapp.dao.Impl.*;
+import com.epam.webapp.dao.impl.*;
 import com.epam.webapp.exception.DaoException;
 
 import java.sql.PreparedStatement;

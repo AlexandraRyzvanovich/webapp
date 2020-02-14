@@ -1,5 +1,9 @@
 package com.epam.webapp.dao;
 
+import com.epam.webapp.entity.Identifiable;
+import com.epam.webapp.exception.DaoException;
+import com.epam.webapp.mapper.RowMapper;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,11 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import com.epam.webapp.entity.Order;
-import com.epam.webapp.mapper.RowMapper;
-import com.epam.webapp.entity.Identifiable;
-import com.epam.webapp.exception.DaoException;
 
 public abstract class AbstractDao<T extends Identifiable> implements Dao<T> {
 

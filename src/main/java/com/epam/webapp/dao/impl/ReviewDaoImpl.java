@@ -1,4 +1,4 @@
-package com.epam.webapp.dao.Impl;
+package com.epam.webapp.dao.impl;
 
 import com.epam.webapp.dao.AbstractDao;
 import com.epam.webapp.entity.Review;
