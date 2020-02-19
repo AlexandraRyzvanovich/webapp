@@ -1,6 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="locale"/>
 
 <mtt:mainlayout>
     <jsp:attribute name="main"></jsp:attribute>
@@ -36,10 +39,10 @@
             </form>
             <table cellspacing="0" style="margin-top: 50px;margin-left: 41px; max-width: 95%;">
                 <tr>
-                    <th>Подписка</th>
-                    <th>дата начала</th>
-                    <th>цена</th>
-                    <th>статус</th>
+                    <th><fmt:message key="table.subscriptionName"/></th>
+                    <th><fmt:message key="table.paidDate"/></th>
+                    <th><fmt:message key="table.amountPaid"/></th>
+                    <th><fmt:message key="table.orderStatus"/></th>
                 </tr>
             <c:forEach var="order" items="${requestScope.ordersList}">
                 <tr>

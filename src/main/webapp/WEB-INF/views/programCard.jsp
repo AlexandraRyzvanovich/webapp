@@ -10,11 +10,11 @@
         <div>
             <table cellspacing="0">
                 <tr>
-                    <th>Diet</th>
-                    <th>Start date</th>
-                    <th>End date</th>
-                    <th>Actual Status</th>
-                    <th>Choose new status</th>
+                    <th><fmt:message key="table.currentDiet"/></th>
+                    <th><fmt:message key="table.startDate"/></th>
+                    <th><fmt:message key="table.endDate"/></th>
+                    <th><fmt:message key="table.currentStatus"/></th>
+                    <th><fmt:message key="table.chooseNewStatus"/></th>
                     <th></th>
                 </tr>
                 <c:forEach var="program" items="${requestScope. currentProgram}">
@@ -46,8 +46,8 @@
             <h3>Training program</h3>
             <table cellspacing="0">
                 <tr>
-                    <th>Exercise name</th>
-                    <th>Frequency</th>
+                    <th><fmt:message key="table.exerciseName"/></th>
+                    <th><fmt:message key="table.exerciseFrequency"/></th>
                 </tr>
                 <c:forEach var="program" items="${requestScope.currentTrainingProgram}">
                     <tr>
