@@ -1,18 +1,20 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="locale"/>
 
 <mtt:mainlayout>
     <section>
-        <h1>Выставление бонусов</h1>
+        <h1><fmt:message key="bonus.header"/></h1>
         <div class="team-row">
             <table cellspacing="0">
                 <tr>
-                    <th>ФИО</th>
-                    <th>Email</th>
-                    <th>Текущий Бонус</th>
-                    <th>Бонус</th>
+                    <th><fmt:message key="table.name"/></th>
+                    <th><fmt:message key="table.email"/></th>
+                    <th><fmt:message key="table.currentBonus"/></th>
+                    <th><fmt:message key="table.chooseNewBonus"/></th>
                     <th></th>
                 </tr>
                 <c:forEach var = "client" items="${requestScope.clients}">

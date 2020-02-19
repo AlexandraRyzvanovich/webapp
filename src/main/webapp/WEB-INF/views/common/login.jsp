@@ -26,7 +26,7 @@
             </div>
             <div class="container-login100-form-btn">
                 <button type="submit" class="login100-form-btn">
-                    <fmt:message key="button.submit"/>
+                    <fmt:message key="button.login"/>
                 </button>
             </div>
         </div>

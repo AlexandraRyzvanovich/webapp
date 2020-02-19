@@ -1,7 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="locale"/>
 
 <mtt:mainlayout>
     <section>
@@ -9,21 +11,17 @@
         <div class="team-row">
             <table cellspacing="0">
                     <tr>
-                        <th>Имя</th>
-                        <th>Фамилия</th>
-                        <th>Email</th>
-                        <th>Имя тренера</th>
-                        <th>Бонус</th>
-                        <th>Выбрать тренера</th>
+                        <th><fmt:message key="table.name"/></th>
+                        <th><fmt:message key="table.email"/></th>
+                        <th><fmt:message key="table.trainerName"/></th>
+                        <th><fmt:message key="table.chooseNewTrainer"/></th>
                         <th></th>
                     </tr>
                     <c:forEach var = "client" items="${requestScope.clients}">
                     <tr>
-                        <td>${client.firstName}</td>
-                        <td>${client.lastName}</td>
+                        <td>${client.firstName} ${client.lastName} </td>
                         <td>${client.email}</td>
                         <td>${client.trainerName}</td>
-                        <td>${client.bonus}</td>
                         <td>
                             <select id="${client.id}" onchange="change(this)">
                                 <c:forEach var = "trainer"  items="${requestScope.trainers}">
