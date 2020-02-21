@@ -23,17 +23,17 @@
                 <td>${program.endDate}</td>
                 <td>${program.diet}</td>
                 <td>
-                    <select>
+                    <select id = "${program.id}" onchange="change(this)">
                         <c:forEach var="diets" items="${requestScope.dietList}">
-                            <option>${diets}</option>
+                            <option value="${diets}">${diets}</option>
                         </c:forEach>
                     </select>
                 </td>
                 <td>${program.status}</td>
                 <td>
-                        <select>
+                        <select id="${requestScope.programStatusList}" onchange="change(this)">
                             <c:forEach var="status" items="${requestScope.programStatusList}">
-                            <option>${status}</option>
+                            <option value="${status}">${status}</option>
                             </c:forEach>
                         </select>
                 </td>
@@ -41,7 +41,7 @@
                     <form method="POST" action="internCard">
                         <input type="hidden" name="command" value="updateProgramStatus">
                         <input hidden name="programId" value="${program.id}"/>
-                        <input hidden title="${client.id}" name="status" value="${requestScope.programStatusList.get(1)}"/>
+                        <input hidden title="${requestScope.programStatusList}" name="status" value="${requestScope.programStatusList.get(0)}"/>
                         <input type="submit"/>
                     </form>
                 </td>
@@ -81,7 +81,7 @@
     </section>
 </mtt:mainlayout>
 <script>
-    function changeStatus(data) {
+    function change(data) {
         document.querySelector('input[title="'+ data.id +'"]').value = data.value;
     }
 </script>

@@ -13,7 +13,7 @@ public class SetBonusCommand implements Command {
     private static final String BONUS_PARAMETER = "bonus";
     private static final String SUCCESS_MESSAGE_ATTRIBUTE = "success";
     private static final String MESSAGE_VALUE = "Bonus has been set successfully";
-    private static final String CLIENTS_PAGE = "/clients?command=getClients";
+    private static final String CLIENTS_PAGE = "/bonus?command=getClients";
 
     UserService userService;
 
