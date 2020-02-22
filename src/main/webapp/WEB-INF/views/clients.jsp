@@ -4,11 +4,17 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="locale"/>
-
+<title><fmt:message key="title.clients"/></title>
 <mtt:mainlayout>
     <section>
         <h1>Список пользователей</h1>
         <div class="team-row">
+            <c:set var="clients" value="${requestScope.clients}" scope="request"></c:set>
+            <c:choose>
+                <c:when test="${clients.size() == 0}">
+                    <p><fmt:message key="message.clientsNotFound"/></p>
+                </c:when>
+                <c:otherwise>
             <table cellspacing="0">
                 <tr>
                     <th><fmt:message key="table.name"/></th>
@@ -35,12 +41,16 @@
                                 <input hidden name="userId" value="${client.id}"/>
                                 <input hidden title="${client.id}" name="trainerId"
                                        value="${requestScope.trainers[0].userId}"/>
-                                <input type="submit"/>
+                                <button type="submit">
+                                    <fmt:message key="button.submit"/>
+                                </button>
                             </form>
                         </td>
                     </tr>
                 </c:forEach>
             </table>
+                </c:otherwise>
+            </c:choose>
         </div>
     </section>
 </mtt:mainlayout>

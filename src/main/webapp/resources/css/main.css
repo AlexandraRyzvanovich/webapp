@@ -6,11 +6,6 @@
 
 input{
     font-family: Poppins-SemiBold;
-
-    border-right: none;
-    border-left: none;
-    border-top: none;
-    border-bottom: 1px solid #555555;
 }
 
 section {
@@ -21,7 +16,7 @@ table {
     overflow: hidden;
     border: 1px solid #d3d3d3;
     width: 100%;
-    border-radius: 5px;
+    border-radius: 1%;
 }
 
 th, td {
@@ -33,11 +28,6 @@ th {
     padding-top: 22px;
     text-shadow: 1px 1px 1px #fff;
     background: #e8eaeb;
-}
-
-td {
-    /*border-top: 1px solid #e0e0e0;*/
-    /*border-right: 1px solid #e0e0e0;*/
 }
 
 tr.odd-row td {
@@ -651,11 +641,11 @@ a.a-btn-3 {
 }
 
 input[type=text] {
-    width: 100%;
-    margin-bottom: 20px;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 3px;
+    margin: -5%;
+    width: 70%;
 }
 
 label {
