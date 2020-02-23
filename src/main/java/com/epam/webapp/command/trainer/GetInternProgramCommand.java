@@ -44,11 +44,13 @@ public class GetInternProgramCommand implements Command {
             List<Program> currentProgram = programService.getCurrentProgram(id);
             List<TrainingProgramCard> currentTrainingProgram = null;
             if(currentProgram != null) {
-                Long programId = currentProgram.get(0).getId();
-                currentTrainingProgram = trainingProgramCardService.getTrainingProgram(programId);
+                for(Program program: currentProgram) {
+                    Long programId = program.getId();
+                    currentTrainingProgram = trainingProgramCardService.getTrainingProgram(programId);
+                }
             }
             List<String> programStatusList = new ArrayList<>(ProgramStatus.PROGRAM_STATUS_MAP.keySet());
-            List<Exercise> allExercises =exerciseService.getAllExercises();
+            List<Exercise> allExercises = exerciseService.getAllExercises();
             List<String> allDiets = new ArrayList<>(Diet.DIET_MAP.keySet());
             request.setAttribute(DIET_LIST_ATTRIBUTE, allDiets);
             request.setAttribute(EXERCISES_LIST_ATTRIBUTE, allExercises);
