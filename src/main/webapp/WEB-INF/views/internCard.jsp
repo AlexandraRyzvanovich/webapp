@@ -8,14 +8,7 @@
     <section>
         <h1><fmt:message key="internCard.header"/></h1>
         <div>
-            <c:if test="${requestScope.currentProgram.size() < 1}">
-                <h3>
-                    <fmt:message key="message.trainingProgramNotFound"/>
-                </h3>
-            </c:if>
-            <c:otherwise>
             <c:forEach var="program" items="${requestScope.currentProgram}">
-
             <table cellspacing="0">
                 <tr>
                     <th><fmt:message key="table.startDate"/></th>
@@ -25,9 +18,9 @@
                     <th></th>
                 </tr>
                     <tr>
-                        <td>${program.startDate}</td>
-                        <td>${program.endDate}</td>
-                        <td>${program.status}</td>
+                        <td>${program.key.startDate}</td>
+                        <td>${program.key.endDate}</td>
+                        <td>${program.key.status}</td>
                         <td>
                             <select id="${requestScope.programStatusList}" onchange="change(this)">
                                 <c:forEach var="status" items="${requestScope.programStatusList}">
@@ -38,7 +31,7 @@
                         <td>
                             <form method="POST" action="internCard">
                                 <input type="hidden" name="command" value="updateProgramStatus">
-                                <input hidden name="programId" value="${program.id}"/>
+                                <input hidden name="programId" value="${program.key.id}"/>
                                 <input hidden title="${requestScope.programStatusList}" name="status"
                                        value="${requestScope.programStatusList.get(0)}"/>
                                 <input type="submit"/>
@@ -55,7 +48,7 @@
                     <tr>
                         <td></td>
                         <td></td>
-                        <td>${program.diet}</td>
+                        <td>${program.key.diet}</td>
                         <td>
                             <select id="${requestScope.dietList}" onchange="change(this)">
                                 <c:forEach var="diets" items="${requestScope.dietList}">
@@ -66,7 +59,7 @@
                         <td>
                             <form method="POST" action="internCard">
                                 <input type="hidden" name="command" value="setDiet">
-                                <input hidden name="programId" value="${program.id}"/>
+                                <input hidden name="programId" value="${program.key.id}"/>
                                 <input hidden title="${requestScope.dietList}" name="diet"
                                        value="${requestScope.dietList.get(0)}"/>
                                 <input type="submit"/>
@@ -77,18 +70,26 @@
                 <div style="margin-top: 50px">
                     <h2><fmt:message key="header.trainingProgram"/></h2>
                     <table cellspacing="0">
-                        <tr>
-                            <th><fmt:message key="table.exerciseName"/></th>
-                            <th><fmt:message key="table.exerciseFrequency"/></th>
-                        </tr>
-                        <c:set var="training" scope="request" value="${requestScope.currentTrainingProgram}"/>
-                        <c:if test="${training.}"
-                        <c:forEach var="trainingProgram" items="${training}">
+
+                       <c:choose>
+                        <c:when test="${program.value.size() > 0}">
                             <tr>
-                                <td>${trainingProgram.exercise}</td>
-                                <td>${trainingProgram.frequency} in a week</td>
+                                <th><fmt:message key="table.exerciseName"/></th>
+                                <th><fmt:message key="table.exerciseFrequency"/></th>
                             </tr>
-                        </c:forEach>
+                            <c:forEach  var="training" items="${program.value}">
+                                <tr>
+                                    <td>${training.exercise}</td>
+                                    <td>${training.frequency} in a week</td>
+                                </tr>
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <p>
+                                No exercises
+                            </p>
+                        </c:otherwise>
+                        </c:choose>
                     </table>
                     <div>
                         <form method="POST" action="internCard">
@@ -98,7 +99,7 @@
                                     <option value="${exercise.id}">${exercise.name}</option>
                                 </c:forEach>
                             </select>
-                            <input hidden name="programId" value="${requestScope.currentProgram.get(0).id}"/>
+                            <input hidden name="programId" value="${program.key.id}"/>
                             <input hidden name="exerciseId" value="${requestScope.exercises.get(0).id}"/>
                             <input type="text" name="frequency" style="width: 7%; padding: 1%; margin: 2%;">
                             <input type="submit" style="    padding: 1%; margin: 2%; width: 15%;"/>
@@ -106,7 +107,6 @@
                     </div>
                 </div>
             </c:forEach>
-            </c:otherwise>
         </div>
     </section>
 </mtt:mainlayout>
