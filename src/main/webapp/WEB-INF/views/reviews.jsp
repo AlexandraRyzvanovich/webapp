@@ -9,8 +9,8 @@
         <c:forEach var="review" items="${requestScope.reviews}">
         <div class="container1">
             <img src="/w3images/bandmember.jpg" alt="Avatar">
-            <p>${review.reviewMessage}</p>
-            <span class="time-left">${review.date}</span>
+            <p style="font-family: fantasy; font-size: larger;">${review.reviewMessage}</p>
+            <span class="time-left" style="margin: 6% -1%;">${review.date}</span>
             <div style="position:absolute;bottom:0;right: 10px;">
                 <c:forEach var = "i" begin = "1" end = "${review.star}">
                     <span class="fa fa-star checked"></span>
@@ -21,6 +21,7 @@
             </div>
         </div>
         </c:forEach>
+        <c:if test="${sessionScope.role eq 'CLIENT'}">
         <form method="POST" action="reviews" >
         <input type="hidden" name="command" value="addNewReview" />
             <h2 style="color: #E1D070;text-align: center;margin-top: 3%;margin-bottom: 2%;">Add Your comment</h2>
@@ -30,5 +31,6 @@
             <input type="hidden" name="star" value="1" />
           <input type="submit" class="bot1" value="Add review"/>
         </form>
+        </c:if>
     </section>
 </mtt:mainlayout>

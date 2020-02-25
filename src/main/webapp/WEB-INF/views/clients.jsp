@@ -7,7 +7,7 @@
 <title><fmt:message key="title.clients"/></title>
 <mtt:mainlayout>
     <section>
-        <h1>Список пользователей</h1>
+        <h1><fmt:message key="clients.header"/> </h1>
         <div class="team-row">
             <c:set var="clients" value="${requestScope.clients}" scope="request"></c:set>
             <c:choose>

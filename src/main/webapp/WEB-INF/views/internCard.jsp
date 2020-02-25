@@ -7,6 +7,9 @@
 <mtt:mainlayout>
     <section>
         <h1><fmt:message key="internCard.header"/></h1>
+        <c:if test="${requestScope.currentProgram .size() < 1}">
+            <fmt:message key="message.trainingProgramNotFound"/>
+        </c:if>
         <div>
             <c:forEach var="program" items="${requestScope.currentProgram}">
             <table cellspacing="0">
@@ -86,7 +89,7 @@
                         </c:when>
                         <c:otherwise>
                             <p>
-                                No exercises
+                                No exercises. Please add training program below.
                             </p>
                         </c:otherwise>
                         </c:choose>
@@ -94,14 +97,14 @@
                     <div>
                         <form method="POST" action="internCard">
                             <input type="hidden" name="command" value="setTrainingProgram">
-                            <select onchange="changeStatus(this)" style="margin: 4% 1%; padding: 1%; width: 35%;">
+                            <select id = "${requestScope.exercises}" onchange="change(this)" style="margin: 4% 1%; padding: 1%; width: 35%;">
                                 <c:forEach var="exercise" items="${requestScope.exercises}">
                                     <option value="${exercise.id}">${exercise.name}</option>
                                 </c:forEach>
                             </select>
                             <input hidden name="programId" value="${program.key.id}"/>
-                            <input hidden name="exerciseId" value="${requestScope.exercises.get(0).id}"/>
-                            <input type="text" name="frequency" style="width: 7%; padding: 1%; margin: 2%;">
+                            <input hidden title = "${requestScope.exercises}" name="exerciseId" value="${requestScope.exercises.get(0).id}"/>
+                            <input type="text" name="frequency" required pattern="([1-9])" style="width: 7%; padding: 1%; margin: 2%;">
                             <input type="submit" style="    padding: 1%; margin: 2%; width: 15%;"/>
                         </form>
                     </div>
