@@ -3,9 +3,9 @@ package com.epam.webapp.command;
 import javax.servlet.http.HttpServletRequest;
 
 public class ShowPageCommand implements Command {
-    private String page;
+    private final String page;
 
-    public ShowPageCommand(final String page){
+    public ShowPageCommand(String page){
         this.page = page;
     }
 

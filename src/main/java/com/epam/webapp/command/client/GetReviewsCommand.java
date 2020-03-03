@@ -14,7 +14,7 @@ public class GetReviewsCommand implements Command {
     private static final String REVIEWS_ATTRIBUTE = "reviews";
     private static final String REVIEWS_JSP_PAGE = "/WEB-INF/views/reviews.jsp";
 
-    private ReviewService service;
+    private final ReviewService service;
 
     public GetReviewsCommand(ReviewService service) {
         this.service = service;

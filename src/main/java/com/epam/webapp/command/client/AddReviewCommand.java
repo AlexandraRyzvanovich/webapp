@@ -14,7 +14,7 @@ public class AddReviewCommand implements Command {
     public static final String STAR_PARAMETER = "star";
     public static final String REVIEWS_PAGE = "/reviews?command=getReviews";
 
-    private ReviewService service;
+    private final ReviewService service;
 
     public AddReviewCommand(ReviewService service) {
         this.service = service;

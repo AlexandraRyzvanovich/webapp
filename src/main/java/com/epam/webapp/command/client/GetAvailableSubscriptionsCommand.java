@@ -19,8 +19,8 @@ public class GetAvailableSubscriptionsCommand implements Command {
     private static final String ORDERS_ATTRIBUTE = "ordersList";
     private static final String SUBSCRIPTIONS_JSP_PAGE = "/WEB-INF/views/subscription.jsp";
 
-    private SubscriptionService service;
-    private OrderDtoService orderService;
+    private final SubscriptionService service;
+    private final OrderDtoService orderService;
 
     public GetAvailableSubscriptionsCommand(SubscriptionService service, OrderDtoService orderService) {
         this.service = service;

@@ -22,8 +22,8 @@ public class BuySubscriptionCommand implements Command {
     private static final String FAIL_MESSAGE = "Your payment was declined. Please, try again";
 
 
-    private OrderService orderService;
-    private PurchaseSubscriptionForProgramService purchaseSubscriptionForProgramService;
+    private final OrderService orderService;
+    private final PurchaseSubscriptionForProgramService purchaseSubscriptionForProgramService;
 
     public BuySubscriptionCommand(OrderService orderService, PurchaseSubscriptionForProgramService purchaseSubscriptionForProgramService) {
         this.orderService = orderService;

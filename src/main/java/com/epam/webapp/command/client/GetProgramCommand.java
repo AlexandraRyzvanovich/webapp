@@ -21,7 +21,7 @@ public class GetProgramCommand implements Command {
     private static final String PROGRAM_JSP_PAGE = "/WEB-INF/views/programCard.jsp";
     private static final String PROGRAM_STATUS_LIST_ATTRIBUTE = "programStatusList";
 
-    ProgramService programService;
+    private final ProgramService programService;
 
     public GetProgramCommand(ProgramService programService) {
         this.programService = programService;
