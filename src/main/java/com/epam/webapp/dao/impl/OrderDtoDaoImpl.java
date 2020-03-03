@@ -34,17 +34,17 @@ public class OrderDtoDaoImpl extends AbstractDao<OrderDto> implements OrderDtoDa
     }
 
     @Override
-    public Optional<OrderDto> getById(Long id) throws DaoException {
+    public Optional<OrderDto> getById(Long id) {
         return Optional.empty();
     }
 
     @Override
-    public void save(OrderDto item) throws DaoException {
+    public void save(OrderDto item) {
 
     }
 
     @Override
-    public void removeById(Long id) throws DaoException {
+    public void removeById(Long id) {
 
     }
 }

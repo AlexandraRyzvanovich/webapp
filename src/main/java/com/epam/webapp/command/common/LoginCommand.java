@@ -20,9 +20,6 @@ public class LoginCommand implements Command {
     private static final String FIRST_NAME_ATTRIBUTE = "first_name";
     private static final String LAST_NAME_ATTRIBUTE = "last_name";
     private static final String LOGIN_JSP_PAGE = "/WEB-INF/views/common/login.jsp";
-    private static final String TRAINING_PROGRAM_PAGE = "controller?command=getTrainingProgram";
-    private static final String INTERNS_PAGE = "controller?command=getInterns";
-
 
     private UserService userService;
 

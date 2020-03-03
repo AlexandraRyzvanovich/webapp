@@ -15,10 +15,10 @@
                     <figure style="background: transparent;">
                         <img src="/resources/images/avatar.jpg" style="width: 40%; height: 10%;">
                     </figure>
-                    <span style="position: fixed; margin: 2% -5%; font-family: cursive; font-size: larger;">${intern.firstName} ${intern.lastName} </span>
+                    <span style="position: fixed; margin: 1% -5%; font-family: cursive; font-size: larger;">${intern.firstName} ${intern.lastName} </span>
                     <input type="hidden" name="command" value="getInternTrainerProgram">
                     <input hidden name="id" value="${intern.userId}"/>
-                    <button type="submit" style="position: fixed; margin: 6% -2%; width: 7%; background: #E1D070" >
+                    <button type="submit" style="position: fixed; margin: 5% -3%; width: 7%; background: #E1D070" >
                         <fmt:message key="button.viewClient"/>
                     </button>
                 </form>

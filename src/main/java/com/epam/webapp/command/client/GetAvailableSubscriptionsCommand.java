@@ -4,11 +4,9 @@ import com.epam.webapp.command.Command;
 import com.epam.webapp.command.CommandResult;
 import com.epam.webapp.dto.OrderDto;
 import com.epam.webapp.entity.Subscription;
-import com.epam.webapp.entity.Order;
 import com.epam.webapp.exception.CommandException;
 import com.epam.webapp.exception.ServiceException;
 import com.epam.webapp.service.OrderDtoService;
-import com.epam.webapp.service.OrderService;
 import com.epam.webapp.service.SubscriptionService;
 
 import javax.servlet.http.HttpServletRequest;

@@ -18,17 +18,17 @@ public class ExerciseDaoImpl extends AbstractDao<Exercise> {
     }
 
     @Override
-    public Optional<Exercise> getById(Long id) throws DaoException {
+    public Optional<Exercise> getById(Long id) {
         return Optional.empty();
     }
 
     @Override
-    public void save(Exercise item) throws DaoException {
+    public void save(Exercise item) {
 
     }
 
     @Override
-    public void removeById(Long id) throws DaoException {
+    public void removeById(Long id) {
 
     }
 }

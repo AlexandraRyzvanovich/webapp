@@ -74,7 +74,7 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao<T> {
         }
     }
 
-    protected void executeTransactionUpdate(PreparedStatement...queries) throws DaoException {
+    protected void executeTransactionUpdate(PreparedStatement... queries) throws DaoException {
         DaoHelperFactory helperFactory = new DaoHelperFactory();
         DaoHelper daoHelper = helperFactory.create();
         daoHelper.startTransaction(queries);

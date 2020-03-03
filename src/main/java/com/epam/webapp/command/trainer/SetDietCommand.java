@@ -16,8 +16,6 @@ public class SetDietCommand implements Command {
     private static final String SUCCESS_MESSAGE = "You have successfully set diet ";
     private static final String INTERN_CARD_PAGE = "/program?command=getInterns";
 
-
-
     ProgramService programService;
 
     public SetDietCommand(ProgramService programService) {
