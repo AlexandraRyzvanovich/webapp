@@ -15,7 +15,7 @@ public class GetTrainerInternsCommand implements Command {
     private static final String ID_ATTRIBUTE = "id";
     private static final String INTERNS_ATTRIBUTE = "interns";
     private static final String INTERNS_JSP_PAGE = "/WEB-INF/views/interns.jsp";
-    UserService service;
+    private final UserService service;
 
     public GetTrainerInternsCommand(UserService service) {
         this.service = service;

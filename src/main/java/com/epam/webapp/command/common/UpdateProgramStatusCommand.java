@@ -17,7 +17,7 @@ public class UpdateProgramStatusCommand implements Command {
     private static final String PROGRAM_CARD_JSP_PAGE = "/program?command=getProgram";
     private static final String INTERNS_PAGE = "/program?command=getInterns";
 
-    private ProgramService programService;
+    private final ProgramService programService;
 
     public UpdateProgramStatusCommand(ProgramService programService) {
         this.programService = programService;

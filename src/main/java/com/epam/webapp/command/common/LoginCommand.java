@@ -24,7 +24,7 @@ public class LoginCommand implements Command {
     private static final String USER_NOT_FOUND_ATTR = "errorLogin";
     private static final String USER_NOT_FOUND_MSG = "Wrong email or password";
 
-    private UserService userService;
+    private final UserService userService;
 
     public LoginCommand(UserService userService) {
         this.userService = userService;
