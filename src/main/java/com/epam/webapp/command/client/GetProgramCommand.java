@@ -17,7 +17,6 @@ import java.util.Map;
 
 public class GetProgramCommand implements Command {
     private static final String ID_ATTRIBUTE = "id";
-    private static final String CURRENT_TRAINING_PROGRAM_ATTRIBUTE = "currentTrainingProgram";
     private static final String CURRENT_PROGRAM_ATTRIBUTE = "currentProgram";
     private static final String PROGRAM_JSP_PAGE = "/WEB-INF/views/programCard.jsp";
     private static final String PROGRAM_STATUS_LIST_ATTRIBUTE = "programStatusList";

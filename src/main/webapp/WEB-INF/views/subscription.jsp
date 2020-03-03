@@ -53,9 +53,7 @@
                 </tr>
             </c:forEach>
             </table>
-
         </section>
-
     </jsp:body>
 </mtt:mainlayout>
 <script>
