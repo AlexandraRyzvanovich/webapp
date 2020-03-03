@@ -43,17 +43,14 @@ td.last {
 }
 
 td {
-    background: -moz-linear-gradient(100% 25% 90deg, #fefefe, #74dff9);
     background: -webkit-gradient(linear, 0% 0%, 0% 25%, from(#f9f9f9), to(#fefefe));
 }
 
 tr.odd-row td {
-    background: -moz-linear-gradient(100% 25% 90deg, #f6f6f6, #f1f1f1);
     background: -webkit-gradient(linear, 0% 0%, 0% 25%, from(#f1f1f1), to(#f6f6f6));
 }
 
 th {
-    background: -moz-linear-gradient(100% 20% 90deg, #e8eaeb, #ededed);
     background: -webkit-gradient(linear, 0% 0%, 0% 20%, from(#ededed), to(#e8eaeb));
 }
 
@@ -361,7 +358,6 @@ section > figure + figure {
     height: 10px;
     width: 90%;
     opacity: 0;
-    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
     background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
     -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
@@ -403,9 +399,9 @@ a.a-btn-3 {
     width: 70px;
     position: relative;
     border: 1px solid #5d81ab;
-    -webkit-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0px 0px 0px 4px rgba(188, 188, 188, 0.5);
-    -moz-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0px 0px 0px 4px rgba(188, 188, 188, 0.5);
-    box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0px 0px 0px 4px rgba(188, 188, 188, 0.5);
+    -webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(188, 188, 188, 0.5);
+    -moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(188, 188, 188, 0.5);
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(188, 188, 188, 0.5);
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
@@ -419,10 +415,10 @@ a.a-btn-3 {
 .a-btn-3-text {
     padding-top: 5px;
     display: block;
-    width: 0px;
+    width: 0;
     font-size: 18px;
     white-space: nowrap;
-    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
     color: #446388;
     -webkit-transition: all 0.2s linear;
     -moz-transition: all 0.2s linear;
@@ -433,11 +429,11 @@ a.a-btn-3 {
 .a-btn-3-slide-text {
     position: absolute;
     height: 100%;
-    top: 0px;
+    top: 0;
     right: 52px;
-    width: 0px;
+    width: 0;
     background: #E1D070;
-    text-shadow: 0px -1px 1px #363f49;
+    text-shadow: 0 -1px 1px #363f49;
     color: #fff;
     font-size: 18px;
     white-space: nowrap;
@@ -446,9 +442,9 @@ a.a-btn-3 {
     text-indent: 10px;
     overflow: hidden;
     line-height: 38px;
-    -webkit-box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.4), 1px 1px 2px rgba(0, 0, 0, 0.2) inset;
-    -moz-box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.4), 1px 1px 2px rgba(0, 0, 0, 0.2) inset;
-    box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.4), 1px 1px 2px rgba(0, 0, 0, 0.2) inset;
+    -webkit-box-shadow: -1px 0 1px rgba(255, 255, 255, 0.4), 1px 1px 2px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: -1px 0 1px rgba(255, 255, 255, 0.4), 1px 1px 2px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: -1px 0 1px rgba(255, 255, 255, 0.4), 1px 1px 2px rgba(0, 0, 0, 0.2) inset;
     -webkit-transition: width 0.3s linear;
     -moz-transition: width 0.3s linear;
     -o-transition: width 0.3s linear;
@@ -457,14 +453,14 @@ a.a-btn-3 {
 
 .a-btn-3-icon-right {
     position: absolute;
-    right: 0px;
-    top: 0px;
+    right: 0;
+    top: 0;
     height: 100%;
     width: 37px;
     border-left: 1px solid #5d81ab;
-    -webkit-box-shadow: 1px 0px 1px rgba(255, 255, 255, 0.4) inset;
-    -moz-box-shadow: 1px 0px 1px rgba(255, 255, 255, 0.4) inset;
-    box-shadow: 1px 0px 1px rgba(255, 255, 255, 0.4) inset;
+    -webkit-box-shadow: 1px 0 1px rgba(255, 255, 255, 0.4) inset;
+    -moz-box-shadow: 1px 0 1px rgba(255, 255, 255, 0.4) inset;
+    box-shadow: 1px 0 1px rgba(255, 255, 255, 0.4) inset;
 }
 
 .a-btn-3-icon-right span {
@@ -474,7 +470,7 @@ a.a-btn-3 {
     position: absolute;
     left: 50%;
     top: 50%;
-    margin: -20px 0px 0px -20px;
+    margin: -20px 0 0 -20px;
     background: transparent url(/resources/images/arrow_right.png) no-repeat 50% 55%;
     -webkit-transition: all 0.3s linear;
     -moz-transition: all 0.3s linear;
@@ -484,13 +480,13 @@ a.a-btn-3 {
 
 .a-btn-3:hover {
     padding-right: 140px;
-    -webkit-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .a-btn-3:hover .a-btn-3-text {
-    text-shadow: 0px 1px 1px #5d81ab;
+    text-shadow: 0 1px 1px #5d81ab;
     color: #fff;
 }
 
@@ -518,15 +514,14 @@ a.a-btn-3 {
     background-color: rgba(0, 0, 0, 0.5);
     overflow: hidden;
     position: fixed;
-    top: 0px;
+    top: 0;
 }
 
 .dialog-content {
     position: absolute;
     overflow: hidden;
     overflow-y: auto;
-    padding: 0 10 0 10;
-    margin: 142px auto 0px 142px;
+    margin: 142px auto 0 142px;
     min-width: 150px;
     max-width: 600px;
     min-height: 150px;
@@ -537,7 +532,6 @@ a.a-btn-3 {
 }
 
 .dialog-title {
-    margin: 0 -10 0 -10;
     text-align: center;
     position: relative;
     vertical-align: middle;
@@ -699,8 +693,8 @@ span.price {
 }
 @import url(https://fonts.googleapis.com/css?family=Istok+Web);
 @keyframes slidy {
-    0% { left: 0%; }
-    20% { left: 0%; }
+    0% { left: 0; }
+    20% { left: 0; }
     25% { left: -100%; }
     45% { left: -100%; }
     50% { left: -200%; }
