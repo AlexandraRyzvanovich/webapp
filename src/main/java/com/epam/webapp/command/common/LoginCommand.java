@@ -20,8 +20,11 @@ public class LoginCommand implements Command {
     private static final String FIRST_NAME_ATTRIBUTE = "first_name";
     private static final String LAST_NAME_ATTRIBUTE = "last_name";
     private static final String LOGIN_JSP_PAGE = "/WEB-INF/views/common/login.jsp";
+    private static final String MAIN_JSP_PAGE = "/WEB-INF/views/main.jsp";
+    private static final String USER_NOT_FOUND_ATTR = "errorLogin";
+    private static final String USER_NOT_FOUND_MSG = "Wrong email or password";
 
-    private UserService userService;
+    private final UserService userService;
 
     public LoginCommand(UserService userService) {
         this.userService = userService;
@@ -44,9 +47,11 @@ public class LoginCommand implements Command {
                 session.setAttribute(ROLE_ATTRIBUTE, role);
                 session.setAttribute(FIRST_NAME_ATTRIBUTE, firstName);
                 session.setAttribute(LAST_NAME_ATTRIBUTE, lastName);
-                return CommandResult.forward("/WEB-INF/views/main.jsp");
+                return CommandResult.forward(MAIN_JSP_PAGE);
+            } else {
+                request.setAttribute(USER_NOT_FOUND_ATTR, USER_NOT_FOUND_MSG);
+                return CommandResult.forward(LOGIN_JSP_PAGE);
             }
-            return CommandResult.redirect(LOGIN_JSP_PAGE);
         } catch (ServiceException e) {
             throw new CommandException("Error occurred while executing command", e.getCause());
         }

@@ -25,9 +25,9 @@ public class GetInternProgramCommand implements Command {
     private static final String EXERCISES_LIST_ATTRIBUTE = "exercises";
     private static final String DIET_LIST_ATTRIBUTE = "dietList";
 
-    ProgramService programService;
+    private final ProgramService programService;
 
-    ExerciseService exerciseService;
+    private final ExerciseService exerciseService;
 
     public GetInternProgramCommand(ProgramService programService, ExerciseService exerciseService) {
         this.programService = programService;

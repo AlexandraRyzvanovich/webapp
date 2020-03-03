@@ -21,7 +21,7 @@ public class RoleFilter implements Filter {
         COMMAND_ROLES.put("getInterns", Collections.singletonList(Role.TRAINER));
         COMMAND_ROLES.put("getReviews", Arrays.asList(Role.CLIENT, Role.ADMIN, Role.TRAINER));
         COMMAND_ROLES.put("getClients", Collections.singletonList(Role.ADMIN));
-        COMMAND_ROLES.put("setTrainer", Collections.singletonList(Role.TRAINER));
+        COMMAND_ROLES.put("setTrainer", Collections.singletonList(Role.ADMIN));
         COMMAND_ROLES.put("getProgram", Collections.singletonList(Role.CLIENT));
         COMMAND_ROLES.put("setBonus", Collections.singletonList(Role.ADMIN));
         COMMAND_ROLES.put("updateProgramStatus", Arrays.asList(Role.CLIENT, Role.TRAINER));

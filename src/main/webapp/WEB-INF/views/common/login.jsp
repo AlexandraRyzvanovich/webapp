@@ -24,6 +24,7 @@
                 <input class="input100" type="password" name="password" placeholder="password" style="background-color: transparent !important;border-radius: 13px;">
                 <span class="focus-input100"></span>
             </div>
+            <p>${requestScope.errorLogin}</p>
             <div class="container-login100-form-btn">
                 <button type="submit" class="login100-form-btn">
                     <fmt:message key="button.login"/>

@@ -15,7 +15,7 @@ public class SetTrainerCommand implements Command {
     private static final String MESSAGE_VALUE = "Trainer has been set successfully";
     private static final String CLIENTS_PAGE = "/clients?command=getClients";
 
-    private UserService service;
+    private final UserService service;
 
     public SetTrainerCommand(UserService service) {
         this.service = service;

@@ -14,7 +14,7 @@ public class SetTrainingProgramCommand implements Command {
     private static final String FREQUENCY_PARAMETER = "frequency";
     private static final String INTERN_CARD_PAGE = "/internCard?command=getInterns";
 
-    private TrainingProgramService trainingProgramService;
+    private final TrainingProgramService trainingProgramService;
 
     public SetTrainingProgramCommand(TrainingProgramService trainingProgramService) {
         this.trainingProgramService = trainingProgramService;
