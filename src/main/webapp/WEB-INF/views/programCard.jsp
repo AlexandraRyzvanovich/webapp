@@ -6,61 +6,81 @@
 <fmt:setBundle basename="locale"/>
 <mtt:mainlayout>
     <section>
-        <h1>Your program</h1>
+        <h1><fmt:message key="internCard.header"/></h1>
+        <c:if test="${requestScope.currentProgram .size() < 1}">
+            <fmt:message key="message.trainingProgramNotFound"/>
+        </c:if>
         <div>
+            <c:forEach var="program" items="${requestScope.currentProgram}">
             <table cellspacing="0">
                 <tr>
                     <th><fmt:message key="table.currentDiet"/></th>
                     <th><fmt:message key="table.startDate"/></th>
                     <th><fmt:message key="table.endDate"/></th>
                     <th><fmt:message key="table.currentStatus"/></th>
+                </tr>
+                <tr>
+                    <td>${program.key.diet}</td>
+                    <td>${program.key.startDate}</td>
+                    <td>${program.key.endDate}</td>
+                    <td>${program.key.status}</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
                     <th><fmt:message key="table.chooseNewStatus"/></th>
                     <th></th>
                 </tr>
-                <c:forEach var="program" items="${requestScope. currentProgram}">
-                    <tr>
-                        <td>${program.diet}</td>
-                        <td>${program.startDate}</td>
-                        <td>${program.endDate}</td>
-                        <td>${program.status}</td>
-                        <td>
-                            <select onchange="changeStatus(this)">
-                                <c:forEach var="status" items="${requestScope.programStatusList}">
-                                    <option value="${status}">${status}</option>
-                                </c:forEach>
-                            </select>
-                        </td>
-                        <td>
-                            <form method="POST" action="internCard">
-                                <input type="hidden" name="command" value="updateProgramStatus">
-                                <input hidden name="programId" value="${program.id}"/>
-                                <input hidden name="status" value="${requestScope.programStatusList.get(1)}"/>
-                                <input type="submit"/>
-                            </form>
-                        </td>
-                    </tr>
-                </c:forEach>
-            </table>
-        </div>
-        <div style="margin-top: 50px">
-            <h3>Training program</h3>
-            <table cellspacing="0">
                 <tr>
-                    <th><fmt:message key="table.exerciseName"/></th>
-                    <th><fmt:message key="table.exerciseFrequency"/></th>
+                <td></td>
+                <td></td>
+                <td>
+                    <select id="${requestScope.programStatusList}" onchange="change(this)">
+                        <c:forEach var="status" items="${requestScope.programStatusList}">
+                            <option value="${status}">${status}</option>
+                        </c:forEach>
+                    </select>
+                </td>
+                <td>
+                    <form method="POST" action="program">
+                        <input type="hidden" name="command" value="updateProgramStatus">
+                        <input hidden name="programId" value="${program.key.id}"/>
+                        <input hidden title="${requestScope.programStatusList}" name="status"
+                               value="${requestScope.programStatusList.get(0)}"/>
+                        <input type="submit"/>
+                    </form>
+                </td>
                 </tr>
-                <c:forEach var="program" items="${requestScope.currentTrainingProgram}">
-                    <tr>
-                        <td>${program.exercise}</td>
-                        <td>${program.frequency} in a week</td>
-                    </tr>
-                </c:forEach>
             </table>
-        </div>
+            <div style="margin-top: 50px">
+                <h2><fmt:message key="header.trainingProgram"/></h2>
+                <table cellspacing="0" style="  margin-bottom: 5%;">
+                    <c:choose>
+                        <c:when test="${program.value.size() > 0}">
+                            <tr>
+                                <th><fmt:message key="table.exerciseName"/></th>
+                                <th><fmt:message key="table.exerciseFrequency"/></th>
+                            </tr>
+                            <c:forEach var="training" items="${program.value}">
+                                <tr>
+                                    <td>${training.exercise}</td>
+                                    <td>${training.frequency} in a week</td>
+                                </tr>
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <p>
+                                No exercises
+                            </p>
+                        </c:otherwise>
+                    </c:choose>
+                </table>
+                </c:forEach>
+            </div>
     </section>
 </mtt:mainlayout>
 <script>
-    function changeStatus(data) {
-        document.querySelector('input[title="'+ data.id +'"]').value = data.value;
+    function change(data) {
+        document.querySelector('input[title="' + data.id + '"]').value = data.value;
     }
 </script>

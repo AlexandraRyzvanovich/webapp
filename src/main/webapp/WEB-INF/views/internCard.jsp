@@ -12,14 +12,14 @@
         </c:if>
         <div>
             <c:forEach var="program" items="${requestScope.currentProgram}">
-            <table cellspacing="0">
-                <tr>
-                    <th><fmt:message key="table.startDate"/></th>
-                    <th><fmt:message key="table.endDate"/></th>
-                    <th><fmt:message key="table.currentStatus"/></th>
-                    <th><fmt:message key="table.chooseNewStatus"/></th>
-                    <th></th>
-                </tr>
+                <table cellspacing="0">
+                    <tr>
+                        <th><fmt:message key="table.startDate"/></th>
+                        <th><fmt:message key="table.endDate"/></th>
+                        <th><fmt:message key="table.currentStatus"/></th>
+                        <th><fmt:message key="table.chooseNewStatus"/></th>
+                        <th></th>
+                    </tr>
                     <tr>
                         <td>${program.key.startDate}</td>
                         <td>${program.key.endDate}</td>
@@ -69,42 +69,44 @@
                             </form>
                         </td>
                     </tr>
-            </table>
+                </table>
                 <div style="margin-top: 50px">
                     <h2><fmt:message key="header.trainingProgram"/></h2>
                     <table cellspacing="0">
-
-                       <c:choose>
-                        <c:when test="${program.value.size() > 0}">
-                            <tr>
-                                <th><fmt:message key="table.exerciseName"/></th>
-                                <th><fmt:message key="table.exerciseFrequency"/></th>
-                            </tr>
-                            <c:forEach  var="training" items="${program.value}">
+                        <c:choose>
+                            <c:when test="${program.value.size() > 0}">
                                 <tr>
-                                    <td>${training.exercise}</td>
-                                    <td>${training.frequency} in a week</td>
+                                    <th><fmt:message key="table.exerciseName"/></th>
+                                    <th><fmt:message key="table.exerciseFrequency"/></th>
                                 </tr>
-                            </c:forEach>
-                        </c:when>
-                        <c:otherwise>
-                            <p>
-                                No exercises. Please add training program below.
-                            </p>
-                        </c:otherwise>
+                                <c:forEach var="training" items="${program.value}">
+                                    <tr>
+                                        <td>${training.exercise}</td>
+                                        <td>${training.frequency} in a week</td>
+                                    </tr>
+                                </c:forEach>
+                            </c:when>
+                            <c:otherwise>
+                                <p>
+                                    No exercises. Please add training program below.
+                                </p>
+                            </c:otherwise>
                         </c:choose>
                     </table>
                     <div>
                         <form method="POST" action="internCard">
                             <input type="hidden" name="command" value="setTrainingProgram">
-                            <select id = "${requestScope.exercises}" onchange="change(this)" style="margin: 4% 1%; padding: 1%; width: 35%;">
+                            <select id="${requestScope.exercises}" onchange="change(this)"
+                                    style="margin: 4% 1%; padding: 1%; width: 35%;">
                                 <c:forEach var="exercise" items="${requestScope.exercises}">
                                     <option value="${exercise.id}">${exercise.name}</option>
                                 </c:forEach>
                             </select>
                             <input hidden name="programId" value="${program.key.id}"/>
-                            <input hidden title = "${requestScope.exercises}" name="exerciseId" value="${requestScope.exercises.get(0).id}"/>
-                            <input type="text" name="frequency" required pattern="([1-9])" style="width: 7%; padding: 1%; margin: 2%;">
+                            <input hidden title="${requestScope.exercises}" name="exerciseId"
+                                   value="${requestScope.exercises.get(0).id}"/>
+                            <input type="text" name="frequency" required pattern="([1-9])"
+                                   style="width: 7%; padding: 1%; margin: 2%;">
                             <input type="submit" style="    padding: 1%; margin: 2%; width: 15%;"/>
                         </form>
                     </div>
