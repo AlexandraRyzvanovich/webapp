@@ -18,8 +18,8 @@ public class GetAllUsersCommand implements Command {
     private static final String CLIENTS_JSP_PAGE = "/WEB-INF/views/clients.jsp";
     private static final String BONUS_JSP_PAGE = "/WEB-INF/views/bonus.jsp";
 
-    private UserService userService;
-    private ClientService clientService;
+    private final UserService userService;
+    private final ClientService clientService;
 
     public GetAllUsersCommand(UserService userService, ClientService clientService) {
         this.userService = userService;

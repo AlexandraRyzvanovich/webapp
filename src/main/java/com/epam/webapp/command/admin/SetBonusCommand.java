@@ -15,7 +15,7 @@ public class SetBonusCommand implements Command {
     private static final String MESSAGE_VALUE = "Bonus has been set successfully";
     private static final String CLIENTS_PAGE = "/bonus?command=getClients";
 
-    UserService userService;
+    private final UserService userService;
 
     public SetBonusCommand(UserService userService) {
         this.userService = userService;
@@ -27,9 +27,6 @@ public class SetBonusCommand implements Command {
         Long userId = Long.parseLong(userIdParam);
         String bonusParam = request.getParameter(BONUS_PARAMETER);
         Integer bonus = Integer.parseInt(bonusParam);
-        if(bonus > 100 || bonus < 1) {
-            return CommandResult.forward(CLIENTS_PAGE);
-        }
         try {
             userService.setBonus(userId, bonus);
             request.setAttribute(SUCCESS_MESSAGE_ATTRIBUTE, MESSAGE_VALUE);
