@@ -6,11 +6,6 @@
 
 input{
     font-family: Poppins-SemiBold;
-
-    border-right: none;
-    border-left: none;
-    border-top: none;
-    border-bottom: 1px solid #555555;
 }
 
 section {
@@ -21,7 +16,7 @@ table {
     overflow: hidden;
     border: 1px solid #d3d3d3;
     width: 100%;
-    border-radius: 5px;
+    border-radius: 1%;
 }
 
 th, td {
@@ -33,11 +28,6 @@ th {
     padding-top: 22px;
     text-shadow: 1px 1px 1px #fff;
     background: #e8eaeb;
-}
-
-td {
-    /*border-top: 1px solid #e0e0e0;*/
-    /*border-right: 1px solid #e0e0e0;*/
 }
 
 tr.odd-row td {
@@ -651,11 +641,11 @@ a.a-btn-3 {
 }
 
 input[type=text] {
-    width: 100%;
-    margin-bottom: 20px;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 3px;
+    margin: -5%;
+    width: 70%;
 }
 
 label {
@@ -744,4 +734,10 @@ figure.slider figure figcaption {
     background: rgba(0,0,0,0.4);
     color: #fff; width: 100%;
     font-size: 2rem; padding: .6rem;
+}
+h1 {
+    text-shadow: 1px 1px 0 hsl(20,100%,50%), 2px 2px 0 hsl(20,100%,50%), 3px 3px 0 hsl(35,100%,50%), 4px 4px 0 hsl(35,100%,50%), 5px 5px 0 hsl(45,100%,50%), 6px 6px 0 hsl(45,100%,55%), 7px 7px 0 hsl(55,100%,60%), 8px 8px 0 hsl(55,100%,65%);
+    color: hsl(0,100%,40%);
+    transition: all 1s;
+    margin-bottom: 5%;
 }

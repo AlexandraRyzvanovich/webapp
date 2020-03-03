@@ -27,6 +27,9 @@ public class SetBonusCommand implements Command {
         Long userId = Long.parseLong(userIdParam);
         String bonusParam = request.getParameter(BONUS_PARAMETER);
         Integer bonus = Integer.parseInt(bonusParam);
+        if(bonus > 100 || bonus < 1) {
+            return CommandResult.forward(CLIENTS_PAGE);
+        }
         try {
             userService.setBonus(userId, bonus);
             request.setAttribute(SUCCESS_MESSAGE_ATTRIBUTE, MESSAGE_VALUE);

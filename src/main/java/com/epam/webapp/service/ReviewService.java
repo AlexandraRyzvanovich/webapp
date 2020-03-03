@@ -19,7 +19,7 @@ public class ReviewService {
 
     public List<Review> getAllReview() throws ServiceException {
         try (DaoHelper factory = daoHelperFactory.create()) {
-            AbstractDao<Review> dao = (AbstractDao<Review>) factory.createReviewDao();
+            AbstractDao<Review> dao = factory.createReviewDao();
             return dao.getAll();
         } catch ( DaoException e) {
             throw new ServiceException(e.getCause());

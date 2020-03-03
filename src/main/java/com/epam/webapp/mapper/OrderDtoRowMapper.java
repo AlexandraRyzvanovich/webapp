@@ -2,7 +2,6 @@ package com.epam.webapp.mapper;
 
 import com.epam.webapp.dto.OrderDto;
 import com.epam.webapp.entity.OrderStatus;
-import com.epam.webapp.entity.Program;
 import com.epam.webapp.exception.MapperException;
 
 import java.math.BigDecimal;

@@ -109,15 +109,15 @@
     </servlet-mapping>
 
     <filter>
-        <filter-name>AuthFilter</filter-name>
-        <filter-class>com.epam.webapp.filter.SessionFilter</filter-class>
+        <filter-name>RoleFilter</filter-name>
+        <filter-class>com.epam.webapp.filter.RoleFilter</filter-class>
         <init-param>
             <param-name>avoid-urls</param-name>
             <param-value>index.jsp</param-value>
         </init-param>
     </filter>
     <filter-mapping>
-        <filter-name>AuthFilter</filter-name>
+        <filter-name>RoleFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 

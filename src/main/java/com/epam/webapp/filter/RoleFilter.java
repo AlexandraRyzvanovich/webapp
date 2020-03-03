@@ -1,5 +1,7 @@
 package com.epam.webapp.filter;
 
+import com.epam.webapp.entity.Role;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -7,24 +9,27 @@ import java.io.IOException;
 import java.util.*;
 
 public class RoleFilter implements Filter {
-    private static final Map<String, List<String>> COMMAND_ROLES = new HashMap<>();
-          static {
-              COMMAND_ROLES.put( "login", Arrays.asList("user", "admin", "trainer"));
-                      COMMAND_ROLES.put("logout", Arrays.asList("user", "admin", "trainer"));
-                      COMMAND_ROLES.put("addNewReview", Arrays.asList("user"));
-                      COMMAND_ROLES.put("buySubscription", Arrays.asList("user"));
-                      COMMAND_ROLES.put("getAvailableSubscriptions", Arrays.asList("user"));
-                      COMMAND_ROLES.put("getInterns", Arrays.asList("trainer"));
-                      COMMAND_ROLES.put("getReviews", Arrays.asList("user", "admin", "trainer"));
-                      COMMAND_ROLES.put("getClients", Arrays.asList("admin"));
-                      COMMAND_ROLES.put("setTrainer", Arrays.asList("trainer"));
-                      COMMAND_ROLES.put("getProgram", Arrays.asList("user"));
-                      COMMAND_ROLES.put("setBonus", Arrays.asList("admin"));
-                      COMMAND_ROLES.put("updateProgramStatus", Arrays.asList("user", "trainer"));
-                      COMMAND_ROLES.put("setDiet", Arrays.asList("trainer"));
-                      COMMAND_ROLES.put("setTrainingProgram", Arrays.asList("trainer"));
-                      COMMAND_ROLES.put("getInternTrainerProgram", Arrays.asList("trainer"));
-          }
+    private static final Map<String, List<Role>> COMMAND_ROLES = new HashMap<>();
+    private static final String LOGIN_PAGE = "/WEB-INF/views/common/login.jsp";
+
+    static {
+        COMMAND_ROLES.put("login", Arrays.asList(Role.CLIENT, Role.ADMIN, Role.TRAINER));
+        COMMAND_ROLES.put("logout", Arrays.asList(Role.CLIENT, Role.ADMIN, Role.TRAINER));
+        COMMAND_ROLES.put("addNewReview", Collections.singletonList(Role.CLIENT));
+        COMMAND_ROLES.put("buySubscription", Collections.singletonList(Role.CLIENT));
+        COMMAND_ROLES.put("getAvailableSubscriptions", Collections.singletonList(Role.CLIENT));
+        COMMAND_ROLES.put("getInterns", Collections.singletonList(Role.TRAINER));
+        COMMAND_ROLES.put("getReviews", Arrays.asList(Role.CLIENT, Role.ADMIN, Role.TRAINER));
+        COMMAND_ROLES.put("getClients", Collections.singletonList(Role.ADMIN));
+        COMMAND_ROLES.put("setTrainer", Collections.singletonList(Role.TRAINER));
+        COMMAND_ROLES.put("getProgram", Collections.singletonList(Role.CLIENT));
+        COMMAND_ROLES.put("setBonus", Collections.singletonList(Role.ADMIN));
+        COMMAND_ROLES.put("updateProgramStatus", Arrays.asList(Role.CLIENT, Role.TRAINER));
+        COMMAND_ROLES.put("setDiet", Collections.singletonList(Role.TRAINER));
+        COMMAND_ROLES.put("setTrainingProgram", Collections.singletonList(Role.TRAINER));
+        COMMAND_ROLES.put("getInternTrainerProgram", Collections.singletonList(Role.TRAINER));
+    }
+
     private ArrayList<String> urlList;
 
     @Override
@@ -49,24 +54,20 @@ public class RoleFilter implements Filter {
         if (!allowedRequest) {
             String command = request.getParameter("command");
             HttpSession session = request.getSession(false);
-            Object objRole = session.getAttribute("role");
-            String role = objRole.toString();
-            if (role != null && command != null) {
-                for (String commandInMap : COMMAND_ROLES.keySet()) {
-                    if (commandInMap.equals(command)) {
-                        List<String> valuesByKey = COMMAND_ROLES.get(commandInMap);
-                        for (String roleInMap : valuesByKey) {
-                            if (roleInMap.equals(role)) {
-                                filterChain.doFilter(request, res);
-                            }
-                        }
+            if(session != null) {
+                Object objRole = session.getAttribute("role");
+                if (objRole != null) {
+                    Role role = Role.valueOf(objRole.toString());
+                    List<Role> roles = COMMAND_ROLES.get(command);
+                    if (roles != null && !roles.contains(role)) {
+                        RequestDispatcher dispatcher = request.getRequestDispatcher(LOGIN_PAGE);
+                        dispatcher.forward(request, res);
+                        return;
                     }
                 }
             }
+            filterChain.doFilter(request, res);
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
-        dispatcher.forward(request, res);
-
     }
 
     @Override
@@ -74,3 +75,4 @@ public class RoleFilter implements Filter {
 
     }
 }
+

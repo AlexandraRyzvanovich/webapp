@@ -19,7 +19,7 @@ public class SubscriptionService {
 
     public List<Subscription> getAvailableSubscriptions() throws ServiceException {
         try (DaoHelper factory = daoHelperFactory.create()) {
-            AbstractDao<Subscription> dao = (AbstractDao<Subscription>) factory.createSubscriptionDao();
+            AbstractDao<Subscription> dao = factory.createSubscriptionDao();
             return dao.getAll();
         } catch (DaoException e) {
             throw new ServiceException(e.getCause());
