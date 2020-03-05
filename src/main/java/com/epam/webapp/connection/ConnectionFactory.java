@@ -38,7 +38,7 @@ public class ConnectionFactory {
 
     public static ProxyConnection create(ConnectionPool connectionPool) {
 
-        Connection connection = null;
+        Connection connection;
         try {
             connection = DriverManager.getConnection(url, username, password);
         } catch (SQLException e) {
