@@ -27,7 +27,7 @@ public class SetDietCommand implements Command {
         String programIdParameter = request.getParameter(PROGRAM_ID_PARAMETER);
         Long programId = Long.parseLong(programIdParameter);
         String dietParameter = request.getParameter(DIET_PARAMETER);
-        Diet diet = Diet.getValue(dietParameter);
+        Diet diet = Diet.getValueEn(dietParameter);
         try {
             programService.updateDiet(diet, programId);
             request.setAttribute(SUCCESS_ATTRIBUTE, SUCCESS_MESSAGE);

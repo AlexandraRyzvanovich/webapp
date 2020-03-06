@@ -63,8 +63,9 @@ public class ConnectionPool {
         }
     }
     private void create() {
+        ConnectionFactory connectionFactory = new ConnectionFactory();
         for(int i = 0; i < POOL_SIZE; i ++ ) {
-            ProxyConnection connection = ConnectionFactory.create(this);
+            ProxyConnection connection = connectionFactory.create(this);
             availableConnections.add(connection);
         }
     }

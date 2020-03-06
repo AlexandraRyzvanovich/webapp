@@ -2,6 +2,7 @@
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri ="customtags" prefix="ctg" %>
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="locale"/>
 <mtt:mainlayout>
@@ -21,8 +22,8 @@
                         <th></th>
                     </tr>
                     <tr>
-                        <td>${program.key.startDate}</td>
-                        <td>${program.key.endDate}</td>
+                        <td><fmt:parseDate value="${program.key.startDate}" pattern="y-M-dd" /></td>
+                        <td><fmt:parseDate value="${program.key.endDate}" pattern="y-M-dd" /> </td>
                         <td>${program.key.status}</td>
                         <td>
                             <select id="${requestScope.programStatusList}" onchange="change(this)">
@@ -54,7 +55,8 @@
                         <td>${program.key.diet}</td>
                         <td>
                             <select id="${requestScope.dietList}" onchange="change(this)">
-                                <c:forEach var="diets" items="${requestScope.dietList}">
+                                <ctg:enumLocaleTag/>
+                                <c:forEach var="diets" items="${diets}">
                                     <option value="${diets}">${diets}</option>
                                 </c:forEach>
                             </select>

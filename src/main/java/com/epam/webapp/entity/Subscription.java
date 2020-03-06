@@ -7,20 +7,17 @@ public class Subscription implements Identifiable {
     public static final String SUBSCRIPTION_TABLE_NAME = "subscription";
     public static final String SUBSCRIPTION_ID_COLUMN_NAME = "id";
     public static final String NAME_COLUMN_NAME = "name";
-    public static final String DESCRIPTION_COLUMN_NAME = "description";
     public static final String PERIOD_COLUMN_NAME = "period_valid";
     public static final String PRICE_COLUMN_NAME = "price";
 
     private Long id;
     private String name;
-    private String description;
     private Integer period;
     private BigDecimal price;
 
-    public Subscription(long id, String name, String description, Integer period, BigDecimal price) {
+    public Subscription(long id, String name, Integer period, BigDecimal price) {
         this.id = id;
         this.name = name;
-        this.description = description;
         this.period = period;
         this.price = price;
     }
@@ -39,14 +36,6 @@ public class Subscription implements Identifiable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public Integer getPeriod() {
@@ -72,14 +61,13 @@ public class Subscription implements Identifiable {
         Subscription that = (Subscription) o;
         return id.equals(that.id) &&
                 Objects.equals(name, that.name) &&
-                Objects.equals(description, that.description) &&
                 Objects.equals(period, that.period) &&
                 Objects.equals(price, that.price);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, period, price);
+        return Objects.hash(id, name, period, price);
     }
 
     @Override
@@ -87,7 +75,6 @@ public class Subscription implements Identifiable {
         return "Subscription{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
                 ", period=" + period +
                 ", price=" + price +
                 '}';

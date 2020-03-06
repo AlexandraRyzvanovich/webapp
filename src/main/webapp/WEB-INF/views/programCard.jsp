@@ -21,8 +21,8 @@
                 </tr>
                 <tr>
                     <td>${program.key.diet}</td>
-                    <td>${program.key.startDate}</td>
-                    <td>${program.key.endDate}</td>
+                    <td><fmt:parseDate value="${program.key.startDate}" pattern="y-M-dd" /></td>
+                    <td><fmt:parseDate value="${program.key.endDate}" pattern="y-M-dd" /> </td>
                     <td>${program.key.status}</td>
                 </tr>
                 <tr>

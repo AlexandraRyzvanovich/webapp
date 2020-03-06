@@ -36,7 +36,7 @@ public class ConnectionFactory {
         }
     }
 
-    public static ProxyConnection create(ConnectionPool connectionPool) {
+    public ProxyConnection create(ConnectionPool connectionPool) {
 
         Connection connection;
         try {

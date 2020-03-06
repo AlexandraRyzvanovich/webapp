@@ -5,27 +5,42 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum ProgramStatus {
-    NEW("NEW"), IN_PROGRESS("IN PROGRESS"), DONE("DONE"), DECLINED("DECLINED");
+    NEW("NEW", "Новая"), IN_PROGRESS("IN PROGRESS", "В процессе"), DONE("DONE", "Сделано"), DECLINED("DECLINED", "Отменено");
 
-    private String statusValue;
-    public static final Map<String, ProgramStatus> PROGRAM_STATUS_MAP;
+    private String programStatusNameEn;
+    private String programStatusNameRu;
+    public static final Map<String, ProgramStatus> PROGRAM_STATUS_MAP_EN;
+    public static final Map<String, ProgramStatus> PROGRAM_STATUS_MAP_RU;
 
-    ProgramStatus(String statusValue) {
-        this.statusValue = statusValue;
+    ProgramStatus(String programStatusNameEn, String programStatusNameRu) {
+        this.programStatusNameEn = programStatusNameEn;
+        this.programStatusNameRu = programStatusNameRu;
     }
 
-    public String getName() {
-        return this.statusValue;
+    public String getProgramStatusNameEn() {
+        return this.programStatusNameEn;
+    }
+    public String getProgramStatusNameRu() {
+        return this.programStatusNameRu;
     }
 
     static {
         Map<String, ProgramStatus> map = new HashMap<>();
         for (ProgramStatus instance : ProgramStatus.values()) {
-            map.put(instance.getName(), instance);
+            map.put(instance.getProgramStatusNameEn(), instance);
         }
-        PROGRAM_STATUS_MAP = Collections.unmodifiableMap(map);
+        PROGRAM_STATUS_MAP_EN = Collections.unmodifiableMap(map);
     }
-    public static ProgramStatus get (String name) {
-        return PROGRAM_STATUS_MAP.get(name);
+    static {
+        Map<String, ProgramStatus> map = new HashMap<>();
+        for (ProgramStatus instance : ProgramStatus.values()) {
+            map.put(instance.getProgramStatusNameRu(), instance);
+        }
+        PROGRAM_STATUS_MAP_RU = Collections.unmodifiableMap(map);
     }
+
+    public static ProgramStatus getValue (String name) {
+        return PROGRAM_STATUS_MAP_EN.get(name) != null ? PROGRAM_STATUS_MAP_EN.get(name) : PROGRAM_STATUS_MAP_RU.get(name);
+    }
+
 }

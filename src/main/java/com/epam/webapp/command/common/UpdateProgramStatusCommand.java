@@ -28,7 +28,7 @@ public class UpdateProgramStatusCommand implements Command {
         String programIdParameter = request.getParameter(PROGRAM_ID_PARAMETER);
         Long programId = Long.parseLong(programIdParameter);
         String statusParameter = request.getParameter(STATUS_PARAMETER);
-        ProgramStatus status = ProgramStatus.get(statusParameter);
+        ProgramStatus status = ProgramStatus.getValue(statusParameter);
         try {
             programService.updateStatus(status, programId);
             request.setAttribute(SUCCESS_MSG_ATTRIBUTE, SUCCESS_MESSAGE);

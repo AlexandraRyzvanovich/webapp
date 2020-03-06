@@ -20,10 +20,10 @@ CREATE TABLE program
 (
     id         INT UNSIGNED NOT NULL AUTO_INCREMENT,
     user_id    INT UNSIGNED NOT NULL,
-    diet       ENUM ('VEGAN', 'LOW CARB', 'ULTRA LOW FAT', 'HCG') NULL,
+    diet       ENUM ('VEGAN_DIET', 'LOW_CARBONATE_DIET', 'ULTRA_LOW_FAT_DIET', 'HCG_DIET') NULL,
     start_date DATETIME NOT NULL,
     end_date   DATETIME NOT NULL,
-    status     ENUM ('NEW', 'IN PROGRESS', 'DONE', 'DECLINED') NOT NULL DEFAULT 'NEW',
+    status     ENUM ('NEW', 'IN_PROGRESS', 'DONE', 'DECLINED') NOT NULL DEFAULT 'NEW',
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES user (id)
 );
@@ -51,9 +51,7 @@ CREATE TABLE review
     id          INT UNSIGNED NOT NULL AUTO_INCREMENT,
     user_id     INT UNSIGNED NOT NULL,
     review_msg  varchar(255),
-    star        INT          NOT NULL,
     date        DATE         NOT NULL,
-    is_approved BOOLEAN      NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES user (id)
 );
@@ -62,7 +60,6 @@ CREATE TABLE subscription
 (
     id           INT UNSIGNED  NOT NULL AUTO_INCREMENT,
     name         VARCHAR(32)   NOT NULL,
-    description  NVARCHAR(255) NOT NULL,
     period_valid INT UNSIGNED  NOT NULL,
     price        DECIMAL(5, 2) NOT NULL,
     PRIMARY KEY (id)

@@ -5,29 +5,48 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum Diet {
-    VEGAN_DIET("VEGAN"), LOW_CARBONATE_DIET("LOW CARB"),
-    ULTRA_LOW_FAT_DIET("ULTRA LOW FAT"), HCG_DIET("HCG");
+    VEGAN_DIET("VEGAN", "Вегетарианская"), LOW_CARBONATE_DIET("LOW CARB", "Низкоуглеводная"),
+    ULTRA_LOW_FAT_DIET("ULTRA LOW FAT", "Ультанизкоуглеводная"), HCG_DIET("HCG", "Низкоколорийная");
 
-    private String dietName;
-    public static final Map<String, Diet> DIET_MAP;
+    private String dietNameEn;
+    private String dietNameRu;
+    public static final Map<String, Diet> DIET_MAP_EN;
+    public static final Map<String, Diet> DIET_MAP_RU;
 
-    Diet(String dietName) {
-        this.dietName = dietName;
+
+    Diet(String dietNameEn, String dietNameRu) {
+        this.dietNameEn = dietNameEn;
+        this.dietNameRu = dietNameRu;
     }
 
-    public String getName() {
-        return this.dietName;
+    public String getDietNameEn() {
+        return this.dietNameEn;
+    }
+    public String getDietNameRu() {
+        return this.dietNameRu;
     }
 
     static {
         Map<String, Diet> map = new HashMap<>();
         for (Diet instance : Diet.values()) {
-            map.put(instance.getName(),instance);
+            map.put(instance.getDietNameEn(), instance);
         }
-        DIET_MAP = Collections.unmodifiableMap(map);
+        DIET_MAP_EN = Collections.unmodifiableMap(map);
     }
 
-    public static Diet getValue (String name) {
-        return DIET_MAP.get(name);
+    static {
+        Map<String, Diet> map = new HashMap<>();
+        for (Diet instance : Diet.values()) {
+            map.put(instance.getDietNameRu(), instance);
+        }
+        DIET_MAP_RU = Collections.unmodifiableMap(map);
     }
+
+    public static Diet getValueEn (String name) {
+        return DIET_MAP_EN.get(name);
+    }
+    public static Diet getValueRu (String name) {
+        return DIET_MAP_RU.get(name);
+    }
+
 }

@@ -2,7 +2,6 @@ package com.epam.webapp.dao.impl;
 
 import com.epam.webapp.dao.AbstractDao;
 import com.epam.webapp.entity.Exercise;
-import com.epam.webapp.exception.DaoException;
 
 import java.sql.Connection;
 import java.util.Optional;
