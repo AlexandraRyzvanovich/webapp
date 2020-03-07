@@ -10,6 +10,7 @@ import com.epam.webapp.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Locale;
 import java.util.Optional;
 
 public class LoginCommand implements Command {
@@ -47,6 +48,7 @@ public class LoginCommand implements Command {
                 session.setAttribute(ROLE_ATTRIBUTE, role);
                 session.setAttribute(FIRST_NAME_ATTRIBUTE, firstName);
                 session.setAttribute(LAST_NAME_ATTRIBUTE, lastName);
+                session.setAttribute("language", Locale.getDefault().getLanguage());
                 return CommandResult.forward(MAIN_JSP_PAGE);
             } else {
                 request.setAttribute(USER_NOT_FOUND_ATTR, USER_NOT_FOUND_MSG);

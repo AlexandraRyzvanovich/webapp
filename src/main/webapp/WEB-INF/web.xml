@@ -157,8 +157,12 @@
 
     <jsp-config>
         <taglib>
-            <taglib-uri>customtags</taglib-uri>
-            <taglib-location>/WEB-INF/tags/custom.tld</taglib-location>
+            <taglib-uri>diets</taglib-uri>
+            <taglib-location>/WEB-INF/tags/diets.tld</taglib-location>
+        </taglib>
+        <taglib>
+            <taglib-uri>programStatuses</taglib-uri>
+            <taglib-location>/WEB-INF/tags/programstatuses.tld</taglib-location>
         </taglib>
     </jsp-config>
 </web-app>

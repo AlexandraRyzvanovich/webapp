@@ -10,7 +10,7 @@
     <uri>http://tomcat.apache.org/example-taglib</uri>
 
     <tag>
-        <name>enumLocaleTag</name>
+        <name>dietsEnumLocaleTag</name>
         <tag-class>com.epam.webapp.tag.DietsEnumLocaleTag</tag-class>
     </tag>
 </taglib>

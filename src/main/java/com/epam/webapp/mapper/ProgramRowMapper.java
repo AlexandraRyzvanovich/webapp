@@ -23,7 +23,7 @@ public class ProgramRowMapper implements RowMapper<Program> {
             userId = resultSet.getLong(Program.USER_ID_COLUMN_NAME);
             String dietDb = resultSet.getString(Program.DIET_COLUMN_NAME);
             if(dietDb != null){
-                diet = Diet.getValueEn(dietDb);
+                diet = Diet.valueOf(dietDb);
             } else {
                 diet = null;
             }

@@ -2,7 +2,8 @@
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib uri ="customtags" prefix="ctg" %>
+<%@ taglib uri="diets" prefix="ctg" %>
+<%@ taglib uri="programStatuses" prefix="ct" %>
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="locale"/>
 <mtt:mainlayout>
@@ -22,12 +23,13 @@
                         <th></th>
                     </tr>
                     <tr>
-                        <td><fmt:parseDate value="${program.key.startDate}" pattern="y-M-dd" /></td>
-                        <td><fmt:parseDate value="${program.key.endDate}" pattern="y-M-dd" /> </td>
+                        <td><fmt:parseDate value="${program.key.startDate}" pattern="y-M-dd"/></td>
+                        <td><fmt:parseDate value="${program.key.endDate}" pattern="y-M-dd"/></td>
                         <td>${program.key.status}</td>
                         <td>
-                            <select id="${requestScope.programStatusList}" onchange="change(this)">
-                                <c:forEach var="status" items="${requestScope.programStatusList}">
+                            <select id="programStatusList" onchange="change(this)">
+                                <ct:programStatusesEnumLocaleTag/>
+                                <c:forEach var="status" items="${programStatuses}">
                                     <option value="${status}">${status}</option>
                                 </c:forEach>
                             </select>
@@ -36,8 +38,8 @@
                             <form method="POST" action="internCard">
                                 <input type="hidden" name="command" value="updateProgramStatus">
                                 <input hidden name="programId" value="${program.key.id}"/>
-                                <input hidden title="${requestScope.programStatusList}" name="status"
-                                       value="${requestScope.programStatusList.get(0)}"/>
+                                <input hidden title="programStatusList" name="status"
+                                       value="${programStatuses}"/>
                                 <input type="submit"/>
                             </form>
                         </td>
@@ -54,10 +56,10 @@
                         <td></td>
                         <td>${program.key.diet}</td>
                         <td>
-                            <select id="${requestScope.dietList}" onchange="change(this)">
-                                <ctg:enumLocaleTag/>
-                                <c:forEach var="diets" items="${diets}">
-                                    <option value="${diets}">${diets}</option>
+                            <select id="dietList" onchange="change(this)">
+                                <ctg:dietsEnumLocaleTag/>
+                                <c:forEach var="diet" items="${diets}">
+                                    <option value="${diet}">${diet}</option>
                                 </c:forEach>
                             </select>
                         </td>
@@ -65,8 +67,8 @@
                             <form method="POST" action="internCard">
                                 <input type="hidden" name="command" value="setDiet">
                                 <input hidden name="programId" value="${program.key.id}"/>
-                                <input hidden title="${requestScope.dietList}" name="diet"
-                                       value="${requestScope.dietList.get(0)}"/>
+                                <input hidden title="dietList" name="diet"
+                                       value="${diets}"/>
                                 <input type="submit"/>
                             </form>
                         </td>

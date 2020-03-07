@@ -2,6 +2,7 @@
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="programStatuses" prefix="ctg" %>
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="locale"/>
 <mtt:mainlayout>
@@ -21,8 +22,8 @@
                 </tr>
                 <tr>
                     <td>${program.key.diet}</td>
-                    <td><fmt:parseDate value="${program.key.startDate}" pattern="y-M-dd" /></td>
-                    <td><fmt:parseDate value="${program.key.endDate}" pattern="y-M-dd" /> </td>
+                    <td><fmt:parseDate value="${program.key.startDate}" pattern="y-M-dd"/></td>
+                    <td><fmt:parseDate value="${program.key.endDate}" pattern="y-M-dd"/></td>
                     <td>${program.key.status}</td>
                 </tr>
                 <tr>
@@ -32,24 +33,25 @@
                     <th></th>
                 </tr>
                 <tr>
-                <td></td>
-                <td></td>
-                <td>
-                    <select id="${requestScope.programStatusList}" onchange="change(this)">
-                        <c:forEach var="status" items="${requestScope.programStatusList}">
-                            <option value="${status}">${status}</option>
-                        </c:forEach>
-                    </select>
-                </td>
-                <td>
-                    <form method="POST" action="program">
-                        <input type="hidden" name="command" value="updateProgramStatus">
-                        <input hidden name="programId" value="${program.key.id}"/>
-                        <input hidden title="${requestScope.programStatusList}" name="status"
-                               value="${requestScope.programStatusList.get(0)}"/>
-                        <input type="submit"/>
-                    </form>
-                </td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <select id="programStatusList" onchange="change(this)">
+                            <ctg:programStatusesEnumLocaleTag/>
+                            <c:forEach var="status" items="${programStatuses}">
+                                <option value="${status}">${status}</option>
+                            </c:forEach>
+                        </select>
+                    </td>
+                    <td>
+                        <form method="POST" action="program">
+                            <input type="hidden" name="command" value="updateProgramStatus">
+                            <input hidden name="programId" value="${program.key.id}"/>
+                            <input hidden title="programStatusList" name="status"
+                                   value= "${programStatuses}"/>
+                            <input type="submit"/>
+                        </form>
+                    </td>
                 </tr>
             </table>
             <div style="margin-top: 50px">

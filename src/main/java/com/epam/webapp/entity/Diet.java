@@ -42,11 +42,7 @@ public enum Diet {
         DIET_MAP_RU = Collections.unmodifiableMap(map);
     }
 
-    public static Diet getValueEn (String name) {
-        return DIET_MAP_EN.get(name);
+    public static Diet getValue (String name) {
+        return DIET_MAP_EN.get(name) != null ? DIET_MAP_EN.get(name) : DIET_MAP_RU.get(name);
     }
-    public static Diet getValueRu (String name) {
-        return DIET_MAP_RU.get(name);
-    }
-
 }
