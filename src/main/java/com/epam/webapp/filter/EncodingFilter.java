@@ -9,7 +9,7 @@ public class EncodingFilter implements Filter {
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
         String codeRequest = request.getCharacterEncoding();
-        if (!encoding.equalsIgnoreCase(codeRequest)) {
+        if (encoding != null && !encoding.equalsIgnoreCase(codeRequest)) {
             request.setCharacterEncoding(encoding);
             response.setCharacterEncoding(encoding);
         }
@@ -17,11 +17,11 @@ public class EncodingFilter implements Filter {
     }
 
     public void init(FilterConfig filterConfig) {
-        encoding = filterConfig.getInitParameter("requestEncoding");
-        if (encoding == null) encoding = "UTF-8";
+        encoding = filterConfig.getInitParameter("encoding");
     }
 
     public void destroy() {
+        encoding = null;
 
     }
 }

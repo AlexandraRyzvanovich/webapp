@@ -136,14 +136,15 @@
         <filter-class>com.epam.webapp.filter.EncodingFilter</filter-class>
         <init-param>
             <param-name>encoding</param-name>
-            <param-value>your_encoding</param-value>
+            <param-value>UTF-8</param-value>
         </init-param>
     </filter>
     <filter-mapping>
         <filter-name>EncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
-
     <error-page>
         <error-code>404</error-code>
         <location>/WEB-INF/views/shared/error.jsp</location>
