@@ -1,6 +1,7 @@
 package com.epam.webapp.command.client;
 
-import com.epam.webapp.command.*;
+import com.epam.webapp.command.Command;
+import com.epam.webapp.command.CommandResult;
 import com.epam.webapp.exception.CommandException;
 import com.epam.webapp.exception.ServiceException;
 import com.epam.webapp.service.ReviewService;

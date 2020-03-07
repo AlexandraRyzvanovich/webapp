@@ -31,6 +31,7 @@ public class ConnectionFactory {
             url = (String) properties.get(URL);
             username = (String) properties.get(USERNAME);
             password = (String) properties.get(PASSWORD);
+            properties.setProperty("characterEncoding","UTF-8");
         } catch (IOException e) {
             throw new ConnectionException(e.getMessage());
         }

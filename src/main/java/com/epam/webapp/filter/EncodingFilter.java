@@ -12,6 +12,7 @@ public class EncodingFilter implements Filter {
         if (encoding != null && !encoding.equalsIgnoreCase(codeRequest)) {
             request.setCharacterEncoding(encoding);
             response.setCharacterEncoding(encoding);
+            response.setContentType("text/html;charset=UTF-8");
         }
         filterChain.doFilter(request, response);
     }
