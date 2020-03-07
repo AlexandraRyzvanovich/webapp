@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public class ReviewDaoImpl extends AbstractDao<Review> {
     private static final String GET_REVIEW_BY_ID_QUERY = "SELECT * FROM review WHERE id = ?";
-    private static final String SAVE_REVIEW_QUERY = "INSERT INTO review (user_id, review_msg, star, date) VALUES (?, ?, ?, ?)";
+    private static final String SAVE_REVIEW_QUERY = "INSERT INTO review (user_id, review_msg, date) VALUES (?, ?, ?)";
 
     public ReviewDaoImpl(Connection connection) {
         super(connection);
@@ -30,9 +30,8 @@ public class ReviewDaoImpl extends AbstractDao<Review> {
     public void save(Review review) throws DaoException {
         Long userId = review.getUserId();
         String reviewMsg = review.getReviewMessage();
-        Integer star = review.getStar();
         LocalDateTime date = review.getDate();
-        executeSave(SAVE_REVIEW_QUERY, userId, reviewMsg, star, date);
+        executeSave(SAVE_REVIEW_QUERY, userId, reviewMsg,  date);
     }
 
     @Override

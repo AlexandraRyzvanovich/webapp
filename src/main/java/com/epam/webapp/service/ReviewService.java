@@ -26,9 +26,9 @@ public class ReviewService {
         }
     }
 
-    public void addReview(Long userId, String reviewMsg, Integer star) throws ServiceException {
+    public void addReview(Long userId, String reviewMsg) throws ServiceException {
         LocalDateTime date = LocalDateTime.now();
-        Review review = new Review(userId, reviewMsg, star, date);
+        Review review = new Review(userId, reviewMsg, date);
         try (DaoHelper factory = daoHelperFactory.create()) {
             AbstractDao<Review> dao = factory.createReviewDao();
             dao.save(review);

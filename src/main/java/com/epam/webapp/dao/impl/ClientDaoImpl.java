@@ -19,7 +19,7 @@ public class ClientDaoImpl extends AbstractDao<Client> implements ClientDao {
             "CONCAT(trainer.first_name, ' ',  trainer.last_name) AS 'trainer',\n" +
             "users.bonus\n" +
             "FROM user AS users\n" +
-            "INNER JOIN user AS trainer ON trainer.id = users.trainer_id;";
+            "LEFT JOIN user AS trainer ON trainer.id = users.trainer_id;";
 
     public ClientDaoImpl(Connection connection) {
         super(connection);

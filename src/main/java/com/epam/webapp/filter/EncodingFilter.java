@@ -5,18 +5,20 @@ import java.io.IOException;
 
 public class EncodingFilter implements Filter {
 
-    private String encoding = "utf-8";
+    private String encoding;
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
-        request.setCharacterEncoding(encoding);
+        String codeRequest = request.getCharacterEncoding();
+        if (!encoding.equalsIgnoreCase(codeRequest)) {
+            request.setCharacterEncoding(encoding);
+            response.setCharacterEncoding(encoding);
+        }
         filterChain.doFilter(request, response);
     }
 
     public void init(FilterConfig filterConfig) {
-        String encodingParam = filterConfig.getInitParameter("encoding");
-        if (encodingParam != null) {
-            encoding = encodingParam;
-        }
+        encoding = filterConfig.getInitParameter("requestEncoding");
+        if (encoding == null) encoding = "UTF-8";
     }
 
     public void destroy() {

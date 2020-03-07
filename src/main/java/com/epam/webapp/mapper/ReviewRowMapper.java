@@ -13,15 +13,13 @@ public class ReviewRowMapper implements RowMapper<Review> {
         Long id;
         Long userId;
         String reviewMessage;
-        Integer stars;
         LocalDateTime date;
         try {
             id = resultSet.getLong(Review.ID_COLUMN_NAME);
             userId = resultSet.getLong(Review.USER_ID_COLUMN_NAME);
             reviewMessage = resultSet.getString(Review.REVIEW_MESSAGE_COLUMN_NAME);
-            stars = resultSet.getInt(Review.STAR_COLUMN_NAME);
             date = resultSet.getTimestamp(Review.DATE_COLUMN_NAME).toLocalDateTime();
-            return new Review(id, userId, reviewMessage, stars, date);
+            return new Review(id, userId, reviewMessage, date);
         } catch (SQLException e) {
             throw new MapperException("Impossible to create entity Review", e.getCause());
         }

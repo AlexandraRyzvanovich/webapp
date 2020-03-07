@@ -11,14 +11,6 @@
             <img src="/w3images/bandmember.jpg" alt="Avatar">
             <p style="font-family: fantasy; font-size: larger;">${review.reviewMessage}</p>
             <span class="time-left" style="margin: 6% -1%;">${review.date}</span>
-            <div style="position:absolute;bottom:0;right: 10px;">
-                <c:forEach var = "i" begin = "1" end = "${review.star}">
-                    <span class="fa fa-star checked"></span>
-                </c:forEach>
-                <c:forEach var = "i" begin = "1" end = "${5 - review.star}">
-                    <span class="fa fa-star"></span>
-                </c:forEach>
-            </div>
         </div>
         </c:forEach>
         <c:if test="${sessionScope.role eq 'CLIENT'}">
@@ -28,7 +20,6 @@
             <label>
                 <input id="reviewData" type="text" name="review" style="width: 400px;height: 200px;margin-left: 22%;border-radius: 6px; background: #383D50; color: #E1D070; opacity: 70%;" va>
             </label>
-            <input type="hidden" name="star" value="1" />
           <input type="submit" class="bot1" value="Add review"/>
         </form>
         </c:if>
