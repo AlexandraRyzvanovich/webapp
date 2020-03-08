@@ -2,12 +2,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:requestEncoding value="UTF-8" />
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<context-param>
-    <param-name>javax.servlet.jsp.jstl.fmt.request.charset</param-name>
-    <param-value>UTF-8</param-value>
-</context-param>
+
 <mtt:mainlayout>
     <section style="padding-top: 1px;">
         <h1 style="color: #E1D070;text-align: center;margin-top: 3%;">Reviews</h1>
