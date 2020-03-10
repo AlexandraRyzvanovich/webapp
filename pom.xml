@@ -90,7 +90,7 @@
 
                     <configuration>
                         <path>/</path>
-                        <port>8585</port>
+                        <port>8181</port>
                         <uriEncoding>UTF-8</uriEncoding>
                       <charset>UTF-8</charset>
                     </configuration>
