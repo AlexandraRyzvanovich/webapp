@@ -14,7 +14,7 @@
         <h1 style="color: #E1D070;text-align: center;margin-top: 3%;">Reviews</h1>
         <c:forEach var="review" items="${requestScope.reviews}">
         <div class="container1">
-            <img src="/w3images/bandmember.jpg" alt="Avatar">
+            <img src="  /w3images/bandmember.jpg" alt="Avatar">
             <p style="font-family: fantasy; font-size: larger;">${review.reviewMessage}</p>
             <span class="time-left" style="margin: 6% -1%;">${review.date}</span>
         </div>
