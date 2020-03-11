@@ -19,7 +19,7 @@ public class DietValueTag extends TagSupport {
     public int doStartTag() {
         Object sessionLocale = pageContext.getSession().getAttribute("language");
         Set<Map.Entry<String, Diet>> entrySet;
-        if(diet!= null) {
+        if (diet != null) {
             if (sessionLocale.equals("ru")) {
                 entrySet = Diet.DIET_MAP_RU.entrySet();
             } else {
@@ -41,9 +41,7 @@ public class DietValueTag extends TagSupport {
 
             }
         }
-
-            return EVAL_PAGE;
-
+        return EVAL_PAGE;
     }
 }
 
