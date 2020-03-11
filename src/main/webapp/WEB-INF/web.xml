@@ -149,6 +149,18 @@
         <filter-name>LocaleFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    <filter>
+        <filter-name>SessionFilter</filter-name>
+        <filter-class>com.epam.webapp.filter.SessionFilter</filter-class>
+        <init-param>
+            <param-name>avoid-urls</param-name>
+            <param-value>index.jsp</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>SessionFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
     <error-page>
         <error-code>404</error-code>
         <location>/WEB-INF/views/shared/error.jsp</location>

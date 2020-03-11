@@ -6,7 +6,7 @@
 <mtt:mainlayout>
     <jsp:include page="header.jsp"></jsp:include>
     <section>
-        <img style="margin-top: 250px;" src="/resources/images/404-error1.png">
+        <img style="margin-top: 250px;" src="<c:url value="/resources/images/404-error1.png"/>">
     </section>
     <jsp:include page="footer.jsp"></jsp:include>
 </mtt:mainlayout>

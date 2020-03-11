@@ -32,8 +32,4 @@ public class SubscriptionDaoImpl extends AbstractDao<Subscription>  {
     }
 
 
-    @Override
-    public void removeById(Long id) throws DaoException {
-        executeQuery(DELETE_BY_ID_QUERY, id);
-    }
 }

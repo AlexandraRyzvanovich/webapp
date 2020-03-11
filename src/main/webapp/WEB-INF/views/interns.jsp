@@ -13,7 +13,7 @@
             <c:forEach var="intern" items="${s}">
                 <form method="GET" name="internCard">
                     <figure style="background: transparent;">
-                        <img src="/resources/images/avatar.jpg" style="width: 40%; height: 10%;">
+                        <img src="<c:url value="/resources/images/avatar.jpg"/>" style="width: 40%; height: 10%;">
                     </figure>
                     <span style="position: fixed; margin: 1% -5%; font-family: cursive; font-size: larger;">${intern.firstName} ${intern.lastName} </span>
                     <input type="hidden" name="command" value="getInternTrainerProgram">

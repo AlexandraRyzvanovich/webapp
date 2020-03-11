@@ -45,8 +45,4 @@ public class ClientDaoImpl extends AbstractDao<Client> implements ClientDao {
 
     }
 
-    @Override
-    public void removeById(Long id) {
-
-    }
 }

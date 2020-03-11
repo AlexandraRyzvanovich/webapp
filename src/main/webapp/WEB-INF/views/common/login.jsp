@@ -13,7 +13,7 @@
     <div class="container-login100">
         <div class="wrap-login">
             <span class="login100-form-avatar">
-               <img src="/resources/images/newLogo3.png"/>
+               <img src="<c:url value="/resources/images/newLogo3.png"/>"/>
                 </span>
             <div class="wrap-input100" data-validate="Enter username">
                 <input class="input100" type="text" name="login" placeholder="login" style="background-color: transparent !important;border-radius: 13px;">

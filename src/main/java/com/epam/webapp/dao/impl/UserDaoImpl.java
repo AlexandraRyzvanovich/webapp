@@ -1,13 +1,13 @@
 package com.epam.webapp.dao.impl;
 
-import java.sql.Connection;
-import java.util.List;
-import java.util.Optional;
-
 import com.epam.webapp.dao.AbstractDao;
 import com.epam.webapp.dao.UserDao;
 import com.epam.webapp.entity.User;
 import com.epam.webapp.exception.DaoException;
+
+import java.sql.Connection;
+import java.util.List;
+import java.util.Optional;
 
 public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     private static final String FIND_BY_LOGIN_AND_PASSWORD = "SELECT * FROM user WHERE email = ? AND password = MD5(?)";
@@ -36,11 +36,6 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
         throw new DaoException("Operation is not supported");
     }
 
-
-    @Override
-    public void removeById(Long id) throws DaoException{
-        throw new DaoException("Operation is not supported");
-    }
 
     @Override
     public List<User> getTrainersInterns(Long trainerId) throws DaoException {

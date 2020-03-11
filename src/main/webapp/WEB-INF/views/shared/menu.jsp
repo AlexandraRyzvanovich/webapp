@@ -12,21 +12,21 @@
         <c:set var="s" value="${sessionScope.role}" scope="session"></c:set>
             <c:if test="${s =='TRAINER'}">
                 <div class="sidenav">
-                    <a href="/interns?command=getInterns"><fmt:message key="menu.interns"/></a>
-                    <a href="/reviews?command=getReviews"><fmt:message key="menu.reviews"/></a>
+                    <a href="<c:url value="/interns?command=getInterns"/>"><fmt:message key="menu.interns"/></a>
+                    <a href="<c:url value="/reviews?command=getReviews"/>"><fmt:message key="menu.reviews"/></a>
                 </div>
             </c:if>
             <c:if test="${s == 'CLIENT'}">
                 <div class="sidenav">
-                    <a href="/program?command=getProgram"><fmt:message key="menu.trainingProgram"/></a>
-                    <a href="/subscriptions?command=getAvailableSubscriptions"><fmt:message key="menu.subscription"/></a>
-                    <a href="/reviews?command=getReviews"><fmt:message key="menu.reviews"/></a>
+                    <a href="<c:url value="/program?command=getProgram"/>"><fmt:message key="menu.trainingProgram"/></a>
+                    <a href="<c:url value="/subscriptions?command=getAvailableSubscriptions"/>"><fmt:message key="menu.subscription"/></a>
+                    <a href="<c:url value="/reviews?command=getReviews"/>"><fmt:message key="menu.reviews"/></a>
                 </div>
             </c:if>
             <c:if test="${s == 'ADMIN'}">
                 <div class="sidenav">
-                    <a href="/clients?command=getClients"><fmt:message key="menu.clients"/></a>
-                    <a href="/bonus?command=getClients"><fmt:message key="menu.bonus"/></a>
+                    <a href="<c:url value="/clients?command=getClients"/>"><fmt:message key="menu.clients"/></a>
+                    <a href="<c:url value="/bonus?command=getClients"/>"><fmt:message key="menu.bonus"/></a>
                 </div>
             </c:if>
     </div>

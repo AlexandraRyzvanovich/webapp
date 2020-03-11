@@ -36,14 +36,16 @@ public class PurchaseSubscriptionForProgramService {
             bonusCalculator = new BonusCalculator();
             userService = new UserService(daoHelperFactory);
             Optional<User> user = userService.getUserById(userId);
-            Integer bonus = user.get().getBonus();
-            BigDecimal amount = bonusCalculator.calculateSubscriptionPrice(bonus, subscriptionPrice);
-            PurchaseSubscriptionForProgramDto purchase = new PurchaseSubscriptionForProgramDto(userId, paidDate, amount, orderStatus, subscriptionId, paidDate, endDate);
-            try (DaoHelper factory = daoHelperFactory.create()) {
-                AbstractDao<PurchaseSubscriptionForProgramDto> dao = factory.createPurchaseDao();
-                dao.save(purchase);
-            } catch (DaoException e) {
-                e.printStackTrace();
+            if (user.isPresent()) {
+                Integer bonus = user.get().getBonus();
+                BigDecimal amount = bonusCalculator.calculateSubscriptionPrice(bonus, subscriptionPrice);
+                PurchaseSubscriptionForProgramDto purchase = new PurchaseSubscriptionForProgramDto(userId, paidDate, amount, orderStatus, subscriptionId, paidDate, endDate);
+                try (DaoHelper factory = daoHelperFactory.create()) {
+                    AbstractDao<PurchaseSubscriptionForProgramDto> dao = factory.createPurchaseDao();
+                    dao.save(purchase);
+                } catch (DaoException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

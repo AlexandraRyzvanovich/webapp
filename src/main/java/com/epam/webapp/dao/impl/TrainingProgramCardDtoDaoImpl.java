@@ -32,11 +32,6 @@ public class TrainingProgramCardDtoDaoImpl extends AbstractDao<TrainingProgramCa
     }
 
     @Override
-    public void removeById(Long id) throws DaoException {
-        throw new DaoException("Operation not supported");
-    }
-
-    @Override
     public List<TrainingProgramCard> getTrainingProgramCardByProgramId(Long programId) throws DaoException {
         return executeQuery(GET_TRAINING_PROGRAM_CARD_QUERY, programId);
     }

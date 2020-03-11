@@ -33,8 +33,4 @@ public class TrainingProgramDaoImpl extends AbstractDao<TrainingProgram> {
         executeSave(SAVE, programId, exerciseId, frequency);
     }
 
-    @Override
-    public void removeById(Long id) {
-
-    }
 }

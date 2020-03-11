@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ProgramService {
-    DaoHelperFactory daoHelperFactory;
+    private DaoHelperFactory daoHelperFactory;
 
     public ProgramService(DaoHelperFactory factory) {
         this.daoHelperFactory = factory;

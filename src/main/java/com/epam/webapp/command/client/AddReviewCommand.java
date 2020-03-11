@@ -23,8 +23,6 @@ public class AddReviewCommand implements Command {
     @Override
     public CommandResult execute(HttpServletRequest request) throws CommandException {
         HttpSession session = request.getSession(false);
-        String info = request.getCharacterEncoding();
-
         String review = request.getParameter(REVIEW_PARAMETER);
         Object idAttribute = session.getAttribute(ID_ATTRIBUTE);
         String stringId = idAttribute.toString();

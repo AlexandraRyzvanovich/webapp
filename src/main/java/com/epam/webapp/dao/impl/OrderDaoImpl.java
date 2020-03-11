@@ -40,8 +40,4 @@ public class OrderDaoImpl extends AbstractDao<Order> {
     }
 
 
-    @Override
-    public void removeById(Long id) throws DaoException {
-        throw new DaoException("Impossible to execute operation");
-    }
 }

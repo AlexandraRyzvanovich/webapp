@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="locale"/>
 <mtt:mainlayout>
@@ -10,19 +11,19 @@
             <div id="captioned-gallery">
                 <figure class="slider">
                     <figure>
-                        <img src="/resources/images/slider1.jpg" alt>
+                        <img src="<c:url value="/resources/images/slider1.jpg"/>" alt>
                     </figure>
                     <figure>
-                        <img src="/resources/images/slider2.jpg" alt>
+                        <img src="<c:url value="/resources/images/slider2.jpg"/>" alt>
                     </figure>
                     <figure>
-                        <img src="/resources/images/slider3.jpg" alt>
+                        <img src="<c:url value="/resources/images/slider3.jpg"/>" alt>
                     </figure>
                     <figure>
-                        <img src="/resources/images/slider4.jpg" alt>
+                        <img src="<c:url value="/resources/images/slider4.jpg"/>" alt>
                     </figure>
                     <figure>
-                        <img src="/resources/images/slider2.jpg" alt>
+                        <img src="<c:url value="/resources/images/slider2.jpg"/>" alt>
                     </figure>
                 </figure>
             </div>

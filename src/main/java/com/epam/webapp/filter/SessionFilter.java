@@ -31,10 +31,9 @@ public class SessionFilter implements Filter {
         if (urlList.contains(url)) {
             allowedRequest = true;
         }
-
         if (!allowedRequest) {
             HttpSession session = request.getSession(false);
-            if (null == session) {
+            if (session == null) {
                 CommandResult.redirect(LOGIN_JSP_PAGE);
             }
         }

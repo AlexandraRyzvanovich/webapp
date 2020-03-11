@@ -76,9 +76,9 @@ public class DaoHelper implements AutoCloseable {
             try {
                 connection.rollback();
             } catch (SQLException e) {
-               throw new DaoException("Exception occurred while executing statement");
+               throw new DaoException("Exception occurred while executing statement", ex.getCause());
             }
-            throw new DaoException(ex.getMessage());
+            throw new DaoException(ex.getMessage(), ex.getCause());
         }
     }
 }

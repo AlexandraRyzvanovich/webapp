@@ -14,13 +14,12 @@ import java.util.Optional;
 
 public abstract class AbstractDao<T extends Identifiable> implements Dao<T> {
 
-    private Connection connection;
+    private final Connection connection;
 
     protected AbstractDao(Connection connection) {
         this.connection = connection;
     }
 
-    @Override
     public List<T> getAll() throws DaoException {
         String table = getTableName();
         return executeQuery("SELECT * FROM " + table);

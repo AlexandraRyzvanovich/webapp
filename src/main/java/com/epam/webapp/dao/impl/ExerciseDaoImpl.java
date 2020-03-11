@@ -26,8 +26,4 @@ public class ExerciseDaoImpl extends AbstractDao<Exercise> {
 
     }
 
-    @Override
-    public void removeById(Long id) {
-
-    }
 }

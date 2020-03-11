@@ -16,7 +16,6 @@ public class ProgramDaoImpl extends AbstractDao<Program> implements ProgramDao {
     private final String UPDATE_DIET = "UPDATE program SET diet = ? WHERE id = ?";
     private final String UPDATE_STATUS = "UPDATE program SET status = ? WHERE id = ?";
 
-
     public ProgramDaoImpl(Connection connection) {
         super(connection);
     }
@@ -36,12 +35,6 @@ public class ProgramDaoImpl extends AbstractDao<Program> implements ProgramDao {
         throw new DaoException("Operation not supported");
     }
 
-
-    @Override
-    public void removeById(Long id) throws DaoException {
-        throw new DaoException("Operation not supported");
-
-    }
 
     @Override
     public List<Program> getCurrentProgramByUserId(Long userId) throws DaoException {

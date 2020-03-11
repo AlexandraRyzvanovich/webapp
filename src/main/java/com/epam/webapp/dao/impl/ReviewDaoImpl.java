@@ -34,9 +34,4 @@ public class ReviewDaoImpl extends AbstractDao<Review> {
         executeSave(SAVE_REVIEW_QUERY, userId, reviewMsg,  date);
     }
 
-    @Override
-    public void removeById(Long id) {
-
-
-    }
 }

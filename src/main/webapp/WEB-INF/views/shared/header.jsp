@@ -1,4 +1,5 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="locale"/>
@@ -18,12 +19,12 @@
     }
 </script>
 <header>
-    <form method="POST" action="/logout"/>
+    <form method="POST" action="<c:url value="/logout"/>"/>
     <input type="hidden" name="command" value="logout" />
     <ul id="navbar" class="navbar">
         <li class="login100-form-avatar2">
-            <a href="/main">
-            <img src="/resources/images/newLogo3.png"/>
+            <a href="<c:url value="/main"/>">
+            <img src="<c:url value="/resources/images/newLogo3.png"/>"/>
             </a>
         </li>
         <li>
@@ -32,8 +33,8 @@
         </form>
              </li>
         <li id="navbar-right">
-                <a href ="/main?sessionLocale=ru"><fmt:message key="language.ru"/></a>
-                <a href="/main?sessionLocale=en"><fmt:message key="language.en"/></a>
+                <a href ="<c:url value="/main?sessionLocale=ru"/>"><fmt:message key="language.ru"/></a>
+                <a href="<c:url value="/main?sessionLocale=en"/>"><fmt:message key="language.en"/></a>
         </li>
     </ul>
 </header>

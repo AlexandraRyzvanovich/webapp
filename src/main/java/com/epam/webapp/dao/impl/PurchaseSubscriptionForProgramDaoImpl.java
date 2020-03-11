@@ -43,8 +43,4 @@ public class PurchaseSubscriptionForProgramDaoImpl extends AbstractDao<PurchaseS
         executeTransactionUpdate(orderStatement, programStatement);
     }
 
-    @Override
-    public void removeById(Long id) throws DaoException {
-        throw new DaoException("Operation is not supported");
-    }
 }

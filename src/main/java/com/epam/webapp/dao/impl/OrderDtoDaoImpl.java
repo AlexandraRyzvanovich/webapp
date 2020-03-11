@@ -43,8 +43,4 @@ public class OrderDtoDaoImpl extends AbstractDao<OrderDto> implements OrderDtoDa
 
     }
 
-    @Override
-    public void removeById(Long id) {
-
-    }
 }
