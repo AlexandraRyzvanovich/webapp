@@ -39,7 +39,9 @@
                                 <input hidden name="programId" value="${program.key.id}"/>
                                 <input hidden title="programStatusList" name="status"
                                        value="${programStatuses}"/>
-                                <input type="submit"/>
+                                <button type="submit">
+                                    <fmt:message key="button.submit"/>
+                                </button>
                             </form>
                         </td>
                     </tr>

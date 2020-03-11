@@ -9,7 +9,7 @@
     <section>
         <h1><fmt:message key="internCard.header"/></h1>
         <c:if test="${requestScope.currentProgram .size() < 1}">
-            <fmt:message key="message.trainingProgramNotFound"/>
+            <fmt:message key="message.programNotFound"/>
         </c:if>
         <div>
             <c:forEach var="program" items="${requestScope.currentProgram}">
