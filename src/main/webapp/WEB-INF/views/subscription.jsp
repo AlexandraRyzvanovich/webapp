@@ -2,6 +2,7 @@
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="enumValues" prefix="ctg" %>
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="locale"/>
 
@@ -68,7 +69,7 @@
                             <td>${order.subscriptionName}</td>
                             <td><fmt:parseDate value="${order.paidDate}" pattern="y-M-dd"/></td>
                             <td><fmt:formatNumber value="${order.amount}"  groupingUsed="true" pattern="###.#$"  type="currency" /></td>
-                            <td>${order.orderStatus}</td>
+                            <td><ctg:orderStatusValue orderStatus="${order.orderStatus}"/></td>
                         </tr>
                     </c:forEach>
                 </table>

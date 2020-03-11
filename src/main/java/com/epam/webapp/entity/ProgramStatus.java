@@ -17,10 +17,10 @@ public enum ProgramStatus {
         this.programStatusNameRu = programStatusNameRu;
     }
 
-    public String getProgramStatusNameEn() {
+    private String getProgramStatusNameEn() {
         return this.programStatusNameEn;
     }
-    public String getProgramStatusNameRu() {
+    private String getProgramStatusNameRu() {
         return this.programStatusNameRu;
     }
 
@@ -42,5 +42,4 @@ public enum ProgramStatus {
     public static ProgramStatus getValue (String name) {
         return PROGRAM_STATUS_MAP_EN.get(name) != null ? PROGRAM_STATUS_MAP_EN.get(name) : PROGRAM_STATUS_MAP_RU.get(name);
     }
-
 }

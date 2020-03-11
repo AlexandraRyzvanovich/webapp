@@ -2,7 +2,7 @@
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib uri="programStatuses" prefix="ctg" %>
+<%@ taglib uri="enumValues" prefix="ctg" %>
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="locale"/>
 <mtt:mainlayout>
@@ -21,10 +21,10 @@
                     <th><fmt:message key="table.currentStatus"/></th>
                 </tr>
                 <tr>
-                    <td>${program.key.diet}</td>
+                    <td><ctg:dietValue diet="${program.key.diet}"/></td>
                     <td><fmt:parseDate value="${program.key.startDate}" pattern="y-M-dd"/></td>
                     <td><fmt:parseDate value="${program.key.endDate}" pattern="y-M-dd"/></td>
-                    <td>${program.key.status}</td>
+                    <td><ctg:programStatusValue status="${program.key.status}"/></td>
                 </tr>
                 <tr>
                     <th></th>
@@ -37,7 +37,7 @@
                     <td></td>
                     <td>
                         <select id="programStatusList" onchange="change(this)">
-                            <ctg:programStatusesEnumLocaleTag/>
+                            <ctg:programStatusesList/>
                             <c:forEach var="status" items="${programStatuses}">
                                 <option value="${status}">${status}</option>
                             </c:forEach>
@@ -49,13 +49,15 @@
                             <input hidden name="programId" value="${program.key.id}"/>
                             <input hidden title="programStatusList" name="status"
                                    value= "${programStatuses}"/>
-                            <input type="submit"/>
+                            <button type="submit">
+                                <fmt:message key="button.submit"/>
+                            </button>
                         </form>
                     </td>
                 </tr>
             </table>
             <div style="margin-top: 50px">
-                <h2><fmt:message key="header.trainingProgram"/></h2>
+                <h1><fmt:message key="header.trainingProgram"/></h1>
                 <table cellspacing="0" style="  margin-bottom: 5%;">
                     <c:choose>
                         <c:when test="${program.value.size() > 0}">
@@ -66,13 +68,13 @@
                             <c:forEach var="training" items="${program.value}">
                                 <tr>
                                     <td>${training.exercise}</td>
-                                    <td>${training.frequency} in a week</td>
+                                    <td>${training.frequency} <fmt:message key="adder.inAWeek"/></td>
                                 </tr>
                             </c:forEach>
                         </c:when>
                         <c:otherwise>
                             <p>
-                                No exercises
+                               <fmt:message key="message.NoActiveTrainingProgram"/>
                             </p>
                         </c:otherwise>
                     </c:choose>

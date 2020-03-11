@@ -2,8 +2,7 @@
 <%@taglib prefix="mtt" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib uri="diets" prefix="ctg" %>
-<%@ taglib uri="programStatuses" prefix="ct" %>
+<%@ taglib uri="enumValues" prefix="ctg" %>
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="locale"/>
 <mtt:mainlayout>
@@ -25,10 +24,10 @@
                     <tr>
                         <td><fmt:parseDate value="${program.key.startDate}" pattern="y-M-dd"/></td>
                         <td><fmt:parseDate value="${program.key.endDate}" pattern="y-M-dd"/></td>
-                        <td>${program.key.status}</td>
+                        <td><ctg:programStatusValue status="${program.key.status}"/></td>
                         <td>
                             <select id="programStatusList" onchange="change(this)">
-                                <ct:programStatusesEnumLocaleTag/>
+                                <ctg:programStatusesList/>
                                 <c:forEach var="status" items="${programStatuses}">
                                     <option value="${status}">${status}</option>
                                 </c:forEach>
@@ -54,10 +53,10 @@
                     <tr>
                         <td></td>
                         <td></td>
-                        <td>${program.key.diet}</td>
+                        <td><ctg:dietValue diet="${program.key.diet}"/></td>
                         <td>
                             <select id="dietList" onchange="change(this)">
-                                <ctg:dietsEnumLocaleTag/>
+                                <ctg:dietsList/>
                                 <c:forEach var="diet" items="${diets}">
                                     <option value="${diet}">${diet}</option>
                                 </c:forEach>

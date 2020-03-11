@@ -149,9 +149,6 @@
         <filter-name>LocaleFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
-
-
     <error-page>
         <error-code>404</error-code>
         <location>/WEB-INF/views/shared/error.jsp</location>
@@ -166,12 +163,8 @@
 
     <jsp-config>
         <taglib>
-            <taglib-uri>diets</taglib-uri>
-            <taglib-location>/WEB-INF/tags/diets.tld</taglib-location>
-        </taglib>
-        <taglib>
-            <taglib-uri>programStatuses</taglib-uri>
-            <taglib-location>/WEB-INF/tags/programstatuses.tld</taglib-location>
+            <taglib-uri>enumValues</taglib-uri>
+            <taglib-location>/WEB-INF/tags/enumValuesTag.tld</taglib-location>
         </taglib>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>
