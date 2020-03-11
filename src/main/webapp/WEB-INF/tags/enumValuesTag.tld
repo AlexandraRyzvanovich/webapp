@@ -14,7 +14,7 @@
         <body-content>empty</body-content>
         <attribute>
             <name>diet</name>
-            <required>true</required>
+            <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>

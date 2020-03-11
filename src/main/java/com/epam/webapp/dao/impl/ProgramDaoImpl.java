@@ -43,8 +43,7 @@ public class ProgramDaoImpl extends AbstractDao<Program> implements ProgramDao {
 
     @Override
     public void updateStatus(ProgramStatus status, Long programId) throws DaoException {
-        int statusValue = status.ordinal() + 1;
-        executeSave(UPDATE_STATUS, statusValue, programId);
+        executeSave(UPDATE_STATUS, status, programId);
     }
 
     @Override
