@@ -1,7 +1,5 @@
 package com.epam.webapp.filter;
 
-import com.epam.webapp.command.CommandResult;
-
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -34,7 +32,9 @@ public class SessionFilter implements Filter {
         if (!allowedRequest) {
             HttpSession session = request.getSession(false);
             if (session == null) {
-                CommandResult.redirect(LOGIN_JSP_PAGE);
+                RequestDispatcher dispatcher = request.getRequestDispatcher(LOGIN_JSP_PAGE);
+                dispatcher.forward(request, res);
+                return;
             }
         }
         chain.doFilter(req, res);
