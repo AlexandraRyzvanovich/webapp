@@ -8,12 +8,15 @@ import com.epam.webapp.entity.OrderStatus;
 import com.epam.webapp.entity.Subscription;
 import com.epam.webapp.exception.DaoException;
 import com.epam.webapp.exception.ServiceException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Optional;
 
 public class OrderService {
+    private static final Logger logger = LogManager.getLogger();
     private DaoHelperFactory daoHelperFactory;
     private SubscriptionService subscriptionService;
 
@@ -21,16 +24,17 @@ public class OrderService {
         this.daoHelperFactory = daoHelperFactory;
     }
 
-    public void addOrder(Long userId, OrderStatus orderStatus, Long subscriptionId) throws  ServiceException {
+    public void addOrder(Long userId, OrderStatus orderStatus, Long subscriptionId) throws ServiceException {
         subscriptionService = new SubscriptionService(daoHelperFactory);
         Optional<Subscription> subscription = subscriptionService.getSubscriptionById(subscriptionId);
-        if(subscription.isPresent()) {
+        if (subscription.isPresent()) {
             Date paidDate = new Date();
             BigDecimal price = subscription.get().getPrice();
             Order order = new Order(userId, paidDate, price, orderStatus, subscriptionId);
             try (DaoHelper factory = daoHelperFactory.create()) {
                 OrderDaoImpl dao = factory.createOrderDao();
                 dao.save(order);
+                logger.info("Order added successfully");
             } catch (DaoException e) {
                 throw new ServiceException(e.getCause());
             }

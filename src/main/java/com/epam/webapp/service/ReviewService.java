@@ -6,11 +6,14 @@ import com.epam.webapp.dao.DaoHelperFactory;
 import com.epam.webapp.entity.Review;
 import com.epam.webapp.exception.DaoException;
 import com.epam.webapp.exception.ServiceException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class ReviewService {
+    private static final Logger logger = LogManager.getLogger();
     private DaoHelperFactory daoHelperFactory;
 
     public ReviewService(DaoHelperFactory daoHelperFactory) {
@@ -20,8 +23,9 @@ public class ReviewService {
     public List<Review> getAllReview() throws ServiceException {
         try (DaoHelper factory = daoHelperFactory.create()) {
             AbstractDao<Review> dao = factory.createReviewDao();
+            logger.info("Successfully got all reviews");
             return dao.getAll();
-        } catch ( DaoException e) {
+        } catch (DaoException e) {
             throw new ServiceException(e.getCause());
         }
     }
@@ -32,7 +36,8 @@ public class ReviewService {
         try (DaoHelper factory = daoHelperFactory.create()) {
             AbstractDao<Review> dao = factory.createReviewDao();
             dao.save(review);
-        } catch ( DaoException e) {
+            logger.info("Review was added");
+        } catch (DaoException e) {
             throw new ServiceException(e.getCause());
         }
     }

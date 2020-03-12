@@ -10,12 +10,15 @@ import com.epam.webapp.entity.User;
 import com.epam.webapp.exception.DaoException;
 import com.epam.webapp.exception.ServiceException;
 import com.epam.webapp.utils.BonusCalculator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
 public class PurchaseSubscriptionForProgramService {
+    private static final Logger logger = LogManager.getLogger();
     private DaoHelperFactory daoHelperFactory;
     private SubscriptionService subscriptionService;
     private UserService userService;
@@ -28,7 +31,7 @@ public class PurchaseSubscriptionForProgramService {
     public void addOrderAndCreateProgram(Long userId, OrderStatus orderStatus, Long subscriptionId) throws ServiceException {
         subscriptionService = new SubscriptionService(daoHelperFactory);
         Optional<Subscription> subscription = subscriptionService.getSubscriptionById(subscriptionId);
-        if(subscription.isPresent()) {
+        if (subscription.isPresent()) {
             LocalDateTime paidDate = LocalDateTime.now();
             Integer daysValid = subscription.get().getPeriod();
             LocalDateTime endDate = paidDate.plusDays(daysValid);
@@ -43,6 +46,7 @@ public class PurchaseSubscriptionForProgramService {
                 try (DaoHelper factory = daoHelperFactory.create()) {
                     AbstractDao<PurchaseSubscriptionForProgramDto> dao = factory.createPurchaseDao();
                     dao.save(purchase);
+                    logger.info("Successfully created order and added a program ");
                 } catch (DaoException e) {
                     e.printStackTrace();
                 }
