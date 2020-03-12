@@ -1,0 +1,6 @@
+2020-03-12 21:10:32,117 INFO c.e.w.s.UserService [http-bio-8181-exec-3] Successfully check login and password
+2020-03-12 21:10:33,992 INFO c.e.w.s.ProgramService [http-bio-8181-exec-4] Successfully got current training program
+2020-03-12 21:10:37,829 INFO c.e.w.s.ProgramService [http-bio-8181-exec-5] Status was updated successfully
+2020-03-12 21:10:37,837 INFO c.e.w.s.ProgramService [http-bio-8181-exec-6] Successfully got current training program
+2020-03-12 21:10:56,853 INFO c.e.w.s.SubscriptionService [http-bio-8181-exec-7] Successfully got all subscriptions
+2020-03-12 21:10:56,867 INFO c.e.w.s.OrderDtoService [http-bio-8181-exec-7] Successfully got all users by ID
