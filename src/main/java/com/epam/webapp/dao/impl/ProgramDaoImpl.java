@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.Optional;
 
 public class ProgramDaoImpl extends AbstractDao<Program> implements ProgramDao {
-    private final String GET_BY_USER_ID = "SELECT * FROM program WHERE user_id = ? AND end_date > now()";
-    private final String UPDATE_DIET = "UPDATE program SET diet = ? WHERE id = ?";
-    private final String UPDATE_STATUS = "UPDATE program SET status = ? WHERE id = ?";
+    private static final String GET_BY_USER_ID = "SELECT * FROM program WHERE user_id = ? AND end_date > now()";
+    private static final String UPDATE_DIET = "UPDATE program SET diet = ? WHERE id = ?";
+    private static final String UPDATE_STATUS = "UPDATE program SET status = ? WHERE id = ?";
 
     public ProgramDaoImpl(Connection connection) {
         super(connection);

@@ -32,7 +32,7 @@ public class SetTrainerCommand implements Command {
             request.setAttribute(SUCCESS_MESSAGE_ATTRIBUTE, MESSAGE_VALUE);
             return CommandResult.forward(CLIENTS_PAGE);
         } catch (ServiceException e) {
-           throw new CommandException("Error occurred while executing command", e.getCause());
+            throw new CommandException("Error occurred while executing command", e.getCause());
         }
     }
 }

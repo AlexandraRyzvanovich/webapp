@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 public class PurchaseSubscriptionForProgramDaoImpl extends AbstractDao<PurchaseSubscriptionForProgramDto> {
-    private final String SAVE_ORDER_QUERY = "INSERT INTO orders (user_id, paid_date, amount, status, subscription_id) VALUES (?, ?, ?, ?, ?)";
-    private final String SAVE_PROGRAM_QUERY = "INSERT INTO program (user_id, start_date, end_date) VALUES (?, ?, ?)";
+    private static final String SAVE_ORDER_QUERY = "INSERT INTO orders (user_id, paid_date, amount, status, subscription_id) VALUES (?, ?, ?, ?, ?)";
+    private static final String SAVE_PROGRAM_QUERY = "INSERT INTO program (user_id, start_date, end_date) VALUES (?, ?, ?)";
 
     public PurchaseSubscriptionForProgramDaoImpl(Connection connection) {
         super(connection);

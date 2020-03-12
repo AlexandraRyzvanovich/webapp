@@ -34,9 +34,9 @@ public class UpdateProgramStatusCommand implements Command {
             request.setAttribute(SUCCESS_MSG_ATTRIBUTE, SUCCESS_MESSAGE);
             Object roleObj = request.getSession(false).getAttribute("role");
             String role = roleObj.toString();
-            if(role.equals("TRAINER")){
+            if (role.equals("TRAINER")) {
                 return CommandResult.redirect(INTERNS_PAGE);
-            }else {
+            } else {
                 return CommandResult.redirect(PROGRAM_CARD_JSP_PAGE);
             }
         } catch (ServiceException e) {

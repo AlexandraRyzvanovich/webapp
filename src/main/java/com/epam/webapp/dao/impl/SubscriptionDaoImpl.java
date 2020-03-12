@@ -10,7 +10,6 @@ import java.util.Optional;
 public class SubscriptionDaoImpl extends AbstractDao<Subscription>  {
     private static final String GET_BY_SUBSCRIPTION_ID_QUERY = "SELECT * FROM subscription WHERE id = ?";
     private static final String ADD_NEW_SUBSCRIPTION_QUERY = "INSERT INTO subscription (name, description, period, price) VALUES (?, ?, ?, ?)";
-    private static final String DELETE_BY_ID_QUERY = "DELETE FROM subscription WHERE id = ?";
 
     public SubscriptionDaoImpl(Connection connection) {
         super(connection);

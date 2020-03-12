@@ -33,7 +33,7 @@ public class GetAllUsersCommand implements Command {
             List<User> trainers = userService.getTrainers();
             request.setAttribute(CLIENTS_ATTRIBUTE, clients);
             request.setAttribute(TRAINERS_ATTRIBUTE, trainers);
-            if(request.getRequestURI().contains("bonus")) {
+            if (request.getRequestURI().contains("bonus")) {
                 return CommandResult.forward(BONUS_JSP_PAGE);
             }
             return CommandResult.forward(CLIENTS_JSP_PAGE);
