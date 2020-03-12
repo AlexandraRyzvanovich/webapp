@@ -122,6 +122,7 @@
 </mtt:mainlayout>
 <script>
     function change(data) {
+        debugger;
         document.querySelector('input[title="' + data.id + '"]').value = data.value;
     }
 </script>
