@@ -29,7 +29,7 @@ public class AddReviewCommand implements Command {
         Long id = Long.parseLong(stringId);
         try {
             service.addReview(id, review);
-            return CommandResult.forward(REVIEWS_PAGE);
+            return CommandResult.redirect(REVIEWS_PAGE);
         } catch (ServiceException e) {
             throw new CommandException("Error occurred while executing command", e.getCause());
         }

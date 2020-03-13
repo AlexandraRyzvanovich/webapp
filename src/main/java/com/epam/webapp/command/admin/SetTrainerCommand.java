@@ -30,7 +30,7 @@ public class SetTrainerCommand implements Command {
         try {
             service.addTrainer(userId, trainerId);
             request.setAttribute(SUCCESS_MESSAGE_ATTRIBUTE, MESSAGE_VALUE);
-            return CommandResult.forward(CLIENTS_PAGE);
+            return CommandResult.redirect(CLIENTS_PAGE);
         } catch (ServiceException e) {
             throw new CommandException("Error occurred while executing command", e.getCause());
         }

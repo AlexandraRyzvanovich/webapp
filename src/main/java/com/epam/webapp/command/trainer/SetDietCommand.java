@@ -31,7 +31,7 @@ public class SetDietCommand implements Command {
         try {
             programService.updateDiet(diet, programId);
             request.setAttribute(SUCCESS_ATTRIBUTE, SUCCESS_MESSAGE);
-            return CommandResult.forward(INTERN_CARD_PAGE);
+            return CommandResult.redirect(INTERN_CARD_PAGE);
         } catch (ServiceException e) {
             throw new CommandException("Error occurred while executing command", e.getCause());
         }

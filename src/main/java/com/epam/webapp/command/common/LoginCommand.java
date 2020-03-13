@@ -52,7 +52,7 @@ public class LoginCommand implements Command {
                 return CommandResult.forward(MAIN_JSP_PAGE);
             } else {
                 request.setAttribute(USER_NOT_FOUND_ATTR, USER_NOT_FOUND_MSG);
-                return CommandResult.forward(LOGIN_JSP_PAGE);
+                return CommandResult.redirect(LOGIN_JSP_PAGE);
             }
         } catch (ServiceException e) {
             throw new CommandException("Error occurred while executing command", e.getCause());

@@ -46,6 +46,9 @@ public class RoleFilter implements Filter {
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) req;
+
+
+
         String url = request.getServletPath();
         boolean allowedRequest = false;
         if (urlList.contains(url)) {
