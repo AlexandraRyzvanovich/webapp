@@ -95,7 +95,7 @@
                             </c:when>
                             <c:otherwise>
                                 <p>
-                                    No exercises. Please add training program below.
+                                   <fmt:message key="message.trainingProgramNotFound"/>
                                 </p>
                             </c:otherwise>
                         </c:choose>
