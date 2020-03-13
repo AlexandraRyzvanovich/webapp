@@ -1,6 +1,53 @@
-2020-03-12 21:10:32,117 INFO c.e.w.s.UserService [http-bio-8181-exec-3] Successfully check login and password
-2020-03-12 21:10:33,992 INFO c.e.w.s.ProgramService [http-bio-8181-exec-4] Successfully got current training program
-2020-03-12 21:10:37,829 INFO c.e.w.s.ProgramService [http-bio-8181-exec-5] Status was updated successfully
-2020-03-12 21:10:37,837 INFO c.e.w.s.ProgramService [http-bio-8181-exec-6] Successfully got current training program
-2020-03-12 21:10:56,853 INFO c.e.w.s.SubscriptionService [http-bio-8181-exec-7] Successfully got all subscriptions
-2020-03-12 21:10:56,867 INFO c.e.w.s.OrderDtoService [http-bio-8181-exec-7] Successfully got all users by ID
+2020-03-13 12:00:21,821 INFO c.e.w.s.UserService [http-bio-8181-exec-3] Successfully check login and password
+2020-03-13 12:00:29,311 INFO c.e.w.s.ProgramService [http-bio-8181-exec-4] Successfully got current training program
+2020-03-13 12:00:33,162 INFO c.e.w.s.ProgramService [http-bio-8181-exec-6] Status was updated successfully
+2020-03-13 12:00:33,171 INFO c.e.w.s.ProgramService [http-bio-8181-exec-7] Successfully got current training program
+2020-03-13 12:00:35,999 INFO c.e.w.s.SubscriptionService [http-bio-8181-exec-8] Successfully got all subscriptions
+2020-03-13 12:00:36,004 INFO c.e.w.s.OrderDtoService [http-bio-8181-exec-8] Successfully got all users by ID
+2020-03-13 12:00:46,194 INFO c.e.w.s.ReviewService [http-bio-8181-exec-9] Successfully got all reviews
+2020-03-13 12:00:53,023 INFO c.e.w.s.ReviewService [http-bio-8181-exec-9] Review was added
+2020-03-13 12:00:53,024 INFO c.e.w.s.ReviewService [http-bio-8181-exec-9] Successfully got all reviews
+2020-03-13 12:00:58,699 INFO c.e.w.s.ReviewService [http-bio-8181-exec-9] Review was added
+2020-03-13 12:00:58,700 INFO c.e.w.s.ReviewService [http-bio-8181-exec-9] Successfully got all reviews
+2020-03-13 12:01:08,640 INFO c.e.w.s.UserService [http-bio-8181-exec-9] Successfully check login and password
+2020-03-13 12:01:10,987 INFO c.e.w.s.UserService [http-bio-8181-exec-9] Successfully got interns
+2020-03-13 12:01:12,519 INFO c.e.w.s.ProgramService [http-bio-8181-exec-9] Successfully got current training program
+2020-03-13 12:01:12,520 INFO c.e.w.s.ExerciseService [http-bio-8181-exec-9] Successfully got all exercises
+2020-03-13 12:02:33,982 INFO c.e.w.s.ProgramService [http-bio-8181-exec-7] Successfully got current training program
+2020-03-13 12:02:33,982 INFO c.e.w.s.ExerciseService [http-bio-8181-exec-7] Successfully got all exercises
+2020-03-13 12:02:39,658 INFO c.e.w.s.ReviewService [http-bio-8181-exec-5] Successfully got all reviews
+2020-03-13 12:02:41,607 INFO c.e.w.s.UserService [http-bio-8181-exec-5] Successfully got interns
+2020-03-13 12:02:43,481 INFO c.e.w.s.ProgramService [http-bio-8181-exec-5] Successfully got current training program
+2020-03-13 12:02:43,481 INFO c.e.w.s.ExerciseService [http-bio-8181-exec-5] Successfully got all exercises
+2020-03-13 12:02:50,376 INFO c.e.w.s.UserService [http-bio-8181-exec-5] Successfully check login and password
+2020-03-13 12:02:52,383 INFO c.e.w.s.UserService [http-bio-8181-exec-5] Successfully got interns
+2020-03-13 12:02:56,558 INFO c.e.w.s.ProgramService [http-bio-8181-exec-5] Successfully got current training program
+2020-03-13 12:02:56,558 INFO c.e.w.s.ExerciseService [http-bio-8181-exec-5] Successfully got all exercises
+2020-03-13 12:03:05,661 INFO c.e.w.s.ReviewService [http-bio-8181-exec-5] Successfully got all reviews
+2020-03-13 12:03:16,970 INFO c.e.w.s.UserService [http-bio-8181-exec-5] Successfully check login and password
+2020-03-13 12:03:19,047 INFO c.e.w.s.ClientService [http-bio-8181-exec-5] Successfully got all clients
+2020-03-13 12:03:19,054 INFO c.e.w.s.UserService [http-bio-8181-exec-5] Successfully got trainers
+2020-03-13 12:03:25,127 INFO c.e.w.s.UserService [http-bio-8181-exec-5] Successfully added trainer
+2020-03-13 12:03:25,128 INFO c.e.w.s.ClientService [http-bio-8181-exec-5] Successfully got all clients
+2020-03-13 12:03:25,129 INFO c.e.w.s.UserService [http-bio-8181-exec-5] Successfully got trainers
+2020-03-13 12:03:27,958 INFO c.e.w.s.ClientService [http-bio-8181-exec-5] Successfully got all clients
+2020-03-13 12:03:27,959 INFO c.e.w.s.UserService [http-bio-8181-exec-5] Successfully got trainers
+2020-03-13 12:03:31,634 INFO c.e.w.s.UserService [http-bio-8181-exec-5] Successfully set bonus
+2020-03-13 12:03:31,635 INFO c.e.w.s.ClientService [http-bio-8181-exec-5] Successfully got all clients
+2020-03-13 12:03:31,636 INFO c.e.w.s.UserService [http-bio-8181-exec-5] Successfully got trainers
+2020-03-13 12:03:36,013 INFO c.e.w.s.ClientService [http-bio-8181-exec-5] Successfully got all clients
+2020-03-13 12:03:36,015 INFO c.e.w.s.UserService [http-bio-8181-exec-5] Successfully got trainers
+2020-03-13 12:03:47,217 INFO c.e.w.s.UserService [http-bio-8181-exec-5] Successfully check login and password
+2020-03-13 12:03:48,988 INFO c.e.w.s.UserService [http-bio-8181-exec-5] Successfully got interns
+2020-03-13 12:03:50,381 INFO c.e.w.s.ProgramService [http-bio-8181-exec-5] Successfully got current training program
+2020-03-13 12:03:50,381 INFO c.e.w.s.ExerciseService [http-bio-8181-exec-5] Successfully got all exercises
+2020-03-13 12:03:55,753 INFO c.e.w.s.ProgramService [http-bio-8181-exec-5] Status was updated successfully
+2020-03-13 12:03:55,757 INFO c.e.w.s.UserService [http-bio-8181-exec-5] Successfully got interns
+2020-03-13 12:03:57,720 INFO c.e.w.s.ProgramService [http-bio-8181-exec-5] Successfully got current training program
+2020-03-13 12:03:57,721 INFO c.e.w.s.ExerciseService [http-bio-8181-exec-5] Successfully got all exercises
+2020-03-13 12:04:05,081 INFO c.e.w.s.TrainingProgramService [http-bio-8181-exec-5] Successfully set training program
+2020-03-13 12:04:05,081 INFO c.e.w.s.UserService [http-bio-8181-exec-5] Successfully got interns
+2020-03-13 12:04:07,321 INFO c.e.w.s.ProgramService [http-bio-8181-exec-5] Successfully got current training program
+2020-03-13 12:04:07,321 INFO c.e.w.s.ExerciseService [http-bio-8181-exec-5] Successfully got all exercises
+2020-03-13 12:04:45,476 INFO c.e.w.s.ProgramService [http-bio-8181-exec-5] Successfully got current training program
+2020-03-13 12:04:45,476 INFO c.e.w.s.ExerciseService [http-bio-8181-exec-5] Successfully got all exercises

@@ -70,7 +70,9 @@
                                 <input hidden name="programId" value="${program.key.id}"/>
                                 <input hidden title="dietList" name="diet"
                                        value="${diets}"/>
-                                <input type="submit"/>
+                                <button type="submit">
+                                    <fmt:message key="button.submit"/>
+                                </button>
                             </form>
                         </td>
                     </tr>
@@ -87,7 +89,7 @@
                                 <c:forEach var="training" items="${program.value}">
                                     <tr>
                                         <td>${training.exercise}</td>
-                                        <td>${training.frequency} in a week</td>
+                                        <td>${training.frequency} <fmt:message key="adder.inAWeek"/></td>
                                     </tr>
                                 </c:forEach>
                             </c:when>
@@ -112,7 +114,9 @@
                                    value="${requestScope.exercises.get(0).id}"/>
                             <input type="text" name="frequency" required pattern="([1-9])"
                                    style="width: 7%; padding: 1%; margin: 2%;">
-                            <input type="submit" style="    padding: 1%; margin: 2%; width: 15%;"/>
+                            <button type="submit" style="    padding: 1%; margin: 2%; width: 15%;">
+                                <fmt:message key="button.submit"/>
+                            </button>
                         </form>
                     </div>
                 </div>
